@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="know-apprenticeship">
+     <h1 class="govuk-heading-xl">
+      Government funding for your planned apprenticeship 
+    </h1>
+
+    <p class="govuk-body-l">
+      Nulla in nulla irure elit do ut cillum ullamco aute irure ex fugiat sunt voluptate et commodo duis qui:
+    </p>
+
+    <div class="govuk-inset-text">
+      <p>
+        <b>Your organisation ltd</b>
+      </p>
+
+      <p>
+        Any apprenticeship, level 2-5
+      </p>
+
+      <p>
+        Valid for starts until {{data['planned-start-date']}}
+      </div>
+
+      <h2 class="govuk-heading-m">
+        Fugiat cupidatat occaecat
+      </h2>
+      <p>
+        Est amet labore voluptate minim nisi sunt in labore sed enim nisi reprehenderit culpa dolor ad qui anim nisi ullamco.
+      </p>
+
+      <p>
+        {{govukButton({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">    
+      {% set noOptionHtml %}
+      You can use the <a href="#">Find apprenticeship training</a> service to learn about suitable apprenticeships and find training providers.
+      {% endset -%}
+
+      {{ govukRadios({
+        classes: 'govuk-radios--inline',
+        idPrefix: "know-apprenticeship",
+        name: "know-apprenticeship",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you know which apprenticeship you will be offering?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint:
+        {
+          text: "Lorem ipsum consequat eu velit irure quis duis mollit ut aute nulla esse commodo."
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No, I don't know yet",
+          hint:
+          {
+            html: noOptionHtml
+          }
+        }
+        ]
+      }) }}
+
+      {{govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

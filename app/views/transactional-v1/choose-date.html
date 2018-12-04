@@ -1,0 +1,89 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="reserve-confirm">
+   <!--  {{ govukDateInput({
+      id: "start-date",
+      namePrefix: "start-date",
+      fieldset:
+      {
+        legend:
+        {
+          text: "When will your apprenticeship start?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      hint:
+      {
+        text: "For example, 31 3 1980"
+      }
+    }) }}
+  -->
+  {{ govukRadios({
+    idPrefix: "planned-start-date",
+    name: "planned-start-date",
+    fieldset:
+    {
+      legend:
+      {
+        text: "When will your apprenticeship start?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint:
+    {
+      text: "Lorem ipsum laborum sed eu amet ea dolore consequat voluptate ullamco fugiat elit culpa consequat quis reprehenderit ut."
+    },
+    items: [
+    {
+      value: "December 2018",
+      text: "December 2018"
+    },
+    {
+      value: "January 2019",
+      text: "January 2019"
+    },
+    {
+      value: "February 2019",
+      text: "February 2019"
+    },
+    {
+      value: "March 2019",
+      text: "March 2019"
+    },
+    {
+      value: "April 2019",
+      text: "April 2019"
+    },
+    {
+      value: "May 2019",
+      text: "May 2019"
+    }
+    ]
+  }) }}
+
+  <p>
+    {{ govukButton ({
+      text: "Save and continue"
+    })}}
+  </p>
+</form>
+</div>
+
+{% endblock %}

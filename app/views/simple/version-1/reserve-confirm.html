@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="reservation-complete">
+     <h1 class="govuk-heading-xl">
+      Confirm the details of this reservation
+    </h1>
+
+    <div class="govuk-inset-text">
+      <p>
+        Any apprenticeship, level 2-5
+      </p>
+
+      <p>
+        Valid for starts until {{data['planned-start-date']}}
+      </div>
+
+      <h2 class="govuk-heading-m">
+        What you need to do now
+      </h2>
+      <p>
+        Lorem ipsum sit eu do id aliquip commodo culpa pariatur nisi cupidatat reprehenderit esse ea culpa proident in aliquip labore nostrud tempor nulla pariatur sint id aute ut minim amet ut dolor occaecat enim ea ut proident id occaecat non dolor.
+      </p>
+
+      <p>
+        {{govukButton({
+          text: "Reserve this apprenticeship"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

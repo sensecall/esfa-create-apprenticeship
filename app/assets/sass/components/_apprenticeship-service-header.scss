@@ -1,0 +1,312 @@
+.app-apprentice-service-header {
+	border-bottom-color: govuk-colour("black");
+	
+	.govuk-header__container {
+		border-bottom: 0 none;
+	}
+}
+
+// Navigation
+
+.header-inner {
+    margin-bottom: 0;
+    font-size: 14px;
+    @include govuk-media-query($from: tablet) {
+        font-size: 19px;
+    }
+}
+
+nav {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.header-user {
+    background: govuk-colour("grey-4");
+    border-top: 10px solid govuk-colour("blue");
+    border-bottom: 1px solid govuk-colour("grey-2");
+    h2 {
+        margin: 10px 0;
+    }
+    @include govuk-media-query($from: tablet) {
+        h2 {
+            float: left;
+        }
+        #user-nav {
+            float: right;
+        }
+    }
+}
+
+#user-nav {
+    @include govuk-media-query($from: tablet) {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+    > ul {
+        margin-left: -15px;
+        margin-right: -15px;
+        > li {
+            float: left;
+            @include govuk-media-query($from: tablet) {
+                border: none;
+                float: left;
+            }
+            > a {
+                color: govuk-colour("black");
+                text-decoration: none;
+              
+            }
+            ul {
+                float: left;
+            }
+        }
+    }
+    a {
+        padding: 12px 15px 10px;
+        display: block;
+        float: left;
+        &:focus {
+            outline:0;
+        }
+    }
+}
+
+.account-information {
+    @include govuk-clearfix;
+    text-align: right;
+}
+
+.header-organisation {
+    border-bottom: 1px solid govuk-colour("grey-1");
+    font-size: 14px;
+    ul {
+        @include govuk-clearfix;
+        margin: 0 -15px;
+        li {
+            @include govuk-media-query($from: tablet) {
+                float: left;
+                width: 50%;
+                font-size: 16px;
+            }
+            @include govuk-media-query($from: desktop) {
+                width: auto;
+            }
+            @include govuk-media-query($from: desktop) {
+                font-size: 19px;
+            }
+            a {
+                padding: 12px 15px 10px;
+                display: block;
+                position: relative;
+                &.selected {
+                    text-decoration: none;
+                    font-weight: 700;
+                    color: govuk-colour("black");
+                    &:after {
+                        background: govuk-colour("blue");
+                        bottom: -1px;
+                        content: "";
+                        display: block;
+                        left: 0;
+                        top: 0;
+                        width: 5px;
+                        position: absolute;
+                        z-index: 1;
+                        @include govuk-media-query($from: desktop) {
+                            left: 15px;
+                            right: 15px;
+                            height: 5px;
+                            top: auto;
+                            width: auto;
+                        }
+                    }
+                }
+                &:focus {
+                    outline:0;
+                }
+            }
+        }
+    }
+}
+
+.js-enabled {
+    #user-nav {
+        text-align: left;
+        li, a, li ul {
+            float: none;
+        }
+        > ul > li {
+            @include govuk-media-query($from: tablet) {
+                float: left;            
+            }
+        }
+        &.close {
+            display: none;
+            @include govuk-media-query($from: tablet) {
+                display: block;
+            }
+        }
+        > ul > li > a {
+            @include govuk-media-query($from: tablet) {
+                border: none !important;
+            }
+            z-index: 2;
+        }
+        li.has-sub-menu {
+            position: relative;
+            > a {
+                // With arrow 
+                position: relative;
+                padding-left: 25px;
+                &:before {
+                    @include closed-arrow;
+                }
+            }
+            &.open > a {
+                background: govuk-colour("grey-4");
+                border-color: govuk-colour("grey-2");
+                border-bottom-color: govuk-colour("grey-4");
+                &:before {
+                    @include open-arrow;
+                }
+            }
+            @include govuk-media-query($from: tablet) {
+                ul {
+                    position: absolute;
+                    background: govuk-colour("grey-4");
+                    width: 200px;
+                    right: 0;
+                    z-index: 1;
+                    border: none !important;
+                    margin-top: -1px;
+                    padding: 0 10px;
+                    li:first-child {
+                        border-top: none;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+.js-enabled { 
+    .header-organisation  {
+        ul {
+            position: relative;
+            li { 
+                float: left;
+                @include govuk-media-query($from: tablet) {
+                    width: auto;
+                }
+                @include govuk-media-query($from: desktop) {
+                    
+                }
+                a.selected {
+                    &:after {
+                        left: 15px;
+                        right: 15px;
+                        height: 5px;
+                        top: auto;
+                        width: auto;
+                    }
+                }
+                &.menu-link.sub-menu-open { 
+                clear: left;
+                width: 100%;
+                    ul {
+                        li {
+                            border-top: 1px solid govuk-colour("grey-3");
+                             a.selected {
+                                &:after {
+                                    left: 0;
+                                    right: auto;
+                                    height: auto;
+                                    width: 5px;
+                                    top: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+li.menu-link {
+    ul {
+        display: none;
+    }
+    &.sub-menu-open ul {
+        display:block;
+        margin: 0;
+        
+        li {
+            display: block;
+            float:none;
+            a {
+                display: block;
+            }
+        }
+    }
+
+}
+
+.header-organisation ul li.menu-link > a {
+    position: absolute;
+    padding-left: 25px;
+    right: 0;
+    top: 0;
+    &:before {
+        @include closed-arrow;
+    }
+}
+
+.header-organisation ul li.menu-link.sub-menu-open > a {
+    &:before {
+        @include open-arrow;
+    }
+}
+
+#page-onboard-companies-house {
+    .govuk-box-highlight {
+        display: none;
+    }
+}
+
+a#link-settings {
+    display: none;
+    position: relative;
+    padding: 8px 15px 6px 25px;
+    margin: 5px -15px 5px 5px;
+    clear: both;
+    color: govuk-colour("black");
+    text-decoration: none;
+    &:before {
+        @include closed-arrow;
+    }
+    &.open {
+        &:before {
+            @include open-arrow;
+        }
+    }
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+.js-enabled {  
+    a#link-settings {
+        display:inline-block;
+        @include govuk-media-query($from: tablet) {
+            display: none;
+        }
+    }
+}
