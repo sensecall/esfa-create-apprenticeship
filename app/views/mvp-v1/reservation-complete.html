@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "layout-account.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -21,7 +21,6 @@ GOV.UK Prototype Kit
     }) }}
 
     {{ govukRadios({
-      classes: "govuk-radios--inline",
       idPrefix: "changed-name",
       name: "changed-name",
       fieldset:
