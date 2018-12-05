@@ -51,6 +51,15 @@ router.post('/know-apprenticeship', (req, res) => {
 	}
 })
 
+// Check permission
+router.post('/check-permissions', (req, res) => {
+	if (req.session.data['give-permission'] == 'yes' ) {
+		res.redirect(`permission-confirm`)
+	} else {
+		res.redirect(`know-date`)
+	}
+})
+
 // Know provider
 router.post('/know-provider', (req, res) => {
 	if (req.session.data['know-provider'] == 'yes' ) {
