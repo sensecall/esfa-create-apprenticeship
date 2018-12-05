@@ -113,7 +113,7 @@ GOV.UK Prototype Kit
 							Find apprenticeship training and get costs
 						</a>
 
-						{% if data['know-apprenticeship'] == 'true' %}
+						{% if data['know-apprenticeship'] == 'yes' %}
 						<strong class="govuk-tag app-task-list__task-completed">
 							Completed
 						</strong>
@@ -147,7 +147,7 @@ GOV.UK Prototype Kit
 							Choose a training provider
 						</a>
 
-						{% if data['know-provider'] == 'true' %}
+						{% if data['know-provider'] == 'yes' %}
 						<strong class="govuk-tag app-task-list__task-completed">
 							Completed
 						</strong>
@@ -182,12 +182,18 @@ GOV.UK Prototype Kit
 					</li>
 					<li class="app-task-list__item">
 						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
-							Select an apprentice
+							Add apprentice's details
 						</a>
 
+						{% if data['know-details'] == 'yes' %}
+						<strong class="govuk-tag app-task-list__task-completed">
+							Completed
+						</strong>
+						{% else %}
 						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
 							Incomplete
 						</strong>
+						{% endif %}
 					</li>
 				</ul>
 			</li>

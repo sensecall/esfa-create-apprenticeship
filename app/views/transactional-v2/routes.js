@@ -37,7 +37,7 @@ router.post('/have-account', (req, res) => {
 // Know apprenticeship
 router.get('/know-apprenticeship', (req, res) => {
 	if (req.session.data['know-provider'] == 'yes' ) {
-		res.render(`${req.feature}/know-provider`)
+		res.render(`${req.feature}/know-apprenticeship`)
 	} else {
 		res.redirect(`know-details`)
 	}
@@ -68,11 +68,12 @@ router.post('/know-details', (req, res) => {
 	}
 })
 
+// Reserve confirm
 router.post('/reserve-confirm', (req, res) => {
 	if (req.session.data['create-account']) {
 		if (req.session.data['create-account'] == 'yes' ) {
-			req.session.data['redirectUrl'] = 'know-apprenticeship'
-			res.redirect(`login`)
+			req.session.data['redirectUrl'] = 'reserve-confirm'
+			res.redirect(`registration`)
 		} else {
 			res.render(`${req.feature}/reserve-confirm`)
 		}

@@ -57,17 +57,21 @@ GOV.UK Prototype Kit
       
       <hr class="govuk-section-break govuk-section-break--xl">
       {{ govukRadios({
-        classes: "govuk-radios--inline",
+        classes: "govuk-radios--",
         idPrefix: "create-account",
         name: "create-account",
         fieldset:
         {
           legend:
           {
-            text: "Do you want to create an account now?",
+            text: "Do you want to register now?",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--l"
           }
+        },
+        hint:
+        {
+          text: "You will need to register in order to guarantee government funding for this apprenticeship."
         },
         items: [
         {
@@ -86,7 +90,7 @@ GOV.UK Prototype Kit
           text: "Save and continue"
         })}}
       </p>
-    {% endif %}
+      {% endif %}
     </form>
   </div>
 
