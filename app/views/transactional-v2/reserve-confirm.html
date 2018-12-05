@@ -15,7 +15,7 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="know-apprenticeship">
+    <form method="post">
      <h1 class="govuk-heading-xl">
       Government funding for your planned apprenticeship 
     </h1>
@@ -44,11 +44,49 @@ GOV.UK Prototype Kit
         Est amet labore voluptate minim nisi sunt in labore sed enim nisi reprehenderit culpa dolor ad qui anim nisi ullamco.
       </p>
 
+      
+
+      {% if data['loggedIn'] == 'true' %}
       <p>
         {{govukButton({
           text: "Save and continue"
         })}}
       </p>
+
+      {% else %}
+      
+      <hr class="govuk-section-break govuk-section-break--xl">
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "create-account",
+        name: "create-account",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you want to create an account now?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    {% endif %}
     </form>
   </div>
 

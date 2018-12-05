@@ -19,7 +19,7 @@
 			Sign in or <a href="#">create an account</a> to manage your apprenticeship funds.
 		</p>
 
-		<form action="know-date">
+		<form action="{{data['redirectUrl'] or 'know-date'}}">
 			{% from "input/macro.njk" import govukInput %}
 			{{ govukInput({
 				label:
@@ -49,10 +49,7 @@
 				classes: "govuk-!-width-three-quarters"
 			}) }}
 
-			<input type="hidden" value="" name="redirect">
-			<input type="hidden" value="true" name="logged-in">
-			<input type="hidden" value="36000001" name="annual-payroll">
-			<input type="hidden" value="548941" name="annual-levy-amount">
+			<input type="hidden" value="true" name="loggedIn">
 
 			{% from "button/macro.njk" import govukButton %}
 			{{ govukButton({

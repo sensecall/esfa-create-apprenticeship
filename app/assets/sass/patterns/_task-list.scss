@@ -42,6 +42,13 @@
   @include govuk-clearfix;
 }
 
+.app-task-list__description {
+  color: govuk-colour('grey-1');
+  @include govuk-media-query($from: tablet) {
+    padding-left: govuk-spacing(6);
+  }
+}
+
 .app-task-list__item:first-child {
   border-top: 1px solid $govuk-border-colour;
 }

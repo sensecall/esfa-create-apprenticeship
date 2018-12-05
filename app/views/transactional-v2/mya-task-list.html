@@ -1,22 +1,227 @@
 
-{% extends "layout.html" %}
+{% extends "layout-account.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
-      Manage apprenticeships account task list page
-    </h1>{{releaseVersion | log }}
-    
-    <p>
-      Blah blah blah
-    </p>
-  </div>
-</div>
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Complete apprenticeship details
+		</h1>
 
-{% endblock %}
+		<ol class="app-task-list">
+			<!-- <li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">1. </span> What is an apprenticeship
+				</h2>
+
+				<p class="app-task-list__description">
+					An apprenticeship is a thing, we'll tell you what the thing is.
+				</p>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							What is an apprenticeship?
+						</a>
+					</li>
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Who is eligible to take an apprenticeship?
+						</a>
+					</li>
+				</ul>
+			</li> -->
+
+
+			<!-- <li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">2. </span> How much does an apprenticeship cost
+				</h2>
+
+				<p class="app-task-list__description">
+					You can get help from the government to pay for apprenticeship training.
+					<br>
+					In most cases the government will pay 95% of the training costs and you will pay 5%.
+				</p>
+
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Check which funding is available
+						</a>
+					</li>
+				</ul>
+			</li> -->
+
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">1. </span> Get government funding for your apprenticeship
+				</h2>
+
+				<p class="app-task-list__description">
+					You can get help from the government to pay for apprenticeship training.
+				</p>
+
+				<ul class="app-task-list__items">
+					<!-- <li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							How reserved funding works
+						</a>
+					</li> -->
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Reserve funding
+						</a>
+						{% if data['know-date'] == 'date-specific' or data['know-date'] == 'date-estimate' %}
+						<strong class="govuk-tag app-task-list__task-completed">
+							Completed
+						</strong>
+						{% else %}
+						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
+							Incomplete
+						</strong>
+						{% endif %}
+					</li>
+					<!-- <li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							View and manage your reserved funding
+						</a>
+					</li> -->
+				</ul>
+			</li>
+
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">2. </span> Choose apprenticeship training
+				</h2>
+
+				<p class="app-task-list__description">
+					Find the right apprenticeship for your business and find a training provider to deliver the training. You can save your searches.
+				</p>
+
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							View your saved apprenticeships
+						</a>
+					</li>
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Find apprenticeship training and get costs
+						</a>
+
+						{% if data['know-apprenticeship'] == 'true' %}
+						<strong class="govuk-tag app-task-list__task-completed">
+							Completed
+						</strong>
+						{% else %}
+						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
+							Incomplete
+						</strong>
+						{% endif %}
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">3. </span> Choose a training provider
+				</h2>
+
+				<p class="app-task-list__description">
+					Find training providers to deliver training and save them to a list.
+				</p>
+
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							View your shortlisted training providers
+						</a>
+					</li>
+
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Choose a training provider
+						</a>
+
+						{% if data['know-provider'] == 'true' %}
+						<strong class="govuk-tag app-task-list__task-completed">
+							Completed
+						</strong>
+						{% else %}
+						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
+							Incomplete
+						</strong>
+						{% endif %}
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">4. </span> Find an apprentice
+				</h2>
+
+				<p class="app-task-list__description">
+					Advertise your apprenticeships and view current applications you have been sent.
+				</p>
+
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Advertise your apprenticeship
+						</a>
+					</li>
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							View current applications
+						</a>
+					</li>
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Select an apprentice
+						</a>
+
+						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
+							Incomplete
+						</strong>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">5. </span> Confirm and start training
+				</h2>
+
+				<p class="app-task-list__description">
+					Proident sed sunt in aute laborum quis anim excepteur sit commodo dolor reprehenderit do pariatur consectetur nostrud esse sunt.
+				</p>
+
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Sign apprenticeship agreement
+						</a>
+
+						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
+							Incomplete
+						</strong>
+					</li>
+					<li class="app-task-list__item">
+						<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
+							Start this apprenticeship
+						</a>
+
+						<strong class="govuk-tag app-task-list__task-completed" style="background: #777">
+							Incomplete
+						</strong>
+					</li>
+				</ul>
+			</li>
+		</div>
+
+		{% endblock %}
