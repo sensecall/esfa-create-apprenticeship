@@ -31,9 +31,14 @@ router.use(/\/transactional-v([0-9]+)/, (req, res, next) => {
   require(`./views/transactional-v${req.params[0]}/routes`)(req, res, next);
 })
 
-// Transactional
+// MVP
 router.use(/\/mvp-v([0-9]+)/, (req, res, next) => {
   require(`./views/mvp-v${req.params[0]}/routes`)(req, res, next);
+})
+
+// Provider
+router.use(/\/provider-v([0-9]+)/, (req, res, next) => {
+  require(`./views/provider-v${req.params[0]}/routes`)(req, res, next);
 })
 
 module.exports = router

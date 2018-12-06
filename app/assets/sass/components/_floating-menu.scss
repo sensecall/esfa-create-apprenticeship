@@ -1,6 +1,13 @@
-/*floating menu style - EMPLOYER */
 #floating-menu-holder {
-	background: govuk-colour("light-purple");
+	// floating menu style - EMPLOYER
+	&.floating-menu-holder--employer {
+		background: govuk-colour("light-purple");
+	}
+
+	// floating menu style - PROVIDER
+	&.floating-menu-holder--provider {
+		background: govuk-colour("orange");
+	}
 
 	@include govuk-media-query($from: tablet) {
 		padding: 0 30px;
@@ -29,7 +36,7 @@
 	clear: both;
 	max-width: 960px;
 	width: 100%;
-	background: govuk-colour("light-purple");
+	background: inherit;
 
 	* {
 		color: #fff;

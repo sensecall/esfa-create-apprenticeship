@@ -37,7 +37,7 @@
 			<!-- <a href="#user-nav" id="link-settings" aria-hidden="false" aria-label="Access your settings">Settings</a> -->
 			<nav id="user-nav" class="close" aria-hidden="true">
 				<ul role="menubar">
-					<li><a href="/Home/Help">Help</a></li>
+					<li><a href="#">Help</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -45,22 +45,19 @@
 	</div>
 </div>
 {% else %}
-<div id="floating-menu-holder" class="floating-menu-holder--employer">
+<div id="floating-menu-holder" class="floating-menu-holder--provider">
 	<div class="account-information floating-menu" role="navigation">
 		<div class="js-float">
-			<p class="floating-head-text">Your employer account </p>
+			<p class="floating-head-text">Your provider account </p>
 			<nav id="user-nav">
 				<ul role="menubar">
-					<li><a href="#">Help</a></li>
-					<li class="has-sub-menu">
-						<a href="#" role="menuitem">Settings</a>
-						<ul role="menu" class="js-hidden" id="settings-menu">
-							<li><a href="#" role="menuitem" class="sub-menu-item">Your accounts</a></li>
-							<li><a href="#">Change your password</a></li>
-							<li><a href="#" class="sub-menu-item">Change your email address</a></li>
-						</ul>
+					<li>
+						<a href="#">Provider Account</a>
 					</li>
-					<li><a href="/{{version}}/start?logged-in=false" role="menuitem">Sign out</a></li>
+					<li>
+						<a href="#" role="menuitem">Notification settings</a>
+					</li>
+					<li><a href="#" role="menuitem">Sign out</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -71,30 +68,16 @@
 	<nav class="header-inner">
 		<ul role="menubar" id="global-nav-links">
 			<li>
-				<a href="/{{version}}/account-home" class="{{'selected' if currentPage == 'account-home' }}" role="menuitem">Home</a>
+				<a href="/{{feature}}/account-home" class="{{'selected' if currentPage == 'account-home' }}" role="menuitem">Home</a>
 			</li>
 			<li>
-				<a href="/{{version}}/finance" class="{{'selected' if currentPage == 'finance' }}" role="menuitem">Finance</a>
+				<a href="#" class="{{'selected' if currentPage == 'finance' }}" role="menuitem">Manage your apprentices</a>
 			</li>
 			<li>
-				<a href="#" role="menuitem">Recruitment</a>
+				<a href="#" role="menuitem">Your cohorts</a>
 			</li>
 			<li>
-				<a href="#" class="" role="menuitem">Apprentices</a>
-			</li>
-			<li>
-				<a href="#" class="" role="menuitem">Your team</a>
-			</li>
-			<li>
-				<a href="#" class="" role="menuitem">Your organisations and agreements</a>
-			</li>
-			<li class="menu-link">
-				<a href="#">More</a>
-				<ul>
-					<li>
-						<a href="#" class="" role="menuitem">PAYE schemes</a>
-					</li>
-				</ul>
+				<a href="#" class="" role="menuitem">Agreement IDs</a>
 			</li>
 		</ul>
 	</nav>
@@ -114,7 +97,7 @@ with-proposition
 	</li>
 
 	<li>
-		<a href="/{{version}}/settings">Prototype settings</a>
+		<a href="#">Prototype settings</a>
 	</li>
 </ul>
 {% endif %}
