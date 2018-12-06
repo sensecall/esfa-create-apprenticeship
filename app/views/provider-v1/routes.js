@@ -19,10 +19,14 @@ router.post('/know-date', (req, res) => {
 	}
 })
 
-// Have account
-router.get('/have-account', (req, res) => {
-	req.session.data['have-account'] = ''
-	res.render(`${req.feature}/have-account`)
+// Confirm employer
+router.post('/confirm-employer', (req, res) => {
+	if (req.session.data['confirm-employer'] == 'yes' ) {
+		res.redirect(`reservation-details`)
+	} else {
+		req.session.data['employer'] = ''
+		res.redirect(`choose-employer`)
+	}
 })
 
 router.post('/have-account', (req, res) => {

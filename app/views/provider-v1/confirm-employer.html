@@ -22,13 +22,15 @@ GOV.UK Prototype Kit
       <h2 class="govuk-heading-l">
         {{data['employer']}}
         <span class="govuk-caption-l">
-          Account name: {{data['apprentice-name']}}, Agreement ID: {{data['agreementID']}}
+          Account name: {{data['apprentice-name']}}
+          <br>
+          Agreement ID: {{data['agreementID']}}
         </span>
       </h2>
 
       {{ govukRadios({
-        idPrefix: "know-details",
-        name: "know-details",
+        idPrefix: "confirm-employer",
+        name: "confirm-employer",
         fieldset:
         {
           legend:
