@@ -62,7 +62,7 @@ GOV.UK Prototype Kit
           {% for apprentice in apprenticesData.apprentices %}
           {% set name = apprentice["first name"] + " " + apprentice["last name"] %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__header" scope="row">{{apprentice.employer}}</th>
+            <th class="govuk-table__header" scope="row">{{apprentice.employer}}</th>
             <td class="govuk-table__cell">{{name}}</td>
             <td class="govuk-table__cell">{{apprentice.agreementID}}</td>
             <td class="govuk-table__cell" style="text-align: right"><a href="confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
