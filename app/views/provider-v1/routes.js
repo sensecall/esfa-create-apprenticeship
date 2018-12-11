@@ -1,6 +1,9 @@
 const express = require('express')
 const router = new express.Router()
 
+// custom filters
+var moment = require('moment');
+
 // Home page redirect
 router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
@@ -14,6 +17,15 @@ router.post('/add__confirm-employer', (req, res) => {
 		req.session.data['employer'] = ''
 		res.redirect(`add__choose-employer`)
 	}
+})
+
+// confirm details
+router.get('/confirm-details', (req, res) => {
+	var chosenDate = req.session.data['planned-start-date']
+	var startRange = moment(chosenDate).subtract(1, 'months').format("MMMM YYYY")
+	var endRange = moment(chosenDate).add(1, 'months').format("MMMM YYYY")
+
+	res.render(`${req.feature}/confirm-details`,{startRange,endRange})
 })
 
 // have account
