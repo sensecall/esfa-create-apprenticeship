@@ -15,32 +15,42 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="reservation-complete">
-     <h1 class="govuk-heading-xl app-content-required">
-      Current Funding Status
-    </h1>
 
-    <h2 class="govuk-heading-m">
-     There are currently no restrictions
-    </h2>
+      <div class="flash-card">
+        <header>
+          <h1 class="govuk-heading-l app-content-required">
+            Current Funding Status
+          </h1>
+        </header>
 
-    <p>
-      You can reserve funding for all apprenticeship types for the next 6 months.
-    </p>
+        {{ govukWarningText({
+          text: "There are currently no funding restrictions in place",
+          iconFallbackText: "Warning",
+          classes: "govuk-!-margin-bottom-"
+        }) }}
 
-    <p>
-      {% set buttonUrl %}
-      {% if data['employer'] %}
-      choose-date
-      {% else %}
-      reserve__choose-employer
-      {% endif %}
-      {% endset %}
+       <p>
+        You can reserve funding for all apprenticeship types for the next 6 months.
+      </p>
 
-      {{govukButton({
-        text: "Continue",
-        href: buttonUrl
-      })}}
-    </p>
+      <br>
+
+      <p>
+        {% set buttonUrl %}
+        {% if data['employer'] %}
+        choose-date
+        {% else %}
+        reserve__choose-employer
+        {% endif %}
+        {% endset %}
+
+        {{govukButton({
+          text: "Continue to reserve funding",
+          href: buttonUrl,
+          classes: "govuk-!-margin-bottom-0"
+        })}}
+      </p>
+    </div>
   </form>
 </div>
 

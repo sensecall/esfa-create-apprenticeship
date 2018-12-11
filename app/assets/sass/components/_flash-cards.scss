@@ -15,6 +15,12 @@ $page-colour: #fff;
   padding: 30px;
   background: $govuk-link-colour;
 
+  .govuk-button {
+    background: #fff;
+    color: govuk-colour('blue') !important;
+    box-shadow: 0 2px 0 darken(govuk-colour('blue'),25%);
+  }
+
   * {
     color: $page-colour !important;
   }
