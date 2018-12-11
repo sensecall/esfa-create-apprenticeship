@@ -33,6 +33,7 @@ GOV.UK Prototype Kit
       }
     }) }}
   -->
+
   {{ govukRadios({
     idPrefix: "planned-start-date",
     name: "planned-start-date",
@@ -47,7 +48,9 @@ GOV.UK Prototype Kit
     },
     hint:
     {
-      text: ""
+      html: 'Funding will be guaranteed for a 3 month period, one month either side of your
+chosen start month.<br class="govuk-!-margin-bottom-2">If the apprenticeship does not start within this 3 month
+period, your reservation will expire and you will need to make a new one.'
     },
     items: [
     {

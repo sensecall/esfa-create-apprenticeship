@@ -6,13 +6,13 @@ router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
 })
 
-// Confirm employer
-router.post('/confirm-employer', (req, res) => {
+// Confirm employer (add)
+router.post('/add__confirm-employer', (req, res) => {
 	if (req.session.data['confirm-employer'] == 'yes' ) {
-		res.redirect(`choose-date`)
+		res.redirect(`choose-reservation`)
 	} else {
 		req.session.data['employer'] = ''
-		res.redirect(`choose-employer`)
+		res.redirect(`add__choose-employer`)
 	}
 })
 
@@ -28,9 +28,9 @@ router.post('/have-account', (req, res) => {
 // choose reservation
 router.post('/choose-reservation', (req, res) => {
 	if (req.session.data['choose-reservation'] == 'create-reservation' ) {
-		res.redirect(`choose-date`)
+		res.redirect(`funding-warning`)
 	} else {
-		res.redirect(`commitments-start`)
+		res.redirect(`apprentice-details`)
 	}
 })
 
@@ -55,7 +55,7 @@ router.post('/add-another-reservation', (req, res) => {
 // details sent
 router.post('/details-sent', (req, res) => {
 	if (req.session.data['add-another'] == 'yes' ) {
-		res.redirect(`choose-date`)
+		res.redirect(`choose-reservation`)
 	} else {
 		res.redirect(`account-home`)
 	}
