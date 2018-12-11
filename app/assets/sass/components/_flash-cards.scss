@@ -11,14 +11,15 @@ $page-colour: #fff;
 }
 
 .flash-card {
+  $background: $govuk-link-colour;
   margin-top: 1em;
   padding: 30px;
-  background: $govuk-link-colour;
+  background: $background;
 
   .govuk-button {
     background: #fff;
-    color: govuk-colour('blue') !important;
-    box-shadow: 0 2px 0 darken(govuk-colour('blue'),25%);
+    color: $background !important;
+    box-shadow: 0 2px 0 darken($background,25%);
   }
 
   * {
@@ -26,7 +27,7 @@ $page-colour: #fff;
   }
 
   .govuk-warning-text__icon {
-    color: govuk-colour("blue") !important;
+    color: $background !important;
     background: #fff;
     border-color: #fff
   }
@@ -44,39 +45,38 @@ $page-colour: #fff;
   a {
     color: $page-colour;
     &:visited, &:hover, &:active {
-      color: $page-colour; }
+      color: $page-colour;
     }
-    details {
-      // margin-bottom: 1em;
-      summary {
-        color: $page-colour;
-      }
-      .panel {
-        border-left-color: $page-colour;
-      }
+  }
+  details {
+    summary {
+      color: $page-colour;
     }
-    // .button {
-    //   color: $link-colour;
-    //   background-color: $page-colour;
-    //   // Link styles
-    //   a {
-    //     color: $link-colour;
-    //   }
-    //   &:visited {
-    //     color: $link-visited-colour;
-    //   }
-    //   &:hover {
-    //     color: $link-hover-colour;
-    //   }
-    //   &:active {
-    //     color: $link-active-colour;
-    //   }
-    // }
+    .panel {
+      border-left-color: $page-colour;
+    }
   }
 
-  @media (min-width: 769px) {
-    .flash-card {
-      margin-top: 1.25em;
-      padding: 35px 50px;
+  &.flash-card--green {
+    $background: govuk-colour('green');
+    background: $background;
+
+    .govuk-button {
+      color: $background !important;
+      box-shadow: 0 2px 0 darken($background,25%);
+    }
+
+    .govuk-warning-text__icon {
+      color: $background !important;
+      background: #fff;
+      border-color: #fff
     }
   }
+}
+
+@media (min-width: 769px) {
+  .flash-card {
+    margin-top: 1.25em;
+    padding: 35px 50px;
+  }
+}
