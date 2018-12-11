@@ -19,6 +19,16 @@ router.post('/add__confirm-employer', (req, res) => {
 	}
 })
 
+// Confirm employer (reserve)
+router.post('/reserve__confirm-employer', (req, res) => {
+	if (req.session.data['confirm-employer'] == 'yes' ) {
+		res.redirect(`choose-reservation`)
+	} else {
+		req.session.data['employer'] = ''
+		res.redirect(`reserve__choose-employer`)
+	}
+})
+
 // confirm details
 router.get('/confirm-details', (req, res) => {
 	var chosenDate = req.session.data['planned-start-date']
