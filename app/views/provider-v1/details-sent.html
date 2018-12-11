@@ -21,13 +21,13 @@ GOV.UK Prototype Kit
 
 		<form method="post">
 			{{ govukRadios({
-				idPrefix: "add-apprentice",
-				name: "add-apprentice",
+				idPrefix: "add-another",
+				name: "add-another",
 				fieldset:
 				{
 					legend:
 					{
-						text: "Do you need to assign an apprentice to this reservation?",
+						text: "Do you need to add any more apprentices for this employer?",
 						isPageHeading: true,
 						classes: "govuk-fieldset__legend--l"
 					}
@@ -39,7 +39,7 @@ GOV.UK Prototype Kit
 				},
 				{
 					value: "no",
-					text: "Not right now"
+					text: "No"
 				}
 				]
 			}) }}

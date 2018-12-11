@@ -52,4 +52,13 @@ router.post('/add-another-reservation', (req, res) => {
 	}
 })
 
+// details sent
+router.post('/details-sent', (req, res) => {
+	if (req.session.data['add-another'] == 'yes' ) {
+		res.redirect(`choose-date`)
+	} else {
+		res.redirect(`account-home`)
+	}
+})
+
 module.exports = router
