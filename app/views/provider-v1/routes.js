@@ -3,6 +3,7 @@ const router = new express.Router()
 
 // custom filters
 var moment = require('moment');
+var _ = require('underscore');
 
 // data
 // var reservations = [];
@@ -35,7 +36,7 @@ router.post('/add__confirm-employer', (req, res) => {
 // Confirm employer (reserve)
 router.post('/reserve__confirm-employer', (req, res) => {
 	if (req.session.data['confirm-employer'] == 'yes' ) {
-		res.redirect(`choose-reservation`)
+		res.redirect(`choose-date`)
 	} else {
 		req.session.data['employer'] = ''
 		res.redirect(`reserve__choose-employer`)
@@ -82,10 +83,14 @@ router.get('/confirm-details', (req, res) => {
 
 // choose reservation
 router.get('/choose-reservation', (req, res) => {
-	if(req.session.data['reservations'].length == 0){
+	var filteredReservations = _.filter(req.session.data['reservations'], function(reservation){
+		return _.has(reservation, 'employer') && reservation['employer'] === req.session.data['employer'];
+	})
+
+	if(filteredReservations.length == 0){
 		res.redirect('funding-warning')
 	} else {
-		res.render(`${req.feature}/choose-reservation`)
+		res.render(`${req.feature}/choose-reservation`,{filteredReservations})
 	}
 	
 })

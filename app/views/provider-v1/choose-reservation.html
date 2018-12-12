@@ -26,7 +26,7 @@ GOV.UK Prototype Kit
           </legend>
 
           <div class="govuk-radios">
-            {% for reservation in data['reservations'] %}
+            {% for reservation in filteredReservations %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="choose-reservation-{{loop.index}}" name="choose-reservation" type="radio" value="{{reservation.chosenDate}}" aria-describedby="choose-reservation-{{loop.index}}-item-hint">
               <label class="govuk-label govuk-radios__label" for="choose-reservation-{{loop.index}}">
@@ -36,6 +36,8 @@ GOV.UK Prototype Kit
                 Created on {{reservation.created}}
                 <br>
                 Valid for all levels
+                <br>
+                {{reservation.employer}}
               </span>
             </div>
             {% endfor %}
