@@ -4,7 +4,7 @@ const router = new express.Router()
 var moment = require('moment');
 
 router.get('/', (req, res) => {
-	res.redirect(`/${req.feature}/start`)
+	res.redirect(`/${req.feature}/account-home`)
 })
 
 router.post('/choose-date', (req, res) => {

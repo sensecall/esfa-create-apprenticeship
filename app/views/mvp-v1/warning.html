@@ -36,17 +36,9 @@ GOV.UK Prototype Kit
       <br>
 
       <p>
-        {% set buttonUrl %}
-        {% if data['employer'] %}
-        choose-date
-        {% else %}
-        reserve__choose-employer
-        {% endif %}
-        {% endset %}
-
         {{govukButton({
           text: "Continue to reserve funding",
-          href: buttonUrl,
+          href: "choose-date",
           classes: "govuk-!-margin-bottom-0"
         })}}
       </p>

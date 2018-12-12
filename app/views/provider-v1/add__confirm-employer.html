@@ -43,7 +43,11 @@ GOV.UK Prototype Kit
         items: [
         {
           value: "yes",
-          text: "Yes, use " + data['employer']
+          text: "Yes, use " + data['employer'],
+          attributes:
+          {
+            required: required
+          }
         },
         {
           value: "no",
