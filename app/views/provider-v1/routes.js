@@ -4,6 +4,7 @@ const router = new express.Router()
 // custom filters
 var moment = require('moment');
 var _ = require('underscore');
+const cryptoRandomString = require('crypto-random-string');
 
 // data
 // var reservations = [];
@@ -54,24 +55,10 @@ router.post('/have-account', (req, res) => {
 
 // choose date
 router.post('/choose-date', (req, res) => {
-	var chosenDate = req.session.data['planned-start-date']
-	var employer = req.session.data['employer']
-	var startRange = moment(chosenDate).subtract(1, 'months').format("MMMM YYYY")
-	var endRange = moment(chosenDate).add(1, 'months').format("MMMM YYYY")
-	var created = moment().format('DD MMMM YYYY')
-
-	var reservation = {
-		"month": chosenDate,
-		"startMonth": startRange,
-		"endMonth": endRange,
-		"created": created,
-		"employer": employer
-	}
-
-	req.session.data['reservations'].push(reservation)
-
-	req.session.data['startRange'] = startRange
-	req.session.data['endRange'] = endRange
+	req.session.data['reservation-employer'] = req.session.data['employer']
+	req.session.data['reservation-startRange'] = moment(req.session.data['planned-start-date']).subtract(1, 'months').format("MMMM YYYY")
+	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
+	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
 
 	res.redirect('confirm-details')
 })
@@ -79,6 +66,21 @@ router.post('/choose-date', (req, res) => {
 // confirm details
 router.get('/confirm-details', (req, res) => {
 	res.render(`${req.feature}/confirm-details`)
+})
+
+router.post('/confirm-details', (req, res) => {
+	var reservation = {
+		"id": cryptoRandomString(10),
+		"month": req.session.data['planned-start-date'],
+		"startMonth": req.session.data['reservation-startRange'],
+		"endMonth": req.session.data['reservation-endRange'],
+		"created": req.session.data['reservation-created'],
+		"employer": req.session.data['reservation-employer']
+	}
+
+	req.session.data['reservations'].push(reservation)
+
+	res.redirect(`reservation-complete`)
 })
 
 // choose reservation
@@ -110,6 +112,15 @@ router.post('/reservation-complete', (req, res) => {
 	} else {
 		res.redirect(`add-another-reservation`)
 	}
+})
+
+// apprentice-details
+router.post('/apprentice-details', (req, res) => {
+	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+         return item.id !== req.session.data['choose-reservation']
+    });
+
+	res.redirect(`review-apprentice-details`)
 })
 
 // add another reservation
