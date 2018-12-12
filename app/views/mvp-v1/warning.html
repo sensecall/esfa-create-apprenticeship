@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "layout-account.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -15,28 +15,43 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+   <form action="reservation-complete">
     <div class="flash-card">
       <header>
-        <h1 class="govuk-heading-xl">
-          Funding restrictions currently in place
+        <h1 class="govuk-heading-l app-content-required">
+          Current funding status
         </h1>
       </header>
-      
+
       {{ govukWarningText({
-        text: "Only apprenticeship levels 2-5 will be eligible for Government funding.",
+        text: "There are currently no funding restrictions in place",
         iconFallbackText: "Warning",
         classes: "govuk-!-margin-bottom-"
       }) }}
-      
+
       <p>
-        Sed pariatur magna mollit dolor ex proident anim fugiat cillum ad id amet dolore dolore ut commodo anim deserunt magna est in officia.
+        You can reserve funding for all apprenticeship types for the next 6 months.
       </p>
 
-        <a href="choose-date" class="govuk-button">
-          Continue to reserve funding
-        </a>
+      <br>
+
+      <p>
+        {% set buttonUrl %}
+        {% if data['employer'] %}
+        choose-date
+        {% else %}
+        reserve__choose-employer
+        {% endif %}
+        {% endset %}
+
+        {{govukButton({
+          text: "Continue to reserve funding",
+          href: buttonUrl,
+          classes: "govuk-!-margin-bottom-0"
+        })}}
+      </p>
     </div>
-  </div>
+  </form>
 </div>
 </div>
 </div>

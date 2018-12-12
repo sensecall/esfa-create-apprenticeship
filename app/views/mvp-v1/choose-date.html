@@ -15,7 +15,7 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="reserve-confirm">
+    <form method="post">
    <!--  {{ govukDateInput({
       id: "start-date",
       namePrefix: "start-date",
@@ -41,14 +41,18 @@ GOV.UK Prototype Kit
     {
       legend:
       {
-        text: "When will your apprenticeship start?",
+        text: "When do you expect your apprenticeship training to start?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
     },
     hint:
     {
-      text: "Lorem ipsum laborum sed eu amet ea dolore consequat voluptate ullamco fugiat elit culpa consequat quis reprehenderit ut."
+      html: 'Funding will be guaranteed for a 3 month period, one month either side of your
+chosen start month.
+<br class="govuk-!-margin-bottom-2">
+Your funding wil no longer be guaranteed if the apprenticeship does not start within this 3 month
+period.'
     },
     items: [
     {

@@ -54,6 +54,7 @@ router.post('/have-account', (req, res) => {
 // choose date
 router.post('/choose-date', (req, res) => {
 	var chosenDate = req.session.data['planned-start-date']
+	var employer = req.session.data['employer']
 	var startRange = moment(chosenDate).subtract(1, 'months').format("MMMM YYYY")
 	var endRange = moment(chosenDate).add(1, 'months').format("MMMM YYYY")
 	var created = moment().format('DD MMMM YYYY')
@@ -62,7 +63,8 @@ router.post('/choose-date', (req, res) => {
 		"month": chosenDate,
 		"startMonth": startRange,
 		"endMonth": endRange,
-		"created": created
+		"created": created,
+		"employer": employer
 	}
 
 	req.session.data['reservations'].push(reservation)
