@@ -19,48 +19,38 @@ GOV.UK Prototype Kit
         Choose a reservation
       </h1>
 
-      {{ govukRadios({
-        idPrefix: "choose-reservation",
-        name: "choose-reservation",
-        fieldset:
-        {
-          legend:
-          {
-            text: "Which reservation would you like to use?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
-        {
-          value: "yes",
-          text: "Apprenticeship starting between 1 March 2019 and 31 May 2019",
-          hint:
-          {
-            html: 'Created on 3 November 2018
-            <br>
-            Valid for all levels'
-          }
-        },
-        {
-          value: "yes",
-          text: "Apprenticeship starting between 1 April 2019 and 31 June 2019",
-          hint:
-          {
-            html: 'Created on 3 November 2018
-            <br>
-            Valid for all levels'
-          }
-        },
-        {
-          divider: "or"
-        },
-        {
-          value: "create-reservation",
-          text: "Create a new reservation"
-        }
-        ]
-      }) }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Which reservation would you like to use?
+          </legend>
+
+          <div class="govuk-radios">
+            {% for reservation in data['reservations'] %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="choose-reservation-{{loop.index}}" name="choose-reservation" type="radio" value="{{reservation.chosenDate}}" aria-describedby="choose-reservation-{{loop.index}}-item-hint">
+              <label class="govuk-label govuk-radios__label" for="choose-reservation-{{loop.index}}">
+                Apprenticeship starting between {{reservation.startMonth}} and {{reservation.endMonth}}
+              </label>
+              <span id="choose-reservation-2-item-hint" class="govuk-hint govuk-radios__hint">
+                Created on {{reservation.created}}
+                <br>
+                Valid for all levels
+              </span>
+            </div>
+            {% endfor %}
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="choose-reservation-4" name="choose-reservation" type="radio" value="create-reservation">
+              <label class="govuk-label govuk-radios__label" for="choose-reservation-4">
+                Create a new reservation
+              </label>
+            </div>    
+          </div>
+        </fieldset>
+      </div>
 
       <p>
         {{ govukButton ({

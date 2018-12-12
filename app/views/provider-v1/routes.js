@@ -4,6 +4,19 @@ const router = new express.Router()
 // custom filters
 var moment = require('moment');
 
+// data
+// var reservations = [];
+
+
+// reservations data storage
+router.use(function (req, res, next) {
+	if (!req.session.data['reservations']) {
+		req.session.data['reservations'] = []
+	}
+
+	next()
+})
+
 // Home page redirect
 router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
@@ -29,15 +42,6 @@ router.post('/reserve__confirm-employer', (req, res) => {
 	}
 })
 
-// confirm details
-router.get('/confirm-details', (req, res) => {
-	var chosenDate = req.session.data['planned-start-date']
-	var startRange = moment(chosenDate).subtract(1, 'months').format("MMMM YYYY")
-	var endRange = moment(chosenDate).add(1, 'months').format("MMMM YYYY")
-
-	res.render(`${req.feature}/confirm-details`,{startRange,endRange})
-})
-
 // have account
 router.post('/have-account', (req, res) => {
 	if (req.session.data['have-account'] == 'yes' ) {
@@ -47,7 +51,43 @@ router.post('/have-account', (req, res) => {
 	}
 })
 
+// choose date
+router.post('/choose-date', (req, res) => {
+	var chosenDate = req.session.data['planned-start-date']
+	var startRange = moment(chosenDate).subtract(1, 'months').format("MMMM YYYY")
+	var endRange = moment(chosenDate).add(1, 'months').format("MMMM YYYY")
+	var created = moment().format('DD MMMM YYYY')
+
+	var reservation = {
+		"month": chosenDate,
+		"startMonth": startRange,
+		"endMonth": endRange,
+		"created": created
+	}
+
+	req.session.data['reservations'].push(reservation)
+
+	req.session.data['startRange'] = startRange
+	req.session.data['endRange'] = endRange
+
+	res.redirect('confirm-details')
+})
+
+// confirm details
+router.get('/confirm-details', (req, res) => {
+	res.render(`${req.feature}/confirm-details`)
+})
+
 // choose reservation
+router.get('/choose-reservation', (req, res) => {
+	if(req.session.data['reservations'].length == 0){
+		res.redirect('funding-warning')
+	} else {
+		res.render(`${req.feature}/choose-reservation`)
+	}
+	
+})
+
 router.post('/choose-reservation', (req, res) => {
 	if (req.session.data['choose-reservation'] == 'create-reservation' ) {
 		res.redirect(`funding-warning`)
