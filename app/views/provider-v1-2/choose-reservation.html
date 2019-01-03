@@ -1,0 +1,63 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      <h1 class="govuk-heading-xl">
+        Choose a reservation
+      </h1>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Which reservation would you like to use?
+          </legend>
+
+          <div class="govuk-radios">
+            {% for reservation in filteredReservations %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="choose-reservation-{{loop.index}}" name="choose-reservation" type="radio" value="{{reservation.id}}" aria-describedby="choose-reservation-{{loop.index}}-item-hint" required="required">
+              <label class="govuk-label govuk-radios__label" for="choose-reservation-{{loop.index}}">
+                Apprenticeship starting between {{reservation.startMonth}} and {{reservation.endMonth}}
+              </label>
+              <span id="choose-reservation-2-item-hint" class="govuk-hint govuk-radios__hint">
+                Created on {{reservation.created}}
+                <br>
+                Valid for all levels
+              </span>
+            </div>
+            {% endfor %}
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="choose-reservation-4" name="choose-reservation" type="radio" value="create-reservation">
+              <label class="govuk-label govuk-radios__label" for="choose-reservation-4">
+                Create a new reservation
+              </label>
+            </div>    
+          </div>
+        </fieldset>
+      </div>
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

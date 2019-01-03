@@ -1,0 +1,62 @@
+{% set apprentices = [
+        {
+            "employer": "Grooveholding",
+            "agreementID": 480560,
+            "first name": "Vincent",
+            "last name": "Wegman"
+        },
+        {
+            "employer": "Ranktrans",
+            "agreementID": 276669,
+            "first name": "Ona",
+            "last name": "Lubin"
+        },
+        {
+            "employer": "Finjocane",
+            "agreementID": 152165,
+            "first name": "Georgetta",
+            "last name": "Gabor"
+        },
+        {
+            "employer": "Opencare",
+            "agreementID": 521133,
+            "first name": "Jerold",
+            "last name": "Daboni"
+        },
+        {
+            "employer": "Soloelectrics",
+            "agreementID": 840117,
+            "first name": "Bessie",
+            "last name": "Carder"
+        },
+        {
+            "employer": "Funholding",
+            "agreementID": 757147,
+            "first name": "Brittaney",
+            "last name": "Rhoades"
+        },
+        {
+            "employer": "Finjocane",
+            "agreementID": 101077,
+            "first name": "Rick",
+            "last name": "Seheult"
+        },
+        {
+            "employer": "Soloity",
+            "agreementID": 382010,
+            "first name": "Deidre",
+            "last name": "Isome"
+        },
+        {
+            "employer": "Keyphase",
+            "agreementID": 427826,
+            "first name": "Valda",
+            "last name": "Bator"
+        },
+        {
+            "employer": "Quadtech",
+            "agreementID": 289846,
+            "first name": "Rowena",
+            "last name": "Hurd"
+        }
+    ] %}

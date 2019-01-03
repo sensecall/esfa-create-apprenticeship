@@ -1,0 +1,80 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Reservation details
+    </h1>
+
+    <form action="confirm-employer">
+      {% for reservation in data['reservations'] %}
+      {% if reservation['id'] == data['reservation-id'] %}
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Employer</th>
+            <td colspan="2" class="govuk-table__cell">{{reservation['employer']}}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Created</th>
+            <td class="govuk-table__cell">{{reservation['created']}}</td>
+            
+            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Valid from</th>
+            <td class="govuk-table__cell">{{reservation['startMonth']}}</td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Valid until</th>
+            <td class="govuk-table__cell">{{reservation['endMonth']}}</td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Reservation ID</th>
+            <td class="govuk-table__cell">{{reservation['id']}}</td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+      {% endif %}
+      {% endfor %}
+
+      {{ govukButton({
+        text: "Use this reservation",
+        classes: "govuk-!-margin-top-0 govuk-!-display-inline-block",
+        href: "apprentice-details"
+      }) }}
+
+      <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
+        <a href="account-home">
+          Make changes
+        </a>
+      </p>
+
+      <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
+        <a href="choose-reservation">
+          Delete this reservation
+        </a>
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

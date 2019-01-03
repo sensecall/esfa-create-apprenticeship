@@ -27,18 +27,18 @@ router.use(/\/simple\/version-([0-9]+)/, (req, res, next) => {
 })
 
 // Transactional
-router.use(/\/transactional-v([0-9]+)/, (req, res, next) => {
-  require(`./views/transactional-v${req.params[0]}/routes`)(req, res, next);
+router.use(/\/employer-transactional-v([0-9]+)/, (req, res, next) => {
+  require(`./views/employer-transactional-v${req.params[0]}/routes`)(req, res, next);
 })
 
 // MVP
-router.use(/\/mvp-v([0-9]+)/, (req, res, next) => {
-  require(`./views/mvp-v${req.params[0]}/routes`)(req, res, next);
+router.use(/\/employer-mvp-v([0-9]+)/, (req, res, next) => {
+  require(`./views/employer-mvp-v${req.params[0]}/routes`)(req, res, next);
 })
 
 // Provider
-router.use(/\/provider-v([0-9]+)/, (req, res, next) => {
-  require(`./views/provider-v${req.params[0]}/routes`)(req, res, next);
+router.use(/\/provider-v([0-9]+)-([0-9]+)/, (req, res, next) => {
+  require(`./views/provider-v${req.params[0]}-${req.params[0]}/routes`)(req, res, next);
 })
 
 module.exports = router
