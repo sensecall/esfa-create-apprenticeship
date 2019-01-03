@@ -1,0 +1,4747 @@
+{% set apprenticeships = [{
+	value: "274",
+	name: "Abattoir Worker",
+	level: 2,
+	standard: true
+},
+{
+	value: "34",
+	name: "Able seafarer (deck)",
+	level: 2,
+	standard: true
+},
+{
+	value: "272",
+	name: "Academic Professional",
+	level: 7,
+	standard: true
+},
+{
+	value: "176",
+	name: "Accident Repair Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "204",
+	name: "Accountancy Taxation Professional",
+	level: 7,
+	standard: true
+},
+{
+	value: "454-20-1",
+	name: "Accounting: Accounting",
+	level: 4
+},
+{
+	value: "454-3-1",
+	name: "Accounting: Accounting",
+	level: 2
+},
+{
+	value: "454-2-1",
+	name: "Accounting: Accounting",
+	level: 3
+},
+{
+	value: "460-3-3",
+	name: "Activity Leadership: Coaching",
+	level: 2
+},
+{
+	value: "460-3-2",
+	name: "Activity Leadership: Exercise and Fitness",
+	level: 2
+},
+{
+	value: "460-3-4",
+	name: "Activity Leadership: Leadership",
+	level: 2
+},
+{
+	value: "460-3-1",
+	name: "Activity Leadership: Outdoors",
+	level: 2
+},
+{
+	value: "17",
+	name: "Actuarial technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "255",
+	name: "Actuary",
+	level: 7,
+	standard: true
+},
+{
+	value: "119",
+	name: "Adult care worker",
+	level: 2,
+	standard: true
+},
+{
+	value: "271",
+	name: "Advanced Baker",
+	level: 3,
+	standard: true
+},
+{
+	value: "152",
+	name: "Advanced butcher",
+	level: 3,
+	standard: true
+},
+{
+	value: "240",
+	name: "Advanced Carpentry and Joinery",
+	level: 3,
+	standard: true
+},
+{
+	value: "252",
+	name: "Advanced Clinical Practitioner",
+	level: 7,
+	standard: true
+},
+{
+	value: "148",
+	name: "Advanced credit controller / debt collection specialist",
+	level: 3,
+	standard: true
+},
+{
+	value: "149",
+	name: "Advanced dairy technologist",
+	level: 5,
+	standard: true
+},
+{
+	value: "37",
+	name: "Aerospace engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "38",
+	name: "Aerospace software development engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "528-20-2",
+	name: "Agriculture: Agricultural Business Management",
+	level: 4
+},
+{
+	value: "528-2-1",
+	name: "Agriculture: Agriculture",
+	level: 3
+},
+{
+	value: "528-3-1",
+	name: "Agriculture: Agriculture",
+	level: 2
+},
+{
+	value: "114",
+	name: "Aircraft maintenance certifying engineer",
+	level: 4,
+	standard: true
+},
+{
+	value: "121",
+	name: "Airside operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "298",
+	name: "Ambulance Support Worker (Emergency, Urgent and Non-Urgent)",
+	level: 3,
+	standard: true
+},
+{
+	value: "332",
+	name: "Animal Care and Welfare Assistant",
+	level: 2,
+	standard: true
+},
+{
+	value: "439-2-1",
+	name: "Animal Care: Animal Care",
+	level: 3
+},
+{
+	value: "439-3-1",
+	name: "Animal Care: Animal Care",
+	level: 2
+},
+{
+	value: "179",
+	name: "Animal Technologist",
+	level: 3,
+	standard: true
+},
+{
+	value: "180",
+	name: "Arborist",
+	level: 2,
+	standard: true
+},
+{
+	value: "300",
+	name: "Architect (degree)",
+	level: 7,
+	standard: true
+},
+{
+	value: "299",
+	name: "Architectural Assistant (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "303",
+	name: "Asbestos Analyst/Surveyor",
+	level: 3,
+	standard: true
+},
+{
+	value: "133",
+	name: "Assistant accountant",
+	level: 3,
+	standard: true
+},
+{
+	value: "85",
+	name: "Assistant technical director (visual effects)",
+	level: 4,
+	standard: true
+},
+{
+	value: "156",
+	name: "Associate Ambulance Practitioner",
+	level: 4,
+	standard: true
+},
+{
+	value: "128",
+	name: "Associate project manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "283",
+	name: "Autocare Technician",
+	level: 2,
+	standard: true
+},
+{
+	value: "304",
+	name: "Automotive Glazing Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "87",
+	name: "Aviation ground operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "86",
+	name: "Aviation ground specialist",
+	level: 3,
+	standard: true
+},
+{
+	value: "141",
+	name: "Aviation maintenance mechanic (military)",
+	level: 2,
+	standard: true
+},
+{
+	value: "123",
+	name: "Aviation operations manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "405-2-1",
+	name: "Aviation Operations on the Ground: Aviation Operations on the Ground",
+	level: 3
+},
+{
+	value: "405-3-1",
+	name: "Aviation Operations on the Ground: Aviation Operations on the Ground",
+	level: 2
+},
+{
+	value: "177",
+	name: "Baker",
+	level: 2,
+	standard: true
+},
+{
+	value: "507-3-1",
+	name: "Barbering: Barbering",
+	level: 2
+},
+{
+	value: "507-2-1",
+	name: "Barbering: Barbering",
+	level: 3
+},
+{
+	value: "422-2-1",
+	name: "Beauty Therapy: Beauty Therapy General",
+	level: 3
+},
+{
+	value: "422-3-1",
+	name: "Beauty Therapy: Beauty Therapy General",
+	level: 2
+},
+{
+	value: "422-2-2",
+	name: "Beauty Therapy: Beauty Therapy Make-up",
+	level: 3
+},
+{
+	value: "422-3-2",
+	name: "Beauty Therapy: Beauty Therapy Make-up",
+	level: 2
+},
+{
+	value: "422-2-3",
+	name: "Beauty Therapy: Beauty Therapy Massage",
+	level: 3
+},
+{
+	value: "183",
+	name: "Bespoke Saddler",
+	level: 3,
+	standard: true
+},
+{
+	value: "72",
+	name: "Bespoke tailor and cutter",
+	level: 5,
+	standard: true
+},
+{
+	value: "76",
+	name: "Boatbuilder",
+	level: 3,
+	standard: true
+},
+{
+	value: "294",
+	name: "Brewer",
+	level: 4,
+	standard: true
+},
+{
+	value: "287",
+	name: "Bricklayer",
+	level: 2,
+	standard: true
+},
+{
+	value: "112",
+	name: "Broadcast production assistant",
+	level: 3,
+	standard: true
+},
+{
+	value: "605-22-1",
+	name: "Broadcast Technology Higher Apprenticeship - BBC: Broadcast Technology",
+	level: 6
+},
+{
+	value: "198",
+	name: "Building Services Design Engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "178",
+	name: "Building Services Design Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "173",
+	name: "Building Services Engineering Craftsperson",
+	level: 3,
+	standard: true
+},
+{
+	value: "185",
+	name: "Building Services Engineering Ductwork Craftsperson",
+	level: 3,
+	standard: true
+},
+{
+	value: "192",
+	name: "Building Services Engineering Ductwork Installer",
+	level: 2,
+	standard: true
+},
+{
+	value: "164",
+	name: "Building Services Engineering Installer",
+	level: 2,
+	standard: true
+},
+{
+	value: "193",
+	name: "Building Services Engineering Service and Maintenance Engineer",
+	level: 3,
+	standard: true
+},
+{
+	value: "276",
+	name: "Building Services Engineering Site Management (Degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "275",
+	name: "Building Services Engineering Technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "543-2-2",
+	name: "Building Services Engineering Technology and Project Management: Design Technician",
+	level: 3
+},
+{
+	value: "543-2-1",
+	name: "Building Services Engineering Technology and Project Management: Technician",
+	level: 3
+},
+{
+	value: "194",
+	name: "Building Services Engineering Ventilation Hygiene Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "431-2-3",
+	name: "Bus and Coach Engineering and Maintenance: Body",
+	level: 3
+},
+{
+	value: "431-3-3",
+	name: "Bus and Coach Engineering and Maintenance: Body",
+	level: 2
+},
+{
+	value: "431-2-2",
+	name: "Bus and Coach Engineering and Maintenance: Electrical",
+	level: 3
+},
+{
+	value: "431-2-1",
+	name: "Bus and Coach Engineering and Maintenance: Mechanical",
+	level: 3
+},
+{
+	value: "431-2-4",
+	name: "Bus and Coach Engineering and Maintenance: Mechanical and Electrical",
+	level: 3
+},
+{
+	value: "136",
+	name: "Bus and coach engineering manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "134",
+	name: "Bus and coach engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "196",
+	name: "Business Administrator",
+	level: 3,
+	standard: true
+},
+{
+	value: "490-2-1",
+	name: "Business and Administration: Business and Administration",
+	level: 3
+},
+{
+	value: "490-3-1",
+	name: "Business and Administration: Business and Administration",
+	level: 2
+},
+{
+	value: "490-2-2",
+	name: "Business and Administration: Legal Administration",
+	level: 3
+},
+{
+	value: "490-3-2",
+	name: "Business and Administration: Legal Administration",
+	level: 2
+},
+{
+	value: "490-2-3",
+	name: "Business and Administration: Medical Administration",
+	level: 3
+},
+{
+	value: "490-3-3",
+	name: "Business and Administration: Medical Administration",
+	level: 2
+},
+{
+	value: "620-20-1",
+	name: "Business and Professional Administration: Business and Professional Administration",
+	level: 4
+},
+{
+	value: "250",
+	name: "Business Fire Safety Advisor",
+	level: 3,
+	standard: true
+},
+{
+	value: "311",
+	name: "Business to Business Sales Professional (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "54",
+	name: "Butcher",
+	level: 2,
+	standard: true
+},
+{
+	value: "305",
+	name: "Cabin Crew",
+	level: 3,
+	standard: true
+},
+{
+	value: "584-21-1",
+	name: "Care Leadership and Management: General Adult Social Care",
+	level: 5
+},
+{
+	value: "584-21-2",
+	name: "Care Leadership and Management: Specialist Adult Social Care",
+	level: 5
+},
+{
+	value: "239",
+	name: "Carpentry and Joinery",
+	level: 2,
+	standard: true
+},
+{
+	value: "582-3-4",
+	name: "Catering and Professional Chefs: Chefs in the Licensed Hospitality Industry",
+	level: 2
+},
+{
+	value: "582-2-3",
+	name: "Catering and Professional Chefs: Craft Cuisine",
+	level: 3
+},
+{
+	value: "582-3-3",
+	name: "Catering and Professional Chefs: Craft Cuisine",
+	level: 2
+},
+{
+	value: "582-3-1",
+	name: "Catering and Professional Chefs: Food Production and Cooking",
+	level: 2
+},
+{
+	value: "582-2-2",
+	name: "Catering and Professional Chefs: Patisserie and Confectionery",
+	level: 3
+},
+{
+	value: "582-2-1",
+	name: "Catering and Professional Chefs: Professional Cookery",
+	level: 3
+},
+{
+	value: "582-3-2",
+	name: "Catering and Professional Chefs: Professional Cookery",
+	level: 2
+},
+{
+	value: "41",
+	name: "Chartered legal executive",
+	level: 6,
+	standard: true
+},
+{
+	value: "55",
+	name: "Chartered manager degree apprenticeship",
+	level: 6,
+	standard: true
+},
+{
+	value: "50",
+	name: "Chartered surveyor",
+	level: 6,
+	standard: true
+},
+{
+	value: "169",
+	name: "Chef De Partie",
+	level: 3,
+	standard: true
+},
+{
+	value: "445-2-2",
+	name: "Children and Young People's Workforce: Children and Young People's Social Care",
+	level: 3
+},
+{
+	value: "445-3-1",
+	name: "Children and Young People's Workforce: Children and Young People's Workforce",
+	level: 2
+},
+{
+	value: "445-2-1",
+	name: "Children and Young People's Workforce: Early Years Educator",
+	level: 3
+},
+{
+	value: "445-2-3",
+	name: "Children and Young People's Workforce: Residential Childcare",
+	level: 3
+},
+{
+	value: "308",
+	name: "Children,Young People and Families Manager",
+	level: 5,
+	standard: true
+},
+{
+	value: "309",
+	name: "Children,Young People and Families Practitioner",
+	level: 4,
+	standard: true
+},
+{
+	value: "200",
+	name: "Civil Engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "277",
+	name: "Civil Engineering Site Management (Degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "199",
+	name: "Civil Engineering Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "498-3-1",
+	name: "Cleaning and Environmental Support Services: Cleaning and Support Services",
+	level: 2
+},
+{
+	value: "498-2-1",
+	name: "Cleaning and Environmental Support Services: Cleaning Supervision",
+	level: 3
+},
+{
+	value: "498-3-2",
+	name: "Cleaning and Environmental Support Services: Local Environmental Services",
+	level: 2
+},
+{
+	value: "498-3-3",
+	name: "Cleaning and Environmental Support Services: Pest Management",
+	level: 2
+},
+{
+	value: "307",
+	name: "Clinical Trials Specialist (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "561-3-1",
+	name: "Coaching: Coaching Swimming",
+	level: 2
+},
+{
+	value: "561-2-1",
+	name: "Coaching: Coaching Tennis",
+	level: 3
+},
+{
+	value: "561-3-2",
+	name: "Coaching: Coaching Tennis",
+	level: 2
+},
+{
+	value: "222",
+	name: "Commercial Procurement and Supply",
+	level: 4,
+	standard: true
+},
+{
+	value: "234",
+	name: "Commercial Thermal Insulation Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "93",
+	name: "Commis chef",
+	level: 2,
+	standard: true
+},
+{
+	value: "215",
+	name: "Community Activator Coach",
+	level: 2,
+	standard: true
+},
+{
+	value: "492-3-1",
+	name: "Community Arts: Community Arts Administration",
+	level: 2
+},
+{
+	value: "492-2-1",
+	name: "Community Arts: Community Arts Management",
+	level: 3
+},
+{
+	value: "242",
+	name: "Community Energy Specialist",
+	level: 4,
+	standard: true
+},
+{
+	value: "617-3-1",
+	name: "Community Safety: Community Fire Safety",
+	level: 2
+},
+{
+	value: "251",
+	name: "Community Sport and Health Officer",
+	level: 3,
+	standard: true
+},
+{
+	value: "143",
+	name: "Compliance / risk officer",
+	level: 3,
+	standard: true
+},
+{
+	value: "596-2-1",
+	name: "Composite Engineering: Composite Engineering",
+	level: 3
+},
+{
+	value: "596-3-1",
+	name: "Composite Engineering: Composite Engineering",
+	level: 2
+},
+{
+	value: "160",
+	name: "Composites Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "522-2-3",
+	name: "Construction Building: Decorative Finishing",
+	level: 3
+},
+{
+	value: "522-3-1",
+	name: "Construction Building: Decorative Finishing and Industrial Painting",
+	level: 2
+},
+{
+	value: "522-3-2",
+	name: "Construction Building: Maintenance Operations",
+	level: 2
+},
+{
+	value: "522-2-1",
+	name: "Construction Building: Trowel Occupations",
+	level: 3
+},
+{
+	value: "522-3-3",
+	name: "Construction Building: Trowel Occupations",
+	level: 2
+},
+{
+	value: "522-2-2",
+	name: "Construction Building: Wood Occupations",
+	level: 3
+},
+{
+	value: "522-3-4",
+	name: "Construction Building: Wood Occupations",
+	level: 2
+},
+{
+	value: "522-3-5",
+	name: "Construction Building: Woodmachining",
+	level: 2
+},
+{
+	value: "520-3-1",
+	name: "Construction Civil Engineering: Construction Operations",
+	level: 2
+},
+{
+	value: "520-3-2",
+	name: "Construction Civil Engineering: Formwork Occupations",
+	level: 2
+},
+{
+	value: "520-3-3",
+	name: "Construction Civil Engineering: Highways Maintenance",
+	level: 2
+},
+{
+	value: "520-2-1",
+	name: "Construction Civil Engineering: Plant Maintenance",
+	level: 3
+},
+{
+	value: "520-3-4",
+	name: "Construction Civil Engineering: Plant Maintenance",
+	level: 2
+},
+{
+	value: "520-3-5",
+	name: "Construction Civil Engineering: Plant Operations",
+	level: 2
+},
+{
+	value: "520-3-7",
+	name: "Construction Civil Engineering: Specialist Concrete Occupations",
+	level: 2
+},
+{
+	value: "520-3-9",
+	name: "Construction Civil Engineering: Steelfixing",
+	level: 2
+},
+{
+	value: "520-3-6",
+	name: "Construction Civil Engineering: Tunnelling Operations",
+	level: 2
+},
+{
+	value: "612-20-1",
+	name: "Construction Management: Construction and Building Services Management and Supervision (Sustainability)",
+	level: 4
+},
+{
+	value: "612-22-1",
+	name: "Construction Management: Construction Site Management",
+	level: 6
+},
+{
+	value: "612-20-2",
+	name: "Construction Management: Construction Site Supervision",
+	level: 4
+},
+{
+	value: "612-21-3",
+	name: "Construction Management: Foundation Degree in Architecture",
+	level: 5
+},
+{
+	value: "612-21-4",
+	name: "Construction Management: Foundation Degree in Built Environment",
+	level: 5
+},
+{
+	value: "612-21-5",
+	name: "Construction Management: Foundation Degree in Civil Engineering",
+	level: 5
+},
+{
+	value: "612-21-1",
+	name: "Construction Management: Foundation Degree Professional Practice in Construction Operations Management",
+	level: 5
+},
+{
+	value: "612-22-2",
+	name: "Construction Management: Management Quantity Surveying and Commercial Management",
+	level: 6
+},
+{
+	value: "612-21-2",
+	name: "Construction Management: Sustainability",
+	level: 5
+},
+{
+	value: "259",
+	name: "Construction Site Engineering Technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "519-3-1",
+	name: "Construction Specialist: Accessing and Rigging",
+	level: 2
+},
+{
+	value: "519-3-2",
+	name: "Construction Specialist: Applied Waterproof Membranes",
+	level: 2
+},
+{
+	value: "519-3-3",
+	name: "Construction Specialist: Cladding Occupations",
+	level: 2
+},
+{
+	value: "519-3-5",
+	name: "Construction Specialist: Fitted Interiors",
+	level: 2
+},
+{
+	value: "519-3-6",
+	name: "Construction Specialist: Floorcovering",
+	level: 2
+},
+{
+	value: "519-2-5",
+	name: "Construction Specialist: Heritage Skills",
+	level: 3
+},
+{
+	value: "519-3-12",
+	name: "Construction Specialist: Insulation and Building Treatments",
+	level: 2
+},
+{
+	value: "519-3-7",
+	name: "Construction Specialist: Interior Systems",
+	level: 2
+},
+{
+	value: "519-2-6",
+	name: "Construction Specialist: Mastic Asphalting",
+	level: 3
+},
+{
+	value: "519-3-8",
+	name: "Construction Specialist: Mastic Asphalting",
+	level: 2
+},
+{
+	value: "519-2-1",
+	name: "Construction Specialist: Plastering",
+	level: 3
+},
+{
+	value: "519-3-9",
+	name: "Construction Specialist: Plastering",
+	level: 2
+},
+{
+	value: "519-2-2",
+	name: "Construction Specialist: Roofing Occupations",
+	level: 3
+},
+{
+	value: "519-3-10",
+	name: "Construction Specialist: Roofing Occupations",
+	level: 2
+},
+{
+	value: "519-2-3",
+	name: "Construction Specialist: Stonemasonry",
+	level: 3
+},
+{
+	value: "519-3-11",
+	name: "Construction Specialist: Stonemasonry",
+	level: 2
+},
+{
+	value: "519-2-7",
+	name: "Construction Specialist: Thermal Insulation",
+	level: 3
+},
+{
+	value: "519-3-13",
+	name: "Construction Specialist: Thermal Insulation",
+	level: 2
+},
+{
+	value: "519-2-4",
+	name: "Construction Specialist: Wall and Floor Tiling",
+	level: 3
+},
+{
+	value: "519-3-4",
+	name: "Construction Specialist: Wall and Floor Tiling",
+	level: 2
+},
+{
+	value: "171",
+	name: "Construction Steel Fixer",
+	level: 2,
+	standard: true
+},
+{
+	value: "521-2-6",
+	name: "Construction Technical and Professional: Building Control",
+	level: 3
+},
+{
+	value: "521-2-1",
+	name: "Construction Technical and Professional: Built Environment and Design",
+	level: 3
+},
+{
+	value: "521-2-4",
+	name: "Construction Technical and Professional: Civil Engineering for Technicians",
+	level: 3
+},
+{
+	value: "521-2-2",
+	name: "Construction Technical and Professional: Construction Contracting Operations",
+	level: 3
+},
+{
+	value: "521-2-7",
+	name: "Construction Technical and Professional: Geomatics Data Analysis",
+	level: 3
+},
+{
+	value: "521-2-5",
+	name: "Construction Technical and Professional: Occupational Work Supervision",
+	level: 3
+},
+{
+	value: "521-2-8",
+	name: "Construction Technical and Professional: Town Planning Technical Support",
+	level: 3
+},
+{
+	value: "587-3-1",
+	name: "Consumer Electrical and Electronic Products: Delivering and Installing",
+	level: 2
+},
+{
+	value: "587-2-1",
+	name: "Consumer Electrical and Electronic Products: Repairing Component Faults",
+	level: 3
+},
+{
+	value: "587-3-2",
+	name: "Consumer Electrical and Electronic Products: Repairing Module Faults",
+	level: 2
+},
+{
+	value: "489-2-1",
+	name: "Contact Centre Operations: Contact Centre Operations",
+	level: 3
+},
+{
+	value: "489-3-1",
+	name: "Contact Centre Operations: Contact Centre Operations",
+	level: 2
+},
+{
+	value: "9",
+	name: "Control / technical support engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "39",
+	name: "Conveyancing technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "406-3-1",
+	name: "Court, Tribunal and Prosecution Operations: Court and Tribunal Administration",
+	level: 2
+},
+{
+	value: "406-2-1",
+	name: "Court, Tribunal and Prosecution Operations: Court and Tribunal Administration",
+	level: 3
+},
+{
+	value: "449-2-1",
+	name: "Creative and Digital Media: Creative and Digital Media",
+	level: 3
+},
+{
+	value: "449-20-1",
+	name: "Creative and Digital Media: Interactive Design and Development",
+	level: 4
+},
+{
+	value: "229",
+	name: "Creative Venue Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "77",
+	name: "Credit controller / collector",
+	level: 2,
+	standard: true
+},
+{
+	value: "314",
+	name: "Crop Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "495-3-2",
+	name: "Cultural and Heritage Venue Operations: Cultural and Heritage Venue Operations",
+	level: 2
+},
+{
+	value: "495-2-2",
+	name: "Cultural and Heritage Venue Operations: Cultural and Heritage Venue Operations",
+	level: 3
+},
+{
+	value: "495-3-1",
+	name: "Cultural and Heritage Venue Operations: Cultural Heritage",
+	level: 2
+},
+{
+	value: "495-2-1",
+	name: "Cultural and Heritage Venue Operations: Cultural Heritage",
+	level: 3
+},
+{
+	value: "410-3-1",
+	name: "Custodial Care: Custodial Care",
+	level: 2
+},
+{
+	value: "410-2-1",
+	name: "Custodial Care: Custodial Care",
+	level: 3
+},
+{
+	value: "269",
+	name: "Custody and Detention Officer",
+	level: 3,
+	standard: true
+},
+{
+	value: "122",
+	name: "Customer service practitioner",
+	level: 2,
+	standard: true
+},
+{
+	value: "278",
+	name: "Customer Service Specialist",
+	level: 3,
+	standard: true
+},
+{
+	value: "488-3-1",
+	name: "Customer Service: Customer Service",
+	level: 2
+},
+{
+	value: "488-2-1",
+	name: "Customer Service: Customer Service",
+	level: 3
+},
+{
+	value: "79",
+	name: "Cyber intrusion analyst",
+	level: 4,
+	standard: true
+},
+{
+	value: "98",
+	name: "Cyber security technologist",
+	level: 4,
+	standard: true
+},
+{
+	value: "80",
+	name: "Data analyst",
+	level: 4,
+	standard: true
+},
+{
+	value: "337",
+	name: "Data Scientist (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "19",
+	name: "Dental laboratory assistant",
+	level: 3,
+	standard: true
+},
+{
+	value: "61",
+	name: "Dental nurse",
+	level: 3,
+	standard: true
+},
+{
+	value: "20",
+	name: "Dental practice manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "18",
+	name: "Dental technician",
+	level: 5,
+	standard: true
+},
+{
+	value: "497-2-1",
+	name: "Design: Design",
+	level: 3
+},
+{
+	value: "497-3-1",
+	name: "Design: Design Support",
+	level: 2
+},
+{
+	value: "327",
+	name: "Digital and Technology Solution Specialist (degree)",
+	level: 7,
+	standard: true
+},
+{
+	value: "25",
+	name: "Digital and technology solutions professional",
+	level: 6,
+	standard: true
+},
+{
+	value: "195",
+	name: "Digital Engineering Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "636-2-1",
+	name: "Digital Learning Design: Digital Learning Design",
+	level: 3
+},
+{
+	value: "636-20-1",
+	name: "Digital Learning Design: Digital Learning Design",
+	level: 4
+},
+{
+	value: "78",
+	name: "Digital marketer",
+	level: 3,
+	standard: true
+},
+{
+	value: "293",
+	name: "Digital Marketer (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "516-3-1",
+	name: "Domestic Heating: Domestic Heating",
+	level: 2
+},
+{
+	value: "516-2-2",
+	name: "Domestic Heating: Gas-Fired Warm Air Appliances",
+	level: 3
+},
+{
+	value: "516-2-3",
+	name: "Domestic Heating: Gas-Fired Water and Central Heating Appliances",
+	level: 3
+},
+{
+	value: "516-2-1",
+	name: "Domestic Heating: Oil-Fired, Solid Fuel or Environmental Options",
+	level: 3
+},
+{
+	value: "441-2-3",
+	name: "Driving Goods Vehicles: Articulated/Drawbar Driver",
+	level: 3
+},
+{
+	value: "441-3-4",
+	name: "Driving Goods Vehicles: Articulated/Drawbar Driver",
+	level: 2
+},
+{
+	value: "441-3-1",
+	name: "Driving Goods Vehicles: Motorcycle/Cycle Courier",
+	level: 2
+},
+{
+	value: "441-2-2",
+	name: "Driving Goods Vehicles: Rigid Vehicle Driver",
+	level: 3
+},
+{
+	value: "441-3-3",
+	name: "Driving Goods Vehicles: Rigid Vehicle Driver",
+	level: 2
+},
+{
+	value: "441-2-6",
+	name: "Driving Goods Vehicles: Transporting Freight by Road (Articulated/Drawbar)",
+	level: 3
+},
+{
+	value: "441-2-5",
+	name: "Driving Goods Vehicles: Transporting Freight by Road (Rigid)",
+	level: 3
+},
+{
+	value: "441-2-4",
+	name: "Driving Goods Vehicles: Transporting Freight by Road (Van)",
+	level: 3
+},
+{
+	value: "441-2-1",
+	name: "Driving Goods Vehicles: Van Driver",
+	level: 3
+},
+{
+	value: "441-3-2",
+	name: "Driving Goods Vehicles: Van Driver",
+	level: 2
+},
+{
+	value: "26",
+	name: "Dual fuel smart meter installer",
+	level: 2,
+	standard: true
+},
+{
+	value: "10",
+	name: "Electrical / electronic technical support engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "216",
+	name: "Electrical Power Networks Engineer",
+	level: 4,
+	standard: true
+},
+{
+	value: "127",
+	name: "Electrical power protection and plant commissioning engineer",
+	level: 4,
+	standard: true
+},
+{
+	value: "212",
+	name: "Electrical, Electronic Product Service and Installation Engineer",
+	level: 3,
+	standard: true
+},
+{
+	value: "513-2-1",
+	name: "Electrotechnical: Electrical Installation",
+	level: 3
+},
+{
+	value: "107",
+	name: "Embedded electronic systems design and development engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "409-2-1",
+	name: "Emergency Fire Service Operations: Emergency Fire Services Operations",
+	level: 3
+},
+{
+	value: "262",
+	name: "Emergency Service Contact Handling",
+	level: 3,
+	standard: true
+},
+{
+	value: "536-2-1",
+	name: "Employment Related Services: Employment Related Services",
+	level: 3
+},
+{
+	value: "202",
+	name: "Engineering Construction Pipefitter",
+	level: 3,
+	standard: true
+},
+{
+	value: "517-2-16",
+	name: "Engineering Construction: Construction and Completions Control",
+	level: 3
+},
+{
+	value: "517-2-13",
+	name: "Engineering Construction: Design and Draughting",
+	level: 3
+},
+{
+	value: "517-2-8",
+	name: "Engineering Construction: Electrical Installation",
+	level: 3
+},
+{
+	value: "517-2-11",
+	name: "Engineering Construction: Electrical Maintenance",
+	level: 3
+},
+{
+	value: "517-2-10",
+	name: "Engineering Construction: Instrument and Control",
+	level: 3
+},
+{
+	value: "517-2-15",
+	name: "Engineering Construction: Instrument Pipefitting",
+	level: 3
+},
+{
+	value: "517-2-2",
+	name: "Engineering Construction: Mechanical Fitting",
+	level: 3
+},
+{
+	value: "517-2-12",
+	name: "Engineering Construction: Mechanical Maintenance",
+	level: 3
+},
+{
+	value: "517-2-9",
+	name: "Engineering Construction: Non Destructive Testing",
+	level: 3
+},
+{
+	value: "517-2-1",
+	name: "Engineering Construction: Pipefitting",
+	level: 3
+},
+{
+	value: "517-2-5",
+	name: "Engineering Construction: Plating",
+	level: 3
+},
+{
+	value: "517-2-14",
+	name: "Engineering Construction: Project Control",
+	level: 3
+},
+{
+	value: "517-2-7",
+	name: "Engineering Construction: Rigging (Moving Loads)",
+	level: 3
+},
+{
+	value: "517-2-6",
+	name: "Engineering Construction: Steel Erecting",
+	level: 3
+},
+{
+	value: "517-2-3",
+	name: "Engineering Construction: Welding (Pipework)",
+	level: 3
+},
+{
+	value: "517-2-4",
+	name: "Engineering Construction: Welding (Plate)",
+	level: 3
+},
+{
+	value: "92",
+	name: "Engineering design and draughtsperson",
+	level: 3,
+	standard: true
+},
+{
+	value: "539-2-1",
+	name: "Engineering Manufacture: Aerospace",
+	level: 3
+},
+{
+	value: "539-3-1",
+	name: "Engineering Manufacture: Aerospace",
+	level: 2
+},
+{
+	value: "539-2-12",
+	name: "Engineering Manufacture: Automotive",
+	level: 3
+},
+{
+	value: "539-2-9",
+	name: "Engineering Manufacture: Electrical and Electronic Engineering",
+	level: 3
+},
+{
+	value: "539-2-14",
+	name: "Engineering Manufacture: Engineering Leadership",
+	level: 3
+},
+{
+	value: "539-2-5",
+	name: "Engineering Manufacture: Engineering Maintenance",
+	level: 3
+},
+{
+	value: "539-3-4",
+	name: "Engineering Manufacture: Engineering Maintenance and Installation",
+	level: 2
+},
+{
+	value: "539-2-8",
+	name: "Engineering Manufacture: Engineering Technical Support",
+	level: 3
+},
+{
+	value: "539-3-7",
+	name: "Engineering Manufacture: Engineering Technical Support",
+	level: 2
+},
+{
+	value: "539-2-11",
+	name: "Engineering Manufacture: Engineering Toolmaking",
+	level: 3
+},
+{
+	value: "539-2-13",
+	name: "Engineering Manufacture: Engineering Woodworking, Pattern and Modelmaking",
+	level: 3
+},
+{
+	value: "539-2-6",
+	name: "Engineering Manufacture: Fabrication and Welding",
+	level: 3
+},
+{
+	value: "539-3-5",
+	name: "Engineering Manufacture: Fabrication and Welding",
+	level: 2
+},
+{
+	value: "539-2-10",
+	name: "Engineering Manufacture: Installation and Commissioning",
+	level: 3
+},
+{
+	value: "539-2-2",
+	name: "Engineering Manufacture: Marine (Ship Building, Maintenance and Repair)",
+	level: 3
+},
+{
+	value: "539-3-2",
+	name: "Engineering Manufacture: Marine (Ship, Yacht, Boatbuilding, Maintenance and Repair)",
+	level: 2
+},
+{
+	value: "539-2-4",
+	name: "Engineering Manufacture: Marine (Yacht and Boat Building, Maintenance and Repair)",
+	level: 3
+},
+{
+	value: "539-2-7",
+	name: "Engineering Manufacture: Materials Processing and Finishing",
+	level: 3
+},
+{
+	value: "539-3-6",
+	name: "Engineering Manufacture: Materials Processing and Finishing",
+	level: 2
+},
+{
+	value: "539-2-3",
+	name: "Engineering Manufacture: Mechanical Manufacturing Engineering",
+	level: 3
+},
+{
+	value: "539-3-3",
+	name: "Engineering Manufacture: Mechanical Manufacturing Engineering",
+	level: 2
+},
+{
+	value: "167",
+	name: "Engineering Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "524-2-2",
+	name: "Environmental Conservation: Dry Stone Walling",
+	level: 3
+},
+{
+	value: "524-3-2",
+	name: "Environmental Conservation: Dry Stone Walling",
+	level: 2
+},
+{
+	value: "524-2-1",
+	name: "Environmental Conservation: Environmental Conservation",
+	level: 3
+},
+{
+	value: "524-3-1",
+	name: "Environmental Conservation: Environmental Conservation",
+	level: 2
+},
+{
+	value: "263",
+	name: "Equine Groom",
+	level: 2,
+	standard: true
+},
+{
+	value: "511-3-3",
+	name: "Equine: Harness Horse Care",
+	level: 2
+},
+{
+	value: "511-2-3",
+	name: "Equine: Harness Horse Care and Management",
+	level: 3
+},
+{
+	value: "511-3-1",
+	name: "Equine: Horse Care",
+	level: 2
+},
+{
+	value: "511-2-1",
+	name: "Equine: Horse Care and Management",
+	level: 3
+},
+{
+	value: "511-3-2",
+	name: "Equine: Racehorse Care",
+	level: 2
+},
+{
+	value: "511-2-2",
+	name: "Equine: Racehorse Care and Management",
+	level: 3
+},
+{
+	value: "159",
+	name: "Event Assistant",
+	level: 3,
+	standard: true
+},
+{
+	value: "462-3-1",
+	name: "Exercise and Fitness: Exercise and Fitness",
+	level: 2
+},
+{
+	value: "462-2-1",
+	name: "Exercise and Fitness: Personal Training",
+	level: 3
+},
+{
+	value: "338",
+	name: "Express Delivery Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "162",
+	name: "Facilities Management Supervisor",
+	level: 3,
+	standard: true
+},
+{
+	value: "501-21-2",
+	name: "Facilities Management: Building Services",
+	level: 5
+},
+{
+	value: "501-2-1",
+	name: "Facilities Management: Facilities Management",
+	level: 3
+},
+{
+	value: "501-3-1",
+	name: "Facilities Management: Facilities Services",
+	level: 2
+},
+{
+	value: "501-20-1",
+	name: "Facilities Management: Generic",
+	level: 4
+},
+{
+	value: "501-21-1",
+	name: "Facilities Management: Generic",
+	level: 5
+},
+{
+	value: "266",
+	name: "Facilities Manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "526-2-1",
+	name: "Farriery: Farriery",
+	level: 3
+},
+{
+	value: "423-2-2",
+	name: "Fashion and Textiles: Apparel",
+	level: 3
+},
+{
+	value: "423-3-2",
+	name: "Fashion and Textiles: Apparel",
+	level: 2
+},
+{
+	value: "423-3-4",
+	name: "Fashion and Textiles: Footwear",
+	level: 2
+},
+{
+	value: "423-2-4",
+	name: "Fashion and Textiles: Footwear",
+	level: 3
+},
+{
+	value: "423-2-3",
+	name: "Fashion and Textiles: Leather goods",
+	level: 3
+},
+{
+	value: "423-3-3",
+	name: "Fashion and Textiles: Leather goods",
+	level: 2
+},
+{
+	value: "423-2-7",
+	name: "Fashion and Textiles: Leather Production",
+	level: 3
+},
+{
+	value: "423-3-9",
+	name: "Fashion and Textiles: Leather Production",
+	level: 2
+},
+{
+	value: "423-3-5",
+	name: "Fashion and Textiles: Saddlery",
+	level: 2
+},
+{
+	value: "423-2-6",
+	name: "Fashion and Textiles: Tailoring",
+	level: 3
+},
+{
+	value: "423-3-1",
+	name: "Fashion and Textiles: Textiles",
+	level: 2
+},
+{
+	value: "423-2-1",
+	name: "Fashion and Textiles: Textiles",
+	level: 3
+},
+{
+	value: "530-3-1",
+	name: "Fencing: Fencing",
+	level: 2
+},
+{
+	value: "530-2-1",
+	name: "Fencing: Fencing Supervision",
+	level: 3
+},
+{
+	value: "153",
+	name: "Financial Adviser",
+	level: 4,
+	standard: true
+},
+{
+	value: "8",
+	name: "Financial services administrator",
+	level: 3,
+	standard: true
+},
+{
+	value: "28",
+	name: "Financial services customer adviser",
+	level: 2,
+	standard: true
+},
+{
+	value: "213",
+	name: "Financial Services Professional",
+	level: 6,
+	standard: true
+},
+{
+	value: "126",
+	name: "Fire emergency and security systems technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "172",
+	name: "Fishmonger",
+	level: 2,
+	standard: true
+},
+{
+	value: "523-2-1",
+	name: "Floristry: Floristry",
+	level: 3
+},
+{
+	value: "523-3-1",
+	name: "Floristry: Floristry",
+	level: 2
+},
+{
+	value: "245",
+	name: "Food and Drink Advanced Engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "129",
+	name: "Food and drink advanced process operator",
+	level: 3,
+	standard: true
+},
+{
+	value: "16",
+	name: "Food and drink maintenance engineer",
+	level: 3,
+	standard: true
+},
+{
+	value: "130",
+	name: "Food and drink process operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "403-3-2",
+	name: "Food and Drink: Baking Industry Skills",
+	level: 2
+},
+{
+	value: "403-2-2",
+	name: "Food and Drink: Baking Industry Skills",
+	level: 3
+},
+{
+	value: "403-3-7",
+	name: "Food and Drink: Brewing Industry Skills",
+	level: 2
+},
+{
+	value: "403-2-7",
+	name: "Food and Drink: Fish and Shellfish Industry Skills",
+	level: 3
+},
+{
+	value: "403-3-6",
+	name: "Food and Drink: Fish and Shellfish Industry Skills",
+	level: 2
+},
+{
+	value: "403-3-4",
+	name: "Food and Drink: Food Industry Skills",
+	level: 2
+},
+{
+	value: "403-2-3",
+	name: "Food and Drink: Food Industry Skills and Technical Management",
+	level: 3
+},
+{
+	value: "403-2-4",
+	name: "Food and Drink: Food Manufacturing Excellence",
+	level: 3
+},
+{
+	value: "184",
+	name: "Food Industry Technical Professional",
+	level: 6,
+	standard: true
+},
+{
+	value: "131",
+	name: "Food technologist",
+	level: 3,
+	standard: true
+},
+{
+	value: "289",
+	name: "Footwear Manufacturer",
+	level: 2,
+	standard: true
+},
+{
+	value: "182",
+	name: "Forest Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "329",
+	name: "Formworker",
+	level: 2,
+	standard: true
+},
+{
+	value: "578-2-1",
+	name: "Funeral Operations and Services: Funeral Operations and Services",
+	level: 3
+},
+{
+	value: "578-3-1",
+	name: "Funeral Operations and Services: Funeral Operations and Services",
+	level: 2
+},
+{
+	value: "137",
+	name: "Furniture manufacturer",
+	level: 2,
+	standard: true
+},
+{
+	value: "551-2-2",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Finishing Furniture",
+	level: 3
+},
+{
+	value: "551-3-2",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Finishing Furniture",
+	level: 2
+},
+{
+	value: "551-2-4",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Fitted Furniture and Interiors",
+	level: 3
+},
+{
+	value: "551-3-4",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Fitted Furniture and Interiors",
+	level: 2
+},
+{
+	value: "551-3-7",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Furniture and Wood Processing",
+	level: 2
+},
+{
+	value: "551-3-8",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Furniture and Wood Processing - CNC Machining",
+	level: 2
+},
+{
+	value: "551-2-5",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Furniture Design",
+	level: 3
+},
+{
+	value: "551-3-1",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Furniture Making",
+	level: 2
+},
+{
+	value: "551-2-1",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Furniture Making",
+	level: 3
+},
+{
+	value: "551-2-3",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Restoring Furniture",
+	level: 3
+},
+{
+	value: "551-3-3",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Restoring Furniture",
+	level: 2
+},
+{
+	value: "551-3-9",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Solid Surfaces",
+	level: 2
+},
+{
+	value: "551-2-7",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Supervision in the Furniture, Furnishings and Interiors Industry",
+	level: 3
+},
+{
+	value: "551-2-6",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Upholstery and Soft Furnishings",
+	level: 3
+},
+{
+	value: "551-3-5",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Upholstery and Soft Furnishings",
+	level: 2
+},
+{
+	value: "551-2-8",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Wood Machining",
+	level: 3
+},
+{
+	value: "551-3-6",
+	name: "Furniture, Furnishings and Interiors Manufacturing: Wood Machining",
+	level: 2
+},
+{
+	value: "438-2-1",
+	name: "Game and Wildlife Management: Game and Wildlife Management",
+	level: 3
+},
+{
+	value: "438-3-1",
+	name: "Game and Wildlife Management: Game and Wildlife Management",
+	level: 2
+},
+{
+	value: "74",
+	name: "Gas engineering",
+	level: 3,
+	standard: true
+},
+{
+	value: "57",
+	name: "Gas network craftsperson",
+	level: 3,
+	standard: true
+},
+{
+	value: "58",
+	name: "Gas network team leader",
+	level: 2,
+	standard: true
+},
+{
+	value: "254",
+	name: "Geospatial Mapping and Science Degree",
+	level: 6,
+	standard: true
+},
+{
+	value: "244",
+	name: "Geospatial Survey Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "502-2-1",
+	name: "Glass Industry: Automotive Glazing",
+	level: 3
+},
+{
+	value: "502-3-1",
+	name: "Glass Industry: Curtain Wall Installation",
+	level: 2
+},
+{
+	value: "502-3-2",
+	name: "Glass Industry: Domestic Fascia, Soffit and Bargeboard Installation",
+	level: 2
+},
+{
+	value: "502-2-2",
+	name: "Glass Industry: Fabrication of Glass Supporting Structures",
+	level: 3
+},
+{
+	value: "502-3-6",
+	name: "Glass Industry: Fabrication of Glass Supporting Structures",
+	level: 2
+},
+{
+	value: "502-2-4",
+	name: "Glass Industry: Fenestration Installation",
+	level: 3
+},
+{
+	value: "502-3-5",
+	name: "Glass Industry: Fenestration Installation",
+	level: 2
+},
+{
+	value: "502-2-5",
+	name: "Glass Industry: Fenestration Surveyor",
+	level: 3
+},
+{
+	value: "502-3-7",
+	name: "Glass Industry: Flat Glass Manufacture",
+	level: 2
+},
+{
+	value: "502-2-8",
+	name: "Glass Industry: Glass Manufacturing",
+	level: 3
+},
+{
+	value: "502-3-3",
+	name: "Glass Industry: Glass Processing",
+	level: 2
+},
+{
+	value: "502-2-6",
+	name: "Glass Industry: Glass Processor",
+	level: 3
+},
+{
+	value: "502-2-7",
+	name: "Glass Industry: Glass Related Distribution and Warehousing",
+	level: 3
+},
+{
+	value: "502-3-13",
+	name: "Glass Industry: Glass Related Distribution and Warehousing",
+	level: 2
+},
+{
+	value: "502-2-3",
+	name: "Glass Industry: Glazing",
+	level: 3
+},
+{
+	value: "502-3-9",
+	name: "Glass Industry: Glazing",
+	level: 2
+},
+{
+	value: "502-3-11",
+	name: "Glass Industry: Photovoltaics Installation",
+	level: 2
+},
+{
+	value: "21",
+	name: "Golf greenkeeper",
+	level: 2,
+	standard: true
+},
+{
+	value: "157",
+	name: "Hair Professional",
+	level: 2,
+	standard: true
+},
+{
+	value: "508-2-1",
+	name: "Hairdressing: Hairdressing",
+	level: 3
+},
+{
+	value: "508-3-1",
+	name: "Hairdressing: Hairdressing",
+	level: 2
+},
+{
+	value: "478-2-1",
+	name: "Health Allied Health Profession Support: Health Allied Health Profession Support",
+	level: 3
+},
+{
+	value: "444-2-1",
+	name: "Health and Social Care: Adult social care",
+	level: 3
+},
+{
+	value: "444-3-1",
+	name: "Health and Social Care: Adult social care",
+	level: 2
+},
+{
+	value: "444-3-2",
+	name: "Health and Social Care: Health",
+	level: 2
+},
+{
+	value: "444-2-2",
+	name: "Health and Social Care: Health",
+	level: 3
+},
+{
+	value: "602-21-1",
+	name: "Health Assistant Practitioner: Health Assistant Practitioner",
+	level: 5
+},
+{
+	value: "473-2-1",
+	name: "Health Clinical Healthcare Support: Health Clinical Healthcare Support",
+	level: 3
+},
+{
+	value: "473-3-1",
+	name: "Health Clinical Healthcare Support: Health Clinical Healthcare Support",
+	level: 2
+},
+{
+	value: "479-2-1",
+	name: "Health Dental Nursing: Health Dental Nursing",
+	level: 3
+},
+{
+	value: "476-3-1",
+	name: "Health Emergency Care: Health Emergency Care",
+	level: 2
+},
+{
+	value: "474-2-1",
+	name: "Health Healthcare Support Services: Health Healthcare Support Services",
+	level: 3
+},
+{
+	value: "474-3-1",
+	name: "Health Healthcare Support Services: Health Healthcare Support Services",
+	level: 2
+},
+{
+	value: "475-2-1",
+	name: "Health Maternity and Paediatric Support: Health Maternity and Paediatric Support",
+	level: 3
+},
+{
+	value: "471-2-1",
+	name: "Health Optical Retail: Health Optical Retail",
+	level: 3
+},
+{
+	value: "471-3-1",
+	name: "Health Optical Retail: Health Optical Retail",
+	level: 2
+},
+{
+	value: "477-2-1",
+	name: "Health Perioperative Support: Health Perioperative Support",
+	level: 3
+},
+{
+	value: "480-2-1",
+	name: "Health Pharmacy Services: Health Pharmacy Services",
+	level: 3
+},
+{
+	value: "480-3-1",
+	name: "Health Pharmacy Services: Health Pharmacy Services",
+	level: 2
+},
+{
+	value: "102",
+	name: "Healthcare assistant practitioner",
+	level: 5,
+	standard: true
+},
+{
+	value: "99",
+	name: "Healthcare science assistant",
+	level: 2,
+	standard: true
+},
+{
+	value: "150",
+	name: "Healthcare science associate",
+	level: 4,
+	standard: true
+},
+{
+	value: "168",
+	name: "Healthcare Science Practitioner",
+	level: 6,
+	standard: true
+},
+{
+	value: "103",
+	name: "Healthcare support worker",
+	level: 2,
+	standard: true
+},
+{
+	value: "515-2-1",
+	name: "Heating and Ventilating: Ductwork Systems",
+	level: 3
+},
+{
+	value: "515-3-1",
+	name: "Heating and Ventilating: Ductwork Systems",
+	level: 2
+},
+{
+	value: "515-2-2",
+	name: "Heating and Ventilating: Pipework Systems",
+	level: 3
+},
+{
+	value: "515-3-2",
+	name: "Heating and Ventilating: Pipework Systems",
+	level: 2
+},
+{
+	value: "515-2-3",
+	name: "Heating and Ventilating: Servicing and Maintaining H and V Systems",
+	level: 3
+},
+{
+	value: "515-3-3",
+	name: "Heating and Ventilating: Servicing and Maintaining H and V Systems",
+	level: 2
+},
+{
+	value: "135",
+	name: "Heavy vehicle service and maintenance technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "220",
+	name: "High Speed Rail and Infrastructure Technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "125",
+	name: "Highway electrical maintenance and installation operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "124",
+	name: "Highways electrician / service operative",
+	level: 3,
+	standard: true
+},
+{
+	value: "336",
+	name: "Highways Maintenance Skilled Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "108",
+	name: "HM Forces serviceperson (public services)",
+	level: 2,
+	standard: true
+},
+{
+	value: "537-3-1",
+	name: "HM Forces: HM Forces",
+	level: 2
+},
+{
+	value: "181",
+	name: "Horticulture and Landscape Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "527-2-1",
+	name: "Horticulture: Horticulture",
+	level: 3
+},
+{
+	value: "527-3-1",
+	name: "Horticulture: Horticulture",
+	level: 2
+},
+{
+	value: "580-20-1",
+	name: "Hospitality Management: Hospitality Management",
+	level: 4
+},
+{
+	value: "223",
+	name: "Hospitality Manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "138",
+	name: "Hospitality supervisor",
+	level: 3,
+	standard: true
+},
+{
+	value: "96",
+	name: "Hospitality team member",
+	level: 2,
+	standard: true
+},
+{
+	value: "583-2-1",
+	name: "Hospitality: Hospitality Supervision and Leadership",
+	level: 3
+},
+{
+	value: "65",
+	name: "Housing / property management",
+	level: 3,
+	standard: true
+},
+{
+	value: "64",
+	name: "Housing / property management assistant",
+	level: 2,
+	standard: true
+},
+{
+	value: "499-3-1",
+	name: "Housing: Housing",
+	level: 2
+},
+{
+	value: "190",
+	name: "HR Consultant / Partner",
+	level: 5,
+	standard: true
+},
+{
+	value: "191",
+	name: "HR Support",
+	level: 3,
+	standard: true
+},
+{
+	value: "574-21-1",
+	name: "Human Resource Management: Human Resource Management",
+	level: 5
+},
+{
+	value: "237",
+	name: "Improvement Practitioner",
+	level: 4,
+	standard: true
+},
+{
+	value: "238",
+	name: "Improvement Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "504-3-3",
+	name: "Improving Operational Performance: Business-Improvement Techniques",
+	level: 2
+},
+{
+	value: "504-3-1",
+	name: "Improving Operational Performance: Performing Engineering Operations",
+	level: 2
+},
+{
+	value: "504-3-2",
+	name: "Improving Operational Performance: Performing Manufacturing Operations",
+	level: 2
+},
+{
+	value: "233",
+	name: "Industrial Thermal Insulation Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "82",
+	name: "Infrastructure technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "5",
+	name: "Installation electrician / maintenance electrician",
+	level: 3,
+	standard: true
+},
+{
+	value: "60",
+	name: "Insurance practitioner",
+	level: 3,
+	standard: true
+},
+{
+	value: "63",
+	name: "Insurance professional",
+	level: 4,
+	standard: true
+},
+{
+	value: "637-20-1",
+	name: "Intelligence Operations: Intelligence Operations",
+	level: 4
+},
+{
+	value: "295",
+	name: "Internal Audit Practitioner",
+	level: 4,
+	standard: true
+},
+{
+	value: "324",
+	name: "Internal Audit Professional",
+	level: 7,
+	standard: true
+},
+{
+	value: "264",
+	name: "International Freight Forwarding Specialist",
+	level: 3,
+	standard: true
+},
+{
+	value: "413-3-1",
+	name: "International Trade and Logistics Operations: International Trade and Logistics Operations",
+	level: 2
+},
+{
+	value: "29",
+	name: "Investment operations administrator",
+	level: 2,
+	standard: true
+},
+{
+	value: "30",
+	name: "Investment operations specialist",
+	level: 4,
+	standard: true
+},
+{
+	value: "33",
+	name: "Investment operations technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "165",
+	name: "IS Business Analyst",
+	level: 4,
+	standard: true
+},
+{
+	value: "419-3-1",
+	name: "IT Application Specialist: IT Application Specialist",
+	level: 2
+},
+{
+	value: "419-2-1",
+	name: "IT Application Specialist: IT Application Specialist",
+	level: 3
+},
+{
+	value: "142",
+	name: "IT technical salesperson",
+	level: 3,
+	standard: true
+},
+{
+	value: "418-2-1",
+	name: "IT, Software, Web and Telecoms Professionals: IT, Software, Web and Telecoms Professionals",
+	level: 3
+},
+{
+	value: "418-20-1",
+	name: "IT, Software, Web and Telecoms Professionals: IT, Software, Web and Telecoms Professionals",
+	level: 4
+},
+{
+	value: "418-3-1",
+	name: "IT, Software, Web and Telecoms Professionals: IT, Software, Web and Telecoms Professionals",
+	level: 2
+},
+{
+	value: "548-2-1",
+	name: "Jewellery, Silversmithing and Allied Trades: Jewellery Manufacturing",
+	level: 3
+},
+{
+	value: "548-3-1",
+	name: "Jewellery, Silversmithing and Allied Trades: Jewellery Manufacturing",
+	level: 2
+},
+{
+	value: "548-2-3",
+	name: "Jewellery, Silversmithing and Allied Trades: Precious Metal CAD/CAM",
+	level: 3
+},
+{
+	value: "548-2-2",
+	name: "Jewellery, Silversmithing and Allied Trades: Silversmithing",
+	level: 3
+},
+{
+	value: "84",
+	name: "Junior 2D artist (visual effects)",
+	level: 4,
+	standard: true
+},
+{
+	value: "174",
+	name: "Junior Content Producer",
+	level: 3,
+	standard: true
+},
+{
+	value: "68",
+	name: "Junior energy manager",
+	level: 3,
+	standard: true
+},
+{
+	value: "310",
+	name: "Junior Estate Agent",
+	level: 2,
+	standard: true
+},
+{
+	value: "22",
+	name: "Junior journalist",
+	level: 3,
+	standard: true
+},
+{
+	value: "83",
+	name: "Junior management consultant",
+	level: 4,
+	standard: true
+},
+{
+	value: "506-2-1",
+	name: "Laboratory and Science Technicians: Education Science",
+	level: 3
+},
+{
+	value: "506-3-1",
+	name: "Laboratory and Science Technicians: Education Science",
+	level: 2
+},
+{
+	value: "506-2-2",
+	name: "Laboratory and Science Technicians: Industrial Science",
+	level: 3
+},
+{
+	value: "506-3-2",
+	name: "Laboratory and Science Technicians: Industrial Science",
+	level: 2
+},
+{
+	value: "44",
+	name: "Laboratory scientist - level 5",
+	level: 5,
+	standard: true
+},
+{
+	value: "221",
+	name: "Laboratory Scientist - level 6",
+	level: 6,
+	standard: true
+},
+{
+	value: "14",
+	name: "Laboratory technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "525-2-1",
+	name: "Land-based Engineering: Land-based Engineering",
+	level: 3
+},
+{
+	value: "525-3-1",
+	name: "Land-based Engineering: Land-based Engineering",
+	level: 2
+},
+{
+	value: "69",
+	name: "Land-based service engineer",
+	level: 2,
+	standard: true
+},
+{
+	value: "70",
+	name: "Land-based service engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "110",
+	name: "Large goods vehicle (LGV) driver",
+	level: 2,
+	standard: true
+},
+{
+	value: "118",
+	name: "Lead adult care worker",
+	level: 3,
+	standard: true
+},
+{
+	value: "325",
+	name: "Learning and Development Consultant/ Business Partner",
+	level: 5,
+	standard: true
+},
+{
+	value: "326",
+	name: "Learning and Development Practitioner",
+	level: 3,
+	standard: true
+},
+{
+	value: "541-2-1",
+	name: "Learning and Development: Learning and Development",
+	level: 3
+},
+{
+	value: "565-2-2",
+	name: "Legal Services: Civil Litigation",
+	level: 3
+},
+{
+	value: "565-20-1",
+	name: "Legal Services: Commercial Litigation",
+	level: 4
+},
+{
+	value: "565-20-2",
+	name: "Legal Services: Debt Recovery and Insolvency",
+	level: 4
+},
+{
+	value: "565-2-3",
+	name: "Legal Services: Employment Practice",
+	level: 3
+},
+{
+	value: "565-2-4",
+	name: "Legal Services: Family Practice",
+	level: 3
+},
+{
+	value: "565-2-7",
+	name: "Legal Services: Paralegal Practice",
+	level: 3
+},
+{
+	value: "565-20-3",
+	name: "Legal Services: Personal Injury",
+	level: 4
+},
+{
+	value: "565-2-6",
+	name: "Legal Services: Private Client Practice",
+	level: 3
+},
+{
+	value: "565-2-5",
+	name: "Legal Services: Property",
+	level: 3
+},
+{
+	value: "224",
+	name: "Leisure and Entertainment Maintenance Engineering Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "228",
+	name: "Leisure Duty Manager",
+	level: 3,
+	standard: true
+},
+{
+	value: "463-2-1",
+	name: "Leisure Management: Leisure Management",
+	level: 3
+},
+{
+	value: "466-2-1",
+	name: "Leisure Operations and Leisure Management: Leisure Management",
+	level: 3
+},
+{
+	value: "466-3-1",
+	name: "Leisure Operations and Leisure Management: Leisure Operations",
+	level: 2
+},
+{
+	value: "450-3-1",
+	name: "Libraries, Archives, Records and Information Management Services: Libraries, Archives, Records and Information Management Services",
+	level: 2
+},
+{
+	value: "450-2-1",
+	name: "Libraries, Archives, Records and Information Management Services: Libraries, Archives, Records and Information Management Services",
+	level: 3
+},
+{
+	value: "40",
+	name: "Licensed conveyancer",
+	level: 6,
+	standard: true
+},
+{
+	value: "404-3-1",
+	name: "Licensed Hospitality: Licensed Hospitality",
+	level: 2
+},
+{
+	value: "404-2-1",
+	name: "Licensed Hospitality: Licensed Hospitality Management",
+	level: 3
+},
+{
+	value: "563-20-1",
+	name: "Life Science and Chemical Science Professionals: Chemical Science Technician",
+	level: 4
+},
+{
+	value: "563-21-1",
+	name: "Life Science and Chemical Science Professionals: Chemical Science Technologist",
+	level: 5
+},
+{
+	value: "563-21-6",
+	name: "Life Science and Chemical Science Professionals: Food Science Technologist",
+	level: 5
+},
+{
+	value: "563-20-3",
+	name: "Life Science and Chemical Science Professionals: Healthcare Science Technician",
+	level: 4
+},
+{
+	value: "563-21-3",
+	name: "Life Science and Chemical Science Professionals: Healthcare Science Technologist",
+	level: 5
+},
+{
+	value: "563-20-2",
+	name: "Life Science and Chemical Science Professionals: Life Science Technician",
+	level: 4
+},
+{
+	value: "563-21-2",
+	name: "Life Science and Chemical Science Professionals: Life Science Technologist",
+	level: 5
+},
+{
+	value: "563-20-4",
+	name: "Life Science and Chemical Science Professionals: Process Development Technician",
+	level: 4
+},
+{
+	value: "219",
+	name: "Lifting Technician",
+	level: 2,
+	standard: true
+},
+{
+	value: "71",
+	name: "Live event rigger",
+	level: 3,
+	standard: true
+},
+{
+	value: "491-3-1",
+	name: "Live Events and Promotion: Live Events and Promotion",
+	level: 2
+},
+{
+	value: "491-2-1",
+	name: "Live Events and Promotion: Live Events and Promotion",
+	level: 3
+},
+{
+	value: "442-2-1",
+	name: "Logistics Operations: Logistics Operations Team Leader/Section Supervisor",
+	level: 3
+},
+{
+	value: "442-3-1",
+	name: "Logistics Operations: Logistics Operative",
+	level: 2
+},
+{
+	value: "442-3-2",
+	name: "Logistics Operations: Logistics Support Operative",
+	level: 2
+},
+{
+	value: "146",
+	name: "Maintenance and operations engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "487-21-1",
+	name: "Management: Leadership and Management",
+	level: 5
+},
+{
+	value: "487-2-1",
+	name: "Management: Management",
+	level: 3
+},
+{
+	value: "487-20-1",
+	name: "Management: Management",
+	level: 4
+},
+{
+	value: "487-3-1",
+	name: "Management: Team Leading",
+	level: 2
+},
+{
+	value: "487-3-2",
+	name: "Management: Team Leading (Construction)",
+	level: 2
+},
+{
+	value: "11",
+	name: "Manufacturing engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "550-20-1",
+	name: "Manufacturing Engineering: Aerospace",
+	level: 4
+},
+{
+	value: "550-20-7",
+	name: "Manufacturing Engineering: Automotive",
+	level: 4
+},
+{
+	value: "550-20-5",
+	name: "Manufacturing Engineering: Electrical/Electronics",
+	level: 4
+},
+{
+	value: "550-20-6",
+	name: "Manufacturing Engineering: Electrical/Electronics continuation of Pathway 5",
+	level: 4
+},
+{
+	value: "550-20-8",
+	name: "Manufacturing Engineering: Maintenance",
+	level: 4
+},
+{
+	value: "550-20-11",
+	name: "Manufacturing Engineering: Marine",
+	level: 4
+},
+{
+	value: "550-20-3",
+	name: "Manufacturing Engineering: Mechanical",
+	level: 4
+},
+{
+	value: "550-20-4",
+	name: "Manufacturing Engineering: Mechanical continuation of Pathway 3",
+	level: 4
+},
+{
+	value: "550-20-2",
+	name: "Manufacturing Engineering: Nuclear Related Technology",
+	level: 4
+},
+{
+	value: "550-20-13",
+	name: "Manufacturing Engineering: Rail Engineering",
+	level: 4
+},
+{
+	value: "550-20-12",
+	name: "Manufacturing Engineering: Space Engineering",
+	level: 4
+},
+{
+	value: "550-20-9",
+	name: "Manufacturing Engineering: Wind Generation",
+	level: 4
+},
+{
+	value: "226",
+	name: "Marine Engineer",
+	level: 3,
+	standard: true
+},
+{
+	value: "292",
+	name: "Marine Pilot",
+	level: 5,
+	standard: true
+},
+{
+	value: "279",
+	name: "Maritime Caterer",
+	level: 2,
+	standard: true
+},
+{
+	value: "560-3-4",
+	name: "Maritime Occupations: Able Seafarer/tug rating - engine room",
+	level: 2
+},
+{
+	value: "560-3-7",
+	name: "Maritime Occupations: Marinas and Boatyards",
+	level: 2
+},
+{
+	value: "560-2-1",
+	name: "Maritime Occupations: Merchant Navy (Deck)",
+	level: 3
+},
+{
+	value: "560-2-2",
+	name: "Maritime Occupations: Merchant Navy (Engineering)",
+	level: 3
+},
+{
+	value: "560-2-4",
+	name: "Maritime Occupations: Officer of the watch on merchant vessels of less than 3,000 gross tonnage - near coastal",
+	level: 3
+},
+{
+	value: "560-2-3",
+	name: "Maritime Occupations: Officer of the watch on merchant vessels of less than 500 gross tonnage - near coastal",
+	level: 3
+},
+{
+	value: "560-3-5",
+	name: "Maritime Occupations: Port Operations",
+	level: 2
+},
+{
+	value: "560-3-1",
+	name: "Maritime Occupations: Rivers, inland waterways and limited distances to sea",
+	level: 2
+},
+{
+	value: "560-3-2",
+	name: "Maritime Occupations: Sea Fishing",
+	level: 2
+},
+{
+	value: "560-3-6",
+	name: "Maritime Occupations: Workboat Operation",
+	level: 2
+},
+{
+	value: "486-2-1",
+	name: "Marketing: Marketing",
+	level: 3
+},
+{
+	value: "486-3-1",
+	name: "Marketing: Marketing",
+	level: 2
+},
+{
+	value: "316",
+	name: "Metal Recycling General Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "187",
+	name: "Metrology Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "315",
+	name: "Military Construction Engineering Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "175",
+	name: "Mineral Processing Mobile and Static Plant Operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "330",
+	name: "Mineral Processing Weighbridge Operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "593-21-1",
+	name: "Mineral Products Technology: Technical and Management",
+	level: 5
+},
+{
+	value: "593-20-1",
+	name: "Mineral Products Technology: Technical and Managerial Development in Mineral Products Technology Industry",
+	level: 4
+},
+{
+	value: "62",
+	name: "Mortgage adviser",
+	level: 3,
+	standard: true
+},
+{
+	value: "210",
+	name: "Motor Finance Specialist",
+	level: 3,
+	standard: true
+},
+{
+	value: "59",
+	name: "Motor vehicle service and maintenance technician (light vehicle)",
+	level: 3,
+	standard: true
+},
+{
+	value: "509-2-1",
+	name: "Nail Services: Nail Services",
+	level: 3
+},
+{
+	value: "509-3-1",
+	name: "Nail Services: Nail Services",
+	level: 2
+},
+{
+	value: "1",
+	name: "Network engineer",
+	level: 4,
+	standard: true
+},
+{
+	value: "246",
+	name: "Network Operations",
+	level: 2,
+	standard: true
+},
+{
+	value: "132",
+	name: "Non-destructive testing (NDT) operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "207",
+	name: "Non-Destructive Testing Engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "67",
+	name: "Non-destructive testing engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "46",
+	name: "Nuclear health physics monitor",
+	level: 2,
+	standard: true
+},
+{
+	value: "227",
+	name: "Nuclear Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "47",
+	name: "Nuclear scientist and nuclear engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "163",
+	name: "Nuclear Technician",
+	level: 5,
+	standard: true
+},
+{
+	value: "35",
+	name: "Nuclear welding inspection technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "569-3-1",
+	name: "Nursing Assistants in a Veterinary Environment: Nursing Assistants in a Veterinary Environment",
+	level: 2
+},
+{
+	value: "208",
+	name: "Nursing Associate",
+	level: 5,
+	standard: true
+},
+{
+	value: "306",
+	name: "Operating Department Practitioner (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "241",
+	name: "Operational Firefighter",
+	level: 3,
+	standard: true
+},
+{
+	value: "104",
+	name: "Operations / departmental manager",
+	level: 5,
+	standard: true
+},
+{
+	value: "562-2-1",
+	name: "Operations and Quality Improvement: Business-Improvement Techniques",
+	level: 3
+},
+{
+	value: "247",
+	name: "Optical Assistant",
+	level: 2,
+	standard: true
+},
+{
+	value: "328",
+	name: "Ordnance, Munitions and Explosives (OME) Professional (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "197",
+	name: "Organ Builder",
+	level: 3,
+	standard: true
+},
+{
+	value: "464-2-1",
+	name: "Outdoor Programmes: Outdoor Programmes",
+	level: 3
+},
+{
+	value: "75",
+	name: "Outside broadcasting engineer",
+	level: 7,
+	standard: true
+},
+{
+	value: "302",
+	name: "Packaging Professional (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "290",
+	name: "Painter and Decorator",
+	level: 2,
+	standard: true
+},
+{
+	value: "106",
+	name: "Papermaker",
+	level: 3,
+	standard: true
+},
+{
+	value: "42",
+	name: "Paralegal",
+	level: 3,
+	standard: true
+},
+{
+	value: "318",
+	name: "Paramedic (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "48",
+	name: "Paraplanner",
+	level: 4,
+	standard: true
+},
+{
+	value: "430-3-1",
+	name: "Passenger Carrying Vehicle Driving (Bus and Coach): Bus and Coach",
+	level: 2
+},
+{
+	value: "189",
+	name: "Passenger Transport Driver - bus, coach and rail",
+	level: 2,
+	standard: true
+},
+{
+	value: "206",
+	name: "Passenger transport onboard and station team member",
+	level: 2,
+	standard: true
+},
+{
+	value: "214",
+	name: "Passenger Transport Operations Manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "286",
+	name: "Payroll Administrator",
+	level: 3,
+	standard: true
+},
+{
+	value: "321",
+	name: "Personal Trainer",
+	level: 3,
+	standard: true
+},
+{
+	value: "268",
+	name: "Pest Control Technician",
+	level: 2,
+	standard: true
+},
+{
+	value: "448-2-1",
+	name: "Photo Imaging: Photo Imaging",
+	level: 3
+},
+{
+	value: "312",
+	name: "Piling Attendant",
+	level: 2,
+	standard: true
+},
+{
+	value: "288",
+	name: "Plasterer",
+	level: 3,
+	standard: true
+},
+{
+	value: "456-2-1",
+	name: "Playwork: Playwork",
+	level: 3
+},
+{
+	value: "456-3-1",
+	name: "Playwork: Playwork",
+	level: 2
+},
+{
+	value: "225",
+	name: "Plumbing and Domestic Heating Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "512-2-2",
+	name: "Plumbing and Heating: Domestic Plumbing and Heating Gas-Fired Warm Air Appliance",
+	level: 3
+},
+{
+	value: "512-2-3",
+	name: "Plumbing and Heating: Domestic Plumbing and Heating Gas-Fired Water and Central Heating Appliances",
+	level: 3
+},
+{
+	value: "512-2-1",
+	name: "Plumbing and Heating: Domestic Plumbing and Heating Oil-Fired, Solid Fuel or Environmental options",
+	level: 3
+},
+{
+	value: "512-3-1",
+	name: "Plumbing and Heating: Plumbing",
+	level: 2
+},
+{
+	value: "281",
+	name: "Podiatrist (Degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "282",
+	name: "Police Community Support Officer",
+	level: 4,
+	standard: true
+},
+{
+	value: "256",
+	name: "Police Constable",
+	level: 6,
+	standard: true
+},
+{
+	value: "407-2-1",
+	name: "Policing: Defence Policing",
+	level: 3
+},
+{
+	value: "231",
+	name: "Policy Officer",
+	level: 4,
+	standard: true
+},
+{
+	value: "265",
+	name: "Port Marine Operations Officer",
+	level: 4,
+	standard: true
+},
+{
+	value: "166",
+	name: "Postgraduate Engineer",
+	level: 7,
+	standard: true
+},
+{
+	value: "331",
+	name: "Poultry Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "284",
+	name: "Poultry Worker",
+	level: 2,
+	standard: true
+},
+{
+	value: "161",
+	name: "Power Engineer",
+	level: 7,
+	standard: true
+},
+{
+	value: "6",
+	name: "Power network craftsperson",
+	level: 3,
+	standard: true
+},
+{
+	value: "542-2-5",
+	name: "Print and Printed Packaging: Carton Manufacture",
+	level: 3
+},
+{
+	value: "542-2-1",
+	name: "Print and Printed Packaging: Digital Pre-Press",
+	level: 3
+},
+{
+	value: "542-2-2",
+	name: "Print and Printed Packaging: Machine Printing",
+	level: 3
+},
+{
+	value: "542-3-2",
+	name: "Print and Printed Packaging: Machine Printing",
+	level: 2
+},
+{
+	value: "542-3-1",
+	name: "Print and Printed Packaging: Pre-Press",
+	level: 2
+},
+{
+	value: "542-3-4",
+	name: "Print and Printed Packaging: Print Administration",
+	level: 2
+},
+{
+	value: "542-2-4",
+	name: "Print and Printed Packaging: Print Administration and Management",
+	level: 3
+},
+{
+	value: "542-2-3",
+	name: "Print and Printed Packaging: Print Finishing",
+	level: 3
+},
+{
+	value: "542-3-3",
+	name: "Print and Printed Packaging: Print Finishing",
+	level: 2
+},
+{
+	value: "542-3-5",
+	name: "Print and Printed Packaging: Reprographics",
+	level: 2
+},
+{
+	value: "211",
+	name: "Probate Technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "201",
+	name: "Process Automation Engineer",
+	level: 7,
+	standard: true
+},
+{
+	value: "425-2-3",
+	name: "Process Manufacturing: Downstream Operations",
+	level: 3
+},
+{
+	value: "425-3-2",
+	name: "Process Manufacturing: Process Engineering Maintenance",
+	level: 2
+},
+{
+	value: "425-2-2",
+	name: "Process Manufacturing: Process Engineering Maintenance",
+	level: 3
+},
+{
+	value: "425-3-1",
+	name: "Process Manufacturing: Process Operations",
+	level: 2
+},
+{
+	value: "425-2-1",
+	name: "Process Manufacturing: Process Operator/Technician",
+	level: 3
+},
+{
+	value: "12",
+	name: "Product design and development engineer",
+	level: 6,
+	standard: true
+},
+{
+	value: "117",
+	name: "Professional accounting taxation technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "323",
+	name: "Professional Economist (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "575-20-1",
+	name: "Professional Services: Audit",
+	level: 4
+},
+{
+	value: "575-20-4",
+	name: "Professional Services: Management Accounting",
+	level: 4
+},
+{
+	value: "575-20-3",
+	name: "Professional Services: Management Consulting",
+	level: 4
+},
+{
+	value: "575-20-2",
+	name: "Professional Services: Tax",
+	level: 4
+},
+{
+	value: "186",
+	name: "Project Controls Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "573-20-1",
+	name: "Project Management: Project Management",
+	level: 4
+},
+{
+	value: "291",
+	name: "Project Manager (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "23",
+	name: "Property maintenance operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "500-2-2",
+	name: "Property Services: Residential Letting and Management",
+	level: 3
+},
+{
+	value: "500-3-2",
+	name: "Property Services: Residential Letting and Management",
+	level: 2
+},
+{
+	value: "500-2-1",
+	name: "Property Services: Sale of Residential Property",
+	level: 3
+},
+{
+	value: "500-3-1",
+	name: "Property Services: Sale of Residential Property",
+	level: 2
+},
+{
+	value: "455-2-5",
+	name: "Providing Financial Services: Administration for Mortgage and/or Financial Planning Intermediaries",
+	level: 3
+},
+{
+	value: "455-3-5",
+	name: "Providing Financial Services: Administration for Mortgage and/or Financial Planning Intermediaries",
+	level: 2
+},
+{
+	value: "455-2-2",
+	name: "Providing Financial Services: Banking",
+	level: 3
+},
+{
+	value: "455-3-2",
+	name: "Providing Financial Services: Banking",
+	level: 2
+},
+{
+	value: "455-3-7",
+	name: "Providing Financial Services: Customer Payments for Financial Products and Services",
+	level: 2
+},
+{
+	value: "455-2-9",
+	name: "Providing Financial Services: Customer Payments for Financial Products and Services",
+	level: 3
+},
+{
+	value: "455-2-8",
+	name: "Providing Financial Services: Debt Collections",
+	level: 3
+},
+{
+	value: "455-3-8",
+	name: "Providing Financial Services: Debt Collections",
+	level: 2
+},
+{
+	value: "455-2-4",
+	name: "Providing Financial Services: Financing and Credit",
+	level: 3
+},
+{
+	value: "455-3-4",
+	name: "Providing Financial Services: Financing and Credit",
+	level: 2
+},
+{
+	value: "455-2-1",
+	name: "Providing Financial Services: General Insurance",
+	level: 3
+},
+{
+	value: "455-3-1",
+	name: "Providing Financial Services: General Insurance",
+	level: 2
+},
+{
+	value: "455-2-6",
+	name: "Providing Financial Services: Investment Operations",
+	level: 3
+},
+{
+	value: "455-3-6",
+	name: "Providing Financial Services: Investment Operations",
+	level: 2
+},
+{
+	value: "455-2-3",
+	name: "Providing Financial Services: Life, Pensions and Investments",
+	level: 3
+},
+{
+	value: "455-3-3",
+	name: "Providing Financial Services: Life, Pensions and Investments",
+	level: 2
+},
+{
+	value: "455-2-7",
+	name: "Providing Financial Services: Pensions Administration",
+	level: 3
+},
+{
+	value: "440-3-1",
+	name: "Providing Security Services: Providing Security Services",
+	level: 2
+},
+{
+	value: "257",
+	name: "Public Relations Assistant",
+	level: 4,
+	standard: true
+},
+{
+	value: "572-20-1",
+	name: "Public Relations: Public Relations",
+	level: 4
+},
+{
+	value: "73",
+	name: "Public sector commercial professional",
+	level: 4,
+	standard: true
+},
+{
+	value: "36",
+	name: "Public service operational delivery officer",
+	level: 3,
+	standard: true
+},
+{
+	value: "280",
+	name: "Publishing Assistant",
+	level: 3,
+	standard: true
+},
+{
+	value: "301",
+	name: "Rail and Rail Systems Principal Engineer (degree)",
+	level: 7,
+	standard: true
+},
+{
+	value: "313",
+	name: "Rail and Rail Systems Senior Engineer (degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "88",
+	name: "Rail engineering advanced technician",
+	level: 4,
+	standard: true
+},
+{
+	value: "90",
+	name: "Rail engineering operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "89",
+	name: "Rail engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "545-2-4",
+	name: "Rail Infrastructure Engineering: Electrification",
+	level: 3
+},
+{
+	value: "545-3-2",
+	name: "Rail Infrastructure Engineering: Electrification Maintenance",
+	level: 2
+},
+{
+	value: "545-2-1",
+	name: "Rail Infrastructure Engineering: Signalling",
+	level: 3
+},
+{
+	value: "545-2-3",
+	name: "Rail Infrastructure Engineering: Telecoms",
+	level: 3
+},
+{
+	value: "545-2-2",
+	name: "Rail Infrastructure Engineering: Track",
+	level: 3
+},
+{
+	value: "545-3-1",
+	name: "Rail Infrastructure Engineering: Track Maintenance",
+	level: 2
+},
+{
+	value: "188",
+	name: "Rail Infrastructure Operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "429-3-5",
+	name: "Rail Services: Control Room Operations",
+	level: 2
+},
+{
+	value: "429-3-2",
+	name: "Rail Services: Driving",
+	level: 2
+},
+{
+	value: "429-3-1",
+	name: "Rail Services: Passenger Services",
+	level: 2
+},
+{
+	value: "429-2-1",
+	name: "Rail Services: Rail Supervision",
+	level: 3
+},
+{
+	value: "429-3-4",
+	name: "Rail Services: Shunting",
+	level: 2
+},
+{
+	value: "429-3-3",
+	name: "Rail Services: Signal Operations",
+	level: 2
+},
+{
+	value: "24",
+	name: "Railway engineering design technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "217",
+	name: "Recruitment Consultant",
+	level: 3,
+	standard: true
+},
+{
+	value: "218",
+	name: "Recruitment Resourcer",
+	level: 2,
+	standard: true
+},
+{
+	value: "594-2-1",
+	name: "Recruitment: Recruitment",
+	level: 3
+},
+{
+	value: "594-20-1",
+	name: "Recruitment: Recruitment",
+	level: 4
+},
+{
+	value: "594-3-1",
+	name: "Recruitment: Recruitment Resourcing",
+	level: 2
+},
+{
+	value: "49",
+	name: "Refrigeration air conditioning and heat pump engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "514-2-3",
+	name: "Refrigeration and Air Conditioning: Air Conditioning",
+	level: 3
+},
+{
+	value: "514-3-2",
+	name: "Refrigeration and Air Conditioning: Air Conditioning",
+	level: 2
+},
+{
+	value: "514-2-4",
+	name: "Refrigeration and Air Conditioning: Air Conditioning Service and Maintenance",
+	level: 3
+},
+{
+	value: "514-2-1",
+	name: "Refrigeration and Air Conditioning: Refrigeration",
+	level: 3
+},
+{
+	value: "514-3-1",
+	name: "Refrigeration and Air Conditioning: Refrigeration",
+	level: 2
+},
+{
+	value: "514-2-2",
+	name: "Refrigeration and Air Conditioning: Refrigeration Service and Maintenance",
+	level: 3
+},
+{
+	value: "170",
+	name: "Registered Nurse",
+	level: 6,
+	standard: true
+},
+{
+	value: "253",
+	name: "Regulatory Compliance Officer",
+	level: 4,
+	standard: true
+},
+{
+	value: "243",
+	name: "Rehabilitation Worker (Visual Impairment)",
+	level: 5,
+	standard: true
+},
+{
+	value: "7",
+	name: "Relationship manager (banking)",
+	level: 6,
+	standard: true
+},
+{
+	value: "147",
+	name: "Retail manager",
+	level: 4,
+	standard: true
+},
+{
+	value: "140",
+	name: "Retail team leader",
+	level: 3,
+	standard: true
+},
+{
+	value: "443-2-3",
+	name: "Retail: Management",
+	level: 3
+},
+{
+	value: "443-2-4",
+	name: "Retail: Multi-channel retail",
+	level: 3
+},
+{
+	value: "443-3-1",
+	name: "Retail: Retail",
+	level: 2
+},
+{
+	value: "443-2-1",
+	name: "Retail: Sales Professional",
+	level: 3
+},
+{
+	value: "443-3-2",
+	name: "Retail: Specialist",
+	level: 2
+},
+{
+	value: "443-2-2",
+	name: "Retail: Visual Merchandising",
+	level: 3
+},
+{
+	value: "101",
+	name: "Retailer",
+	level: 2,
+	standard: true
+},
+{
+	value: "320",
+	name: "Revenues and Welfare Benefits Practitioner",
+	level: 4,
+	standard: true
+},
+{
+	value: "260",
+	name: "Safety Health and Environment Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "485-2-1",
+	name: "Sales and Telesales: Sales and Telesales",
+	level: 3
+},
+{
+	value: "485-3-1",
+	name: "Sales and Telesales: Sales and Telesales",
+	level: 2
+},
+{
+	value: "273",
+	name: "Scaffolder",
+	level: 2,
+	standard: true
+},
+{
+	value: "232",
+	name: "School Business Professional",
+	level: 4,
+	standard: true
+},
+{
+	value: "45",
+	name: "Science industry maintenance technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "248",
+	name: "Science Industry Process/Plant Engineer (Degree)",
+	level: 6,
+	standard: true
+},
+{
+	value: "249",
+	name: "Science Manufacturing Process Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "15",
+	name: "Science manufacturing technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "421-3-1",
+	name: "Security Systems: Security Systems",
+	level: 2
+},
+{
+	value: "421-2-1",
+	name: "Security Systems: Security Systems",
+	level: 3
+},
+{
+	value: "139",
+	name: "Senior chef production cooking",
+	level: 3,
+	standard: true
+},
+{
+	value: "144",
+	name: "Senior compliance / risk specialist",
+	level: 6,
+	standard: true
+},
+{
+	value: "335",
+	name: "Senior Equine Groom",
+	level: 3,
+	standard: true
+},
+{
+	value: "31",
+	name: "Senior financial services customer adviser",
+	level: 3,
+	standard: true
+},
+{
+	value: "151",
+	name: "Senior healthcare support worker",
+	level: 3,
+	standard: true
+},
+{
+	value: "66",
+	name: "Senior housing / property management",
+	level: 4,
+	standard: true
+},
+{
+	value: "205",
+	name: "Senior Insurance Professional",
+	level: 6,
+	standard: true
+},
+{
+	value: "270",
+	name: "Senior Investment / Commercial Banking Professional",
+	level: 7,
+	standard: true
+},
+{
+	value: "236",
+	name: "Senior Leader Master's Degree Apprenticeship",
+	level: 7,
+	standard: true
+},
+{
+	value: "317",
+	name: "Senior Metrology Technician",
+	level: 5,
+	standard: true
+},
+{
+	value: "258",
+	name: "Senior/Head of Facilities Management",
+	level: 6,
+	standard: true
+},
+{
+	value: "334",
+	name: "Sewing Machinist",
+	level: 2,
+	standard: true
+},
+{
+	value: "416-3-1",
+	name: "Signmaking: Signmaker/Installer",
+	level: 2
+},
+{
+	value: "416-2-1",
+	name: "Signmaking: Signmaker/Technician",
+	level: 3
+},
+{
+	value: "579-2-2",
+	name: "Social Media and Digital Marketing: Digital Marketing",
+	level: 3
+},
+{
+	value: "579-20-1",
+	name: "Social Media and Digital Marketing: Digital Marketing",
+	level: 4
+},
+{
+	value: "579-2-1",
+	name: "Social Media and Digital Marketing: Social Media",
+	level: 3
+},
+{
+	value: "2",
+	name: "Software developer",
+	level: 4,
+	standard: true
+},
+{
+	value: "154",
+	name: "Software Development Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "91",
+	name: "Software tester",
+	level: 4,
+	standard: true
+},
+{
+	value: "43",
+	name: "Solicitor",
+	level: 7,
+	standard: true
+},
+{
+	value: "158",
+	name: "Spectacle Maker",
+	level: 3,
+	standard: true
+},
+{
+	value: "458-2-1",
+	name: "Spectator Safety: Advanced Spectator Safety",
+	level: 3
+},
+{
+	value: "458-3-1",
+	name: "Spectator Safety: Spectator Safety",
+	level: 2
+},
+{
+	value: "465-2-1",
+	name: "Sporting Excellence: Sporting Excellence Pathway One",
+	level: 3
+},
+{
+	value: "465-2-2",
+	name: "Sporting Excellence: Sporting Excellence Pathway Two",
+	level: 3
+},
+{
+	value: "467-2-1",
+	name: "Sports development: Sports Development",
+	level: 3
+},
+{
+	value: "145",
+	name: "Sports turf operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "566-21-2",
+	name: "Supply Chain Management: International Supply Chain Manager",
+	level: 5
+},
+{
+	value: "566-2-1",
+	name: "Supply Chain Management: Supply Chain Management",
+	level: 3
+},
+{
+	value: "566-3-1",
+	name: "Supply Chain Management: Supply Chain Operations",
+	level: 2
+},
+{
+	value: "566-21-1",
+	name: "Supply Chain Management: Supply Chain Specialist",
+	level: 5
+},
+{
+	value: "109",
+	name: "Supply chain operator",
+	level: 2,
+	standard: true
+},
+{
+	value: "209",
+	name: "Supply Chain Practitioner",
+	level: 3,
+	standard: true
+},
+{
+	value: "111",
+	name: "Supply chain warehouse operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "613-2-1",
+	name: "Supporting Teaching and Learning in Physical Education and School Sport: Supporting Teaching and Learning in Physical Education and School Sport",
+	level: 3
+},
+{
+	value: "420-2-1",
+	name: "Supporting Teaching and Learning in Schools: Supporting Teaching and Learning in Schools",
+	level: 3
+},
+{
+	value: "420-3-1",
+	name: "Supporting Teaching and Learning in Schools: Supporting Teaching and Learning in Schools",
+	level: 2
+},
+{
+	value: "51",
+	name: "Surveying technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "532-2-1",
+	name: "Surveying: Surveying",
+	level: 3
+},
+{
+	value: "116",
+	name: "Survival equipment fitter",
+	level: 3,
+	standard: true
+},
+{
+	value: "505-2-1",
+	name: "Sustainable Resource Management: Sustainable Resource Management",
+	level: 3
+},
+{
+	value: "505-3-1",
+	name: "Sustainable Resource Management: Sustainable Resource Management",
+	level: 2
+},
+{
+	value: "618-20-1",
+	name: "Sustainable Resource Operations and Management: Sustainable Resource Operations and Management",
+	level: 4
+},
+{
+	value: "52",
+	name: "Systems engineering masters level",
+	level: 7,
+	standard: true
+},
+{
+	value: "203",
+	name: "Teacher",
+	level: 6,
+	standard: true
+},
+{
+	value: "297",
+	name: "Teaching Assistant",
+	level: 3,
+	standard: true
+},
+{
+	value: "105",
+	name: "Team leader / supervisor",
+	level: 3,
+	standard: true
+},
+{
+	value: "494-2-1",
+	name: "Technical Theatre, Lighting, Sound and Stage: Lighting",
+	level: 3
+},
+{
+	value: "494-3-1",
+	name: "Technical Theatre, Lighting, Sound and Stage: Lighting",
+	level: 2
+},
+{
+	value: "494-2-2",
+	name: "Technical Theatre, Lighting, Sound and Stage: Sound",
+	level: 3
+},
+{
+	value: "494-3-2",
+	name: "Technical Theatre, Lighting, Sound and Stage: Sound",
+	level: 2
+},
+{
+	value: "494-2-3",
+	name: "Technical Theatre, Lighting, Sound and Stage: Stage",
+	level: 3
+},
+{
+	value: "494-3-3",
+	name: "Technical Theatre, Lighting, Sound and Stage: Stage",
+	level: 2
+},
+{
+	value: "319",
+	name: "Technician Scientist",
+	level: 5,
+	standard: true
+},
+{
+	value: "296",
+	name: "Textile Care Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "267",
+	name: "Textile Manufacturing Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "446-2-1",
+	name: "The Gas Industry: Gas Fired Wet Central Heating",
+	level: 3
+},
+{
+	value: "446-2-2",
+	name: "The Gas Industry: Gas Heating and Energy Efficiency",
+	level: 3
+},
+{
+	value: "446-3-1",
+	name: "The Gas Industry: Network Construction Operations (Gas)",
+	level: 2
+},
+{
+	value: "427-3-1",
+	name: "The Power Sector: Power Transmission and Distribution",
+	level: 2
+},
+{
+	value: "535-3-2",
+	name: "The Water Industry: Sewerage Operations and Maintenance",
+	level: 2
+},
+{
+	value: "535-20-1",
+	name: "The Water Industry: Utilities Network Planning and Management",
+	level: 4
+},
+{
+	value: "535-2-1",
+	name: "The Water Industry: Water Industry",
+	level: 3
+},
+{
+	value: "535-3-1",
+	name: "The Water Industry: Water Industry",
+	level: 2
+},
+{
+	value: "616-3-1",
+	name: "Trade Business Services: Trade Business Services",
+	level: 2
+},
+{
+	value: "261",
+	name: "Trade Supplier",
+	level: 2,
+	standard: true
+},
+{
+	value: "412-3-1",
+	name: "Traffic Office: Traffic Office Clerk",
+	level: 2
+},
+{
+	value: "412-2-1",
+	name: "Traffic Office: Traffic Office Manager",
+	level: 3
+},
+{
+	value: "285",
+	name: "Train Driver",
+	level: 3,
+	standard: true
+},
+{
+	value: "100",
+	name: "Transport planning technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "120",
+	name: "Travel consultant",
+	level: 3,
+	standard: true
+},
+{
+	value: "408-3-1",
+	name: "Travel Services: Leisure and Business",
+	level: 2
+},
+{
+	value: "408-3-2",
+	name: "Travel Services: Tour Operators - Head Office",
+	level: 2
+},
+{
+	value: "531-2-1",
+	name: "Trees and Timber: Trees and Timber",
+	level: 3
+},
+{
+	value: "531-3-1",
+	name: "Trees and Timber: Trees and Timber",
+	level: 2
+},
+{
+	value: "230",
+	name: "Tunnelling Operative",
+	level: 2,
+	standard: true
+},
+{
+	value: "155",
+	name: "Unified Communications Technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "81",
+	name: "Unified communications trouble shooter",
+	level: 4,
+	standard: true
+},
+{
+	value: "53",
+	name: "Utilities engineering technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "434-3-5",
+	name: "Vehicle Body and Paint: Automotive Glazing",
+	level: 2
+},
+{
+	value: "434-3-2",
+	name: "Vehicle Body and Paint: Body Building",
+	level: 2
+},
+{
+	value: "434-2-2",
+	name: "Vehicle Body and Paint: Body Building",
+	level: 3
+},
+{
+	value: "434-2-4",
+	name: "Vehicle Body and Paint: Body Refinishing",
+	level: 3
+},
+{
+	value: "434-3-4",
+	name: "Vehicle Body and Paint: Body Refinishing",
+	level: 2
+},
+{
+	value: "434-2-3",
+	name: "Vehicle Body and Paint: Body Repair",
+	level: 3
+},
+{
+	value: "434-3-3",
+	name: "Vehicle Body and Paint: Body Repair",
+	level: 2
+},
+{
+	value: "434-3-1",
+	name: "Vehicle Body and Paint: Mechanical, Electrical and Trim",
+	level: 2
+},
+{
+	value: "434-2-1",
+	name: "Vehicle Body and Paint: Mechanical, Electrical and Trim",
+	level: 3
+},
+{
+	value: "434-2-5",
+	name: "Vehicle Body and Paint: Vehicle Damage Assessment",
+	level: 3
+},
+{
+	value: "434-3-6",
+	name: "Vehicle Body and Paint: Windscreen Repair",
+	level: 2
+},
+{
+	value: "437-2-1",
+	name: "Vehicle Fitting: Fast Fit",
+	level: 3
+},
+{
+	value: "437-3-1",
+	name: "Vehicle Fitting: Fast Fit",
+	level: 2
+},
+{
+	value: "437-3-2",
+	name: "Vehicle Fitting: Specialist Tyre Fitting",
+	level: 2
+},
+{
+	value: "436-2-4",
+	name: "Vehicle Maintenance and Repair: Auto Electrics/Mobile Electrics",
+	level: 3
+},
+{
+	value: "436-3-4",
+	name: "Vehicle Maintenance and Repair: Auto Electrics/Mobile Electrics",
+	level: 2
+},
+{
+	value: "436-2-6",
+	name: "Vehicle Maintenance and Repair: Caravan and Motorhome",
+	level: 3
+},
+{
+	value: "436-3-7",
+	name: "Vehicle Maintenance and Repair: Caravan and Motorhome",
+	level: 2
+},
+{
+	value: "436-2-2",
+	name: "Vehicle Maintenance and Repair: Heavy Vehicle",
+	level: 3
+},
+{
+	value: "436-3-2",
+	name: "Vehicle Maintenance and Repair: Heavy Vehicle",
+	level: 2
+},
+{
+	value: "436-3-5",
+	name: "Vehicle Maintenance and Repair: Heavy Vehicle Trailer",
+	level: 2
+},
+{
+	value: "436-2-5",
+	name: "Vehicle Maintenance and Repair: Lift Truck",
+	level: 3
+},
+{
+	value: "436-3-6",
+	name: "Vehicle Maintenance and Repair: Lift Truck",
+	level: 2
+},
+{
+	value: "436-3-1",
+	name: "Vehicle Maintenance and Repair: Light Vehicle",
+	level: 2
+},
+{
+	value: "436-2-1",
+	name: "Vehicle Maintenance and Repair: Light Vehicle",
+	level: 3
+},
+{
+	value: "436-2-3",
+	name: "Vehicle Maintenance and Repair: Motorcycle",
+	level: 3
+},
+{
+	value: "436-3-3",
+	name: "Vehicle Maintenance and Repair: Motorcycle",
+	level: 2
+},
+{
+	value: "433-3-1",
+	name: "Vehicle Parts: Vehicle Parts",
+	level: 2
+},
+{
+	value: "433-2-1",
+	name: "Vehicle Parts: Vehicle Parts",
+	level: 3
+},
+{
+	value: "634-2-1",
+	name: "Vehicle Restoration: Vehicle Restoration",
+	level: 3
+},
+{
+	value: "634-3-1",
+	name: "Vehicle Restoration: Vehicle Restoration",
+	level: 2
+},
+{
+	value: "435-2-1",
+	name: "Vehicle Sales: Vehicle Sales",
+	level: 3
+},
+{
+	value: "435-3-1",
+	name: "Vehicle Sales: Vehicle Sales",
+	level: 2
+},
+{
+	value: "333",
+	name: "Veterinary Nurse",
+	level: 3,
+	standard: true
+},
+{
+	value: "529-2-2",
+	name: "Veterinary Nursing: Equine",
+	level: 3
+},
+{
+	value: "529-2-1",
+	name: "Veterinary Nursing: Small Animal",
+	level: 3
+},
+{
+	value: "414-2-1",
+	name: "Warehousing and Storage: Senior Warehouse Person/Team Leader",
+	level: 3
+},
+{
+	value: "414-3-1",
+	name: "Warehousing and Storage: Warehouse Operative",
+	level: 2
+},
+{
+	value: "235",
+	name: "Watchmaker",
+	level: 3,
+	standard: true
+},
+{
+	value: "27",
+	name: "Water process technician",
+	level: 3,
+	standard: true
+},
+{
+	value: "94",
+	name: "Welding - level 2",
+	level: 2,
+	standard: true
+},
+{
+	value: "95",
+	name: "Welding - level 3",
+	level: 3,
+	standard: true
+},
+{
+	value: "322",
+	name: "Workboat Crewmember",
+	level: 3,
+	standard: true
+},
+{
+	value: "32",
+	name: "Workplace pensions (administrator or consultant)",
+	level: 3,
+	standard: true
+},
+{
+	value: "447-3-1",
+	name: "Youth Work: Youth Work",
+	level: 2
+},
+{
+	value: "447-2-1",
+	name: "Youth Work: Youth Work",
+	level: 3
+}]
+%}

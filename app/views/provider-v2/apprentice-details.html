@@ -11,6 +11,26 @@ GOV.UK Prototype Kit
 }) }}
 {% endblock %}
 
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '{{data["course-name"]}}',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Search for an apprenticeship',
+        showAllValues: true
+      })
+    })
+  })
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -83,7 +103,25 @@ GOV.UK Prototype Kit
         name: "uln"
       }) }}
 
-      {{ govukInput({
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="choose-apprenticeship">
+          Apprenticeship training course
+        </label>
+        <span id="course-name-hint" class="govuk-hint">
+          Start typing the name of the course or choose an option from the list
+        </span>
+        <div class="autocomplete-wrapper">
+          <select class="autocomplete-element" id="course-name" name="course-name">
+            <option value="">Select one</option>
+            {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <!-- {{ govukInput({
         label:
         {
           text: "Apprenticeship training course"
@@ -94,7 +132,7 @@ GOV.UK Prototype Kit
         },
         id: "course-name",
         name: "course-name"
-      }) }}
+      }) }} -->
 
       {{ govukDateInput({
         id: "start-date",

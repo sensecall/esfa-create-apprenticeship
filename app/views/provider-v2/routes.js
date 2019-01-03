@@ -60,6 +60,11 @@ router.post('/choose-date', (req, res) => {
 	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
 	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
 
+	res.redirect('choose-course')
+})
+
+// choose course
+router.post('/choose-course', (req, res) => {
 	res.redirect('confirm-details')
 })
 
