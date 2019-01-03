@@ -37,8 +37,8 @@ router.use(/\/employer-mvp-v([0-9]+)/, (req, res, next) => {
 })
 
 // Provider
-router.use(/\/provider-v([0-9]+)-([0-9]+)/, (req, res, next) => {
-  require(`./views/provider-v${req.params[0]}-${req.params[0]}/routes`)(req, res, next);
+router.use(/\/provider-v([0-9]+)/, (req, res, next) => {
+  require(`./views/provider-v${req.params[0]}/routes`)(req, res, next);
 })
 
 module.exports = router

@@ -115,8 +115,8 @@ router.post('/reservation-complete', (req, res) => {
 
 // reservation details
 router.get('/reservation-details', (req, res) => {
-	var reservationDetails = _.filter(req.session.data['reservations'], function(reservation){
-		return reservation['reservation-id'] === req.session.data['reservation-id'];
+	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
 	})
 
 	res.render(`${req.feature}/reservation-details`,{reservationDetails})

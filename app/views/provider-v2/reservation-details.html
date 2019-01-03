@@ -18,49 +18,46 @@ GOV.UK Prototype Kit
       Reservation details
     </h1>
 
-    <form action="confirm-employer">
-      {% for reservation in data['reservations'] %}
-      {% if reservation['id'] == data['reservation-id'] %}
+    <form action="apprentice-details">
       <table class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Employer</th>
-            <td colspan="2" class="govuk-table__cell">{{reservation['employer']}}</td>
+            <td colspan="2" class="govuk-table__cell">{{reservationDetails[0]['employer']}}</td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Created</th>
-            <td class="govuk-table__cell">{{reservation['created']}}</td>
+            <td class="govuk-table__cell">{{reservationDetails[0]['created']}}</td>
             
             <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Valid from</th>
-            <td class="govuk-table__cell">{{reservation['startMonth']}}</td>
+            <td class="govuk-table__cell">{{reservationDetails[0]['startMonth']}}</td>
             <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Valid until</th>
-            <td class="govuk-table__cell">{{reservation['endMonth']}}</td>
+            <td class="govuk-table__cell">{{reservationDetails[0]['endMonth']}}</td>
             <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Reservation ID</th>
-            <td class="govuk-table__cell">{{reservation['id']}}</td>
+            <td class="govuk-table__cell">{{reservationDetails[0]['id']}}</td>
             <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
           </tr>
         </tbody>
       </table>
-      {% endif %}
-      {% endfor %}
+
+      <input type="hidden" name="employer" value="{{reservationDetails[0]['employer']}}">
 
       {{ govukButton({
         text: "Use this reservation",
-        classes: "govuk-!-margin-top-0 govuk-!-display-inline-block",
-        href: "apprentice-details"
+        classes: "govuk-!-margin-top-0 govuk-!-display-inline-block"
       }) }}
 
       <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
