@@ -54,6 +54,7 @@ GOV.UK Prototype Kit
       </table>
 
       <input type="hidden" name="employer" value="{{reservationDetails[0]['employer']}}">
+      <input type="hidden" name="choose-reservation" value="{{reservationDetails[0]['id']}}">
 
       {{ govukButton({
         text: "Use this reservation",
