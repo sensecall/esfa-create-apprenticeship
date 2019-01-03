@@ -19,6 +19,7 @@ GOV.UK Prototype Kit
 				Manage reservations
 			</h1>
 
+			{% if data['reservations'].length %}
 			<a href="add__choose-employer" class="govuk-button">
 				Create a reservation
 			</a>
@@ -50,6 +51,15 @@ GOV.UK Prototype Kit
 					{% endfor %}
 				</tbody>
 			</table>
+			{% else %}
+			<h2 class="govuk-heading-m">
+				No reservations yet
+			</h2>
+			
+			<a href="add__choose-employer" class="govuk-button">
+				Create a reservation
+			</a>
+			{% endif %}
 		</form>
 	</div>
 
