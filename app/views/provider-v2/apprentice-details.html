@@ -17,15 +17,10 @@ GOV.UK Prototype Kit
 <script>
   $(document).ready(function() {
     $('.autocomplete-element').each(function() {
-      {% if data['add-apprentice'] == 'yes' %}
-      var defaultValue = '{{data["course-name"]}}'
-      {% else %}
-      var defaultValue = ''
-      {% endif %}
       var selectEl = document.querySelector('#' + $(this).attr('id') )
       accessibleAutocomplete.enhanceSelectElement({
         autoselect: false,
-        defaultValue: defaultValue,
+        defaultValue: '{{data["course-name"]}}',
         minLength: 2,
         selectElement: selectEl,
         placeholder: 'Search for an apprenticeship',

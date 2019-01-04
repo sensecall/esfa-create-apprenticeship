@@ -23,37 +23,38 @@ GOV.UK Prototype Kit
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Employer</th>
-            <td colspan="2" class="govuk-table__cell">{{reservationDetails[0]['employer']}}</td>
+            <td class="govuk-table__cell">{{reservationDetails[0]['employer']}}</td>
           </tr>
 
           <tr class="govuk-table__row">
-            <th class="govuk-table__header">Created</th>
-            <td class="govuk-table__cell">{{reservationDetails[0]['created']}}</td>
-            
-            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
+            <th class="govuk-table__header">Course</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['course']}}</td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Valid from</th>
             <td class="govuk-table__cell">{{reservationDetails[0]['startMonth']}}</td>
-            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Valid until</th>
             <td class="govuk-table__cell">{{reservationDetails[0]['endMonth']}}</td>
-            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Created</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['created']}}</td>
           </tr>
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Reservation ID</th>
             <td class="govuk-table__cell">{{reservationDetails[0]['id']}}</td>
-            <td class="govuk-table__cell" style="text-align: right"><a href="apprentice-details">Edit</a></td>
           </tr>
         </tbody>
       </table>
 
       <input type="hidden" name="employer" value="{{reservationDetails[0]['employer']}}">
+      <input type="hidden" name="course-name" value="{{reservationDetails[0]['course']}}">
       <input type="hidden" name="choose-reservation" value="{{reservationDetails[0]['id']}}">
 
       {{ govukButton({
@@ -68,7 +69,7 @@ GOV.UK Prototype Kit
       </p>
 
       <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
-        <a href="choose-reservation">
+        <a href="delete-reservation?reservation-id={{reservationDetails[0]['id']}}">
           Delete this reservation
         </a>
       </p>

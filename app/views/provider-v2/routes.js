@@ -80,7 +80,8 @@ router.post('/confirm-details', (req, res) => {
 		"startMonth": req.session.data['reservation-startRange'],
 		"endMonth": req.session.data['reservation-endRange'],
 		"created": req.session.data['reservation-created'],
-		"employer": req.session.data['reservation-employer']
+		"employer": req.session.data['reservation-employer'],
+		"course": req.session.data['course-name']
 	}
 
 	req.session.data['reservations'].push(reservation)
@@ -109,6 +110,11 @@ router.post('/choose-reservation', (req, res) => {
 	}
 })
 
+// funding warning skip
+router.get('/funding-warning', (req, res) => {
+	res.redirect('choose-date')
+})
+
 // reservation complete
 router.post('/reservation-complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
@@ -134,6 +140,23 @@ router.post('/apprentice-details', (req, res) => {
 	});
 
 	res.redirect(`review-apprentice-details`)
+})
+
+// delete reservation
+router.get('/delete-reservation', (req, res) => {
+	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
+	})
+
+	res.render(`${req.feature}/delete-reservation`,{reservationDetails})
+})
+
+router.post('/delete-reservation', (req, res) => {
+	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+		return item.id !== req.session.data['reservation-id']
+	});
+
+	res.redirect(`manage-reservations`)
 })
 
 // add another reservation

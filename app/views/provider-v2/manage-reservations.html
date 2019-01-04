@@ -24,12 +24,12 @@ GOV.UK Prototype Kit
 				Create a reservation
 			</a>
 
-			<table class="govuk-table">
+			<table class="govuk-table govuk-!-font-size-16">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header" scope="col">Employer</th>
-						<th class="govuk-table__header" scope="col">Valid from</th>
-						<th class="govuk-table__header" scope="col">Valid until</th>
+						<th class="govuk-table__header" scope="col">Course</th>
+						<th class="govuk-table__header" scope="col">Valid dates</th>
 						<th class="govuk-table__header" scope="col">Created</th>
 						<th class="govuk-table__header" colspan="2" scope="col">Reservation ID</th>
 					</tr>
@@ -39,9 +39,9 @@ GOV.UK Prototype Kit
 					{% for reservation in data['reservations'] %}
 					{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
 					<tr class="govuk-table__row">
-						<th class="govuk-table__header" scope="row">{{reservation.employer}}</th>
-						<td class="govuk-table__cell">{{reservation.startMonth}}</td>
-						<td class="govuk-table__cell">{{reservation.endMonth}}</td>
+						<td class="govuk-table__cell">{{reservation.employer}}</td>
+						<td class="govuk-table__cell">{{reservation.course}}</td>
+						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
 						<td class="govuk-table__cell">{{reservation.created}}</td>
 						<td class="govuk-table__cell">{{reservation.id}}</td>
 						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
@@ -53,8 +53,12 @@ GOV.UK Prototype Kit
 			</table>
 			{% else %}
 			<h2 class="govuk-heading-m">
-				No reservations yet
+				You do not have any reservations to use.
 			</h2>
+
+			<p>
+				You need to create a reservation in order to add a new apprentice.
+			</p>
 
 			<a href="add__choose-employer" class="govuk-button">
 				Create a reservation

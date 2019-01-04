@@ -30,12 +30,10 @@ GOV.UK Prototype Kit
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="choose-reservation-{{loop.index}}" name="choose-reservation" type="radio" value="{{reservation.id}}" aria-describedby="choose-reservation-{{loop.index}}-item-hint" required="required">
               <label class="govuk-label govuk-radios__label" for="choose-reservation-{{loop.index}}">
-                Apprenticeship starting between {{reservation.startMonth}} and {{reservation.endMonth}}
+                {{reservation.course}} starting between {{reservation.startMonth}} and {{reservation.endMonth}}
               </label>
               <span id="choose-reservation-2-item-hint" class="govuk-hint govuk-radios__hint">
                 Created on {{reservation.created}}
-                <br>
-                Valid for all levels
               </span>
             </div>
             {% endfor %}
