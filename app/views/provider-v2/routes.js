@@ -34,6 +34,37 @@ router.post('/add__confirm-employer', (req, res) => {
 	}
 })
 
+// Choose date
+router.get('/choose-date', (req, res) => {
+	var currentMonth = moment().format('MMMM YYYY')
+
+	var months = [{
+		value: currentMonth,
+		text: currentMonth,
+		attributes:
+		{
+			required: "required"
+		}
+	}]
+
+	function addMonths(m){
+		if(months.length < m){
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMMM YYYY");
+			var month = {
+				value: date,
+				text: date
+			}
+
+			months.push(month)
+			addMonths(m)
+		}
+	}
+
+	addMonths(6)
+
+	res.render(`${req.feature}/choose-date`,{months})
+})
+
 // Confirm employer (reserve)
 router.post('/reserve__confirm-employer', (req, res) => {
 	if (req.session.data['confirm-employer'] == 'yes' ) {
