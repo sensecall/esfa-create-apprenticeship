@@ -152,9 +152,11 @@ router.get('/delete-reservation', (req, res) => {
 })
 
 router.post('/delete-reservation', (req, res) => {
-	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
-		return item.id !== req.session.data['reservation-id']
-	});
+	if (req.session.data['delete-reservation'] == 'yes' ) {
+		req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+			return item.id !== req.session.data['reservation-id']
+		});
+	}
 
 	res.redirect(`manage-reservations`)
 })

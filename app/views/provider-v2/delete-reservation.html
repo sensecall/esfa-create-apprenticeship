@@ -34,8 +34,8 @@ GOV.UK Prototype Kit
 
   <form method="post">
     {{ govukRadios({
-      idPrefix: "confirm-employer",
-      name: "confirm-employer",
+      idPrefix: "delete-reservation",
+      name: "delete-reservation",
       fieldset:
       {
         legend:
@@ -56,8 +56,6 @@ GOV.UK Prototype Kit
       }
       ]
     }) }}
-
-    <input type="hidden" value="{{data['reservation-id']}}" name="reservation-id">
 
     <p>
       {{ govukButton ({
