@@ -9,7 +9,15 @@ router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
 })
 
-// reservations data storage
+
+// ----------------------------------------------------------------------
+// Reservations data storage
+// ----------------------------------------------------------------------
+// We use this to set an empty array which will hold all the reservations
+// created by the user.
+//
+// In the future we might want to expand this so that we can run research
+// sessions with a provider and an employer user at the same time.
 router.use(function (req, res, next) {
 	if (!req.session.data['reservations']) {
 		req.session.data['reservations'] = []
@@ -17,6 +25,8 @@ router.use(function (req, res, next) {
 
 	next()
 })
+// ----------------------------------------------------------------------
+
 
 // Choose date
 router.get('/choose-date', (req, res) => {
@@ -56,6 +66,46 @@ router.post('/choose-date', (req, res) => {
 	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
 
 	res.redirect('choose-course')
+})
+
+
+// reservation complete
+router.post('/reservation-complete', (req, res) => {
+	if (req.session.data['add-apprentice'] == 'yes' ) {
+		res.redirect(`apprentice-details`)
+	} else {
+		res.redirect(`add-another-reservation`)
+	}
+})
+
+
+// add another reservation
+router.post('/add-another-reservation', (req, res) => {
+	if (req.session.data['add-reservation'] == 'yes' ) {
+		res.redirect(`choose-date`)
+	} else {
+		res.redirect(`account-home`)
+	}
+})
+
+
+// apprentice-details
+router.post('/apprentice-details', (req, res) => {
+	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+		return item.id !== req.session.data['choose-reservation']
+	});
+
+	res.redirect(`review-apprentice-details`)
+})
+
+
+// details sent
+router.post('/details-sent', (req, res) => {
+	if (req.session.data['add-another'] == 'yes' ) {
+		res.redirect(`choose-reservation`)
+	} else {
+		res.redirect(`account-home`)
+	}
 })
 
 
