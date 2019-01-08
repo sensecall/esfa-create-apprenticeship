@@ -43,7 +43,7 @@ GOV.UK Prototype Kit
         Employer
       </h3>
       <p class="govuk-!-margin-bottom-6">
-        {{data['employer']}}
+        {{data['reservation-employer']}}
       </p>
 
       {% call govukFieldset({
@@ -218,7 +218,7 @@ GOV.UK Prototype Kit
         },
         hint:
         {
-          html: "Add a reference, such as employee number or location. <br> This won't be seen by the employer."
+          html: "You can add a reference, such as employee number or location."
         },
         id: "reference",
         name: "reference"

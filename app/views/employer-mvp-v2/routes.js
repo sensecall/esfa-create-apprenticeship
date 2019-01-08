@@ -65,14 +65,25 @@ router.post('/choose-date', (req, res) => {
 	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
 	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
 
-	res.redirect('choose-course')
+	res.redirect('know-course')
+})
+
+
+// know course
+router.post('/know-course', (req, res) => {
+	if (req.session.data['know-course'] == 'yes' ) {
+		res.redirect(`choose-course`)
+	} else {
+		req.session.data['course-name'] = 'All apprenticeships, any level'
+		res.redirect(`confirm-details`)
+	}
 })
 
 
 // reservation complete
 router.post('/reservation-complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
-		res.redirect(`apprentice-details`)
+		res.redirect(`add-apprentice`)
 	} else {
 		res.redirect(`add-another-reservation`)
 	}
