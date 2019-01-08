@@ -1,3 +1,4 @@
+
 {% extends "layout-account.html" %}
 
 {% block pageTitle %}
@@ -14,31 +15,28 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="post">
+    <form action="apprentice-details">
      <h1 class="govuk-heading-xl app-content-required">
-      Confirm the details of this reservation
+      Confirm the details of your chosen training provider
     </h1>
 
     <div class="govuk-inset-text">
       <h2 class="govuk-heading-m">
-        {{data['reservation-employer']}}
+        APEX TRAINING LIMITED
       </h2>
 
       <p>
-        {{data['course-name']}}
-      </p>
-
-      <p>
-        Valid for starts from {{data['reservation-startRange']}} to {{data['reservation-endRange']}}
+        UKPRN: {{data['ukprn']}}
       </p>
     </div>
 
     <p>
       {{govukButton({
-        text: "Reserve this apprenticeship"
+        text: "Save and continue"
       })}}
     </p>
   </form>
+</div>
 </div>
 
 {% endblock %}
