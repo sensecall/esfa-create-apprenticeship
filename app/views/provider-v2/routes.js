@@ -65,6 +65,15 @@ router.get('/choose-date', (req, res) => {
 	res.render(`${req.feature}/choose-date`,{months})
 })
 
+router.post('/choose-date', (req, res) => {
+	req.session.data['reservation-employer'] = req.session.data['employer']
+	req.session.data['reservation-startRange'] = moment(req.session.data['planned-start-date']).subtract(1, 'months').format("MMMM YYYY")
+	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
+	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
+
+	res.redirect('choose-course')
+})
+
 // Confirm employer (reserve)
 router.post('/reserve__confirm-employer', (req, res) => {
 	if (req.session.data['confirm-employer'] == 'yes' ) {
@@ -82,16 +91,6 @@ router.post('/have-account', (req, res) => {
 	} else {
 		res.redirect(`know-provider`)
 	}
-})
-
-// choose date
-router.post('/choose-date', (req, res) => {
-	req.session.data['reservation-employer'] = req.session.data['employer']
-	req.session.data['reservation-startRange'] = moment(req.session.data['planned-start-date']).subtract(1, 'months').format("MMMM YYYY")
-	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
-	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
-
-	res.redirect('choose-course')
 })
 
 // choose course
