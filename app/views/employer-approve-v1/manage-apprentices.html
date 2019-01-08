@@ -60,7 +60,7 @@
         name: "details-correct",
         fieldset: {
           legend: {
-            text: "Are these details correct?",
+            text: "Approve these details?",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           }
@@ -68,11 +68,11 @@
         items: [
           {
             value: "yes",
-            text: "Yes, I'm happy to approve"
+            text: "Yes, approve these details"
           },
           {
             value: "no",
-            text: "No, there's a problem"
+            text: "No, reject these details"
           }        
         ]
       }) }}
@@ -82,13 +82,13 @@
           Send a message to your training provider
         </label>
         <span id="more-detail-hint" class="govuk-hint">
-          Let TEST Training provider know what you'd like them to do next.
+          Let TEST Training provider know about any errors they need to fix or what you'd like them to do next.
         </span>
         <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
       </div>
 
       {{ govukButton({
-        text: "Save and continue"
+        text: "Continue"
       }) }}
 
       </form>

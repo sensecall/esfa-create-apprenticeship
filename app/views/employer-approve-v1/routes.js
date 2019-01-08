@@ -91,7 +91,17 @@ router.post('/reserve-confirm', (req, res) => {
 	}
 })
 
-  router.post('/manage-apprentices', (req, res) => {
+//review-an-apprentice
+router.post('/review-an-apprentice', (req, res) => {
+	if (req.session.data['approve'] == 'yes' ) {
+		res.redirect(`confirmation`)
+	} else {
+		res.redirect(`not-confirmed`)
+	}
+})
+
+//manage-apprentices
+router.post('/manage-apprentices', (req, res) => {
 	if (req.session.data['details-correct'] == 'yes' ) {
 		res.redirect(`confirmation`)
 	} else {
