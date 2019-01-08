@@ -1,0 +1,35 @@
+{% extends "layout-account.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Details approved and sent to provider
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Details approved and sent to provider</h1>
+        <!--<div class="govuk-panel__body">
+          Your reference number<br><strong>HDJ2123F</strong>
+        </div>-->
+      </div>
+
+      <p>
+        TEST Training provider will receive an email notification shortly.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We've sent your approval to TEST Training provider.</p>
+      <p>They may contact you...</p>
+      <!--<p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>-->
+
+
+    </div>
+  </div>
+
+{% endblock %}
