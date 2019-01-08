@@ -1,11 +1,21 @@
 const express = require('express')
 const router = new express.Router()
 
+var _ = require('underscore');
 var moment = require('moment');
 const cryptoRandomString = require('crypto-random-string');
 
 router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
+})
+
+// reservations data storage
+router.use(function (req, res, next) {
+	if (!req.session.data['reservations']) {
+		req.session.data['reservations'] = []
+	}
+
+	next()
 })
 
 // Choose date
@@ -40,7 +50,7 @@ router.get('/choose-date', (req, res) => {
 })
 
 router.post('/choose-date', (req, res) => {
-	req.session.data['reservation-employer'] = req.session.data['employer']
+	req.session.data['reservation-employer'] = "Super Business Ltd"
 	req.session.data['reservation-startRange'] = moment(req.session.data['planned-start-date']).subtract(1, 'months').format("MMMM YYYY")
 	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
 	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
