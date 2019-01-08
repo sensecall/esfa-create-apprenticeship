@@ -30,8 +30,7 @@ GOV.UK Prototype Kit
 						<th class="govuk-table__header" scope="col">Employer</th>
 						<th class="govuk-table__header" scope="col">Course</th>
 						<th class="govuk-table__header" scope="col">Valid dates</th>
-						<th class="govuk-table__header" scope="col">Created</th>
-						<th class="govuk-table__header" colspan="2" scope="col">Reservation ID</th>
+						<th class="govuk-table__header" colspan="2" scope="col">Created</th>
 					</tr>
 				</thead>
 
@@ -43,7 +42,6 @@ GOV.UK Prototype Kit
 						<td class="govuk-table__cell">{{reservation.course}}</td>
 						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
 						<td class="govuk-table__cell">{{reservation.created}}</td>
-						<td class="govuk-table__cell">{{reservation.id}}</td>
 						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
 							<a href="reservation-details?reservation-id={{reservation.id}}">View</a>
 						</td>

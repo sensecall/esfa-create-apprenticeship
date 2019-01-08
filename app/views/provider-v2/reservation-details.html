@@ -46,10 +46,10 @@ GOV.UK Prototype Kit
             <td class="govuk-table__cell">{{reservationDetails[0]['created']}}</td>
           </tr>
 
-          <tr class="govuk-table__row">
+          <!-- <tr class="govuk-table__row">
             <th class="govuk-table__header">Reservation ID</th>
             <td class="govuk-table__cell">{{reservationDetails[0]['id']}}</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
 
@@ -61,12 +61,6 @@ GOV.UK Prototype Kit
         text: "Use this reservation",
         classes: "govuk-!-margin-top-0 govuk-!-display-inline-block"
       }) }}
-
-      <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
-        <a href="account-home">
-          Make changes
-        </a>
-      </p>
 
       <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
         <a href="delete-reservation?reservation-id={{reservationDetails[0]['id']}}">
