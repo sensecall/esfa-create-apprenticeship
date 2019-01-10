@@ -196,7 +196,7 @@ router.post('/add-another-reservation', (req, res) => {
 	if (req.session.data['add-reservation'] == 'yes' ) {
 		res.redirect(`choose-date`)
 	} else {
-		res.redirect(`account-home`)
+		res.redirect(`manage-reservations`)
 	}
 })
 

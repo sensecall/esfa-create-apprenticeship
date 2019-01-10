@@ -1,0 +1,59 @@
+{% extends "template.njk" %}
+
+{% block head %}
+{% include "includes/head.html" %}
+<style>
+* {
+  font-family: sans-serif !important;
+}
+footer {
+  display: none
+}
+.header-wrapper,
+#content,
+.govuk-header__container {
+  max-width: 600px !important;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: none;
+}
+..govuk-template {
+  background: #fff;
+}
+html{
+  background: white;
+}
+#content {
+  margin: 20px auto;
+}
+#global-cookie-message {
+  display: none;
+}
+</style>
+{% endblock %}
+
+{% block cookie_message %}
+  <p>{{cookieText | safe }}</p>
+{% endblock %}
+
+{% block proposition_header %}
+
+{% endblock %}
+
+{% block footer_support_links %}
+  {% if useAutoStoreData %}
+    <ul>
+      <li>
+        <a href="/prototype-admin/clear-data">Clear data</a>
+      </li>
+    </ul>
+  {% endif %}
+{% endblock %}
+
+{% block body_end %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block page_scripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+{% endblock %}
