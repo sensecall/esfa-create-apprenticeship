@@ -1,0 +1,198 @@
+
+{% extends "layout.html" %}
+
+{% set serviceName %}
+{% endset %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" id="employer-journeys">
+      Employer journeys
+    </h1>
+
+    <section>
+      <h2 class="govuk-heading-l">
+        MVP
+      </h2>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            MVP assumptions
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              “Reserve funding” service will not be citizen facing to begin with
+            </li>
+            <li>
+              Employer already has an AS account
+            </li>
+            <li>
+              Funds can only be reserved for a “legal entity” (so the entity may need to be confirmed this with the user at some point in the journey)
+            </li>
+            <li>
+              We will focus on the logged in, account-facing journey first
+            </li>
+            <li>
+              Employer might have already signed their agreement, or might sign it after checking that funding is available
+            </li>
+            <li>
+              Employer is aware that they need to reserve funding (somehow)
+            </li>
+            <li>
+              There will only be rules/restrictions on start date, course level and the number of reservations
+            </li>
+            <li>
+              Employer may not know what the next steps are after they have reserved funds
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <h3 class="govuk-heading-m">
+        Version 2
+      </h3>
+      <p>
+        A pared-down concept that contains the smallest number of steps, but now includes a step to choose the course.
+      </p>
+      <p>
+        <a href="employer-mvp-v2">
+          View prototype &rarr;
+        </a>
+      </p>
+
+      <h3 class="govuk-heading-m">
+        Version 1
+      </h3>
+      <p>
+        A pared-down concept that contains the smallest number of steps.
+      </p>
+      <p>
+        We want to see which features are not needed for the user to complete the journey.
+      </p>
+      <p>
+        <a href="employer-mvp-v1">
+          View prototype &rarr;
+        </a>
+      </p>
+    </section>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+    <section class="govuk-!-margin-top-9">
+      <h2 class="govuk-heading-l">
+        Transactional
+      </h2>
+     
+      <h3 class="govuk-heading-m">
+        Version 2
+      </h3>
+      <p>
+        Complex, linear journey which ends up on a task list page.
+      </p>
+      <p>
+        <a href="employer-transactional-v2">
+          View prototype &rarr;
+        </a>
+      </p>
+
+      <h3 class="govuk-heading-m">
+        Version 1
+      </h3>
+      <p>
+        Early transactional concept. A bit buggy.
+      </p>
+      <p>
+        <a href="employer-transactional-v1">
+          View prototype &rarr;
+        </a>
+      </p>
+    </section>
+
+    <section class="govuk-!-margin-top-9">
+      <h2 class="govuk-heading-l">
+        Enhanced approval
+      </h2>     
+      <h3 class="govuk-heading-m">
+        Approve single apprentice journey
+      </h3>
+      <p>
+        <a href="employer-approve-v1/email">
+          View prototype &rarr;
+        </a>
+      </p>
+      <h3 class="govuk-heading-m">
+        Approve more than one apprentice journey
+      </h3>      
+      <p>
+        <a href="employer-approve-v1/email1">
+          View prototype &rarr;
+        </a>
+      </p>
+      </section>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+    <h1 class="govuk-heading-xl" id="provider-journeys">
+      Provider journeys
+    </h1>
+
+    <section class="govuk-!-margin-top-9">
+      <h3 class="govuk-heading-m">
+        Version 2
+      </h3>
+      <p>
+        Provider journey "MVP" as agreed in X-team meeting on 2018-01-03.
+      </p>
+      <p>
+        <a href="provider-v2">
+          View prototype &rarr;
+        </a>
+      </p>
+    </section>
+
+    <section class="govuk-!-margin-top-9">
+      <h3 class="govuk-heading-m">
+        Version 1
+      </h3>
+      <p>
+        Initial concept for provider creating reservations on behalf of employer.
+      </p>
+      <p>
+        <a href="provider-v1">
+          View prototype &rarr;
+        </a>
+      </p>
+    </section>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Contents
+      </h2>
+
+      <ul class="govuk-list">
+        <li>
+          <a href="#employer-journeys">
+            Employer journeys
+          </a>
+        </li>
+        <li>
+          <a href="#provider-journeys">
+            Provider journeys
+          </a>
+        </li>        
+    </div>
+  </div>
+</div>
+
+{% endblock %}

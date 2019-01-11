@@ -1,0 +1,68 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<form action="confirm-employer">
+			<h1 class="govuk-heading-xl">
+				Manage reservations
+			</h1>
+
+			{% if data['reservations'].length %}
+			<a href="reserve__choose-employer" class="govuk-button">
+				Create a reservation
+			</a>
+
+			<table class="govuk-table govuk-!-font-size-16">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header" scope="col">Employer</th>
+						<th class="govuk-table__header" scope="col">Course</th>
+						<th class="govuk-table__header" scope="col">Valid dates</th>
+						<th class="govuk-table__header" colspan="2" scope="col">Created</th>
+					</tr>
+				</thead>
+
+				<tbody class="govuk-table__body">
+					{% for reservation in data['reservations'] %}
+					{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">{{reservation.employer}}</td>
+						<td class="govuk-table__cell">{{reservation.course}}</td>
+						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+						<td class="govuk-table__cell">{{reservation.created}}</td>
+						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
+							<a href="reservation-details?reservation-id={{reservation.id}}">View</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% else %}
+			<h2 class="govuk-heading-m">
+				You do not have any reservations to use.
+			</h2>
+
+			<p>
+				You need to create a reservation in order to add a new apprentice.
+			</p>
+
+			<a href="reserve__choose-employer" class="govuk-button">
+				Create a reservation
+			</a>
+			{% endif %}
+		</form>
+	</div>
+
+	{% endblock %}
