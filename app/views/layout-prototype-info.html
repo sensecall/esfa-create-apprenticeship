@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Prototype
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Reserve and approve",
+  serviceUrl: "/",
+  navigation: [
+  {
+    href: "/reserve/",
+    text: "Reserve journeys",
+    active: currentPage == "reserve"
+  },
+  {
+    href: "/approve/",
+    text: "Approve journeys",
+    active: currentPage == "approve"
+  },
+  {
+    href: "/archive/",
+    text: "Archive",
+    active: currentPage == "archive"
+  }
+  ]
+}) }}
+{% endblock %}

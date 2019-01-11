@@ -1,0 +1,47 @@
+
+{% extends "layout-prototype-info.html" %}
+
+{% set currentPage = 'approve' %}
+
+{% block pageTitle %}
+Approve journeys
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Approve
+    </h1>
+
+    <h2 class="govuk-heading-m" id="sprint-0">
+      Sprint 0
+    </h2>
+
+    <h3 class="govuk-heading-s" id="employer-journeys">
+      <a href="employer">Employer journey</a>
+    </h3>
+
+    <h3 class="govuk-heading-s" id="provider-journeys">
+      <a href="sprint-00/provider">Provider journey</a>
+    </h3>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="app-related-items">
+      <h2 class="govuk-heading-s">
+        Contents
+      </h2>
+
+      <ul class="govuk-list">
+        <li>
+          <a href="#sprint-0">
+            Sprint 0
+          </a>
+        </li>      
+      </div>
+    </div>
+
+  </div>
+
+  {% endblock %}

@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
 // Get Sprint and Feature for URL links
 router.use('/', (req, res, next) => {
   req.version = req.originalUrl.split('/')[2]
-  req.feature = req.originalUrl.split('/')[1] + '/' + req.originalUrl.split('/')[2]
+  req.feature = req.originalUrl.split('/')[1] + '/' + req.originalUrl.split('/')[2] + '/' + req.originalUrl.split('/')[3]
   res.locals.version = req.version
   res.locals.feature = req.feature
   res.locals.sprint = req.sprint
@@ -27,14 +27,12 @@ router.use(/\/archive/, (req, res, next) => {
   require(`./views/archive/routes`)(req, res, next);
 })
 
-// NEW STRUCTURE
-// created 2019-01-11
-router.use(/\/approve/, (req, res, next) => {
-  require(`./views/approve/routes`)(req, res, next);
+// Approve
+router.use(/\/approve\/sprint-([0-99]+)/, (req, res, next) => {
+  require(`./views/approve/sprint-${req.params[0]}/routes`)(req, res, next);
 })
 
-// NEW STRUCTURE
-// created 2019-01-11
+// Reserve
 router.use(/\/reserve\/sprint-([0-99]+)/, (req, res, next) => {
   require(`./views/reserve/sprint-${req.params[0]}/routes`)(req, res, next);
 })

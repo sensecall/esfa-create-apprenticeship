@@ -1,23 +1,26 @@
 
-{% extends "layout.html" %}
+{% extends "layout-prototype-info.html" %}
 
-{% set serviceName %}
-{% endset %}
+{% set currentPage = 'archive' %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Archive
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl" id="employer-journeys">
-      Employer journeys
+    <h1 class="govuk-heading-xl">
+      Archive
     </h1>
 
+    <h2 class="govuk-heading-l" id="employer-journeys">
+      Employer journeys
+    </h2>
+
     <section>
-      <h2 class="govuk-heading-l">
+      <h2 class="govuk-heading-m">
         MVP
       </h2>
 
@@ -57,7 +60,7 @@ GOV.UK Prototype Kit
         </div>
       </details>
 
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Version 2
       </h3>
       <p>
@@ -69,7 +72,7 @@ GOV.UK Prototype Kit
         </a>
       </p>
 
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Version 1
       </h3>
       <p>
@@ -88,11 +91,11 @@ GOV.UK Prototype Kit
     <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
 
     <section class="govuk-!-margin-top-9">
-      <h2 class="govuk-heading-l">
+      <h2 class="govuk-heading-m">
         Transactional
       </h2>
      
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Version 2
       </h3>
       <p>
@@ -104,7 +107,7 @@ GOV.UK Prototype Kit
         </a>
       </p>
 
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Version 1
       </h3>
       <p>
@@ -118,10 +121,10 @@ GOV.UK Prototype Kit
     </section>
 
     <section class="govuk-!-margin-top-9">
-      <h2 class="govuk-heading-l">
+      <h2 class="govuk-heading-m">
         Enhanced approval
       </h2>     
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Approve single apprentice journey
       </h3>
       <p>
@@ -129,7 +132,7 @@ GOV.UK Prototype Kit
           View prototype &rarr;
         </a>
       </p>
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Approve more than one apprentice journey
       </h3>      
       <p>
@@ -146,7 +149,7 @@ GOV.UK Prototype Kit
     </h1>
 
     <section class="govuk-!-margin-top-9">
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Version 2
       </h3>
       <p>
@@ -160,7 +163,7 @@ GOV.UK Prototype Kit
     </section>
 
     <section class="govuk-!-margin-top-9">
-      <h3 class="govuk-heading-m">
+      <h3 class="govuk-heading-s">
         Version 1
       </h3>
       <p>
@@ -176,7 +179,7 @@ GOV.UK Prototype Kit
 
   <div class="govuk-grid-column-one-third">
     <div class="app-related-items">
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-s">
         Contents
       </h2>
 
@@ -193,6 +196,7 @@ GOV.UK Prototype Kit
         </li>        
     </div>
   </div>
+  
 </div>
 
 {% endblock %}

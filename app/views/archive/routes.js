@@ -1,11 +1,6 @@
 const express = require('express')
 const router = new express.Router()
 
-// Route index page
-router.get('/', function (req, res) {
-  res.render('index')
-})
-
 // Get Sprint and Feature for URL links
 router.use('/', (req, res, next) => {
   req.version = req.originalUrl.split('/')[2]
@@ -19,7 +14,7 @@ router.use('/', (req, res, next) => {
 
 
 // Home page redirect
-router.get('/', (req, res) => {
+router.get('/archive', (req, res) => {
   res.redirect(`/archive/`)
 })
 
