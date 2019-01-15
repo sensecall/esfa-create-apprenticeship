@@ -60,7 +60,7 @@ router.get('/choose-date', (req, res) => {
 })
 
 router.post('/choose-date', (req, res) => {
-	req.session.data['reservation-employer'] = "Super Business Ltd"
+	req.session.data['reservation-employer'] = "APEX ELECTRICAL ENGINEERS LIMITED"
 	req.session.data['reservation-startRange'] = moment(req.session.data['planned-start-date']).subtract(1, 'months').format("MMMM YYYY")
 	req.session.data['reservation-endRange'] = moment(req.session.data['planned-start-date']).add(1, 'months').format("MMMM YYYY")
 	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
