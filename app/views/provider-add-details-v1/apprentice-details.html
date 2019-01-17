@@ -1,0 +1,197 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      <h2 class="govuk-heading-xl">
+        Add apprentice details
+      </h2>
+
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+        Employer
+      </h3>
+      <p class="govuk-!-margin-bottom-6">
+        {{data['employer']}}
+      </p>
+
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Apprentice name",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+      }) %}
+
+      {{ govukInput({
+        label:
+        {
+          text: "First name"
+        },
+        id: "first-name",
+        name: "first-name",
+        classes: "govuk-input--width-20"
+      }) }}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Last name"
+        },
+        id: "last-name",
+        name: "last-name",
+        classes: "govuk-input--width-20"
+      }) }}
+      {% endcall %}
+
+      {{ govukDateInput({
+        id: "dob",
+        namePrefix: "dob",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Date of birth",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint:
+        {
+          text: "For example, 31 3 1980"
+        }
+      }) }}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Unique learner number (ULN)"
+        },
+        id: "uln",
+        name: "uln"
+      }) }}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Apprenticeship training course"
+        },
+        hint:
+        {
+          text: "Start typing the name of the course or choose an option from the list"
+        },
+        id: "course-name",
+        name: "course-name"
+      }) }}
+
+      {{ govukDateInput({
+        id: "start-date",
+        namePrefix: "start-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Planned training start date",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ],
+        hint:
+        {
+          text: "For example, 31 3 1980"
+        }
+      }) }}
+
+      {{ govukDateInput({
+        id: "finish-date",
+        namePrefix: "finish-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Projected finish date",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ],
+        hint:
+        {
+          text: "For example, 31 3 1980"
+        }
+      }) }}
+
+      {{ govukInput({
+        type: "number",
+        classes: "govuk-input--width-10",
+        label:
+        {
+          text: "Agreed cost"
+        },
+        hint:
+        {
+          text: "Enter the price, including any end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500"
+        },
+        id: "cost",
+        name: "cost"
+      }) }}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Reference (optional)"
+        },
+        hint:
+        {
+          html: "Add a reference, such as employee number or location. <br> This won't be seen by the employer."
+        },
+        id: "reference",
+        name: "reference"
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

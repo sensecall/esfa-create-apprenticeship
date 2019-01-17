@@ -41,6 +41,11 @@ router.use(/\/provider-v([0-9]+)/, (req, res, next) => {
   require(`./views/provider-v${req.params[0]}/routes`)(req, res, next);
 })
 
+// Provider add details
+router.use(/\/provider-add-details-v([0-9]+)/, (req, res, next) => {
+  require(`./views/provider-v${req.params[0]}/routes`)(req, res, next);
+})
+
 // Employer approve
 router.use(/\/employer-approve-v([0-9]+)/, (req, res, next) => {
   require(`./views/employer-approve-v${req.params[0]}/routes`)(req, res, next);
