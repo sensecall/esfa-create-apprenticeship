@@ -23,30 +23,10 @@ GOV.UK Prototype Kit
           isPageHeading: true
         }
       }) %}
-
-      {{ govukInput({
-        label:
-        {
-          text: "Employer name"
-        },
-        hint:
-        {
-          text: "This is the employer you are creating a cohort on behalf of."
-        },
-        classes: "govuk-input--width-20",
-        formGroup:
-        {
-          classes: "govuk-!-margin-bottom-2"
-        },
-        id: "national-insurance-number",
-        name: "national-insurance-number"
-      }) }}
-
-      {{ govukButton({
-        text: "Submit",
-        classes: "govuk-!-margin-top-0"
-      }) }}
       {% endcall %}
+
+      <p>This is the employer you are creating a cohort on behalf of.</p>
+      <p>3 results found.</p>
 
       {% import './apprentices.json' as apprenticesData %}
       <table class="govuk-table">

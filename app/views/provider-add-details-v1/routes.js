@@ -90,7 +90,7 @@ router.get('/choose-reservation', (req, res) => {
 	})
 
 	if(filteredReservations.length == 0){
-		res.redirect('funding-warning')
+		res.redirect('choose-date')
 	} else {
 		res.render(`${req.feature}/choose-reservation`,{filteredReservations})
 	}
@@ -120,8 +120,37 @@ router.post('/apprentice-details', (req, res) => {
          return item.id !== req.session.data['choose-reservation']
     });
 
-	res.redirect(`review-apprentice-details`)
+	//res.redirect(`review-apprentice-details`)
+	res.redirect(`review-your-cohort`)
 })
+
+// review-your-cohort
+router.post('/review-your-cohort', (req, res) => {
+	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+         return item.id !== req.session.data['choose-reservation']
+    });
+
+	res.redirect(`choose-an-option`)
+})
+
+// choose-an-option
+router.post('/choose-an-option', (req, res) => {
+	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+         return item.id !== req.session.data['choose-reservation']
+    });
+
+	res.redirect(`message-for-employer`)
+})
+
+// message-for-employer
+router.post('/message-for-employer', (req, res) => {
+	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+         return item.id !== req.session.data['choose-reservation']
+    });
+
+	res.redirect(`details-sent`)
+})
+
 
 // add another reservation
 router.post('/add-another-reservation', (req, res) => {

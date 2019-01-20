@@ -12,43 +12,47 @@ GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
-		{{ govukPanel({
-			titleText: "Details added and sent to " + data['employer'],
-			classes: "govuk-!-margin-bottom-8"
-		}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Cohort sent for review"
+      }) }}
 
-		<form method="post">
-			{{ govukRadios({
-				idPrefix: "add-another",
-				name: "add-another",
-				fieldset:
-				{
-					legend:
-					{
-						text: "Do you need to add any more apprentices for this employer?",
-						isPageHeading: true,
-						classes: "govuk-fieldset__legend--l"
-					}
-				},
-				items: [
-				{
-					value: "yes",
-					text: "Yes"
-				},
-				{
-					value: "no",
-					text: "No"
-				}
-				]
-			}) }}
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Cohort reference</th>
+			<td class="govuk-table__cell" style="font-weight: 400;">MN48DW</td>
+		  </tr>
+		  <tr class="govuk-table__row">
+            <th class="govuk-table__header">Sent to</th>
+            <td colspan="2" class="govuk-table__cell" style="font-weight: 400;">Grooveholding Financial</td>
+		  </tr>
+		  <tr class="govuk-table__row">
+            <th class="govuk-table__header">On behalf of</th>
+            <td colspan="2" class="govuk-table__cell" style="font-weight: 400;">APEX TRAINING LIMITED</td>
+		  </tr>
+		  <tr class="govuk-table__row">
+            <th class="govuk-table__header">Message</th>
+            <td colspan="2" class="govuk-table__cell"></td>
+		  </tr>
+		</tbody>
+      </table>
 
-			<p>
-				{{ govukButton ({
-					text: "Save and continue"
-				})}}
-			</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        The updated cohort will appear in the employer's account for them to review. 
+      </p>
+      
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Go back to view cohorts</a>
+      </p>
+    </div>
+  </div>
+
+
 		</form>
 	</div>
 </div>
