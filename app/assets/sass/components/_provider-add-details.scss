@@ -1,0 +1,76 @@
+#review-cohorts {
+    color: #fff;
+    margin: 30px 0;
+}
+
+#review-cohorts .column-one-third {
+    height: 190px;
+    float: left;
+    width: 33.3333333333%;
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#review-cohorts .all-apps {
+    margin: auto;
+    width: 31%;
+    background: #2e3391;
+    padding: 20px;
+}
+
+#review-cohorts .incomplete-apps {
+    margin-left: 3.3333%;
+    width: 31%;
+    background: #8e2a8d;
+    padding: 20px;
+}
+
+#review-cohorts .total-cost {
+    margin-left: 3.3333%;
+    width: 31%;
+    background: #d03a84;
+    padding: 20px;
+}
+
+#review-cohorts h2.bold-xlarge {
+    font-size: 80px;
+    line-height: 0;
+    font-family: "nta",Arial,sans-serif;
+    font-weight: 700;
+    text-transform: none;
+}
+
+#review-cohorts .heading-small {
+    font-size: 24px;
+    font-family: "nta",Arial,sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    line-height: 1.3157894737;
+    margin-top: 1.0526315789em;
+    margin-bottom: .3125em;
+    color: #fff;
+}
+
+.button-secondary {
+    background-color: #dee0e2;
+    position: relative;
+    display: -moz-inline-stack;
+    display: inline-block;
+    padding: .526315em .789473em .263157em;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    box-shadow: 0 2px 0 #b5babe;
+    font-size: 1.2em;
+    line-height: 1.25;
+    text-decoration: none;
+    cursor: pointer;
+    color: #0b0c0c;
+    margin-left: 20px;
+    width: 200px;
+    height: 39px;
+}
