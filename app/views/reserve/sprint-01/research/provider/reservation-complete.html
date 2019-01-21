@@ -1,0 +1,56 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{{ govukPanel({
+			titleText: "Apprenticeship funds reserved",
+			classes: "govuk-!-margin-bottom-8"
+		}) }}
+
+		<form method="post">
+			{{ govukRadios({
+				idPrefix: "add-apprentice",
+				name: "add-apprentice",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Do you need to assign an apprentice to this reservation?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes"
+				},
+				{
+					value: "no",
+					text: "Not right now"
+				}
+				]
+			}) }}
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

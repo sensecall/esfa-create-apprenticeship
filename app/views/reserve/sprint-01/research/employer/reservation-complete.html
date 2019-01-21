@@ -1,0 +1,89 @@
+
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "Apprenticeship funds reserved",
+      classes: "govuk-!-margin-bottom-8"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      What you need to do now
+    </h1>
+
+    <p>
+      Once you have finalised the details of the apprenticeship with your chosen training provider, you will need to add this information to your reservation.
+    </p>
+
+    <p>
+      You can add these now if you already know them.
+    </p>
+
+    <p>
+      Both you and the training provider will need to check and approve this information before the apprenticeship starts so that the correct funding can be paid to your training provider.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      If you haven't chosen a Training provider
+    </h2>
+
+    <p>
+      If you don’t know which training provider you want to use then you can use the <a href="#">Find Apprenticeship Training</a> service to search for a provider who offers the apprenticeship you would like to offer.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      If you haven't found an apprentice
+    </h2>
+
+    <p>
+      You can also use our <a href="#">recruitment service</a> to help you find the right apprentice for your business.
+    </p>
+
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "add-apprentice",
+        name: "add-apprentice",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you need to assign an apprentice to this reservation?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l govuk-!-margin-top-6"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "Not right now"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
