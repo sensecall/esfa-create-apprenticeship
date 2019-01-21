@@ -1,0 +1,82 @@
+// Pattern: flash cards
+// Problem: interupt the user with important information
+
+$page-colour: #fff;
+
+.circle-white {
+  color: govuk-colour("blue");
+  background: #fff;
+  float: left;
+  margin-right: 10px;
+}
+
+.flash-card {
+  $background: $govuk-link-colour;
+  margin-top: 1em;
+  padding: 30px;
+  background: $background;
+
+  .govuk-button {
+    background: #fff;
+    color: $background !important;
+    box-shadow: 0 2px 0 darken($background,25%);
+  }
+
+  * {
+    color: $page-colour !important;
+  }
+
+  .govuk-warning-text__icon {
+    color: $background !important;
+    background: #fff;
+    border-color: #fff
+  }
+
+  h1 {
+    &:first-of-type {
+      margin-top: 0 !important;
+    }
+  }
+
+  h2 {
+    margin: 0.7em 0px 0.3em 0px !important;
+  }
+
+  a {
+    color: $page-colour;
+    &:visited, &:hover, &:active {
+      color: $page-colour;
+    }
+  }
+  details {
+    summary {
+      color: $page-colour;
+    }
+    .panel {
+      border-left-color: $page-colour;
+    }
+  }
+
+  &.flash-card--green {
+    $background: govuk-colour('green');
+    background: $background;
+
+    .govuk-button {
+      color: $background !important;
+      box-shadow: 0 2px 0 darken($background,25%);
+    }
+
+    .govuk-warning-text__icon {
+      color: $background !important;
+      background: #fff;
+      border-color: #fff
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .flash-card {
+    margin-top: 1.25em;
+    padding: 35px 50px;
+  }
+}
