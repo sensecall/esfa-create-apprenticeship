@@ -132,7 +132,7 @@ router.get('/choose-reservation', (req, res) => {
 	})
 
 	if(filteredReservations.length == 0){
-		res.redirect('funding-warning')
+		res.redirect('enter-details')
 	} else {
 		res.render(`${req.feature}/choose-reservation`,{filteredReservations})
 	}	
@@ -140,7 +140,7 @@ router.get('/choose-reservation', (req, res) => {
 
 router.post('/choose-reservation', (req, res) => {
 	if (req.session.data['choose-reservation'] == 'create-reservation' ) {
-		res.redirect(`funding-warning`)
+		res.redirect(`enter-details`)
 	} else {
 		res.redirect(`apprentice-details`)
 	}
@@ -200,7 +200,7 @@ router.post('/delete-reservation', (req, res) => {
 // add another reservation
 router.post('/add-another-reservation', (req, res) => {
 	if (req.session.data['add-reservation'] == 'yes' ) {
-		res.redirect(`choose-date`)
+		res.redirect(`enter-details`)
 	} else {
 		res.redirect(`manage-reservations`)
 	}
