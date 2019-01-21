@@ -52,4 +52,9 @@ router.use(/\/employer-approve-v([0-9]+)/, (req, res, next) => {
   require(`./employer-approve-v${req.params[0]}/routes`)(req, res, next);
 })
 
+// Provider add details
+router.use(/\/provider-add-details-v([0-9]+)/, (req, res, next) => {
+  require(`./provider-add-details-v${req.params[0]}/routes`)(req, res, next);
+})
+
 module.exports = router

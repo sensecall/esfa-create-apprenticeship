@@ -1,0 +1,90 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form action="confirm-employer">
+    <h1 class="govuk-heading-l">
+      Review your cohort
+    </h1>
+    <div class="govuk-grid-row" id="review-cohorts">
+      <div class="column-one-third all-apps">
+          <div>
+              <h2 class="bold-xlarge">1</h2>
+              <p class="heading-small">Apprentices</p>
+          </div>
+      </div>
+      <div class="column-one-third incomplete-apps">
+          <div>
+              <h2 class="bold-xlarge">1</h2>
+              <p class="heading-small">Incomplete records</p>
+          </div>
+      </div>
+      <div class="column-one-third total-cost">
+          <div class="dynamic-cost-display">
+              <h2 class=" bold-xlarge">£1,500</h2>
+              <p class="heading-small">Total cost</p>
+          </div>
+      </div>
+    </div>
+    <div>
+      <p><span class="govuk-body" style="font-weight: 700;">Employer: </span>Grooveholding Financial</p>
+      <p><span class="govuk-body" style="font-weight: 700;">Cohort reference: </span>MN48DW</p>
+      <p><span class="govuk-body" style="font-weight: 700;">Status: </span>Ready to review</p>
+    </div>
+      {{ govukButton({
+        text: "Continue to approval",
+        classes: "govuk-!-margin-top-0 govuk-!-display-inline-block",
+        href: "choose-an-option"
+      }) }}
+
+      <button type="submit" class="button-secondary">
+        Add an apprentice
+      </button>
+
+      <hr class="govuk-section-break govuk-section-break--visible">
+      <br><br><br>
+
+      <h2 class="govuk-heading-m">1 x Bespoke Saddler, Level: 3 (Standard)</h2>
+      
+      <table class="govuk-table govuk-!-font-size-18">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header" scope="col">Name</th>
+						<th class="govuk-table__header" scope="col">Unique learner number</th>
+            <th class="govuk-table__header" scope="col">Date of birth</th>
+            <th class="govuk-table__header" scope="col">Training dates</th>
+						<th class="govuk-table__header" colspan="2" scope="col">Cost</th>
+					</tr>
+				</thead>
+
+				<tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+						<td class="govuk-table__cell">Sarah Philips</td>
+						<td class="govuk-table__cell">Bespoke Saddler, Level 5 (Standard)</td>
+            <td class="govuk-table__cell">1 Jan 2000</td>
+            <td class="govuk-table__cell">Feb 2019 to Mar 2020</td>
+						<td class="govuk-table__cell">£1,500</td>
+						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
+							<a href="review-one-of-many-apprentices">Edit</a>
+						</td>
+					</tr>
+        </tbody>
+			</table>
+    </div>
+  </form>  
+  </div> 
+</div>
+
+{% endblock %}

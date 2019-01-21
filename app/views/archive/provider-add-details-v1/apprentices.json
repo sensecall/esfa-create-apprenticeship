@@ -1,0 +1,20 @@
+{% set apprentices = [
+        {
+            "employer": "Grooveholding Financial",
+            "agreementID": 480560,
+            "first name": "GROOVEHOLDING LTD",
+            "last name": ""
+        },
+        {
+            "employer": "Grooveholding Legal",
+            "agreementID": 276669,
+            "first name": "GROOVEHOLDING LTD",
+            "last name": ""
+        },
+        {
+            "employer": "Ranktrans",
+            "agreementID": 152165,
+            "first name": "RANKTRANS CORP",
+            "last name": ""
+        }
+    ] %}
