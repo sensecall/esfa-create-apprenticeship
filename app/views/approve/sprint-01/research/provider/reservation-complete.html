@@ -1,0 +1,65 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{{ govukPanel({
+			titleText: "Funding secured",
+			html: "You have secured funding for one apprenticeship for " + data['employer'],
+			classes: "govuk-!-margin-bottom-8"
+		}) }}
+
+		<h1 class="govuk-heading-l">
+
+		</h1>
+
+		<p class="govuk-!-margin-bottom-8">
+			You can <a href="#">print</a> or <a href="#">send an email</a> to {{data['employer']}} to tell them you have secured funding.
+		</p>
+
+		<form method="post">
+			{{ govukRadios({
+				idPrefix: "add-apprentice",
+				name: "add-apprentice",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Do you need to assign an apprentice to this reservation?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes"
+				},
+				{
+					value: "no",
+					text: "Not right now"
+				}
+				]
+			}) }}
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layout-provider-account.html" %}
+
+{% set currentPage = 'account-home' %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			APEX TRAINING LIMITED
+			<span class="govuk-caption-xl">Account ID: 7JDYMV</span>
+		</h1>
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<div class="govuk-grid-row page-dashboard">		
+			<div class="govuk-grid-column-two-thirds">
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="add__choose-employer">Create a cohort</a>
+						</h2>
+						<p>
+							Create new cohorts on behalf of an employer.
+						</p>
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="manage-reservations">Secure funding for non-levy employers</a>
+						</h2>
+						<p>
+							Add and manage funds reserved on behalf of an employer.
+						</p>
+					</div>
+				</div>
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Manage your apprentices</a>
+						</h2>
+						<p>View and update approved apprentice records.</p>	
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Your cohorts</a>
+						</h2>
+						<p>
+							Review, edit, approve and add apprentices to new cohorts.
+						</p>					
+					</div>
+				</div>
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Your employers</a>
+						</h2>
+						<p>View employers you work with and the permissions they've given you.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

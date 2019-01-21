@@ -1,0 +1,58 @@
+
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Secure funding for taking on an apprentice
+    </h1>{{releaseVersion | log }}
+    
+    <p>
+      Use this service to secure government funding for training an apprentice. Government funding will pay for 95% of the cost of training an apprentice. You need to pay 5%.
+    </p>
+
+    {{ govukWarningText({
+      html: "From April 2019, you will not be able to secure any funding for training an aprentice. Any funding you have secured before April 2019 will not be affected.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+
+    <p>
+      Before you start you will need:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>an estimate of which month the apprentice will start</li>
+      <li>an estimate of what <a href="#">training course</a> the apprentice may take, which can be changed later</li>
+    </ul>
+
+    <p>
+      You can only secure funding up to 6 months before an apprenticeship is about to start.
+    </p>
+
+    <p>
+      <a href="date-course" class="govuk-button govuk-button--start">
+        Start
+      </a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

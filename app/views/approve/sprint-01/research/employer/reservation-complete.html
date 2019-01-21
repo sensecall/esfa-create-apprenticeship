@@ -1,0 +1,65 @@
+
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "Funding secured",
+      html: "You have secured funding for one apprenticeship",
+      classes: "govuk-!-margin-bottom-8"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+
+    </h1>
+
+    <p>
+      You can <a href="#">print</a> or <a href="#">send an email</a> to your training provider to tell them you have secured funding.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Making changes
+    </h2>
+
+    <p>
+      You can log in at any time to make changes to your chosen course. To make any other changes, you will need to start again and secure funding.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      What you need to do now
+    </h2>
+
+    <ol class="govuk-list govuk-list--number">
+      <li>
+        Find an apprentice. Use our <a href="#">recruitment service</a> find an apprentice
+      </li>
+      <li>
+        Find a training provider. Use the <a href="#">Find apprenticeship training</a> service to find a training provider who offers the course you would like.
+      </li>
+      <li>
+        Match your apprentice to this funding.
+      </li>
+    </ol>
+
+    <p>
+      {{ govukButton({
+        text: "Return to account",
+        href: "account-home"
+      }) }}
+    </p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,30 +1,21 @@
 
 {% extends "layout-prototype-info.html" %}
 
-{% set currentPage = 'approve' %}
+{% set currentPage = 'reserve' %}
 
 {% block pageTitle %}
-Approve journeys
+Reserve
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Approve
+      Reserve
     </h1>
 
-    <h2 class="govuk-heading-m" id="sprint-0">
-      Sprint 0
-    </h2>
-
-    <h3 class="govuk-heading-s" id="employer-journeys">
-      <a href="employer">Employer journey</a>
-    </h3>
-
-    <h3 class="govuk-heading-s" id="provider-journeys">
-      <a href="sprint-00/provider">Provider journey</a>
-    </h3>
+    {% include './sprint-01/_summary.html' %}
+    
   </div>
 
   <div class="govuk-grid-column-one-third">

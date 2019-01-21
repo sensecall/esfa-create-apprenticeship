@@ -1,0 +1,107 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+     <h1 class="govuk-heading-xl app-content-required">
+      Check your information
+    </h1>
+
+    <p>
+      You are securing 95% of the cost of this apprenticeship training:
+    </p>
+
+    {% from "summary-list/macro.njk" import govukSummaryList %}
+
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: data['reservation-employer']
+        },
+        actions:
+        {
+          items: 
+          [
+          {
+
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          text: data['course-name']
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "choose-course",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "choose-date",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+          ]
+        }
+      }
+      ]
+    }) }}
+
+    <p>
+      Remember you will need to pay 5% of the cost for training an apprentice. The exact cost of the training course agreed will be agreed with your training provider.
+    </p>
+
+    <p>
+      {{govukButton({
+        text: "Reserve this apprenticeship"
+      })}}
+    </p>
+  </form>
+</div>
+
+{% endblock %}
