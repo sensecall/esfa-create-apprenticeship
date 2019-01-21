@@ -16,35 +16,92 @@ GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
      <h1 class="govuk-heading-xl app-content-required">
-      Confirm the details of this reservation
+      Check your information
     </h1>
 
-    <div class="govuk-inset-text">
-      <h2 class="govuk-heading-m">
-        {{data['reservation-employer']}}
-      </h2>
+    <p>
+      You are securing 95% of the cost of this apprenticeship training:
+    </p>
 
-      <p>
-        {{data['course-name']}}
-      </p>
+    {% from "summary-list/macro.njk" import govukSummaryList %}
 
-      <p>
-        Valid for starts from {{data['reservation-startRange']}} to {{data['reservation-endRange']}}
-      </div>
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: data['employer']
+        },
+        actions:
+        {
+          items: 
+          [
+          {
 
-      <!-- <h2 class="govuk-heading-m">
-        What you need to do now
-      </h2>
-      <p>
-        Lorem ipsum sit eu do id aliquip commodo culpa pariatur nisi cupidatat reprehenderit esse ea culpa proident in aliquip labore nostrud tempor nulla pariatur sint id aute ut minim amet ut dolor occaecat enim ea ut proident id occaecat non dolor.
-      </p> -->
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          text: data['course-name']
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "choose-course",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "choose-date",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+          ]
+        }
+      }
+      ]
+    }) }}
 
-      <p>
-        {{govukButton({
-          text: "Reserve this apprenticeship"
-        })}}
-      </p>
-    </form>
-  </div>
+    <p>
+      The exact cost of the training course agreed should be agreed with the employer.
+    </p>
 
-  {% endblock %}
+    <p>
+      {{govukButton({
+        text: "Reserve this apprenticeship"
+      })}}
+    </p>
+  </form>
+</div>
+
+{% endblock %}

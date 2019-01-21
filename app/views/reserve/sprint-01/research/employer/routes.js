@@ -71,6 +71,53 @@ router.post('/choose-date', (req, res) => {
 })
 
 
+// date course variant
+router.get('/date-course', (req, res) => {
+	var currentMonth = moment().format('MMMM YYYY')
+
+	var months = [{
+		value: currentMonth,
+		text: moment(currentMonth).startOf('month').format("MMMM YYYY") + " (valid until " + moment(currentMonth).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+		attributes:
+		{
+			required: "required"
+		}
+	}]
+
+	function addMonths(m){
+		if(months.length < m){
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMMM YYYY");
+			var month = {
+				value: date,
+				text: moment(date).startOf('month').format("MMMM YYYY") + " (valid until " + moment(date).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+				hint:
+				{
+					text: ""
+				}
+			}
+
+			months.push(month)
+			addMonths(m)
+		}
+	}
+
+	addMonths(4)
+
+	res.render(`${req.feature}/date-course`,{months})
+})
+
+router.post('/date-course', (req, res) => {
+	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("DD MMMM YYYY")
+	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("DD MMMM YYYY")
+	req.session.data['reservation-employer'] = "APEX ELECTRICAL ENGINEERS LIMITED"
+	req.session.data['reservation-startRange'] = earliest
+	req.session.data['reservation-endRange'] = latest
+	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
+
+	res.redirect('confirm-details')
+})
+
+
 // know course
 router.post('/know-course', (req, res) => {
 	if (req.session.data['know-course'] == 'yes' ) {

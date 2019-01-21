@@ -20,97 +20,81 @@ GOV.UK Prototype Kit
     </h1>
 
     <p>
-      You are securing 96% of the cost of this apprenticeship training:
+      You are securing 95% of the cost of this apprenticeship training:
     </p>
 
     {% from "summary-list/macro.njk" import govukSummaryList %}
-    
+
     {{ govukSummaryList({
-  rows: [
-    {
-      key: {
-        text: "Name"
-      },
-      value: {
-        text: "Sarah Philips"
-      },
-      actions: {
-        items: [
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: data['reservation-employer']
+        },
+        actions:
+        {
+          items: 
+          [
           {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "name"
+
           }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Date of birth"
+          ]
+        }
       },
-      value: {
-        text: "5 January 1978"
-      },
-      actions: {
-        items: [
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          text: data['course-name']
+        },
+        actions:
+        {
+          items:
+          [
           {
-            href: "#",
+            href: "choose-course",
             text: "Change",
             visuallyHiddenText: "date of birth"
           }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Contact information"
+          ]
+        }
       },
-      value: {
-        html: "72 Guild Street<br>London<br>SE23 6FH"
-      },
-      actions: {
-        items: [
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        },
+        actions:
+        {
+          items:
+          [
           {
-            href: "#",
+            href: "choose-date",
             text: "Change",
             visuallyHiddenText: "contact information"
           }
-        ]
+          ]
+        }
       }
-    },
-    {
-      key: {
-        text: "Contact details"
-      },
-      value: {
-        html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "contact details"
-          }
-        ]
-      }
-    }
-  ]
-}) }}
+      ]
+    }) }}
 
-    <div class="govuk-inset-text">
-      <h2 class="govuk-heading-m">
-        {{data['reservation-employer']}}
-      </h2>
-
-      <p>
-        {{data['course-name']}}
-      </p>
-
-      <p>
-        Valid for starts from {{data['reservation-startRange']}} to {{data['reservation-endRange']}}
-      </p>
-    </div>
+    <p>
+      Remember you will need to pay 5% of the cost for training an apprentice. The exact cost of the training course agreed will be agreed with your training provider.
+    </p>
 
     <p>
       {{govukButton({
