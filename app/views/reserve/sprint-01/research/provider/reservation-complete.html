@@ -15,18 +15,34 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		{{ govukPanel({
-			titleText: "Funding secured",
-			html: "You have secured funding for one apprenticeship for " + data['employer'],
-			classes: "govuk-!-margin-bottom-8"
+			titleText: "Funding secured for this apprenticeship",
+			classes: "govuk-!-margin-bottom-6"
 		}) }}
 
-		<h1 class="govuk-heading-l">
-
-		</h1>
-
-		<p class="govuk-!-margin-bottom-8">
-			You can <a href="#">print</a> or <a href="#">send an email</a> to {{data['employer']}} to tell them you have secured funding.
+		<p>
+			You can print this confirmation screen to show your employer that you have secured funding for them. 
 		</p>
+
+		<h2 class="govuk-heading-l">
+			Making changes 
+		</h2>
+
+		<p>
+			You can change the apprenticeship training course when you add the apprentice's details. To make any other changes, you will need to start again and secure new funding.
+		</p>
+
+		<h2 class="govuk-heading-l">
+			What you need to do now
+		</h2>
+
+		<p>
+			If you have not found an apprentice yet, you can use <a href="#">our recruitment service</a> to find an apprentice.
+		</p>
+
+		<p>
+			If you know who the apprentice will be, you can add an apprentice to this funding.
+		</p>
+
 
 		<form method="post">
 			{{ govukRadios({
@@ -36,9 +52,9 @@ GOV.UK Prototype Kit
 				{
 					legend:
 					{
-						text: "Do you need to assign an apprentice to this reservation?",
+						text: "Do you want to add an apprentice now?",
 						isPageHeading: true,
-						classes: "govuk-fieldset__legend--l"
+						classes: "govuk-fieldset__legend--m"
 					}
 				},
 				items: [
@@ -48,14 +64,14 @@ GOV.UK Prototype Kit
 				},
 				{
 					value: "no",
-					text: "Not right now"
+					text: "No, not right now"
 				}
 				]
 			}) }}
 
 			<p>
 				{{ govukButton ({
-					text: "Save and continue"
+					text: "Continue"
 				})}}
 			</p>
 		</form>

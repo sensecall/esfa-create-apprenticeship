@@ -16,38 +16,14 @@ GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
       <h1 class="govuk-heading-xl">
-        Enter the details of the apprenticeship you are securing funds for
+        Apprenticeship training
       </h1>
-
-      {{ govukRadios({
-        idPrefix: "planned-start-date",
-        name: "planned-start-date",
-        fieldset:
-        {
-          legend:
-          {
-            text: "When will the apprentice's training course start?",
-            isPageHeading: false,
-            hint:
-            {
-              text: "You can secure funding for a 3 month period. For example January to March."
-            },
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        hint:
-        {
-          text: "You can secure funding for a 3 month period. For example January to March."
-        },
-        items: months
-      }) }}
-
 
       {% call govukFieldset({
         legend:
         {
-          text: "Which course will the apprentice take? (optional)",
-          classes: "govuk-fieldset__legend--m govuk-!-margin-top-6",
+          text: "Which apprenticeship training will the apprentice take? (optional)",
+          classes: "govuk-fieldset__legend--m",
           isPageHeading: false
         }
       }) %}
@@ -66,8 +42,30 @@ GOV.UK Prototype Kit
           </select>
         </div>
       </div>
-
       {% endcall %}
+
+      {{ govukRadios({
+        idPrefix: "planned-start-date",
+        name: "planned-start-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "When will the apprenticeship training start?",
+            isPageHeading: false,
+            hint:
+            {
+              text: "Your funding will be secured for the chosen month and the following 2 months. For example funds secured for January will can be used for starts from January to March."
+            },
+            classes: "govuk-fieldset__legend--m govuk-!-margin-top-3"
+          }
+        },
+        hint:
+        {
+          text: "Your funding will be secured for 3 months."
+        },
+        items: months
+      }) }}
 
       <p>
         {{ govukButton ({

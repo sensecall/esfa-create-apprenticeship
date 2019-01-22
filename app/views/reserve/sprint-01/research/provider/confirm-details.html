@@ -20,8 +20,21 @@ GOV.UK Prototype Kit
     </h1>
 
     <p>
-      You are securing 95% of the cost of this apprenticeship training:
+      You are securing funding for the following apprenticeship training. Funding will be paid directly to a training provider.
     </p>
+
+    {% set disclosureHtml %}
+    {% if not data['course-name'] %}
+    Unknown
+    {% else %}
+    {{data['course-name']}}
+    {% endif %}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when adding an apprentice's details, without affecting your funding."
+    }) }}
+    {% endset %}
 
     {% from "summary-list/macro.njk" import govukSummaryList %}
 
@@ -50,27 +63,6 @@ GOV.UK Prototype Kit
       {
         key:
         {
-          text: "Apprenticeship course"
-        },
-        value:
-        {
-          text: data['course-name']
-        },
-        actions:
-        {
-          items:
-          [
-          {
-            href: "choose-course",
-            text: "Change",
-            visuallyHiddenText: "date of birth"
-          }
-          ]
-        }
-      },
-      {
-        key:
-        {
           text: "Apprenticeship start date"
         },
         value:
@@ -82,9 +74,30 @@ GOV.UK Prototype Kit
           items:
           [
           {
-            href: "choose-date",
+            href: "enter-details",
             text: "Change",
             visuallyHiddenText: "contact information"
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          html: disclosureHtml
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "enter-details",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
           }
           ]
         }
@@ -93,12 +106,8 @@ GOV.UK Prototype Kit
     }) }}
 
     <p>
-      The exact cost of the training course agreed should be agreed with the employer.
-    </p>
-
-    <p>
       {{govukButton({
-        text: "Reserve this apprenticeship"
+        text: "Confirm and secure funding"
       })}}
     </p>
   </form>

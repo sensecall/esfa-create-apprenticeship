@@ -35,7 +35,7 @@ GOV.UK Prototype Kit
         {
           legend:
           {
-            text: "Is this the employer you'd like to reserve funds for?",
+            text: "Is this the employer you want to secure funds for?",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           }
@@ -43,6 +43,10 @@ GOV.UK Prototype Kit
         items: [
         {
           value: "yes",
+          attributes:
+          {
+            required: "required"
+          },
           text: "Yes, use " + data['employer']
         },
         {

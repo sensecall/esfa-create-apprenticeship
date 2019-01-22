@@ -40,7 +40,7 @@ router.get('/enter-details', (req, res) => {
 
 	var months = [{
 		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format("MMMM YYYY") + " (valid until " + moment(currentMonth).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+		text: moment(currentMonth).startOf('month').format("MMM YYYY") + " (secured from " + moment(currentMonth).startOf('month').format("MMM YY") + " to " + moment(currentMonth).add(2, 'months').endOf('month').format("MMM YY") + ")",
 		attributes:
 		{
 			required: "required"
@@ -49,10 +49,10 @@ router.get('/enter-details', (req, res) => {
 
 	function addMonths(m){
 		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMMM YYYY");
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMM YYYY");
 			var month = {
 				value: date,
-				text: moment(date).startOf('month').format("MMMM YYYY") + " (valid until " + moment(date).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+				text: moment(date).startOf('month').format("MMM YYYY") + " (secured from " + moment(date).startOf('month').format("MMM YY") + " to " + moment(date).add(2, 'months').endOf('month').format("MMM YY") + ")",
 				hint:
 				{
 					text: ""
@@ -70,12 +70,16 @@ router.get('/enter-details', (req, res) => {
 })
 
 router.post('/enter-details', (req, res) => {
-	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("D MMMM YYYY")
-	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("D MMMM YYYY")
+	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
+	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
 	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
 	req.session.data['reservation-endRange'] = latest
-	req.session.data['reservation-created'] = moment().format('D MMMM YYYY')
+	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+
+	if(req.session.data['course-name'] == ''){
+		req.session.data['course-name'] = 'Unknown'
+	}
 
 	res.redirect('confirm-details')
 })
