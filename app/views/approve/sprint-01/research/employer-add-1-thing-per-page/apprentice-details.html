@@ -1,0 +1,73 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Add apprentice details</h1>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        {% call govukFieldset({
+          legend:
+          {
+            text: "Apprentice name",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: false
+          }
+        }) %}
+        {% endcall %}
+
+        {{ govukInput({
+          label:
+          {
+            text: "First name"
+          },
+          id: "first-name",
+          name: "first-name",
+          classes: "govuk-input--width-20"
+        }) }}
+  
+        {{ govukInput({
+          label:
+          {
+            text: "Last name"
+          },
+          id: "last-name",
+          name: "last-name",
+          classes: "govuk-input--width-20"
+        }) }}
+
+        {{ govukDateInput({
+          id: "dob",
+          namePrefix: "dob",
+          fieldset: {
+            legend: {
+              text: "Date of birth",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 29 12 1971"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "course-details"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
