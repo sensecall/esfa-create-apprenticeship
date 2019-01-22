@@ -1,0 +1,70 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Apprenticeship price</h1>
+
+      <form action="/form-handler" method="post" novalidate>
+
+       
+        {% call govukFieldset({
+          legend:
+          {
+            text: "Total agreed apprenticeship price (excluding VAT)",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: false
+          }
+        }) %}
+        {% endcall %}
+
+        {{ govukInput({          
+          hint:
+          {
+            text: "Enter the price, including any end-point assessment costs, in whole pounds."
+          },
+          id: "price",
+          name: "price",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {% call govukFieldset({
+          legend:
+          {
+            text: "Reference (optional)",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: false
+          }
+        }) %}
+        {% endcall %}
+
+        {{ govukInput({          
+          hint:
+          {
+            text: "Add a reference, such as employee number or location - this won't be seen by the training provider."
+          },
+          id: "price",
+          name: "price",
+          classes: "govuk-input--width-30"
+        }) }}
+       
+        {{ govukButton({
+          text: "Save and continue",
+          href: "review-apprentice-details"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
