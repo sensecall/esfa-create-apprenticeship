@@ -86,6 +86,8 @@ router.post('/enter-details', (req, res) => {
 
 // Confirm employer (reserve)
 router.post('/reserve__confirm-employer', (req, res) => {
+	req.session.data['course-name'] = ''
+	
 	if (req.session.data['confirm-employer'] == 'yes' ) {
 		res.redirect(`enter-details`)
 	} else {

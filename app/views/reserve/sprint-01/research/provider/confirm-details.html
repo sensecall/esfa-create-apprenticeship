@@ -24,11 +24,7 @@ GOV.UK Prototype Kit
     </p>
 
     {% set disclosureHtml %}
-    {% if not data['course-name'] %}
-    Unknown
-    {% else %}
     {{data['course-name']}}
-    {% endif %}
     <br class="govuk-!-margin-bottom-2">
     {{ govukDetails({
       summaryText: "Can I change the course?",
@@ -74,7 +70,7 @@ GOV.UK Prototype Kit
           items:
           [
           {
-            href: "enter-details",
+            href: "javascript: window.history.go(-1)",
             text: "Change",
             visuallyHiddenText: "contact information"
           }
@@ -95,7 +91,7 @@ GOV.UK Prototype Kit
           items:
           [
           {
-            href: "enter-details",
+            href: "javascript: window.history.go(-1)",
             text: "Change",
             visuallyHiddenText: "date of birth"
           }
