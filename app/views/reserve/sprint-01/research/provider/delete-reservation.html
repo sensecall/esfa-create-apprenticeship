@@ -15,22 +15,55 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
    <h1 class="govuk-heading-xl">
-    Delete reservation
+    Cancel funding
   </h1>
 
-  <div class="govuk-inset-text">
-    <h2 class="govuk-heading-m">
-      {{reservationDetails[0]['employer']}}
-    </h2>
+  {% set disclosureHtml %}
+    {{reservationDetails[0]['course']}}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when adding an apprentice's details, without affecting your funding."
+    }) }}
+    {% endset %}
 
-    <p>
-      {{reservationDetails[0]['course']}}
-    </p>
+  {% from "summary-list/macro.njk" import govukSummaryList %}
 
-    <p>
-      Valid for starts from {{reservationDetails[0]['startMonth']}} to {{reservationDetails[0]['endMonth']}}
-    </p>
-  </div>
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: reservationDetails[0]['employer']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: reservationDetails[0]['startMonth'] + " to " + reservationDetails[0]['endMonth']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          html: disclosureHtml
+        }
+      }
+      ]
+    }) }}
 
   <form method="post">
     {{ govukRadios({
@@ -48,11 +81,11 @@ GOV.UK Prototype Kit
       items: [
       {
         value: "yes",
-        text: "Yes, delete this reservation"
+        text: "Yes, cancel this funding"
       },
       {
         value: "no",
-        text: "No, take me back to all reservations"
+        text: "No, go back to all funding"
       }
       ]
     }) }}
