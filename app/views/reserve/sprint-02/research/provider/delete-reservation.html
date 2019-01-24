@@ -1,0 +1,101 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   <h1 class="govuk-heading-xl">
+    Cancel funding
+  </h1>
+
+  {% set disclosureHtml %}
+    {{reservationDetails[0]['course']}}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when adding an apprentice's details, without affecting your funding."
+    }) }}
+    {% endset %}
+
+  {% from "summary-list/macro.njk" import govukSummaryList %}
+
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: reservationDetails[0]['employer']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: reservationDetails[0]['startMonth'] + " to " + reservationDetails[0]['endMonth']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          html: disclosureHtml
+        }
+      }
+      ]
+    }) }}
+
+  <form method="post">
+    {{ govukRadios({
+      idPrefix: "delete-reservation",
+      name: "delete-reservation",
+      fieldset:
+      {
+        legend:
+        {
+          text: "Confirm that you want to cancel this funding",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+        value: "yes",
+        text: "Yes, cancel this funding"
+      },
+      {
+        value: "no",
+        text: "No, go back to all funding"
+      }
+      ]
+    }) }}
+
+    <p>
+      {{ govukButton ({
+        text: "Confirm"
+      })}}
+    </p>
+  </form>
+</div>
+
+{% endblock %}

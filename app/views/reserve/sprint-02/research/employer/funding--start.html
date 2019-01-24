@@ -1,7 +1,14 @@
-{% extends "layout-provider-account.html" %}
+{% extends "layout-account--new.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -9,26 +16,33 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Secure funding for non-levy employers
+      Secure funding for taking on an apprentice
     </h1>{{releaseVersion | log }}
 
     <p>
-      Use this service to secure government funding for a non-levy employer to train an apprentice.
+      Use this service to secure <a href="#">government funding</a> to train an apprentice.
     </p>
 
-    <!-- {{ govukWarningText({
+    {% if 'future-restriction' in data['funding-restrictions'] %}
+    {{ govukWarningText({
       html: "From April 2019, you will not be able to secure any funding for training an aprentice. Any funding you have secured before April 2019 will not be affected.",
       iconFallbackText: "Current Funding restrictions"
-    }) }} -->
+    }) }}
+    {% endif %}
+
+    {% if 'number-of-starts' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "There is currently a restriction in place on the number of apprenticeships that you can secure funding for.<br>
+      You can secure funding for <u>one apprentice</u>.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
 
     <p>
       Before you start you will need: 
     </p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>
-        <a href="https://www.gov.uk/government/publications/how-to-register-for-an-idams-account/idams-super-user-guidance-how-to-assign-approve-and-reject-roles-and-permissions">permission from a non-levy employer</a> to secure funds for them
-      </li>
       <li>
         which month the apprenticeship training will start 
       </li>
@@ -42,7 +56,7 @@ GOV.UK Prototype Kit
     </div>    
 
     <p>
-      <a href="reserve__choose-employer" class="govuk-button govuk-button--start">
+      <a href="funding--enter-details" class="govuk-button govuk-button--start">
         Start
       </a>
     </p>

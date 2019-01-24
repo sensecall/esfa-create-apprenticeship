@@ -1,0 +1,76 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="">
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Choose a non-levy employer",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Employer name"
+        },
+        hint:
+        {
+          text: ""
+        },
+        classes: "govuk-input--width-20",
+        formGroup:
+        {
+          classes: "govuk-!-margin-bottom-2"
+        },
+        id: "national-insurance-number",
+        name: "national-insurance-number"
+      }) }}
+
+      {{ govukButton({
+        text: "Submit",
+        classes: "govuk-!-margin-top-0"
+      }) }}
+      {% endcall %}
+
+      {% import './apprentices.json' as apprenticesData %}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Employer</th>
+            <th class="govuk-table__header" scope="col">Account name</th>
+            <th class="govuk-table__header" colspan="2" scope="col">Agreement ID</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          {% for apprentice in apprenticesData.apprentices %}
+          {% set name = apprentice["first name"] + " " + apprentice["last name"] %}
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{apprentice.employer}}</th>
+            <td class="govuk-table__cell">{{name}}</td>
+            <td class="govuk-table__cell">{{apprentice.agreementID}}</td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="reserve__confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  {% endblock %}
