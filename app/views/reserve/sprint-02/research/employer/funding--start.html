@@ -20,12 +20,12 @@ GOV.UK Prototype Kit
     </h1>{{releaseVersion | log }}
 
     <p>
-      Use this service to secure <a href="#">government funding</a> to train an apprentice.
+      Use this service to secure <a href="#">government funding</a> for training an apprentice.
     </p>
 
     {% if 'future-restriction' in data['funding-restrictions'] %}
     {{ govukWarningText({
-      html: "From April 2019, you will not be able to secure any funding for training an aprentice. Any funding you have secured before April 2019 will not be affected.",
+      html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
       iconFallbackText: "Current Funding restrictions"
     }) }}
     {% endif %}
@@ -39,20 +39,24 @@ GOV.UK Prototype Kit
     {% endif %}
 
     <p>
-      Before you start you will need: 
+      Government funding will pay for part, or all of the cost of training an apprentice. Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
+    </p>
+
+    <p>
+      Before you start, you will need: 
     </p>
 
     <ul class="govuk-list govuk-list--bullet">
       <li>
-        which month the apprenticeship training will start 
+        the month the apprenticeship training will start 
       </li>
       <li>
-        an estimate of which apprenticeship training the apprentice will take (optional)
+        which apprenticeship <a href="#">training course</a> the apprentice will take (optional)
       </li>
     </ul>
 
     <div class="govuk-inset-text">
-      You can only secure funding up to 6 months before the apprenticeship training is about to start. 
+      You can only secure funding up to 6 months before an apprenticeship training is about to start.
     </div>    
 
     <p>
