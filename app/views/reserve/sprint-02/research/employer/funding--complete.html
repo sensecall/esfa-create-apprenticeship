@@ -19,6 +19,53 @@ GOV.UK Prototype Kit
       classes: "govuk-!-margin-bottom-6"
     }) }}
 
+    {% set disclosureHtml %}
+    {{data['course-name']}}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when adding an apprentice's details, without affecting your funding."
+    }) }}
+    {% endset %}
+
+    {% from "summary-list/macro.njk" import govukSummaryList %}
+
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Business name"
+        },
+        value:
+        {
+          text: data['employer']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship course"
+        },
+        value:
+        {
+          html: disclosureHtml
+        }
+      }
+      ]
+    }) }}
+
     <p>
       You can <a href="#" onclick="window.print();return false;">print this page</a> to show your provider that you have secured funding. 
     </p>

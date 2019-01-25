@@ -102,7 +102,11 @@ router.post('/funding--complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
 		res.redirect(`add-apprentice`)
 	} else {
-		res.redirect(`funding--add-another-reservation`)
+		if ( req.session.data['funding-restrictions'].includes('number-of-starts') ) {
+			res.redirect(`account-home`)
+		} else {
+			res.redirect(`funding--add-another-reservation`)
+		}
 	}
 })
 
@@ -115,6 +119,9 @@ router.post('/funding--add-another-reservation', (req, res) => {
 		res.redirect(`account-home`)
 	}
 })
+
+
+
 
 
 // apprentice-details
@@ -133,6 +140,16 @@ router.post('/details-sent', (req, res) => {
 		res.redirect(`choose-reservation`)
 	} else {
 		res.redirect(`account-home`)
+	}
+})
+
+
+// view details
+router.get('/funding--choose-legal-entity', (req, res) => {
+	if (req.session.data['multiple-legal-entities'] == 'true' ) {
+		res.render(`${req.feature}/funding--choose-legal-entity`)
+	} else {
+		res.redirect(`funding--enter-details`)
 	}
 })
 

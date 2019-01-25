@@ -24,6 +24,6 @@ module.exports = {
 	"current-month": moment().format('MMMM'),
 	"current-year": moment().format('YYYY'),
 	"employer": "APEX TRAINING LTD",
-	"multiple-legal-entities": "no",
+	"multiple-legal-entities": "false",
 	"funding-restrictions": []
 }
