@@ -1,0 +1,83 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<!-- <h1 class="govuk-heading-xl">
+			Secure funding for non-levy employers
+		</h1>
+
+		<p>
+			Use this service to secure government funding for a non-levy employer to train an apprentice.
+		</p>
+
+		<p>
+			Government funding will pay for part or all of the cost of training an apprentice. Go to apprenticeship funding to find out how much funding your employer is allowed. 
+		</p> -->
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<form action="confirm-employer">
+			{% if data['reservations'].length %}
+			<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds">
+					<h3 class="govuk-heading-xl govuk-!-margin-top-6">
+						Manage funding
+					</h3>
+				</div>
+			</div>
+
+			<table class="govuk-table govuk-!-font-size-16">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header" scope="col">Business name</th>
+						<th class="govuk-table__header" scope="col">Course</th>
+						<th class="govuk-table__header" colspan="2" scope="col">Valid dates</th>
+					</tr>
+				</thead>
+
+				<tbody class="govuk-table__body">
+					{% for reservation in data['reservations'] %}
+					{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">{{reservation.employer}}</td>
+						<td class="govuk-table__cell">{{reservation.course}}</td>
+						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
+							<a href="funding--view-details?reservation-id={{reservation.id}}">View</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			
+			<!-- {% include './_secureFundingButton.html' %} -->
+
+			{% else %}
+			<h2 class="govuk-heading-m">
+				None of your employers have any funding to use.
+			</h2>
+
+			<p>
+				You need to secure funding in order to add a new apprentice.
+			</p>
+			{% endif %}
+
+			{% include './_secureFundingButton.html' %}
+		</form>
+	</div>
+
+	{% endblock %}

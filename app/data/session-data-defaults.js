@@ -17,8 +17,13 @@ Example usage:
 
 */
 
+var moment = require('moment');
+
 module.exports = {
-
-  // Insert values here
-
+	"current-date": moment().format('D'),
+	"current-month": moment().format('MMMM'),
+	"current-year": moment().format('YYYY'),
+	"employer": "APEX TRAINING LTD",
+	"multiple-legal-entities": "false",
+	"funding-restrictions": []
 }

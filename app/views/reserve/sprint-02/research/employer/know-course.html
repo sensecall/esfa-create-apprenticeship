@@ -1,0 +1,56 @@
+
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "know-course",
+        name: "know-course",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you know which course will be offered?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes",
+          attributes:
+          {
+            required: "required"
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
