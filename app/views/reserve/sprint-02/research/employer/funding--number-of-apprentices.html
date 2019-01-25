@@ -14,7 +14,7 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		<form action="enter-details">
+		<form action="funding--enter-details">
 			{% call govukFieldset({
 				legend:
 				{
@@ -41,9 +41,18 @@ GOV.UK Prototype Kit
 
 			{% endcall %}
 
-			<p id="reserve-count-info">
-				You must secure funding for each apprentice individually. To secure funding for <span class="reserve-count-number">4</span> apprentice<span class="reserve-count-plural">s</span>, you will need to do <span class="reserve-count-number">4</span> application<span class="reserve-count-plural">s</span>.
-			</p>
+			{% set warningHtml %}
+			You must secure funding for each apprentice individually. To secure funding for <span class="reserve-count-number">4</span> apprentice<span class="reserve-count-plural">s</span>, you will need to do <span class="reserve-count-number">4</span> application<span class="reserve-count-plural">s</span>.
+			{% endset %}
+
+			{{ govukWarningText({
+				html: warningHtml,
+				iconFallbackText: "Warning",
+				attributes:
+				{
+					id: "reserve-count-info"
+				}
+			}) }}
 
 			<p>
 				{{ govukButton ({
