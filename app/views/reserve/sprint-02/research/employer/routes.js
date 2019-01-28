@@ -45,7 +45,7 @@ router.get('/funding--enter-details', (req, res) => {
 
 	var months = [{
 		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format("MMMM YYYY") + " (valid until " + moment(currentMonth).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+		text: moment(currentMonth).startOf('month').format("MMM YYYY") + " (secured from " + moment(currentMonth).startOf('month').format("MMM YY") + " to " + moment(currentMonth).add(2, 'months').endOf('month').format("MMM YY") + ")",
 		attributes:
 		{
 			required: "required"
@@ -54,10 +54,10 @@ router.get('/funding--enter-details', (req, res) => {
 
 	function addMonths(m){
 		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMMM YYYY");
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMM YYYY");
 			var month = {
 				value: date,
-				text: moment(date).startOf('month').format("MMMM YYYY") + " (valid until " + moment(date).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+				text: moment(date).startOf('month').format("MMM YYYY") + " (secured from " + moment(date).startOf('month').format("MMM YY") + " to " + moment(date).add(2, 'months').endOf('month').format("MMM YY") + ")",
 				hint:
 				{
 					text: ""

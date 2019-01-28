@@ -36,7 +36,7 @@ GOV.UK Prototype Kit
       {
         key:
         {
-          text: "Business name"
+          text: "Employer"
         },
         value:
         {
@@ -67,7 +67,7 @@ GOV.UK Prototype Kit
     }) }}
 
     <p>
-      You can <a href="#" onclick="window.print();return false;">print this page</a> to show your provider that you have secured funding. 
+      You can <a href="#" onclick="window.print();return false;">print this confirmation screen</a> to show your training provider that you have secured funding.
     </p>
 
     <h2 class="govuk-heading-l">
@@ -75,7 +75,7 @@ GOV.UK Prototype Kit
     </h2>
 
     <p>
-      You can change the apprenticeship training course when you add the apprentice's details. To make any other changes, you will need to start again and secure new funding.
+      You can change which apprenticeship training the apprentice will take, when you add an apprentice’s details. To make any other changes, you will need to start again and secure new funding.
     </p>
 
     <h2 class="govuk-heading-l">
@@ -83,46 +83,24 @@ GOV.UK Prototype Kit
     </h2>
 
     <p>
-      If you have not found an apprentice yet, you can use <a href="#">our recruitment service</a> to find an apprentice.
+      If you know who your apprentice and training provider will be, you can add the apprentice’s information.
     </p>
 
     <p>
-      If you know who the apprentice will be, you can add an apprentice to this funding.
+      If you do not know who the apprentice or training provider will be, follow these steps:
     </p>
 
+    <ol class="govuk-list govuk-list--number">
+      <li>Find an apprentice. You can use our <a href="#">recruitment service</a> to find an apprentice </li>
+      <li>Find a training provider. Use the <a href="#">find apprenticeship training</a> service to find a training provider who offers the course you would like.</li>
+      <li>Add information about your apprentice</li>
+    </ol>
 
-    <form method="post">
-      {{ govukRadios({
-        idPrefix: "add-apprentice",
-        name: "add-apprentice",
-        fieldset:
-        {
-          legend:
-          {
-            text: "Do you want to add an apprentice now?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
-        {
-          value: "yes",
-          text: "Yes",
-          attributes:
-          {
-            required: "required"
-          }
-        },
-        {
-          value: "no",
-          text: "No, not right now"
-        }
-        ]
-      }) }}
 
       <p>
         {{ govukButton ({
-          text: "Continue"
+          text: "Add an apprentice",
+          href: "add-apprentice"
         })}}
       </p>
     </form>

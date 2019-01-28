@@ -25,5 +25,8 @@ module.exports = {
 	"current-year": moment().format('YYYY'),
 	"employer": "APEX TRAINING LTD",
 	"multiple-legal-entities": "false",
-	"funding-restrictions": []
+	"funding-restrictions": [],
+	"reservation-startRange": moment().startOf('month').format('DD MMMM YYYY'),
+	"reservation-endRange": moment().add(2,'month').endOf('month').format('DD MMMM YYYY'),
+	"course-name": "Business Administrator, Level: 3 (Standard)"
 }
