@@ -1,0 +1,37 @@
+{% extends "layout-email.html" %}
+
+{% set serviceName = 'EMAIL' %}
+
+{% block page_title %}
+{{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <a href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency" target="_blank">
+    <img src="/public/images/esfa-logo.png" width="180px" id="logo">
+  </a>
+
+  <h1 class="heading-large">
+    APEX TRAINING LTD has sent you apprentice details to approve
+  </h1>
+
+  <p>
+    Acces the service to review the apprentice details at <a href="login">https://apprenticeships.service.gov.uk/check-apprentice</a>
+  </p>
+
+  <p>
+    This is an automated message. Please don't reply to this email.
+  </p>
+
+  <p>
+    Kind regards,
+  </p>
+
+  <p>
+    Apprenticeship service team,<br>
+    Education and Skills Funding Agency
+  </p>
+</main>
+{% endblock %}

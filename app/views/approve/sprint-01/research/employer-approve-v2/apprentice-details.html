@@ -4,13 +4,6 @@
 GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript: window.history.go(-1)"
-}) }}
-{% endblock %}
-
 {% block pageScripts %}
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
 <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
@@ -20,8 +13,9 @@ GOV.UK Prototype Kit
       var selectEl = document.querySelector('#' + $(this).attr('id') )
       accessibleAutocomplete.enhanceSelectElement({
         autoselect: false,
-        defaultValue: '{{data["course-name"]}}',
+        defaultValue: '',
         minLength: 2,
+        required: true,
         selectElement: selectEl,
         placeholder: 'Search for an apprenticeship',
         showAllValues: true
@@ -31,16 +25,36 @@ GOV.UK Prototype Kit
 </script>
 {% endblock %}
 
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
       <h2 class="govuk-heading-xl">
-        Add apprentice details
+        Edit apprentice details
       </h2>
 
+      <div class="govuk-details__text" id="details-content" aria-hidden="false">
+        <p>
+          You must add the apprentice’s name - fill in as many other fields as you can. You'll be able to return later to make changes or add more information.
+        </p>
+        <p>
+          You'll only be able to authorise payments for this apprentice once all the fields have been completed - either by yourself or your training provider.
+        </p>
+      </div>
+
+      <br>
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+      <br>
+
       <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-        Provider
+        Training provider
       </h3>
       <p class="govuk-!-margin-bottom-6">
         APEX TRAINING LIMITED
@@ -49,31 +63,20 @@ GOV.UK Prototype Kit
       {% call govukFieldset({
         legend:
         {
-          text: "Apprentice name",
+          text: "Name",
           classes: "govuk-fieldset__legend--s",
           isPageHeading: false
         }
       }) %}
 
       {{ govukInput({
-        label:
-        {
-          text: "First name"
-        },
+        
         id: "first-name",
         name: "first-name",
-        classes: "govuk-input--width-20"
+        classes: "govuk-input--width"
       }) }}
 
-      {{ govukInput({
-        label:
-        {
-          text: "Last name"
-        },
-        id: "last-name",
-        name: "last-name",
-        classes: "govuk-input--width-20"
-      }) }}
+      
       {% endcall %}
 
       {{ govukDateInput({
@@ -94,13 +97,25 @@ GOV.UK Prototype Kit
         }
       }) }}
 
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+        Unique Learner Number (ULN)
+      </h3>
+      <p class="govuk-!-margin-bottom-6">
+        123456789A
+      </p>
+
+    
+
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Apprenticeship course",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: true
+        }
+      }) %}
+
       <div class="govuk-form-group">
-        <label class="govuk-label" for="choose-apprenticeship">
-          Apprenticeship training course
-        </label>
-        <span id="course-name-hint" class="govuk-hint">
-          Start typing the name of the course or choose an option from the list
-        </span>
         <div class="autocomplete-wrapper">
           <select class="autocomplete-element" id="course-name" name="course-name">
             <option value="">Select one</option>
@@ -112,18 +127,7 @@ GOV.UK Prototype Kit
         </div>
       </div>
 
-      <!-- {{ govukInput({
-        label:
-        {
-          text: "Apprenticeship training course"
-        },
-        hint:
-        {
-          text: "Start typing the name of the course or choose an option from the list"
-        },
-        id: "course-name",
-        name: "course-name"
-      }) }} -->
+      {% endcall %}
 
       {{ govukDateInput({
         id: "start-date",
@@ -152,7 +156,7 @@ GOV.UK Prototype Kit
         ],
         hint:
         {
-          text: "For example, 3 2019"
+          text: "For example, 2 2019"
         }
       }) }}
 
@@ -163,7 +167,7 @@ GOV.UK Prototype Kit
         {
           legend:
           {
-            text: "Projected finish date",
+            text: "Planned training finish date",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--s"
           }
@@ -183,23 +187,22 @@ GOV.UK Prototype Kit
         ],
         hint:
         {
-          text: "For example, 4 2020"
+          text: "For example, 3 2020"
         }
       }) }}
 
       {{ govukInput({
-        type: "number",
-        classes: "govuk-input--width-10",
-        label:
-        {
-          text: "Total apprenticeship agreed price (excluding VAT)"
-        },
+          label:
+          {
+            text: "Total agreed apprenticeship price (excluding VAT)"
+          },
         hint:
         {
           text: "Enter the price, including any end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500"
         },
-        id: "cost",
-        name: "cost"
+
+        id: "price",
+        name: "price"
       }) }}
 
       {{ govukInput({
@@ -209,7 +212,7 @@ GOV.UK Prototype Kit
         },
         hint:
         {
-          html: "You can add a reference, such as employee number or location."
+          html: "Add a reference, such as employee number or location. <br> This won't be seen by the employer."
         },
         id: "reference",
         name: "reference"
