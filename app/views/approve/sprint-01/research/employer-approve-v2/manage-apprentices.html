@@ -1,0 +1,97 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+  Review apprentice details
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form method="post" class="form">
+
+      <h1 class="govuk-heading-xl">
+        Review apprentices
+      </h1>
+
+      <table class="govuk-table govuk-!-font-size-16">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header" scope="col">Name</th>
+						<th class="govuk-table__header" scope="col">Apprenticeship training course</th>
+						<th class="govuk-table__header" scope="col">Training dates</th>
+						<th class="govuk-table__header" colspan="2" scope="col">Price</th>
+					</tr>
+				</thead>
+
+				<tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+						<td class="govuk-table__cell">Sarah Philips</td>
+						<td class="govuk-table__cell">Bespoke Saddler, Level 5 (Standard)</td>
+						<td class="govuk-table__cell">Feb 2019 to Mar 2020</td>
+						<td class="govuk-table__cell">£10,000</td>
+						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
+							<a href="review-one-of-many-apprentices">View</a>
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Darryl Diamond</td>
+						<td class="govuk-table__cell">Bespoke Saddler, Level 4 (Standard)</td>
+						<td class="govuk-table__cell">Mar 2019 to Apr 2020</td>
+						<td class="govuk-table__cell">£8,000</td>
+						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
+							<a href="review-one-of-many-apprentices">View</a>
+						</td>
+          </tr>
+        </tbody>
+			</table> 
+
+			{% from "radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        idPrefix: "details-correct",
+        name: "details-correct",
+        fieldset: {
+          legend: {
+            text: "Approve these details?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes, approve these details"
+          },
+          {
+            value: "no",
+            text: "No, reject these details"
+          }        
+        ]
+      }) }}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="more-detail">
+          Send a message to your training provider
+        </label>
+        <span id="more-detail-hint" class="govuk-hint">
+          Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next.
+        </span>
+        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
