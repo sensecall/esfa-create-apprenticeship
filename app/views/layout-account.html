@@ -45,22 +45,22 @@
 	</div>
 </div>
 {% else %}
-<div id="floating-menu-holder" class="floating-menu-holder--employer">
+<div id="floating-menu-holder">
 	<div class="account-information floating-menu" role="navigation">
 		<div class="js-float">
 			<p class="floating-head-text">Your employer account </p>
 			<nav id="user-nav">
-				<ul role="menubar">
-					<li><a href="#">Help</a></li>
+				<ul>
+					<li><a href="/service/help">Help</a></li>
 					<li class="has-sub-menu">
-						<a href="#" role="menuitem">Settings</a>
-						<ul role="menu" class="js-hidden" id="settings-menu">
-							<li><a href="#" role="menuitem" class="sub-menu-item">Your accounts</a></li>
-							<li><a href="#">Change your password</a></li>
-							<li><a href="#" class="sub-menu-item">Change your email address</a></li>
+						<a href="/" role="menuitem">Settings</a>
+						<ul role="menu" class="js-hidden" id="settings-menu" aria-expanded="false">
+							<li><a href="/service/accounts" role="menuitem" class="sub-menu-item">Your accounts</a></li>
+							<li><a href="https://test-login.apprenticeships.sfa.bis.gov.uk/account/changepassword?clientId=easacctest&amp;returnurl=https%3a%2f%2fdas-test-accui-as.azurewebsites.net%2f%2fservice%2fpassword%2fchange" class="sub-menu-item">Change your password</a></li>
+							<li><a href="https://test-login.apprenticeships.sfa.bis.gov.uk/account/changeemail?clientId=easacctest&amp;returnurl=https%3a%2f%2fdas-test-accui-as.azurewebsites.net%2f%2fservice%2femail%2fchange" class="sub-menu-item">Change your email address</a></li>
 						</ul>
 					</li>
-					<li><a href="/{{version}}/start?logged-in=false" role="menuitem">Sign out</a></li>
+					<li><a href="/service/signOut" role="menuitem">Sign out</a></li>
 				</ul>
 			</nav>
 		</div>
