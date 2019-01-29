@@ -23,7 +23,7 @@ module.exports = {
 	"current-date": moment().format('D'),
 	"current-month": moment().format('MMMM'),
 	"current-year": moment().format('YYYY'),
-	"employer": "APEX TRAINING LTD",
+	"employer": "Assurance Aerospace Engineering",
 	"multiple-legal-entities": "false",
 	"funding-restrictions": [],
 	"reservation-startRange": moment().startOf('month').format('DD MMMM YYYY'),
