@@ -1,7 +1,7 @@
 /*floating menu style - EMPLOYER */
 #floating-menu-holder {
 
-    background: govuk-colour('light-purple');
+    background: govuk-colour('orange');
 
     @include govuk-media-query($from: tablet) {
         padding: 0 30px;
@@ -30,7 +30,7 @@
 	clear:both;
 	max-width:960px;
 	width:100%;
-	background: govuk-colour('light-purple');
+	background: govuk-colour('orange');
 	color:#fff;
     z-index:1;
     margin:0 auto;

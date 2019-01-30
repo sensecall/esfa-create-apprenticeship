@@ -28,5 +28,5 @@ module.exports = {
 	"funding-restrictions": [],
 	"reservation-startRange": moment().startOf('month').format('DD MMMM YYYY'),
 	"reservation-endRange": moment().add(2,'month').endOf('month').format('DD MMMM YYYY'),
-	"course-name": "Business Administrator, Level: 3 (Standard)"
+	"course-name": "Unknown"
 }
