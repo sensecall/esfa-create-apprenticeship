@@ -44,7 +44,7 @@ router.post('/add__confirm-employer', (req, res) => {
 })
 
 // Choose date
-router.get('/enter-details', (req, res) => {
+router.get('/funding--enter-details', (req, res) => {
 	var currentMonth = moment().format('MMMM YYYY')
 
 	var months = [{
@@ -75,10 +75,10 @@ router.get('/enter-details', (req, res) => {
 
 	addMonths(4)
 
-	res.render(`${req.feature}/enter-details`,{months})
+	res.render(`${req.feature}/funding--enter-details`,{months})
 })
 
-router.post('/enter-details', (req, res) => {
+router.post('/funding--enter-details', (req, res) => {
 	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
 	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
 	req.session.data['reservation-employer'] = req.session.data['employer']
@@ -90,18 +90,18 @@ router.post('/enter-details', (req, res) => {
 		req.session.data['course-name'] = 'Unknown'
 	}
 
-	res.redirect('confirm-details')
+	res.redirect('funding--confirm-details')
 })
 
 // Confirm employer (reserve)
-router.post('/reserve__confirm-employer', (req, res) => {
+router.post('/funding--confirm-employer', (req, res) => {
 	req.session.data['course-name'] = ''
 	
 	if (req.session.data['confirm-employer'] == 'yes' ) {
-		res.redirect(`enter-details`)
+		res.redirect(`funding--enter-details`)
 	} else {
 		req.session.data['employer'] = ''
-		res.redirect(`reserve__choose-employer`)
+		res.redirect(`funding--choose-employer`)
 	}
 })
 
@@ -114,17 +114,12 @@ router.post('/have-account', (req, res) => {
 	}
 })
 
-// choose course
-router.post('/enter-details', (req, res) => {
-	res.redirect('confirm-details')
-})
-
 // confirm details
-router.get('/confirm-details', (req, res) => {
-	res.render(`${req.feature}/confirm-details`)
+router.get('/funding--confirm-details', (req, res) => {
+	res.render(`${req.feature}/funding--confirm-details`)
 })
 
-router.post('/confirm-details', (req, res) => {
+router.post('/funding--confirm-details', (req, res) => {
 	var reservation = {
 		"id": cryptoRandomString(10),
 		"month": req.session.data['planned-start-date'],
@@ -137,7 +132,7 @@ router.post('/confirm-details', (req, res) => {
 
 	req.session.data['reservations'].push(reservation)
 
-	res.redirect(`reservation-complete`)
+	res.redirect(`funding--reservation-complete`)
 })
 
 // choose reservation
@@ -147,7 +142,7 @@ router.get('/choose-reservation', (req, res) => {
 	})
 
 	if(filteredReservations.length == 0){
-		res.redirect('enter-details')
+		res.redirect('funding--enter-details')
 	} else {
 		res.render(`${req.feature}/choose-reservation`,{filteredReservations})
 	}	
@@ -155,7 +150,7 @@ router.get('/choose-reservation', (req, res) => {
 
 router.post('/choose-reservation', (req, res) => {
 	if (req.session.data['choose-reservation'] == 'create-reservation' ) {
-		res.redirect(`enter-details`)
+		res.redirect(`funding--enter-details`)
 	} else {
 		res.redirect(`apprentice-details`)
 	}
@@ -167,21 +162,21 @@ router.get('/funding-warning', (req, res) => {
 })
 
 // reservation complete
-router.post('/reservation-complete', (req, res) => {
+router.post('/funding--reservation-complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
 		res.redirect(`apprentice-details`)
 	} else {
-		res.redirect(`add-another-reservation`)
+		res.redirect(`funding--add-another-reservation`)
 	}
 })
 
 // reservation details
-router.get('/reservation-details', (req, res) => {
+router.get('/funding--reservation-details', (req, res) => {
 	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
 		return item['id'] === req.session.data['reservation-id'];
 	})
 
-	res.render(`${req.feature}/reservation-details`,{reservationDetails})
+	res.render(`${req.feature}/funding--reservation-details`,{reservationDetails})
 })
 
 // apprentice-details
@@ -194,30 +189,30 @@ router.post('/apprentice-details', (req, res) => {
 })
 
 // delete reservation
-router.get('/delete-reservation', (req, res) => {
+router.get('/funding--delete', (req, res) => {
 	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
 		return item['id'] === req.session.data['reservation-id'];
 	})
 
-	res.render(`${req.feature}/delete-reservation`,{reservationDetails})
+	res.render(`${req.feature}/funding--delete`,{reservationDetails})
 })
 
-router.post('/delete-reservation', (req, res) => {
+router.post('/funding--delete', (req, res) => {
 	if (req.session.data['delete-reservation'] == 'yes' ) {
 		req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
 			return item.id !== req.session.data['reservation-id']
 		});
 	}
 
-	res.redirect(`manage-reservations`)
+	res.redirect(`funding--manage`)
 })
 
 // add another reservation
-router.post('/add-another-reservation', (req, res) => {
+router.post('/funding--add-another-reservation', (req, res) => {
 	if (req.session.data['add-reservation'] == 'yes' ) {
-		res.redirect(`enter-details`)
+		res.redirect(`funding--enter-details`)
 	} else {
-		res.redirect(`manage-reservations`)
+		res.redirect(`funding--manage`)
 	}
 })
 
