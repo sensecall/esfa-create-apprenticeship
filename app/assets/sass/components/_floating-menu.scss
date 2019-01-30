@@ -3,6 +3,12 @@
 
     background: govuk-colour('orange');
 
+    &.employer-menu {
+         background: govuk-colour('light-purple');  
+         .floating-menu {
+            background: govuk-colour('light-purple');
+         }
+    }
     @include govuk-media-query($from: tablet) {
         padding: 0 30px;
     }
