@@ -73,7 +73,7 @@ router.get('/funding--enter-details', (req, res) => {
 		}
 	}
 
-	addMonths(4)
+	addMonths(6)
 
 	res.render(`${req.feature}/funding--enter-details`,{months})
 })
