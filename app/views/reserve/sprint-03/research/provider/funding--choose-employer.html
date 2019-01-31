@@ -15,38 +15,9 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="">
-      {% call govukFieldset({
-        legend:
-        {
-          text: "Choose a non-levy employer",
-          classes: "govuk-fieldset__legend--xl",
-          isPageHeading: true
-        }
-      }) %}
-
-      {{ govukInput({
-        label:
-        {
-          text: "Employer name"
-        },
-        hint:
-        {
-          text: ""
-        },
-        classes: "govuk-input--width-20",
-        formGroup:
-        {
-          classes: "govuk-!-margin-bottom-2"
-        },
-        id: "national-insurance-number",
-        name: "national-insurance-number"
-      }) }}
-
-      {{ govukButton({
-        text: "Submit",
-        classes: "govuk-!-margin-top-0"
-      }) }}
-      {% endcall %}
+      <h1 class="govuk-heading-xl">
+        Choose a non-levy employer
+      </h1>
 
       {% import './apprentices.json' as apprenticesData %}
       <table class="govuk-table">

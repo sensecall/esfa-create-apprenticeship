@@ -43,13 +43,25 @@ router.post('/add__confirm-employer', (req, res) => {
 	}
 })
 
+
+// funding start
+router.get('/funding--start', (req, res) => {
+	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
+		res.render(`${req.feature}/funding--start--service-unavailable`)
+	} else {
+		res.render(`${req.feature}/funding--start`)
+	}
+})
+
+
 // Choose date
 router.get('/funding--enter-details', (req, res) => {
 	var currentMonth = moment().format('MMMM YYYY')
+	var monthFormat = "MMMM YYYY"
 
 	var months = [{
 		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format("MMM YYYY") + " (secured from " + moment(currentMonth).startOf('month').format("MMM YY") + " to " + moment(currentMonth).add(2, 'months').endOf('month').format("MMM YY") + ")",
+		text: moment(currentMonth).startOf('month').format(monthFormat),
 		attributes:
 		{
 			required: "required"
@@ -58,10 +70,10 @@ router.get('/funding--enter-details', (req, res) => {
 
 	function addMonths(m){
 		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMM YYYY");
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format(monthFormat);
 			var month = {
 				value: date,
-				text: moment(date).startOf('month').format("MMM YYYY") + " (secured from " + moment(date).startOf('month').format("MMM YY") + " to " + moment(date).add(2, 'months').endOf('month').format("MMM YY") + ")",
+				text: moment(date).startOf('month').format(monthFormat),
 				hint:
 				{
 					text: ""
@@ -75,7 +87,16 @@ router.get('/funding--enter-details', (req, res) => {
 
 	addMonths(6)
 
-	res.render(`${req.feature}/funding--enter-details`,{months})
+	// check that the selected employer hasnt got too many reservations yet
+	var a = req.session.data['reservations']
+	var e = req.session.data['employer']
+	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
+
+	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
+		res.render(`${req.feature}/funding--employer-ineligible`)
+	} else {
+		res.render(`${req.feature}/funding--enter-details`,{months,employerReservationCount})
+	}
 })
 
 router.post('/funding--enter-details', (req, res) => {

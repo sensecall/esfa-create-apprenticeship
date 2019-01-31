@@ -24,6 +24,7 @@ module.exports = {
 	"current-month": moment().format('MMMM'),
 	"current-year": moment().format('YYYY'),
 	"employer": "Assurance Aerospace Engineering",
+	"provider-name": "APEX TRAINING LIMITED",
 	"multiple-legal-entities": "false",
 	"funding-restrictions": [],
 	"reservation-startRange": moment().startOf('month').format('DD MMMM YYYY'),

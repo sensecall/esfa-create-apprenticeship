@@ -89,18 +89,21 @@
 with-proposition
 {% endblock %}
 
-{% block footer_support_links %}
-{% if useAutoStoreData %}
-<ul>
-	<li>
-		<a href="/prototype-admin/clear-data">Clear data</a>
-	</li>
-
-	<li>
-		<a href="#">Prototype settings</a>
-	</li>
-</ul>
-{% endif %}
+{% block footer %}
+{{ govukFooter({
+  meta: {
+  items: [
+  {
+    href: "prototype-settings",
+    text: "Prototype settings"
+  },
+  {
+    href: "/prototype-admin/clear-data",
+    text: "Clear data"
+  }
+  ]
+}
+}) }}
 {% endblock %}
 
 {% block body_end %}

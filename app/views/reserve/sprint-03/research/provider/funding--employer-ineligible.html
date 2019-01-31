@@ -1,0 +1,41 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Sorry, this employer is not eligible for more funding at this time
+    </h1>{{releaseVersion | log }}
+
+    {{ govukWarningText({
+      html: "Funding for training an apprentice is currently restricted. Employers can not have more than 1 apprenticeship that has been allocated fundng but has not started yet.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

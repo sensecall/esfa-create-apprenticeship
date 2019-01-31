@@ -41,6 +41,10 @@ GOV.UK Prototype Kit
             {% endfor %}
           </select>
         </div>
+
+        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-3">
+          This information can be changed later without affecting your funding. 
+        </span>
       </div>
       {% endcall %}
 
@@ -60,12 +64,12 @@ GOV.UK Prototype Kit
             classes: "govuk-fieldset__legend--m govuk-!-margin-top-3"
           }
         },
-        hint:
-        {
-          text: "Your funding will be secured for 3 months."
-        },
         items: months
       }) }}
+
+      {{ govukInsetText({
+        text: "Funding will only be provided if the apprentice starts their training in the selected month, or in the 2 months that follow the selected start date."
+      })}}
 
       <p>
         {{ govukButton ({
