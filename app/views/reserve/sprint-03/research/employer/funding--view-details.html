@@ -1,0 +1,73 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Funding details
+    </h1>
+
+    <form action="apprentice-details">
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Employer</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['employer']}}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Apprenticeship</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['course']}}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Valid from</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['startMonth']}}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Valid until</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['endMonth']}}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Created</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['created']}}</td>
+          </tr>
+
+          <!-- <tr class="govuk-table__row">
+            <th class="govuk-table__header">Reservation ID</th>
+            <td class="govuk-table__cell">{{reservationDetails[0]['id']}}</td>
+          </tr> -->
+        </tbody>
+      </table>
+
+      <input type="hidden" name="employer" value="{{reservationDetails[0]['employer']}}">
+      <input type="hidden" name="course-name" value="{{reservationDetails[0]['course']}}">
+      <input type="hidden" name="choose-reservation" value="{{reservationDetails[0]['id']}}">
+
+      {{ govukButton({
+        text: "Use these funds",
+        classes: "govuk-!-margin-top-0 govuk-!-display-inline-block"
+      }) }}
+
+      <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
+        <a href="delete-reservation?reservation-id={{reservationDetails[0]['id']}}">
+          Cancel these funds
+        </a>
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

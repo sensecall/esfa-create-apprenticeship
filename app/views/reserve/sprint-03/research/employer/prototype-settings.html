@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Prototype settings
+		</h1>
+
+		<form action="account-home">
+			<h2 class="govuk-heading-l">
+				Employer info
+			</h2>
+
+			{{ govukInput({
+				label:
+				{
+					text: "Business name"
+				},
+				id: "employer",
+				name: "employer",
+				value: data['employer']
+			}) }}
+
+			{{ govukRadios({
+				idPrefix: "multiple-legal-entities",
+				name: "multiple-legal-entities",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Does the employer account have multiple legal entities?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--s"
+					}
+				},
+				items:
+				[
+				{
+					value: "true",
+					text: "Yes",
+					checked: checked("multiple-legal-entities", "true")
+				},
+				{
+					value: "false",
+					text: "No",
+					checked: checked("multiple-legal-entities", "false")
+				}
+				]
+			}) }}
+
+			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+			<h2 class="govuk-heading-l">
+				Funding restrictions
+			</h2>
+
+			{{ govukCheckboxes({
+				idPrefix: "funding-restrictions",
+				name: "funding-restrictions",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Select funding restrictions that should be in place",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--m"
+					}
+				},
+				hint:
+				{
+					text: "Select any that apply. Select none if there are no restrictions"
+				},
+				items:
+				[
+				{
+					value: "number-of-starts",
+					text: "RESTRICTED - Restrict number of starts",
+					checked: checked("funding-restrictions", "number-of-starts")
+				},
+				{
+					value: "future-restriction",
+					text: "NOTICE - No starts will be allowed after a particular date",
+					checked: checked("funding-restrictions", "future-restriction")
+				},
+				{
+					value: "current-restriction",
+					text: "FUNDING STOPPED - No starts allowed right now",
+					checked: checked("funding-restrictions", "current-restriction")
+				}
+				]
+			}) }}
+
+			{{ govukButton({
+				text: "Save and continue"
+			}) }}
+		</form>
+	</div>
+</div>
+
+{% endblock %}

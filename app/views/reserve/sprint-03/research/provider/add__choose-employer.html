@@ -14,11 +14,11 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="">
+    <form action="confirm-employer">
       {% call govukFieldset({
         legend:
         {
-          text: "Choose a non-levy employer",
+          text: "Choose an employer",
           classes: "govuk-fieldset__legend--xl",
           isPageHeading: true
         }
@@ -31,7 +31,7 @@ GOV.UK Prototype Kit
         },
         hint:
         {
-          text: ""
+          text: "This is the employer you are creating a cohort on behalf of."
         },
         classes: "govuk-input--width-20",
         formGroup:
@@ -60,18 +60,17 @@ GOV.UK Prototype Kit
 
         <tbody class="govuk-table__body">
           {% for apprentice in apprenticesData.apprentices %}
-          {% set name = apprentice["account name"] %}
+          {% set name = apprentice["first name"] + " " + apprentice["last name"] %}
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row">{{apprentice.employer}}</th>
             <td class="govuk-table__cell">{{name}}</td>
             <td class="govuk-table__cell">{{apprentice.agreementID}}</td>
-            <td class="govuk-table__cell" style="text-align: right"><a href="funding--confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="add__confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
     </form>
   </div>
-</div>
 
-{% endblock %}
+  {% endblock %}

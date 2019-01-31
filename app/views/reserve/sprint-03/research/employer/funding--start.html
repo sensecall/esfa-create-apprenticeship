@@ -1,0 +1,82 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Secure funding for taking on an apprentice
+    </h1>{{releaseVersion | log }}
+
+    <p>
+      Use this service to secure <a href="#">government funding</a> for training an apprentice.
+    </p>
+
+    {% if 'future-restriction' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
+
+    {% if 'number-of-starts' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "There is currently a restriction in place on the number of apprenticeships that you can secure funding for.<br>
+      You can secure funding for <u>one apprentice</u>.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
+
+    <p>
+      Government funding will pay for part, or all of the cost of training an apprentice. Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
+    </p>
+
+    <p>
+      Before you start, you will need: 
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        the month the apprenticeship training will start 
+      </li>
+      <li>
+        which apprenticeship <a href="#">training course</a> the apprentice will take (optional)
+      </li>
+    </ul>
+
+    <div class="govuk-inset-text">
+      You can only secure funding up to 6 months before an apprenticeship training is about to start.
+    </div>    
+
+    <p>
+      <a href="funding--choose-legal-entity" class="govuk-button govuk-button--start">
+        Start
+      </a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}
