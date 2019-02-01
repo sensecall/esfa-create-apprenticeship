@@ -1,8 +1,14 @@
 /*floating menu style - EMPLOYER */
 #floating-menu-holder {
 
-    background: govuk-colour('light-purple');
+    background: govuk-colour('orange');
 
+    &.employer-menu {
+         background: govuk-colour('light-purple');  
+         .floating-menu {
+            background: govuk-colour('light-purple');
+         }
+    }
     @include govuk-media-query($from: tablet) {
         padding: 0 30px;
     }
@@ -30,7 +36,7 @@
 	clear:both;
 	max-width:960px;
 	width:100%;
-	background: govuk-colour('light-purple');
+	background: govuk-colour('orange');
 	color:#fff;
     z-index:1;
     margin:0 auto;
@@ -69,6 +75,7 @@
     }
     
     p.floating-head-text{
+        color: #fff;
         float:left; 
         margin:10px 0 0 10px;
         text-align: left;
