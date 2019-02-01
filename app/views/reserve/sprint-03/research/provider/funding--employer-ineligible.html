@@ -16,16 +16,15 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Sorry, this employer is not eligible for more funding at this time
-    </h1>{{releaseVersion | log }}
+      Funding restrictions
+    </h1>
 
     {{ govukWarningText({
-      html: "You can only secure funding for one apprentice per employer, as funding has been restricted.",
-      iconFallbackText: "Current Funding restrictions"
+      html: 'You have already secured funding for this employer to train one apprentice. So you cannot secure any more funding for them. Go to <a href="#">funding restrictions</a> for more information.'
     }) }}
 
     <p>
-      You have already secured funding for this employer to train one apprentice, so you cannot secure any more funding for them. Go to <a href="#">funding restrictions</a> for more information.  
+        
     </p>
 
     <p>

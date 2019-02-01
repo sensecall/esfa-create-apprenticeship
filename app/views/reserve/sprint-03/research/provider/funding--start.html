@@ -12,10 +12,6 @@ GOV.UK Prototype Kit
       Get funding for non-levy employers
     </h1>{{releaseVersion | log }}
 
-    <p>
-      Use this service to secure government funding for a non-levy employer to train an apprentice. Government funding will pay for part or all of the cost of training an apprentice.
-    </p>
-
     {% if 'future-restriction' in data['funding-restrictions'] %}
     {{ govukWarningText({
       html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
@@ -25,12 +21,15 @@ GOV.UK Prototype Kit
 
     {% if 'number-of-starts' in data['funding-restrictions'] %}
     {{ govukWarningText({
-      html: "There is currently a restriction in place on the number of apprenticeships that an employer can secure funding for.<br>
-      Employers can secure funding for <u>one apprentice</u>.",
+      html: "You can only secure funding for one apprentice per employer, as funding has been restricted.",
       iconFallbackText: "Current Funding restrictions"
     }) }}
     {% endif %}
 
+    <p>
+      Use this service to secure government funding for a non-levy employer to train an apprentice. Government funding will pay for part or all of the cost of training an apprentice.
+    </p>
+    
     <!-- {{govukInsetText({
       text: "You can only secure funding up to 6 months before the apprenticeship training is about to start."
     })}} -->
@@ -64,18 +63,18 @@ GOV.UK Prototype Kit
         Related guidance
       </h2>
       
-      <ul class="govuk-list">
+      <ul class="govuk-list govuk-!-font-size-16">
         <li>
-           <a href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work#non-levy-paying-employers"> Apprenticeship funding: how it works</a>
+           <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work#non-levy-paying-employers"> Apprenticeship funding: how it works</a>
          </li>
         <li>
-          <a href="https://www.gov.uk/government/publications/apprenticeship-funding-rules-2018-to-2019">Apprenticeship funding rules</a>
+          <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-funding-rules-2018-to-2019">Apprenticeship funding rules</a>
         </li>
         <li>
-          <a href="https://www.gov.uk/government/publications/apprenticeship-funding-bands">Apprenticeship funding bands</a>
+          <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-funding-bands">Apprenticeship funding bands</a>
         </li>
         <li>
-          <a href="https://www.gov.uk/take-on-an-apprentice" target="_blank">
+          <a class="govuk-link" href="https://www.gov.uk/take-on-an-apprentice" target="_blank">
             Employing an apprentice
           </a>
         </li>

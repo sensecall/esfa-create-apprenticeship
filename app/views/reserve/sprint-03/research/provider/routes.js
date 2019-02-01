@@ -47,7 +47,7 @@ router.post('/add__confirm-employer', (req, res) => {
 // funding start
 router.get('/funding--start', (req, res) => {
 	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
-		res.render(`${req.feature}/funding--start--service-unavailable`)
+		res.redirect(`funding--start--service-unavailable`)
 	} else {
 		res.render(`${req.feature}/funding--start`)
 	}
@@ -93,7 +93,7 @@ router.get('/funding--enter-details', (req, res) => {
 	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
 
 	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
-		res.render(`${req.feature}/funding--employer-ineligible`)
+		res.redirect(`funding--employer-ineligible`)
 	} else {
 		res.render(`${req.feature}/funding--enter-details`,{months,employerReservationCount})
 	}
@@ -119,7 +119,16 @@ router.post('/funding--confirm-employer', (req, res) => {
 	req.session.data['course-name'] = ''
 	
 	if (req.session.data['confirm-employer'] == 'yes' ) {
-		res.redirect(`funding--number-of-apprentices`)
+		// check that the selected employer hasnt got too many reservations yet
+		var a = req.session.data['reservations']
+		var e = req.session.data['employer']
+		var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
+
+		if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
+			res.render(`${req.feature}/funding--employer-ineligible`)
+		} else {
+			res.redirect(`funding--number-of-apprentices`)
+		}
 	} else {
 		req.session.data['employer'] = ''
 		res.redirect(`funding--choose-employer`)

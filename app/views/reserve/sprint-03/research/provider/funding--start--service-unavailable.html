@@ -20,20 +20,17 @@ GOV.UK Prototype Kit
     </h1>{{releaseVersion | log }}
 
     {{ govukWarningText({
-      html: "You cannot get any government funding for training an apprentice, as there are funding restrictions.
-      <br>
-      Go to <a href='#'>funding restrictions</a> for more information.
-      <br>
-      Any funding you have already secured is not affected.",
+      html: "You cannot get any government funding for training an apprentice, as there are funding restrictions. Go to <a href='#'>funding restrictions</a> for more information.",
       iconFallbackText: "Current Funding restrictions"
     }) }}
 
     <p>
-      You can find out when funding will be available by keeping in touch with the Apprenticeships service:
+      Any funding you have already secured is not affected.
     </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li></li>
-    </ul>
+
+   {{govukButton({
+    text: "Return to account"
+   })}}
   </div>
 
   <div class="govuk-grid-column-one-third">
