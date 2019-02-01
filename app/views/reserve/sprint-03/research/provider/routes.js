@@ -119,7 +119,7 @@ router.post('/funding--confirm-employer', (req, res) => {
 	req.session.data['course-name'] = ''
 	
 	if (req.session.data['confirm-employer'] == 'yes' ) {
-		res.redirect(`funding--enter-details`)
+		res.redirect(`funding--number-of-apprentices`)
 	} else {
 		req.session.data['employer'] = ''
 		res.redirect(`funding--choose-employer`)

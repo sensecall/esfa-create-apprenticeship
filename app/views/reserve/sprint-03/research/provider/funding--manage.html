@@ -35,7 +35,7 @@ GOV.UK Prototype Kit
 			<div class="govuk-grid-row">
 				<div class="govuk-grid-column-two-thirds">
 					<h3 class="govuk-heading-xl govuk-!-margin-top-6">
-						Manage funding
+						Manage funding for non-levy employers
 					</h3>
 				</div>
 			</div>
@@ -44,9 +44,9 @@ GOV.UK Prototype Kit
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header" scope="col">Employer</th>
-						<th class="govuk-table__header" scope="col">Course</th>
-						<th class="govuk-table__header" scope="col">Valid dates</th>
-						<th class="govuk-table__header" colspan="3" scope="col">Created</th>
+						<th class="govuk-table__header" scope="col">Apprenticeship training</th>
+						<th class="govuk-table__header" scope="col" colspan="3">Apprenticeship start date</th>
+						<!-- <th class="govuk-table__header" colspan="3" scope="col">Created</th> -->
 					</tr>
 				</thead>
 
@@ -57,13 +57,13 @@ GOV.UK Prototype Kit
 						<td class="govuk-table__cell">{{reservation.employer}}</td>
 						<td class="govuk-table__cell">{{reservation.course}}</td>
 						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
-						<td class="govuk-table__cell">{{reservation.created}}</td>
-						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
-							<a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a>
+						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
+						<td class="govuk-!-font-size-16 govuk-table__cell">
+							<span class="govuk-!-display--inline-block"><a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a></span>
+							<br class="govuk-!-margin-bottom-3">
+							<span class="govuk-!-display--inline-block"><a href="funding--delete?reservation-id={{reservation.id}}">Delete</a></span>
 						</td>
-						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
-							<a href="funding--delete?reservation-id={{reservation.id}}">Cancel</a>
-						</td>
+					
 					</tr>
 					{% endfor %}
 				</tbody>

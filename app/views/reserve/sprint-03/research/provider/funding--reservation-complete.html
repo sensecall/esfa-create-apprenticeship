@@ -12,6 +12,59 @@ GOV.UK Prototype Kit
 			classes: "govuk-!-margin-bottom-6"
 		}) }}
 
+		{% set disclosureHtml %}
+		{{data['course-name']}}
+		<br class="govuk-!-margin-bottom-2">
+		<span class="govuk-hint">This can be changed without affecting your funding.</span>
+		{% endset %}
+
+		{% from "summary-list/macro.njk" import govukSummaryList %}
+
+		{{ govukSummaryList({
+			rows:
+			[
+			{
+				key:
+				{
+					text: "Employer"
+				},
+				value:
+				{
+					text: data['employer']
+				},
+				actions:
+				{
+					items: 
+					[
+					{
+
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Apprenticeship start date"
+				},
+				value:
+				{
+					html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+				}
+			},
+			{
+				key:
+				{
+					text: "Apprenticeship training"
+				},
+				value:
+				{
+					html: disclosureHtml
+				}
+			}
+			]
+		}) }}
+
 		<p>
 			You can <a href="#" onclick="window.print();return false;">print this page</a> to show your employer that you have secured funding for them. 
 		</p>
@@ -21,7 +74,24 @@ GOV.UK Prototype Kit
 		</h2>
 
 		<p>
-			You can change the apprenticeship training course when you add the apprentice's details. To make any other changes, you will need to start again and secure new funding.
+			You can change the apprenticeship training course when you add an apprentice. 
+		</p>
+
+		<p>
+			You cannot change: 
+		</p>
+
+		<ul class="govuk-list govuk-list--bullet">
+			<li>
+				the employer
+			</li>
+			<li>
+				the apprenticeship start date, outside of the 3 month window you selected
+			</li>
+		</ul>
+
+		<p>
+			To select a different employer or apprenticeship start date, you will need to start again and secure new funding. 
 		</p>
 
 		<h2 class="govuk-heading-l">
@@ -29,11 +99,11 @@ GOV.UK Prototype Kit
 		</h2>
 
 		<p>
-			If you have not found an apprentice yet, you can use <a href="#">our recruitment service</a> to find an apprentice.
+			If you have not found an apprentice yet, you can use our <a href="#">recruitment service</a> to find an apprentice.
 		</p>
 
 		<p>
-			If you know who the apprentice will be, you can add an apprentice to this funding.
+			If you know who the apprentice will be, you can add an apprentice to this funding now.
 		</p>
 
 

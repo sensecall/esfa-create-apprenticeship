@@ -20,9 +20,23 @@ GOV.UK Prototype Kit
     </h1>{{releaseVersion | log }}
 
     {{ govukWarningText({
-      html: "Funding for training an apprentice is currently restricted. Employers can not have more than 1 apprenticeship that has been allocated fundng but has not started yet.",
+      html: "You can only secure funding for one apprentice per employer, as funding has been restricted.",
       iconFallbackText: "Current Funding restrictions"
     }) }}
+
+    <p>
+      You have already secured funding for this employer to train one apprentice, so you cannot secure any more funding for them. Go to <a href="#">funding restrictions</a> for more information.  
+    </p>
+
+    <p>
+      Any funding you have already secured for this employer is not affected. 
+    </p>
+
+
+    {{govukButton({
+      text: "Return to account",
+      href: "account-home"
+    })}}
   </div>
 
   <div class="govuk-grid-column-one-third">

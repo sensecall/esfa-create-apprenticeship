@@ -13,17 +13,27 @@ GOV.UK Prototype Kit
     </h1>{{releaseVersion | log }}
 
     <p>
-      Use this service to secure government funding for a non-levy employer to train an apprentice.
+      Use this service to secure government funding for a non-levy employer to train an apprentice. Government funding will pay for part or all of the cost of training an apprentice.
     </p>
 
-    <p>
-      Government funding will pay for part or all of the cost of training an apprentice. 
-    </p>
-
-    <!-- {{ govukWarningText({
-      html: "From April 2019, you will not be able to secure any funding for training an aprentice. Any funding you have secured before April 2019 will not be affected.",
+    {% if 'future-restriction' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
       iconFallbackText: "Current Funding restrictions"
-    }) }} -->
+    }) }}
+    {% endif %}
+
+    {% if 'number-of-starts' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "There is currently a restriction in place on the number of apprenticeships that an employer can secure funding for.<br>
+      Employers can secure funding for <u>one apprentice</u>.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
+
+    <!-- {{govukInsetText({
+      text: "You can only secure funding up to 6 months before the apprenticeship training is about to start."
+    })}} -->
 
     <p>
       Before you start you will need: 
@@ -31,19 +41,15 @@ GOV.UK Prototype Kit
 
     <ul class="govuk-list govuk-list--bullet">
       <li>
-        <a href="https://www.gov.uk/government/publications/how-to-register-for-an-idams-account/idams-super-user-guidance-how-to-assign-approve-and-reject-roles-and-permissions">permission from a non-levy employer</a> to secure funds for them
+        <a href="#" onclick="alert('Link to provider permissions functionality.')">permission</a> from a non-levy employer that you can secure funds for them
       </li>
       <li>
-        which month the apprenticeship training will start 
+        an estimate of which month the apprenticeship training course will start, which can be flexible up to 3 months
       </li>
       <li>
-        an estimate of which apprenticeship training the apprentice will take (optional)
+        an idea of the <a href="#">apprenticeship training</a> the apprentice will take, which can be changed later
       </li>
     </ul>
-
-    <div class="govuk-inset-text">
-      You can only secure funding up to 6 months before the apprenticeship training is about to start. 
-    </div>    
 
     <p>
       <a href="funding--choose-employer" class="govuk-button govuk-button--start">
@@ -53,15 +59,28 @@ GOV.UK Prototype Kit
   </div>
 
   <div class="govuk-grid-column-one-third">
-    <!-- <div class="app-related-items">
+    <div class="app-related-items">
       <h2 class="govuk-heading-m">
-        Related
+        Related guidance
       </h2>
       
-      <p>
-        Blah blah blah
-      </p>
-    </div> -->
+      <ul class="govuk-list">
+        <li>
+           <a href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work#non-levy-paying-employers"> Apprenticeship funding: how it works</a>
+         </li>
+        <li>
+          <a href="https://www.gov.uk/government/publications/apprenticeship-funding-rules-2018-to-2019">Apprenticeship funding rules</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/publications/apprenticeship-funding-bands">Apprenticeship funding bands</a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/take-on-an-apprentice" target="_blank">
+            Employing an apprentice
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
