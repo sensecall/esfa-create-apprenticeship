@@ -90,14 +90,18 @@ GOV.UK Prototype Kit
     </ol>
 
 
-      <p>
-        {{ govukButton ({
-          text: "Add an apprentice",
-          href: "add-apprentice"
-        })}}
-      </p>
-    </form>
-  </div>
+    <p>
+      {{ govukButton ({
+        text: "Add an apprentice",
+        href: "add-apprentice",
+        classes: "govuk-!-margin-bottom-2 govuk-!-margin-top-4"
+      })}}
+    </p>
+    <p>
+      <a href="account-home">Return to account</a>
+    </p>
+  </form>
+</div>
 </div>
 
 {% endblock %}

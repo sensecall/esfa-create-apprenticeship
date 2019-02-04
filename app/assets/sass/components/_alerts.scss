@@ -1,0 +1,35 @@
+.govuk-inset-text--success {
+  border-color: govuk-colour("turquoise");
+  background-color: mix(white, govuk-colour("turquoise"), 90%);
+}
+
+.govuk-inset-text--info {
+  border-color: govuk-colour("light-blue");
+  background-color: mix(white, govuk-colour("light-blue"), 90%);
+}
+
+.govuk-inset-text--warning {
+  border-color: govuk-colour("bright-red");
+  background-color: mix(white, govuk-colour("bright-red"), 90%);
+}
+
+.govuk-inset-text--cost {
+  border-color: mix(white, govuk-colour("turquoise"), 60%);
+  background-color: govuk-colour("turquoise");
+  * {
+  	color: govuk-colour("white")
+  }
+}
+
+.govuk-inset-text--neutral {
+  border-color: govuk-colour("grey-2");
+  background-color: mix(white, govuk-colour("grey-1"), 90%);
+}
+
+.govuk-inset-text--blue {
+  border-color: govuk-colour("light-blue");
+  background-color: govuk-colour("blue");
+  * {
+    color: #fff !important;
+  }
+}
