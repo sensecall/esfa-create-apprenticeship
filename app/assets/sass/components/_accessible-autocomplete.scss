@@ -1,5 +1,6 @@
 .autocomplete__wrapper {
   position: relative;
+  font-size: 19px;
 }
 
 .autocomplete__hint,
@@ -144,7 +145,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@include govuk-media-query($from: desktop) {
+@include govuk-media-query($from: tablet) {
   .autocomplete__hint,
   .autocomplete__input,
   .autocomplete__option {
@@ -159,5 +160,23 @@
   .autocomplete__wrapper input,
   .autocomplete__wrapper li {
     font-size: 19px;
+  }
+}
+
+@include govuk-media-query($to: tablet) {
+  .autocomplete__hint,
+  .autocomplete__input,
+  .autocomplete__option {
+    font-size: 16px;
+  }
+
+  .autocomplete__hint,
+  .autocomplete__input {
+    line-height: 25px;
+  }
+
+  .autocomplete__wrapper input,
+  .autocomplete__wrapper li {
+    font-size: 16px;
   }
 }
