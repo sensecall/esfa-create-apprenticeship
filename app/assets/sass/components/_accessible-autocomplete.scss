@@ -144,7 +144,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@include govuk-media-query($from: tablet) {
+@include govuk-media-query($from: desktop) {
   .autocomplete__hint,
   .autocomplete__input,
   .autocomplete__option {
