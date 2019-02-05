@@ -1,6 +1,6 @@
 .autocomplete__wrapper {
   position: relative;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .autocomplete__hint,
@@ -160,23 +160,5 @@
   .autocomplete__wrapper input,
   .autocomplete__wrapper li {
     font-size: 19px;
-  }
-}
-
-@include govuk-media-query($to: tablet) {
-  .autocomplete__hint,
-  .autocomplete__input,
-  .autocomplete__option {
-    font-size: 16px;
-  }
-
-  .autocomplete__hint,
-  .autocomplete__input {
-    line-height: 25px;
-  }
-
-  .autocomplete__wrapper input,
-  .autocomplete__wrapper li {
-    font-size: 16px;
   }
 }
