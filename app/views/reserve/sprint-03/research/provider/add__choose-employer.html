@@ -14,39 +14,10 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="confirm-employer">
-      {% call govukFieldset({
-        legend:
-        {
-          text: "Choose an employer",
-          classes: "govuk-fieldset__legend--xl",
-          isPageHeading: true
-        }
-      }) %}
-
-      {{ govukInput({
-        label:
-        {
-          text: "Employer name"
-        },
-        hint:
-        {
-          text: "This is the employer you are creating a cohort on behalf of."
-        },
-        classes: "govuk-input--width-20",
-        formGroup:
-        {
-          classes: "govuk-!-margin-bottom-2"
-        },
-        id: "national-insurance-number",
-        name: "national-insurance-number"
-      }) }}
-
-      {{ govukButton({
-        text: "Submit",
-        classes: "govuk-!-margin-top-0"
-      }) }}
-      {% endcall %}
+    <form action="add__confirm-employer">
+      <h1 class="govuk-heading-xl">
+        Choose an employer
+      </h1>
 
       {% import './apprentices.json' as apprenticesData %}
       <table class="govuk-table">
@@ -65,7 +36,7 @@ GOV.UK Prototype Kit
             <th class="govuk-table__header" scope="row">{{apprentice.employer}}</th>
             <td class="govuk-table__cell">{{name}}</td>
             <td class="govuk-table__cell">{{apprentice.agreementID}}</td>
-            <td class="govuk-table__cell" style="text-align: right"><a href="funding--confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="add__confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
           </tr>
           {% endfor %}
         </tbody>

@@ -41,6 +41,11 @@ GOV.UK Prototype Kit
           {% endfor %}
         </tbody>
       </table>
+
+      {{govukDetails({
+        summaryText: "Why are some of my employers not in this list?",
+        text: "You can only secure funds for employers that don't pay the apprenticeship levy. Employers that pay the levy have been filtered from this list."
+      })}}
     </form>
   </div>
 </div>
