@@ -1,0 +1,315 @@
+{% extends "layout-provider-new-account.html" %}
+
+{% set currentPage = 'dashboard' %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			APEX TRAINING LIMITED
+			<span class="govuk-caption-xl">Account ID: 7JDYMV</span>
+		</h1>
+	</div>
+</div>
+
+{% set unapprovedHtml %}
+<h2 class="govuk-heading-l">Unapproved or draft apprentices</h2>
+{{ govukTable({
+  head: [
+	{
+		text: "Name"
+	},
+	{
+		text: "Apprenticeship course"
+	},
+	{
+		text: "Total price"
+	},
+	{
+		text: "Status"
+	},
+	{}	
+  ],
+  rows: [
+    [
+      {
+        text: "David Francis"
+	  },
+	  {
+        text: "Able Seafarer, Level: 4 (Standard)"
+      },
+      {
+        text: "£3,000"
+      },
+      {
+        text: "Draft"
+	  },
+	  {
+		html:"View"
+	  }
+    ],
+    [
+      {
+        text: "Paul Farmer"
+      },
+      {
+        text: "Able Seafarer, Level: 4 (Standard)"
+      },
+      {
+        text: "£3,000"
+	  },
+	  {
+		text: "Awaiting employer approval"
+	  },
+	  {
+		html: "View"
+	  }
+    ],
+    [
+      {
+        text: "Rita Patel"
+	  },
+	  {
+		text: "Able Seafarer, Level: 4 (Standard)"
+	  },
+      {
+        text: "£3,000"
+      },
+      {
+        text: "Awaiting employer approval"
+	  },
+	  {
+		html: "View"
+	  }
+    ]
+  ]
+}) }}
+{% endset -%}
+
+{% set liveHtml %}
+<h2 class="govuk-heading-l">Live or waiting to start apprentices</h2>
+{{ govukTable({
+  head: [
+  	{
+	text: "Name"
+	},	
+  	{
+		text: "Apprenticeship course"
+	},
+	{
+		text: "Total price"
+	},
+	{
+		text: "Status"
+	},
+	{}	
+  ],
+  rows: [
+    [
+      {
+        text: "Don Deeney"
+      },
+      {
+        text: "Bespoke Saddler, Level: 3 (Standard)"
+	  },
+	  {
+        text: "£1,500"
+      },
+      {
+        text: "Waiting to start"
+	  },
+	  {
+		html: "View"
+	  }
+    ],
+    [
+      {
+        text: "Johnny Smith"
+	  },
+	  {
+		text: "Bespoke Saddler, Level: 3 (Standard)"
+	  },
+      {
+        text: "£1,500"
+      },
+      {
+        text: "Live"
+	  },
+	  {
+		html: "View"
+	  }
+    ],
+    [
+      {
+        text: "Hanson Deck"
+	  },
+	  {
+		text: "Bespoke Saddler, Level: 3 (Standard)"
+	  },
+      {
+        text: "£1,500"
+      },
+      {
+        text: "Live"
+	  },
+	  {
+		html: "View"
+	  }
+    ]
+  ]
+}) }}
+{% endset -%}
+
+{% set completedHtml %}
+<h2 class="govuk-heading-l">Completed or withdrawn apprenticeships</h2>
+{{ govukTable({
+  head: [
+	{
+		text: "Apprentice name"
+	},
+	{
+		text: "Apprenticeship course"
+	},
+	{
+		text: "Total price"
+	},
+	{
+		text: "Status"
+	},
+	{}
+  ],
+  rows: [
+    [
+      {
+        text: "Darryl Dazzler"
+      },
+      {
+        text: "Accountancy, Level: 7 (Degree)"
+      },
+      {
+        text: "£2,750"
+	  },
+	  {
+		text: "Completed"
+	  },
+	  {
+		html: "View"
+	  }
+    ],
+    [
+      {
+        text: "Bobby Shah"
+      },
+      {
+        text: "Accountancy, Level 5 (Standard)"
+      },
+      {
+        text: "£3,000"
+	  },
+	  {
+		text: "Completed"
+	  },
+	  {
+		html: "View"
+	  }
+    ],
+    [
+      {
+        text: "Mayur Tester"
+      },
+      {
+        text: "Accountancy, Level: 7 (Degree)"
+      },
+      {
+        text: "£4,000"
+	  },
+	  {
+		text: "Withdrawn"
+	  },
+	  {
+		html: "View"
+	  }
+    ]
+  ]
+}) }}
+{% endset -%}
+
+{% set pastYearHtml %}
+<h2 class="govuk-heading-l">Completed or withdrawn apprentices</h2>
+{{ govukTable({
+  head: [
+    {
+      text: "Apprenticeship course"
+    },
+    {
+      text: "Total price"
+    },
+    {
+      text: "Status"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "David Francis"
+      },
+      {
+        text: "1380"
+      },
+      {
+        text: "1472"
+      }
+    ],
+    [
+      {
+        text: "Paul Farmer"
+      },
+      {
+        text: "1129"
+      },
+      {
+        text: "1083"
+      }
+    ],
+    [
+      {
+        text: "Rita Patel"
+      },
+      {
+        text: "1539"
+      },
+      {
+        text: "1265"
+      }
+    ]
+  ]
+}) }}
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Unapproved or draft",
+      id: "unapproved",
+      panel: {
+        html: unapprovedHtml
+      }
+    },
+    {
+      label: "Live or waiting to start",
+      id: "live",
+      panel: {
+        html: liveHtml
+      }
+    },
+    {
+      label: "Completed or withdrawn",
+      id: "completed",
+      panel: {
+        html: completedHtml
+      }
+    }
+  ]
+}) }}
+
+{% endblock %}
