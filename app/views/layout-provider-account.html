@@ -45,6 +45,20 @@
 	</div>
 </div>
 {% else %}
+{% if showSurvey == 'true' %}
+<div class="notice-banner">
+	<div class="notice-banner__wrapper">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				<p class="notice-banner__content">
+					Help us improve how content is organised on the apprenticeship service. <a href="#">Take part in our 15 minute research activity</a>. It should take less than 10 minutes. 
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
 <div id="floating-menu-holder" class="floating-menu-holder--provider">
 	<div class="account-information floating-menu" role="navigation">
 		<div class="js-float">
@@ -91,17 +105,17 @@ with-proposition
 
 {% block footer %}
 {{ govukFooter({
-  meta: {
-  items: [
-  {
-    href: "prototype-settings",
-    text: "Prototype settings"
-  },
-  {
-    href: "/prototype-admin/clear-data",
-    text: "Clear data"
-  }
-  ]
+	meta: {
+	items: [
+	{
+		href: "prototype-settings",
+		text: "Prototype settings"
+	},
+	{
+		href: "/prototype-admin/clear-data",
+		text: "Clear data"
+	}
+	]
 }
 }) }}
 {% endblock %}

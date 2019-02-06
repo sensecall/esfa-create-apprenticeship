@@ -14,7 +14,7 @@
 			Prototype settings
 		</h1>
 
-		<form action="account-home">
+		<form action="account-home" id="form">
 			<h2 class="govuk-heading-l">
 				Employer info
 			</h2>
@@ -35,7 +35,7 @@
 				Funding restrictions
 			</h2>
 
-			{{ govukCheckboxes({
+			{{ govukRadios({
 				idPrefix: "funding-restrictions",
 				name: "funding-restrictions",
 				fieldset:
@@ -54,6 +54,11 @@
 				items:
 				[
 				{
+					value: "",
+					text: "DEFAULT (no restrictions)",
+					checked: checked("funding-restrictions", "number-of-starts")
+				},
+				{
 					value: "number-of-starts",
 					text: "RESTRICTED - Restrict number of starts",
 					checked: checked("funding-restrictions", "number-of-starts")
@@ -71,11 +76,50 @@
 				]
 			}) }}
 
+			<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+			{{ govukInput({
+				label:
+				{
+					text: "Share this URL"
+				},
+				value: "",
+				attributes:
+				{
+					readonly: "readonly"
+				},
+				id: "urlValue"
+			})}}
+
+			<p>
+				——— OR ———
+			</p>
+
 			{{ govukButton({
 				text: "Save and continue"
 			}) }}
 		</form>
 	</div>
 </div>
+{% endblock %}
 
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script>
+	$(document).ready(function() {
+		var values = $('#form').serialize()
+		var currentUrl = window.location.href
+		var newUrl = currentUrl.replace("prototype-settings", "account-home") + "?" + values;
+		$('#urlValue').val(newUrl)
+
+		$('input').each(function(){
+			$(this).on('change',function(){
+				var values = $('#form').serialize()
+				var currentUrl = window.location.href
+				var newUrl = currentUrl.replace("prototype-settings", "account-home") + "?" + values;
+				$('#urlValue').val(newUrl)
+			})
+		})
+	})
+</script>
 {% endblock %}
