@@ -1,0 +1,114 @@
+{% extends "layout-provider-new-account.html" %}
+
+{% set currentPage = 'task-list' %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+		<div class="govuk-grid-row">
+				<div class="govuk-grid-column-full">
+					<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+						APEX TRAINING LIMITED
+						<span class="govuk-caption-xl">Account ID: 7JDYMV</span>
+					</h1>
+				</div>
+			</div>
+			<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds">
+					<div style="max-width:90%">
+						<ol class="app-task-list" style="margin-top:0">
+							<li class="">
+								<h2 class="app-task-list__section"> <!-- <a href="./finance"> -->Employers<!-- </a> --></h2>
+								<p style="">You can create an employer account for employers that don't have one yet.</p>
+								<ul class="app-task-list__items" style="padding-left:0">
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount" aria-describedby="eligibility-completed">Add a new account for an employer</a>
+										<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/manage" aria-describedby="eligibility-completed">View and manage your employers</a>
+										<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+									</li>
+								</ul>
+							</li>
+							<li class="">
+								<h2 class="app-task-list__section"> <!-- <a href="./finance"> -->Reserve an apprenticeship<!-- </a> --></h2>
+								<p style="">You can reserve funding on behalf of an employer that has given you permission to do this.</p>
+								<ul class="app-task-list__items" style="padding-left:0">
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">How reserved funding works</a>
+										<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/reserveFunding/reserveMVS/chooseEmployer" aria-describedby="eligibility-completed">Reserve funding </a>
+										<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/reserveFunding/changeReserveMVS/chooseEmployer" aria-describedby="eligibility-completed">View and manage your reserved funding</a>
+										<strong class="govuk-tag app-task-list__task-completed " style="min-width:60px; text-align: center; " id="claimMyFundingComplete">767</strong>
+									</li>
+								</ul>
+							</li>
+
+									<li class="">
+								<h2 class="app-task-list__section"> <!-- <a href="./finance"> -->Recruit apprentices<!-- </a> --></h2>
+								<p style="">You can recruit, manage vacancies, create shortlists and notify candadtes if your employer has given you these permissions.</p>
+								<ul class="app-task-list__items" style="padding-left:0">
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/recruit/chooseEmployerAdd" aria-describedby="eligibility-completed">Create a new vacancy</a>
+										<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/recruit/chooseEmployerManage" aria-describedby="eligibility-completed">Manage current vacancies</a>
+										<strong class="govuk-tag app-task-list__task-completed " id="claimMyFundingComplete" style="min-width:60px; text-align: center; ">55</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/recruit/applications/chooseEmployerApps" aria-describedby="eligibility-completed">View current applications</a>
+										<strong class="govuk-tag app-task-list__task-completed " style="min-width:60px; text-align: center; " id="claimMyFundingComplete">87</strong>
+									</li>
+								</ul>
+							</li>
+
+
+									<li class="">
+								<h2 class="app-task-list__section"> <!-- <a href="./finance"> -->Add and manage apprentices<!-- </a> --></h2>
+								<p style="">You can add and manage apprentices that are doing the thing.</p>
+								<ul class="app-task-list__items" style="padding-left:0">
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/addApprentices/" aria-describedby="eligibility-completed">Add an apprentice</a>
+										<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./employerAccount/addApprentices/reviewApprove" aria-describedby="eligibility-completed">Review and approve new apprentices</a>
+										<strong class="govuk-tag app-task-list__task-completed " id="claimMyFundingComplete" style="min-width:60px; text-align: center; ">55</strong>
+									</li>
+									<li class="app-task-list__item " id="claimMyFunding">
+										<a class="app-task-list__task-name" href="./manage" aria-describedby="eligibility-completed">View your current apprentices</a>
+										<strong class="govuk-tag app-task-list__task-completed " style="min-width:60px; text-align: center; " id="claimMyFundingComplete">87</strong>
+									</li>
+								</ul>
+							</li>
+						</ol>
+		
+					</div>
+				</div>
+				<div class="govuk-grid-column-one-third">
+					<section>
+						<nav style="height:47px">
+							<ul class="js-tabs" role="tablist">
+								<li role="tab" id="tab-tasks" aria-controls="pane-tasks"><a href="#pane-tasks" class="selected">Tasks</a></li>
+							</ul>
+						</nav>
+						<div class="panes">
+							<div class="js-tab-pane" id="pane-tasks" role="tabpanel" aria-hidden="false" style="display: block;">
+								<p>You do not have any tasks</p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+</main></div>
+
+{% endblock %}

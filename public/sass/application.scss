@@ -21,6 +21,7 @@ $govuk-global-styles: true;
 @import "components/apprenticeship-service-header";
 @import "components/header-user";
 @import "components/alerts";
+@import "patterns/notice-banner";
 @import "components/accessible-autocomplete";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
