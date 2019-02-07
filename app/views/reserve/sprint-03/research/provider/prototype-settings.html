@@ -56,7 +56,8 @@
 				{
 					value: "",
 					text: "DEFAULT (no restrictions)",
-					checked: checked("funding-restrictions", "number-of-starts")
+					checked: checked("funding-restrictions", "number-of-starts"),
+					checked: true
 				},
 				{
 					value: "number-of-starts",
@@ -78,18 +79,9 @@
 
 			<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
 
-			{{ govukInput({
-				label:
-				{
-					text: "Share this URL"
-				},
-				value: "",
-				attributes:
-				{
-					readonly: "readonly"
-				},
-				id: "urlValue"
-			})}}
+			<p>
+				<a id="urlValue" href="#"></a>
+			</p>
 
 			<p>
 				——— OR ———
@@ -107,17 +99,16 @@
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
 <script>
 	$(document).ready(function() {
-		var values = $('#form').serialize()
-		var currentUrl = window.location.href
-		var newUrl = currentUrl.replace("prototype-settings", "account-home") + "?" + values;
-		$('#urlValue').val(newUrl)
+		function updateUrl() {
+			var newUrl = window.location.href.replace("prototype-settings", "account-home") + "?" + $('#form').serialize();
+			$('#urlValue').html(newUrl).attr('href',newUrl)
+		}
+
+		updateUrl()
 
 		$('input').each(function(){
 			$(this).on('change',function(){
-				var values = $('#form').serialize()
-				var currentUrl = window.location.href
-				var newUrl = currentUrl.replace("prototype-settings", "account-home") + "?" + values;
-				$('#urlValue').val(newUrl)
+				updateUrl()
 			})
 		})
 	})
