@@ -15,16 +15,12 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
-      <h1 class="govuk-heading-xl">
-        Apprenticeship training
-      </h1>
-
       {% call govukFieldset({
         legend:
         {
           text: "Which apprenticeship training will your apprentice take? (optional)",
-          classes: "govuk-fieldset__legend--m",
-          isPageHeading: false
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
         }
       }) %}
 
@@ -48,29 +44,7 @@ GOV.UK Prototype Kit
       </div>
       {% endcall %}
 
-      {{ govukRadios({
-        idPrefix: "planned-start-date",
-        name: "planned-start-date",
-        fieldset:
-        {
-          legend:
-          {
-            text: "When will the apprenticeship training start?",
-            isPageHeading: false,
-            hint:
-            {
-              text: "Your funding will be secured for the chosen month and the following 2 months. For example funds secured for January will can be used for starts from January to March."
-            },
-            classes: "govuk-fieldset__legend--m govuk-!-margin-top-6"
-          }
-        },
-        hint:
-        {
-          text: "Your funding will be secured for 3 months."
-        },
-        items: months
-      }) }}
-
+     
       <p>
         {{ govukButton ({
           text: "Save and continue"
@@ -94,7 +68,7 @@ GOV.UK Prototype Kit
         minLength: 2,
         selectElement: selectEl,
         placeholder: 'Start typing to search apprenticeships',
-        showAllValues: true
+        showAllValues: false
       })
     })
   })

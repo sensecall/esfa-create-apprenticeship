@@ -89,19 +89,38 @@ GOV.UK Prototype Kit
       <li>Add information about your apprentice</li>
     </ol>
 
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "add-apprentice",
+        name: "add-apprentice",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you want to add an apprentice now?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No, not right now"
+        }
+        ]
+      }) }}
 
-    <p>
-      {{ govukButton ({
-        text: "Add an apprentice",
-        href: "add-apprentice",
-        classes: "govuk-!-margin-bottom-2 govuk-!-margin-top-4"
-      })}}
-    </p>
-    <p>
-      <a href="account-home">Return to account</a>
-    </p>
-  </form>
-</div>
+      <p>
+        {{ govukButton ({
+          text: "Continue"
+        })}}
+      </p>
+    </form>
+  </div>
 </div>
 
 {% endblock %}

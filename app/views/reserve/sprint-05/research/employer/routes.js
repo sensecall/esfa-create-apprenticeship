@@ -38,13 +38,20 @@ router.get('/funding--start', (req, res) => {
 })
 
 
+// choose course
+router.post('/funding--choose-course', (req, res) => {
+	res.redirect('funding--choose-month')
+})
+
+
 // date plus course variant
-router.get('/funding--enter-details', (req, res) => {
+router.get('/funding--choose-month', (req, res) => {
 	var currentMonth = moment().format('MMMM YYYY')
+	var monthFormat = "MMMM YYYY"
 
 	var months = [{
 		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format("MMM YYYY") + " (secured from " + moment(currentMonth).startOf('month').format("MMM YY") + " to " + moment(currentMonth).add(2, 'months').endOf('month').format("MMM YY") + ")",
+		text: moment(currentMonth).startOf('month').format(monthFormat),
 		attributes:
 		{
 			required: "required"
@@ -53,10 +60,10 @@ router.get('/funding--enter-details', (req, res) => {
 
 	function addMonths(m){
 		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMM YYYY");
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format(monthFormat);
 			var month = {
 				value: date,
-				text: moment(date).startOf('month').format("MMM YYYY") + " (secured from " + moment(date).startOf('month').format("MMM YY") + " to " + moment(date).add(2, 'months').endOf('month').format("MMM YY") + ")",
+				text: moment(date).startOf('month').format(monthFormat),
 				hint:
 				{
 					text: ""
@@ -68,18 +75,22 @@ router.get('/funding--enter-details', (req, res) => {
 		}
 	}
 
-	addMonths(4)
+	addMonths(6)
 
-	res.render(`${req.feature}/funding--enter-details`,{months})
+	res.render(`${req.feature}/funding--choose-month`,{months})
 })
 
-router.post('/funding--enter-details', (req, res) => {
-	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("DD MMMM YYYY")
-	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("DD MMMM YYYY")
-	req.session.data['reservation-employer'] = "APEX ELECTRICAL ENGINEERS LIMITED"
+router.post('/funding--choose-month', (req, res) => {
+	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
+	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
+	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
 	req.session.data['reservation-endRange'] = latest
-	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
+	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+
+	if(req.session.data['course-name'] == ''){
+		req.session.data['course-name'] = 'Unknown'
+	}
 
 	res.redirect('funding--cya')
 })
@@ -101,11 +112,7 @@ router.post('/funding--complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
 		res.redirect(`add-apprentice`)
 	} else {
-		if ( req.session.data['funding-restrictions'].includes('number-of-starts') ) {
-			res.redirect(`account-home`)
-		} else {
-			res.redirect(`funding--add-another-reservation`)
-		}
+		res.redirect(`account-home`)
 	}
 })
 
