@@ -23,7 +23,7 @@ GOV.UK Prototype Kit
         legend:
         {
           text: "Which apprenticeship training will the apprentice take? (optional)",
-          classes: "govuk-fieldset__legend--l",
+          classes: "govuk-fieldset__legend--m",
           isPageHeading: false
         }
       }) %}
@@ -41,20 +41,12 @@ GOV.UK Prototype Kit
             {% endfor %}
           </select>
         </div>
-
-        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-4">
-          This information can be changed later without affecting your funding. 
-        </span>
       </div>
       {% endcall %}
 
       {{ govukRadios({
         idPrefix: "planned-start-date",
         name: "planned-start-date",
-        hint:
-        {
-          text: "The apprenticeship training can start anytime in the month you choose, or the following 2 months. For example if you select January, the apprenticeship training can start anytime from January to March."
-        },
         fieldset:
         {
           legend:
@@ -65,20 +57,15 @@ GOV.UK Prototype Kit
             {
               text: "Your funding will be secured for the chosen month and the following 2 months. For example funds secured for January will can be used for starts from January to March."
             },
-            classes: "govuk-fieldset__legend--l govuk-!-margin-top-4"
+            classes: "govuk-fieldset__legend--m govuk-!-margin-top-3"
           }
+        },
+        hint:
+        {
+          text: "Your funding will be secured for 3 months."
         },
         items: months
       }) }}
-
-      {{govukDetails({
-        text: "You can secure funding no more than 6 months in advance of the apprenticeship training start date. If you want to secure funding for a later date, come back later.",
-        summaryText: "I want a later start date "
-      })}}
-
-      <!-- {{ govukInsetText({
-        text: "Funding will only be provided if the apprentice starts their training in the selected month, or in the 2 months that follow the selected start date."
-      })}} -->
 
       <p>
         {{ govukButton ({

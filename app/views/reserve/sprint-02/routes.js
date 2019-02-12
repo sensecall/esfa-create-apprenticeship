@@ -3,7 +3,6 @@ const router = new express.Router()
 
 router.use('/', (req, res, next) => {
   req.feature = req.originalUrl.split('/')[1] + '/' + req.originalUrl.split('/')[2] + '/' + req.originalUrl.split('/')[3] + '/' + req.originalUrl.split('/')[4]
-  req.sprint = req.originalUrl.split('/')[2]
   res.locals.feature = req.feature
   next()
 })

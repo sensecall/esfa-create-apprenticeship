@@ -1,0 +1,67 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      <h1 class="govuk-heading-xl">
+        Confirm employer
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        {{data['employer']}}
+        <span class="govuk-caption-l">
+          Account name: {{data['apprentice-name']}}
+          <br>
+          Agreement ID: {{data['agreementID']}}
+        </span>
+      </h2>
+
+      {{ govukRadios({
+        idPrefix: "confirm-employer",
+        name: "confirm-employer",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Are you sure you want to secure funds for this employer?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          attributes:
+          {
+            required: "required"
+          },
+          text: "Yes, use " + data['employer']
+        },
+        {
+          value: "no",
+          text: "No, choose a different employer"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}

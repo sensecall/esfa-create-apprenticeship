@@ -1,0 +1,56 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{{ govukPanel({
+			titleText: "Details added and sent to APEX TRAINING LIMITED",
+			classes: "govuk-!-margin-bottom-8"
+		}) }}
+
+		<form method="post">
+			{{ govukRadios({
+				idPrefix: "add-another",
+				name: "add-another",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Do you need to add any more apprentices?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes"
+				},
+				{
+					value: "no",
+					text: "No"
+				}
+				]
+			}) }}
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

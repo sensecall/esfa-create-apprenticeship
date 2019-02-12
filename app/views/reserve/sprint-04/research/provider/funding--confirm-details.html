@@ -1,0 +1,112 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+     <h1 class="govuk-heading-xl app-content-required">
+      Check your information
+    </h1>
+
+    <p>
+      You are securing funding for a non-levy employer to take on an apprentice. This will be paid directly to the training provider, who the employer will confirm at a later date.
+    </p>
+
+    {% set disclosureHtml %}
+    {{data['course-name']}}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when adding an apprentice's details, without affecting your funding."
+    }) }}
+    {% endset %}
+
+    {% from "summary-list/macro.njk" import govukSummaryList %}
+
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: data['employer']
+        },
+        actions:
+        {
+          items: 
+          [
+          {
+
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "javascript: window.history.go(-1)",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship training"
+        },
+        value:
+        {
+          html: disclosureHtml
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "javascript: window.history.go(-1)",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+          ]
+        }
+      }
+      ]
+    }) }}
+
+    <p>
+      {{govukButton({
+        text: "Confirm"
+      })}}
+    </p>
+  </form>
+</div>
+
+{% endblock %}

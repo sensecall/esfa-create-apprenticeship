@@ -28,24 +28,13 @@ router.use(function (req, res, next) {
 // ----------------------------------------------------------------------
 
 
-// funding start
-router.get('/funding--start', (req, res) => {
-	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
-		res.render(`${req.feature}/funding--start--service-unavailable`)
-	} else {
-		res.render(`${req.feature}/funding--start`)
-	}
-})
-
-
-
-// date plus course variant
-router.get('/funding--enter-details', (req, res) => {
+// Choose date
+router.get('/choose-date', (req, res) => {
 	var currentMonth = moment().format('MMMM YYYY')
 
 	var months = [{
 		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format("MMM YYYY") + " (secured from " + moment(currentMonth).startOf('month').format("MMM YY") + " to " + moment(currentMonth).add(2, 'months').endOf('month').format("MMM YY") + ")",
+		text: currentMonth,
 		attributes:
 		{
 			required: "required"
@@ -54,10 +43,53 @@ router.get('/funding--enter-details', (req, res) => {
 
 	function addMonths(m){
 		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMM YYYY");
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMMM YYYY");
 			var month = {
 				value: date,
-				text: moment(date).startOf('month').format("MMM YYYY") + " (secured from " + moment(date).startOf('month').format("MMM YY") + " to " + moment(date).add(2, 'months').endOf('month').format("MMM YY") + ")",
+				text: date
+			}
+
+			months.push(month)
+			addMonths(m)
+		}
+	}
+
+	addMonths(6)
+
+	res.render(`${req.feature}/choose-date-02`,{months})
+})
+
+router.post('/choose-date', (req, res) => {
+	req.session.data['reservation-employer'] = "APEX ELECTRICAL ENGINEERS LIMITED"
+	// req.session.data['reservation-startRange'] = moment(req.session.data['reservation-startRange-month'] + ' 01 ' + req.session.data['reservation-startRange-year']).format("MMMM YYYY")
+	// req.session.data['reservation-endRange'] = moment(req.session.data['reservation-endRange-month'] + ' 01 ' + req.session.data['reservation-endRange-year']).format("MMMM YYYY")
+	req.session.data['reservation-startRange'] = moment('01 ' + req.session.data['reservation-startRange']).startOf('month').format("DD MMMM YYYY")
+	req.session.data['reservation-endRange'] = moment('01 ' + req.session.data['reservation-endRange']).endOf('month').format("DD MMMM YYYY")
+	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
+
+	res.redirect('confirm-details')
+})
+
+
+// date course variant
+router.get('/date-course', (req, res) => {
+	var currentMonth = moment().format('MMMM YYYY')
+
+	var months = [{
+		value: currentMonth,
+		text: moment(currentMonth).startOf('month').format("MMMM YYYY") + " (valid until " + moment(currentMonth).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
+		attributes:
+		{
+			required: "required"
+		}
+	}]
+
+	function addMonths(m){
+		if(months.length < m){
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMMM YYYY");
+			var month = {
+				value: date,
+				text: moment(date).startOf('month').format("MMMM YYYY") + " (valid until " + moment(date).add(2, 'months').endOf('month').format("D MMMM YYYY") + ")",
 				hint:
 				{
 					text: ""
@@ -71,10 +103,10 @@ router.get('/funding--enter-details', (req, res) => {
 
 	addMonths(4)
 
-	res.render(`${req.feature}/funding--enter-details`,{months})
+	res.render(`${req.feature}/date-course`,{months})
 })
 
-router.post('/funding--enter-details', (req, res) => {
+router.post('/date-course', (req, res) => {
 	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("DD MMMM YYYY")
 	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("DD MMMM YYYY")
 	req.session.data['reservation-employer'] = "APEX ELECTRICAL ENGINEERS LIMITED"
@@ -82,7 +114,7 @@ router.post('/funding--enter-details', (req, res) => {
 	req.session.data['reservation-endRange'] = latest
 	req.session.data['reservation-created'] = moment().format('DD MMMM YYYY')
 
-	res.redirect('funding--cya')
+	res.redirect('confirm-details')
 })
 
 
@@ -98,30 +130,23 @@ router.post('/know-course', (req, res) => {
 
 
 // reservation complete
-router.post('/funding--complete', (req, res) => {
+router.post('/reservation-complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
 		res.redirect(`add-apprentice`)
 	} else {
-		if ( req.session.data['funding-restrictions'].includes('number-of-starts') ) {
-			res.redirect(`account-home`)
-		} else {
-			res.redirect(`funding--add-another-reservation`)
-		}
+		res.redirect(`add-another-reservation`)
 	}
 })
 
 
 // add another reservation
-router.post('/funding--add-another-reservation', (req, res) => {
+router.post('/add-another-reservation', (req, res) => {
 	if (req.session.data['add-reservation'] == 'yes' ) {
-		res.redirect(`funding--enter-details`)
+		res.redirect(`choose-date`)
 	} else {
 		res.redirect(`account-home`)
 	}
 })
-
-
-
 
 
 // apprentice-details
@@ -144,28 +169,8 @@ router.post('/details-sent', (req, res) => {
 })
 
 
-// view details
-router.get('/funding--choose-legal-entity', (req, res) => {
-	if (req.session.data['multiple-legal-entities'] == 'true' ) {
-		res.render(`${req.feature}/funding--choose-legal-entity`)
-	} else {
-		res.redirect(`funding--number-of-apprentices`)
-	}
-})
-
-
-// view details
-router.get('/funding--view-details', (req, res) => {
-	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
-		return item['id'] === req.session.data['reservation-id'];
-	})
-
-	res.render(`${req.feature}/funding--view-details`,{reservationDetails})
-})
-
-
 // confirm details
-router.post('/funding--cya', (req, res) => {
+router.post('/confirm-details', (req, res) => {
 	var reservation = {
 		"id": cryptoRandomString(10),
 		"month": req.session.data['planned-start-date'],
@@ -178,7 +183,7 @@ router.post('/funding--cya', (req, res) => {
 
 	req.session.data['reservations'].push(reservation)
 
-	res.redirect(`funding--complete`)
+	res.redirect(`reservation-complete`)
 })
 
 

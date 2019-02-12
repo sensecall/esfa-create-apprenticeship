@@ -1,0 +1,95 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="funding--enter-details">
+			{% call govukFieldset({
+				legend:
+				{
+					text: "How many apprentices is this for?",
+					classes: "govuk-fieldset__legend--xl",
+					isPageHeading: true
+				}
+			}) %}
+
+			{{ govukInput({
+				label:
+				{
+					text: "Number of apprentices"
+				},
+				id: "number-of-apprentices",
+				name: "number-of-apprentices",
+				type: "number",
+				attributes:
+				{
+					min: 1
+				},
+				classes: "govuk-input--width-4"
+			}) }}
+
+			{% endcall %}
+
+			{% set warningHtml %}
+			You must secure funding for each apprentice individually. To secure funding for <span class="reserve-count-number">4</span> apprentice<span class="reserve-count-plural">s</span>, you will need to do <span class="reserve-count-number">4</span> application<span class="reserve-count-plural">s</span>.
+			{% endset %}
+
+			{{ govukWarningText({
+				html: warningHtml,
+				iconFallbackText: "Warning",
+				attributes:
+				{
+					id: "reserve-count-info"
+				}
+			}) }}
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var el = $('#reserve-count-info')
+		var s = el.find('.reserve-count-plural')
+
+		el.hide()
+
+		$('#number-of-apprentices').on('keyup',function(){
+			var n = $(this).val()
+
+			if(n > 1){
+				el.find('.reserve-count-number').html(n)
+				el.show()
+
+				if(n > 1){
+					s.show()
+				} else {
+					s.hide()
+				}
+			} else {
+				el.hide()
+			}
+		})
+	})
+</script>
+{% endblock %}

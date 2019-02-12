@@ -1,177 +1,110 @@
-{% extends "layout-account--new.html" %}
+{% extends "layout-account.html" %}
 
-{% block page_title %}
-Apprenticeships
+{% block beforeContent %}
 {% endblock %}
 
-{% block beforeContent %} 
-
-{% endblock %} 
-
 {% block content %}
-<main class="govuk-main-wrapper govuk-main-wrapper--l">
-	<section id="allContentHome" class="">
-		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">Assurance Aerospace Engineering
-			<span class="govuk-caption-l">Account ID: XJBMNV</span></h1>
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			APEX ELECTRICAL ENGINEERS LIMITED
+			<span class="govuk-caption-xl">Account ID: 7JDYMV</span>
+		</h1>
+	</div>
+</div>
 
-			<div class="govuk-grid-row">
-				<div class="govuk-grid-column-two-thirds column-minimum">
-					<ol class="app-task-list">
-						<li>
-							<h2 class="app-task-list__section"><span class="app-task-list__section-number">1. </span>
-							Secure funding</h2>
-							
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item " id="claimMyFunding">
-									<a class="app-task-list__task-name" href="funding--start" aria-describedby="eligibility-completed">
-										Secure funding for taking on an apprentice
-									</a>
-<!-- 									<strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
- -->								</li>
-								<li class="app-task-list__item " id="claimMyFunding">
-									<a class="app-task-list__task-name" href="funding--manage" aria-describedby="eligibility-completed">
-										View and manage funding
-									</a>
-								</li>
-							</ul>
-						</li>
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<div class="govuk-grid-row page-dashboard">		
+			<div class="govuk-grid-column-two-thirds">
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Your team</a>
+						</h2>
+						<p>Control what your team can do and invite new team members.</p>
+					</div>
 
-						<li>
-							<h2 class="app-task-list__section"><span class="app-task-list__section-number">2. </span>
-								Find apprenticeships
-							</h2>
-							
-							<ul class="app-task-list__items" >
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./find" aria-describedby="company-information-completed">
-										Find apprenticeship training and get costs
-									</a> 
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./savedApprenticeships">
-										View your saved apprenticeships
-									</a>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section"><span class="app-task-list__section-number">3. </span>
-								Find training providers
-							</h2>
-
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./find/findaprovider" aria-describedby="contact-details-completed">
-										Find training providers
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./savedProviders">
-										View your training providers 
-									</a>
-
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section"><span class="app-task-list__section-number">4. </span>
-								Recruit apprentices
-							</h2>
-
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="recruit/step-1">
-										Advertise an apprenticeship
-									</a>
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="recruit/vacancies">
-										Manage current vacancies
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="recruit/applications">
-										View current applications
-									</a>
-
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section"><span class="app-task-list__section-number">5. </span>
-								Add and Manage apprentices
-							</h2>
-
-							<ul class="app-task-list__items" style="padding-left:35px">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./apprentices/add">
-										Add a new apprentice
-									</a>
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./apprentices/reviewApprove">
-										Review and approve new apprentices
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name"  href="./apprentices/manage">
-										View your current apprentices
-									</a>
-
-								</li>
-
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section"><span class="app-task-list__section-number">6. </span>
-								Manage account
-							</h2>
-
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="./orgs">
-										Add and view organisations and agreements
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name"  href="./paye">
-										Add and view Tax details
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name"  href="./team">
-										Add and manage team members
-									</a>
-
-								</li>
-							</ul>
-						</li>
-					</ol>
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="finance">Finance</a>
+						</h2>
+						<p>View your financial transactions, connect with other employers and send or receive transfer funds.</p>
+					</div>
 				</div>
-			</li>
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="start">Secure funding for taking on an apprentice</a>
+						</h2>
+						<p>Reserve funding for apprenticeship training.</p>
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="start">Manage funding for apprentice training</a>
+						</h2>
+						<p>Reserve funding for apprenticeship training.</p>
+					</div>
+				</div>
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">PAYE schemes</a>
+						</h2>
+						<p>Add or remove <abbr title="Pay as your earn">PAYE</abbr> schemes.</p>
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Your organisations and agreements</a>
+						</h2>
+						<p>Add your organisations that will make contracts with training providers.</p>
+					</div>
+				</div>
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="https://findapprenticeshiptraining.sfa.bis.gov.uk/" target="_blank" rel="external">Find apprenticeship training</a>
+						</h2>
+						<p>Search for apprenticeships and see details of approved providers who can deliver the training.</p>
+					</div>
+					
+					<div class="govuk-grid-column-one-half">						
+						<h2 class="govuk-heading-m">
+							<a href="#">Apprentices</a>
+						</h2>
+						<p>Add apprentices, update details of existing apprentices and authorise payments to training providers.</p>
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						
+					</div>
+				</div>
+
+				<!-- <div class="govuk-grid-row">
+					<div class="govuk-grid-column-full">
+						<div class="govuk-inset-text">
+							<h3 class="govuk-heading-m">Help us improve this service</h3>
+							<p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank">Take our 3 minute survey</a> so that we can improve this service.</p>
+
+							{% from "button/macro.njk" import govukButton %}
+							{{ govukButton({
+								text: "Take the survey"
+							}) }}
+						</div>
+					</div>
+				</div> -->
+			</div>
 
 			<div class="govuk-grid-column-one-third">
 				
 			</div>
 		</div>
-	</ol>
+	</div>
 </div>
-</div>
-</section>
-</main>
-</div>
-
-</section>
-</main>
-
 
 {% endblock %}

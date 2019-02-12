@@ -1,0 +1,73 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="funding--enter-details">
+			{{ govukRadios({
+				idPrefix: "choose-legal-entity",
+				name: "choose-legal-entity",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Choose legal entity",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--xl"
+					}
+				},
+				hint:
+				{
+					text: "Choose the organisation that’s entered into the contract for the apprentices you’re adding."
+				},
+				items:
+				[
+				{
+					value: "Coventry",
+					text: "Coventry",
+					label:
+					{
+						classes: "govuk-label--m"
+					},
+					hint:
+					{
+						text: "Company number: 90000001"
+					}
+				},
+				{
+					value: "Birmingham",
+					text: "Birmingham",
+					label:
+					{
+						classes: "govuk-label--m"
+					},
+					hint:
+					{
+						text: "Company number: 90000048"
+					}
+				}
+				]
+			}) }}
+			
+			{{govukButton({
+				text: "Save and continue"
+			})}}
+		</form>
+	</div>
+
+	<div class="column-one-third">
+
+	</div>
+</div>
+{% endblock %}

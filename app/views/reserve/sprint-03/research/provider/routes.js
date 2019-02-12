@@ -43,25 +43,13 @@ router.post('/add__confirm-employer', (req, res) => {
 	}
 })
 
-
-// funding start
-router.get('/funding--start', (req, res) => {
-	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
-		res.redirect(`funding--start--service-unavailable`)
-	} else {
-		res.render(`${req.feature}/funding--start`)
-	}
-})
-
-
 // Choose date
 router.get('/funding--enter-details', (req, res) => {
 	var currentMonth = moment().format('MMMM YYYY')
-	var monthFormat = "MMMM YYYY"
 
 	var months = [{
 		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format(monthFormat),
+		text: moment(currentMonth).startOf('month').format("MMM YYYY") + " (secured from " + moment(currentMonth).startOf('month').format("MMM YY") + " to " + moment(currentMonth).add(2, 'months').endOf('month').format("MMM YY") + ")",
 		attributes:
 		{
 			required: "required"
@@ -70,10 +58,10 @@ router.get('/funding--enter-details', (req, res) => {
 
 	function addMonths(m){
 		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format(monthFormat);
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format("MMM YYYY");
 			var month = {
 				value: date,
-				text: moment(date).startOf('month').format(monthFormat),
+				text: moment(date).startOf('month').format("MMM YYYY") + " (secured from " + moment(date).startOf('month').format("MMM YY") + " to " + moment(date).add(2, 'months').endOf('month').format("MMM YY") + ")",
 				hint:
 				{
 					text: ""
@@ -87,16 +75,7 @@ router.get('/funding--enter-details', (req, res) => {
 
 	addMonths(6)
 
-	// check that the selected employer hasnt got too many reservations yet
-	var a = req.session.data['reservations']
-	var e = req.session.data['employer']
-	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
-
-	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
-		res.redirect(`funding--employer-ineligible`)
-	} else {
-		res.render(`${req.feature}/funding--enter-details`,{months,employerReservationCount})
-	}
+	res.render(`${req.feature}/funding--enter-details`,{months})
 })
 
 router.post('/funding--enter-details', (req, res) => {
@@ -114,75 +93,12 @@ router.post('/funding--enter-details', (req, res) => {
 	res.redirect('funding--confirm-details')
 })
 
-
-// Choose date
-router.get('/funding--enter-details--errors', (req, res) => {
-	var currentMonth = moment().format('MMMM YYYY')
-	var monthFormat = "MMMM YYYY"
-
-	var months = [{
-		value: currentMonth,
-		text: moment(currentMonth).startOf('month').format(monthFormat),
-		attributes:
-		{
-			required: "required"
-		}
-	}]
-
-	function addMonths(m){
-		if(months.length < m){
-			var date = moment(months[months.length-1]["value"]).add(1, 'months').format(monthFormat);
-			var month = {
-				value: date,
-				text: moment(date).startOf('month').format(monthFormat),
-				hint:
-				{
-					text: ""
-				}
-			}
-
-			months.push(month)
-			addMonths(m)
-		}
-	}
-
-	addMonths(6)
-
-	// check that the selected employer hasnt got too many reservations yet
-	var a = req.session.data['reservations']
-	var e = req.session.data['employer']
-	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
-
-	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
-		res.redirect(`funding--employer-ineligible`)
-	} else {
-		res.render(`${req.feature}/funding--enter-details--errors`,{months,employerReservationCount})
-	}
-})
-
-
 // Confirm employer (reserve)
 router.post('/funding--confirm-employer', (req, res) => {
 	req.session.data['course-name'] = ''
 	
-	// if you choose yes
 	if (req.session.data['confirm-employer'] == 'yes' ) {
-		// check that the selected employer hasnt got too many reservations yet
-		var a = req.session.data['reservations']
-		var e = req.session.data['employer']
-		var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
-
-		// if there is a restriction on number of starts
-		if ( req.session.data['funding-restrictions'].includes('number-of-starts')) {
-			// and the employer has secured funds
-			if ( employerReservationCount > 0 ) {
-				res.render(`${req.feature}/funding--employer-ineligible`)
-			} else {
-				res.redirect(`funding--enter-details`)
-			}		
-		} else {
-			res.redirect(`funding--number-of-apprentices`)
-		}
+		res.redirect(`funding--enter-details`)
 	} else {
 		req.session.data['employer'] = ''
 		res.redirect(`funding--choose-employer`)

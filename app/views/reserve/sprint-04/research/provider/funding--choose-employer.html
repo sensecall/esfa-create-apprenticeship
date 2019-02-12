@@ -1,0 +1,53 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="">
+      <h1 class="govuk-heading-xl">
+        Which non-levy employer are you securing funds for?
+      </h1>
+
+      {% import './apprentices.json' as apprenticesData %}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Employer</th>
+            <th class="govuk-table__header" scope="col">Account name</th>
+            <th class="govuk-table__header" colspan="2" scope="col">Agreement ID</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          {% for apprentice in apprenticesData.apprentices %}
+          {% set name = apprentice["account name"] %}
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{apprentice.employer}}</th>
+            <td class="govuk-table__cell">{{name}}</td>
+            <td class="govuk-table__cell">{{apprentice.agreementID}}</td>
+            <td class="govuk-table__cell" style="text-align: right"><a href="funding--confirm-employer?employer={{apprentice.employer}}&apprentice-name={{name}}&agreementID={{apprentice.agreementID}}">Select</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {{govukDetails({
+        summaryText: "Why are some of my employers not on this list?",
+        text: "You can only secure funds for employers that do not pay the apprenticeship levy. Therefore employers that pay the levy are not on this list."
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

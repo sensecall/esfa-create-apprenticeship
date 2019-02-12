@@ -15,9 +15,38 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="">
-      <h1 class="govuk-heading-xl">
-        Which non-levy employer are you securing funds for?
-      </h1>
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Choose a non-levy employer",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Employer name"
+        },
+        hint:
+        {
+          text: ""
+        },
+        classes: "govuk-input--width-20",
+        formGroup:
+        {
+          classes: "govuk-!-margin-bottom-2"
+        },
+        id: "national-insurance-number",
+        name: "national-insurance-number"
+      }) }}
+
+      {{ govukButton({
+        text: "Submit",
+        classes: "govuk-!-margin-top-0"
+      }) }}
+      {% endcall %}
 
       {% import './apprentices.json' as apprenticesData %}
       <table class="govuk-table">
@@ -41,11 +70,6 @@ GOV.UK Prototype Kit
           {% endfor %}
         </tbody>
       </table>
-
-      {{govukDetails({
-        summaryText: "Why are some of my employers not on this list?",
-        text: "You can only secure funds for employers that do not pay the apprenticeship levy. Therefore employers that pay the levy are not on this list."
-      })}}
     </form>
   </div>
 </div>
