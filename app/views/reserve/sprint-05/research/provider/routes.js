@@ -204,8 +204,11 @@ router.get('/funding--confirm-details', (req, res) => {
 })
 
 router.post('/funding--confirm-details', (req, res) => {
+	var reservationId = cryptoRandomString(10)
+	req.session.data['choose-reservation'] = reservationId
+
 	var reservation = {
-		"id": cryptoRandomString(10),
+		"id": reservationId,
 		"month": req.session.data['planned-start-date'],
 		"startMonth": req.session.data['reservation-startRange'],
 		"endMonth": req.session.data['reservation-endRange'],
@@ -264,6 +267,19 @@ router.get('/funding--reservation-details', (req, res) => {
 })
 
 // apprentice-details
+router.get('/apprentice-details', (req, res) => {
+	var reservationDetails = req.session.data['reservations'].filter(function(item) {
+		return item.id == req.session.data['choose-reservation']
+	});
+	var month = moment().month(reservationDetails[0].startMonth).format("M")
+	var year = moment().month(reservationDetails[0].startMonth).format("Y")
+
+	reservationDetails[0].startMonthNumber = month
+	reservationDetails[0].startYearNumber = year
+
+	res.render(`${req.feature}/apprentice-details`,{reservationDetails})
+})
+
 router.post('/apprentice-details', (req, res) => {
 	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
 		return item.id !== req.session.data['choose-reservation']

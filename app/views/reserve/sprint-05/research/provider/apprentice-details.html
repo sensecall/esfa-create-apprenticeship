@@ -43,7 +43,7 @@ GOV.UK Prototype Kit
         Employer
       </h3>
       <p class="govuk-!-margin-bottom-6">
-        {{data['employer']}}
+        {{reservationDetails[0].employer}}
       </p>
 
       {% call govukFieldset({
@@ -151,17 +151,19 @@ GOV.UK Prototype Kit
         {
           name: "month",
           id: "month",
+          value: reservationDetails[0].startMonthNumber,
           classes: "govuk-input--width-2"
         },
         {
           name: "year",
           id: "year",
+          value: reservationDetails[0].startYearNumber,
           classes: "govuk-input--width-4"
         }
         ],
         hint:
         {
-          text: "For example, 31 3 1980"
+          text: "For example, 3 2019"
         }
       }) }}
 
@@ -192,7 +194,7 @@ GOV.UK Prototype Kit
         ],
         hint:
         {
-          text: "For example, 31 3 1980"
+          text: "For example, 3 2020"
         }
       }) }}
 
