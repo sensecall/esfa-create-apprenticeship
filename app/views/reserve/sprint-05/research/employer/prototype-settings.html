@@ -14,7 +14,7 @@
 			Prototype settings
 		</h1>
 
-		<form action="account-home">
+		<form action="account-home" id="form">
 			<h2 class="govuk-heading-l">
 				Employer info
 			</h2>
@@ -22,38 +22,11 @@
 			{{ govukInput({
 				label:
 				{
-					text: "Business name"
+					text: "Provider name"
 				},
-				id: "employer",
-				name: "employer",
-				value: data['employer']
-			}) }}
-
-			{{ govukRadios({
-				idPrefix: "multiple-legal-entities",
-				name: "multiple-legal-entities",
-				fieldset:
-				{
-					legend:
-					{
-						text: "Does the employer account have multiple legal entities?",
-						isPageHeading: false,
-						classes: "govuk-fieldset__legend--s"
-					}
-				},
-				items:
-				[
-				{
-					value: "true",
-					text: "Yes",
-					checked: checked("multiple-legal-entities", "true")
-				},
-				{
-					value: "false",
-					text: "No",
-					checked: checked("multiple-legal-entities", "false")
-				}
-				]
+				id: "provider-name",
+				name: "provider-name",
+				value: data['provider-name']
 			}) }}
 
 			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -62,7 +35,7 @@
 				Funding restrictions
 			</h2>
 
-			{{ govukCheckboxes({
+			{{ govukRadios({
 				idPrefix: "funding-restrictions",
 				name: "funding-restrictions",
 				fieldset:
@@ -81,6 +54,12 @@
 				items:
 				[
 				{
+					value: "",
+					text: "DEFAULT (no restrictions)",
+					checked: checked("funding-restrictions", "number-of-starts"),
+					checked: true
+				},
+				{
 					value: "number-of-starts",
 					text: "RESTRICTED - Restrict number of starts",
 					checked: checked("funding-restrictions", "number-of-starts")
@@ -98,11 +77,40 @@
 				]
 			}) }}
 
+			<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+			<p>
+				<a id="urlValue" href="#"></a>
+			</p>
+
+			<p>
+				——— OR ———
+			</p>
+
 			{{ govukButton({
 				text: "Save and continue"
 			}) }}
 		</form>
 	</div>
 </div>
+{% endblock %}
 
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script>
+	$(document).ready(function() {
+		function updateUrl() {
+			var newUrl = window.location.href.replace("prototype-settings", "account-home") + "?" + $('#form').serialize();
+			$('#urlValue').html(newUrl).attr('href',newUrl)
+		}
+
+		updateUrl()
+
+		$('input').each(function(){
+			$(this).on('change',function(){
+				updateUrl()
+			})
+		})
+	})
+</script>
 {% endblock %}
