@@ -22,17 +22,22 @@ GOV.UK Prototype Kit
         {
           legend:
           {
-            text: "When will the apprenticeship training start?",
+            text: "When will the apprentice start their apprenticeship training?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl govuk-!-margin-top-6"
           }
         },
         hint:
         {
-          text: "The apprenticeship training can start anytime in the month you choose, or the following 2 months. For example if you select January, the apprenticeship training can start anytime from January to March."
+          text: "The apprentice can start their apprenticeship training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their training anytime from January to March."
         },
         items: months
       }) }}
+
+      {{govukDetails({
+        summaryText: "I want a later start date ",
+        text: "You can secure funding no more than 6 months in advance of the apprenticeship training start date. If you want to secure funding for a later date, come back later."
+      })}}
 
       <p>
         {{ govukButton ({

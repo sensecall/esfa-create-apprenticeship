@@ -16,12 +16,8 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Secure funding for taking on an apprentice
+      Get funding for taking on an apprentice
     </h1>{{releaseVersion | log }}
-
-    <p>
-      Use this service to secure <a href="#">government funding</a> for training an apprentice.
-    </p>
 
     {% if 'future-restriction' in data['funding-restrictions'] %}
     {{ govukWarningText({
@@ -39,25 +35,29 @@ GOV.UK Prototype Kit
     {% endif %}
 
     <p>
-      Government funding will pay for part, or all of the cost of training an apprentice. Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
+      Use this service to secure government funding for training an apprentice.
     </p>
 
     <p>
-      Before you start, you will need: 
+      Government funding will pay for part, or all of the cast of training an apprentice. Go to apprenticeship funding to find out how much you are allowed.
+    </p>
+
+    <p>
+      Before you start you will need:
     </p>
 
     <ul class="govuk-list govuk-list--bullet">
       <li>
-        the month the apprenticeship training will start 
+        an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months
       </li>
       <li>
-        which apprenticeship <a href="#">training course</a> the apprentice will take (optional)
+        an idea of the apprenticeship training the apprentice will take (optional)
       </li>
     </ul>
 
-    <div class="govuk-inset-text">
-      You can only secure funding up to 6 months before an apprenticeship training is about to start.
-    </div>    
+    <p>
+      You will be securing funding for 1 apprentice. Repeat the process for more apprentices.
+    </p>  
 
     <p>
       <a href="funding--choose-legal-entity" class="govuk-button govuk-button--start">

@@ -15,8 +15,8 @@
 		</h1>
 
 		<form action="account-home" id="form">
-			<h2 class="govuk-heading-l">
-				Employer info
+			<h2 class="govuk-heading-m">
+				Provider info
 			</h2>
 
 			{{ govukInput({
@@ -27,6 +27,20 @@
 				id: "provider-name",
 				name: "provider-name",
 				value: data['provider-name']
+			}) }}
+
+			<h2 class="govuk-heading-m">
+				Employer info
+			</h2>
+
+			{{ govukInput({
+				label:
+				{
+					text: "Employer name"
+				},
+				id: "employer",
+				name: "employer",
+				value: data['employer']
 			}) }}
 
 			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">

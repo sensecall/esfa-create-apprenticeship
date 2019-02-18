@@ -52,6 +52,7 @@ router.get('/funding--choose-month', (req, res) => {
 	var months = [{
 		value: currentMonth,
 		text: moment(currentMonth).startOf('month').format(monthFormat),
+		checked: req.session.data['planned-start-date'] == currentMonth,
 		attributes:
 		{
 			required: "required"
@@ -67,7 +68,8 @@ router.get('/funding--choose-month', (req, res) => {
 				hint:
 				{
 					text: ""
-				}
+				},
+				checked: req.session.data['planned-start-date'] == date
 			}
 
 			months.push(month)

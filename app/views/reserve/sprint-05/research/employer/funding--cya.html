@@ -20,7 +20,7 @@ GOV.UK Prototype Kit
     </h1>
 
     <p>
-      You are securing part or all of the cost for training the following apprenticeship. This will be paid directly to the training provider you choose.
+      You are securing funding for part, or all of the training costs for the following apprenticeship. This will be paid directly to the training provider you choose.
     </p>
 
     {% set disclosureHtml %}
@@ -28,7 +28,7 @@ GOV.UK Prototype Kit
     <br class="govuk-!-margin-bottom-2">
     {{ govukDetails({
       summaryText: "Can I change the course?",
-      text: "You can change the course when adding an apprentice's details, without affecting your funding."
+      text: "You can change the course when you add an apprentice's details."
     }) }}
     {% endset %}
 
@@ -59,7 +59,7 @@ GOV.UK Prototype Kit
       {
         key:
         {
-          text: "Apprenticeship start date"
+          text: "Apprenticeship training start date"
         },
         value:
         {
@@ -80,7 +80,7 @@ GOV.UK Prototype Kit
       {
         key:
         {
-          text: "Apprenticeship course"
+          text: "Apprenticeship training"
         },
         value:
         {
@@ -91,7 +91,7 @@ GOV.UK Prototype Kit
           items:
           [
           {
-            href: "javascript: window.history.go(-1)",
+            href: "javascript: window.history.go(-2)",
             text: "Change",
             visuallyHiddenText: "date of birth"
           }
