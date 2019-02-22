@@ -1,0 +1,99 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+  Select stop date
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/form-handler" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                  Select stop date
+                </h1>
+              </legend>
+              <div class="govuk-body-l">
+                Lorem ipsum...
+              </div>
+
+              {% set todayHtml %}
+              {{ govukInput({
+                id: "stop-today",
+                name: "stop-today",
+                type: "text",
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Today"
+                },
+                attributes: {
+                  spellcheck: "false"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set beforetodayHtml %}
+              {{ govukInput({
+                id: "stop-before-today",
+                name: "stop-before-today",
+                type: "text",
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Enter the date"
+                }
+              }) }}
+              {% endset -%}        
+
+              {{ govukRadios({
+                idPrefix: "when-stop",
+                name: "when-stop",
+                fieldset: {
+                  legend: {
+                    text: "When did this apprentice stop?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                  {
+                    value: "today",
+                    text: "Today"
+                    
+                  },
+                  {
+                    value: "before-today",
+                    text: "Before today",
+                    conditional: {
+                      html: beforetodayHtml
+                    }
+                  }
+                ]
+              }) }}
+            </fieldset>
+          </div>
+
+          {{ govukButton({
+            text: "Continue",
+            href: "confirm-stop"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
