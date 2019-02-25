@@ -82,6 +82,44 @@ router.get('/funding--choose-month', (req, res) => {
 	res.render(`${req.feature}/funding--choose-month`,{months})
 })
 
+// date plus course variant
+router.get('/funding--choose-month--errors', (req, res) => {
+	var currentMonth = moment().format('MMMM YYYY')
+	var monthFormat = "MMMM YYYY"
+
+	var months = [{
+		value: currentMonth,
+		text: moment(currentMonth).startOf('month').format(monthFormat),
+		checked: req.session.data['planned-start-date'] == currentMonth,
+		attributes:
+		{
+			required: "required"
+		}
+	}]
+
+	function addMonths(m){
+		if(months.length < m){
+			var date = moment(months[months.length-1]["value"]).add(1, 'months').format(monthFormat);
+			var month = {
+				value: date,
+				text: moment(date).startOf('month').format(monthFormat),
+				hint:
+				{
+					text: ""
+				},
+				checked: req.session.data['planned-start-date'] == date
+			}
+
+			months.push(month)
+			addMonths(m)
+		}
+	}
+
+	addMonths(6)
+
+	res.render(`${req.feature}/funding--choose-month--errors`,{months})
+})
+
 router.post('/funding--choose-month', (req, res) => {
 	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
 	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
