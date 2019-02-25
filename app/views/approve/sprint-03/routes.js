@@ -18,8 +18,8 @@ router.use(/\/research\/provider/, (req, res, next) => {
 })
 
 // employer 
-router.use('/research/employer/', (req, res, next) => {
-  require(`./research/employer/routes`)(req, res, next);
+router.use('/research/employers/employer-approve', (req, res, next) => {
+  require(`./research/employers/employer-approve/routes`)(req, res, next);
 })
 
 // employer 
