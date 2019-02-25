@@ -15,35 +15,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" class="form">
-
       <h1 class="govuk-heading-xl">
         Review apprentice details
       </h1>
 
-      <!-- only add a heading for a list if there is more than one list
       <h2 class="govuk-heading-m">
-        Personal details
-      </h2> -->
-
-      <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
-      <!--   * `app-check-your-answers--short` for short questions -->
-      <!--   * `app-check-your-answers__questions-long` for long questions -->
-      <!--   * none for single group of q&a -->
+        Apprentice details
+      </h2>
       <dl class="app-check-your-answers app-check-your-answers--short">
-        <div class="app-check-your-answers__contents">
-          <dt class="app-check-your-answers__question">
-            Training provider
-          </dt>
-          <dd class="app-check-your-answers__answer">
-            APEX TRAINING LIMITED
-          </dd>
-          <dd class="app-check-your-answers__change">
-            <a href="#">
-              <span class="govuk-visually-hidden">Edit training provider</span>
-            </a>
-          </dd>
-        </div>
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
             Name
@@ -71,21 +50,12 @@
             </a>
           </dd>
         </div>
+      </dl>
 
-        <!--<div class="app-check-your-answers__contents">
-          <dt class="app-check-your-answers__question">
-            Unique Learner Number (ULN)
-          </dt>
-          <dd class="app-check-your-answers__answer">
-            123456789A
-          </dd>
-          <dd class="app-check-your-answers__change">
-            <a href="#">
-              <span class="govuk-visually-hidden"> </span>
-            </a>
-          </dd>
-        </div>-->
-
+      <h2 class="govuk-heading-m">
+        Apprenticeship details
+      </h2>
+      <dl class="app-check-your-answers app-check-your-answers--short">
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
             Apprenticeship training course
@@ -96,6 +66,20 @@
           <dd class="app-check-your-answers__change">
             <a href="#">
               Edit<span class="govuk-visually-hidden"> apprenticeship training course</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Training provider
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            APEX TRAINING LIMITED
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              <span class="govuk-visually-hidden">Edit training provider</span>
             </a>
           </dd>
         </div>
@@ -141,67 +125,59 @@
             </a>
           </dd>
         </div>
-
-        <!--<div class="app-check-your-answers__contents">
-          <dt class="app-check-your-answers__question">
-            Reference (optional)
-          </dt>
-          <dd class="app-check-your-answers__answer">
-            
-          </dd>
-          <dd class="app-check-your-answers__change">
-            <a href="#">
-              Edit <span class="govuk-visually-hidden"> reference</span>
-            </a>
-          </dd>
-        </div>-->
       </dl>
 
-      {{ govukInsetText({        
+      <h2 class="govuk-heading-m">
+        Last message from the training provider
+      </h2>
+
+      {{ govukInsetText({ 
         text: "Please could you approve this at your earliest convenience, cheers Johnny"
       }) }}
 
-      {% from "radios/macro.njk" import govukRadios %}
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">      
 
-      {{ govukRadios({
-        idPrefix: "approve",
-        name: "approve",
-        fieldset: {
-          legend: {
-            text: "Approve these details?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "approve",
+          name: "approve",
+          fieldset:
+          {
+            legend:
+            {
+              text: "Approve these details?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
+            }
+          },
+          items: [
           {
             value: "yes",
             text: "Yes, approve these details"
           },
           {
             value: "no",
-            text: "No, reject these details"
-          }        
-        ]
-      }) }}
+            text: "No, don't approve"
+          }
+          ]
+        }) }}
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            Send a message to your training provider
+          </label>
+          <span id="more-detail-hint" class="govuk-hint">
+            Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next.
+          </span>
+          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+        </div>
 
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="more-detail">
-          Send a message to your training provider
-        </label>
-        <span id="more-detail-hint" class="govuk-hint">
-          Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next.
-        </span>
-        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
-      </div>
-
-      {{ govukButton({
-        text: "Continue",
-        href: "confirmation.html"
-      }) }}
-
+        <p>
+          {{ govukButton ({
+            text: "Continue"
+          })}}
+        </p>
       </form>
-
     </div>
   </div>
 {% endblock %}
