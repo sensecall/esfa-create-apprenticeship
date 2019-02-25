@@ -28,60 +28,43 @@
                 </h1>
               </legend>
               <div class="govuk-body-l">
-                Lorem ipsum...
+                Words (don't come easy, to me...)
               </div>
 
-              {% set todayHtml %}
-              {{ govukInput({
-                id: "stop-today",
-                name: "stop-today",
-                type: "text",
-                classes: "govuk-!-width-one-third",
-                label: {
-                  text: "Today"
-                },
-                attributes: {
-                  spellcheck: "false"
-                }
-              }) }}
-              {% endset -%}
-
-              {% set beforetodayHtml %}
-              {{ govukInput({
-                id: "stop-before-today",
-                name: "stop-before-today",
-                type: "text",
-                classes: "govuk-!-width-one-third",
-                label: {
-                  text: "Enter the date"
-                }
-              }) }}
-              {% endset -%}        
-
-              {{ govukRadios({
-                idPrefix: "when-stop",
-                name: "when-stop",
-                fieldset: {
-                  legend: {
-                    text: "When did this apprentice stop?",
-                    isPageHeading: true,
+              {{ govukDateInput({
+                id: "stop-date",
+                namePrefix: "stop-date",
+                fieldset:
+                {
+                  legend:
+                  {
+                    text: "When did this apprenticeship stop?",
+                    isPageHeading: false,
                     classes: "govuk-fieldset__legend--m"
                   }
                 },
-                items: [
-                  {
-                    value: "today",
-                    text: "Today"
-                    
-                  },
-                  {
-                    value: "before-today",
-                    text: "Before today",
-                    conditional: {
-                      html: beforetodayHtml
-                    }
-                  }
-                ]
+                items:
+                [
+                {
+                  name: "day",
+                  id: "day",
+                  classes: "govuk-input--width-2"
+                },
+                {
+                  name: "month",
+                  id: "month",
+                  classes: "govuk-input--width-2"
+                },
+                {
+                  name: "year",
+                  id: "year",
+                  classes: "govuk-input--width-4"
+                }
+                ],
+                hint:
+                {
+                  text: "For example, 24 02 2019"
+                }
               }) }}
             </fieldset>
           </div>

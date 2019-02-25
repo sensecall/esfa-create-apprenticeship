@@ -1,7 +1,7 @@
 {% extends "layout-account-prototype.html" %}
 
 {% block pageTitle %}
-  Change apprenticeship status
+  Change apprenticeship status A
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,49 +14,62 @@
 {% block content %}
 <div class="govuk-width-container">
 
-
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form action="/form-handler" method="post" novalidate>
 
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-                <h1 class="govuk-fieldset__heading">
-                  Change apprentice status
-                </h1>
-              </legend>
-              
-              <div class="govuk-body-l">
-                Lorem ipsum...
-              </div>
-              <div class="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
-                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
-                    Pause the apprenticeship
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
-                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
-                    Stop the apprenticeship
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
-                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
-                    "Don't do the thing"
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
+         
+
+          {{ govukRadios({
+            idPrefix: "sign-in",
+            name: "sign-in",
+            fieldset: {
+              legend: {
+                text: "Change apprenticeship status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              text: "Which status change would you like to make?"
+            },
+            items: [
+              {
+                value: "pause",
+                text: "Pause the apprenticeship",
+                label: {
+                  classes: "govuk-label--s"
+                },
+                hint: {        
+                  html: "Record a break in an apprentice's learning or 
+                  freeze payments to a training provider for a period of time"
+                }
+              },
+              {
+                value: "stop",
+                text: "Stop the apprenticeship",
+                label: {
+                  classes: "govuk-label--s"
+                },
+                hint: {
+                  html: "Change your training provider during the lifetime of a course or
+                  terminate the apprenticeship and cancel all future payments"
+                }
+              },
+              {
+                value: "nothing",
+                text: "Go back to apprentice details",
+                label: {
+                  classes: "govuk-label--s"
+                }
+              }
+            ]
+          }) }}
 
           {{ govukButton({
             text: "Continue",
-            href: "stop-date"
+            href: "change-apprentice-status-a"
           }) }}
 
         </form>
