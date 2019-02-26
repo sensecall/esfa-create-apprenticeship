@@ -6,13 +6,14 @@
     background: #fff;
     float: left;
     margin-right: 10px;
+
   }
   
   .flash-card {
     margin-top: 1em;
     padding: 30px;
-    background: $link-colour;
-    color: $page-colour;
+    background: govuk-colour("blue");
+    color: govuk-colour("white");
   
     p {
       margin-left: 32px;
@@ -29,34 +30,34 @@
     }
   
     a {
-      color: $page-colour;
+      color: govuk-colour("white");
       &:visited, &:hover, &:active {
-        color: $page-colour; }
+        color: govuk-colour("white"); }
       }
       details {
         // margin-bottom: 1em;
         summary {
-          color: $page-colour;
+          color: govuk-colour("white");
         }
         .panel {
-          border-left-color: $page-colour;
+          border-left-color: govuk-colour("white");
         }
       }
        .button {
-         color: $link-colour;
-         background-color: $page-colour;
+         color: govuk-colour("blue");
+         background-color: govuk-colour("white");
          // Link styles
          a {
-           color: $link-colour;
+           color: govuk-colour("blue");
          }
          &:visited {
-           color: $link-visited-colour;
+           color: govuk-colour("blue");
          }
          &:hover {
-           color: $link-hover-colour;
+           color: govuk-colour("blue");
          }
          &:active {
-           color: $link-active-colour;
+           color: govuk-colour("blue");
          }
        }
     }
