@@ -1,0 +1,70 @@
+// Pattern: flash cards
+// Problem: interupt the user with important information
+
+.circle-white {
+    color: #005ea5;
+    background: #fff;
+    float: left;
+    margin-right: 10px;
+
+  }
+  
+  .flash-card {
+    margin-top: 1em;
+    padding: 30px;
+    background: govuk-colour("blue");
+    color: govuk-colour("white");
+  
+    p {
+      margin-left: 32px;
+    }
+  
+    h1 {
+      &:first-of-type {
+        margin-top: 0 !important;
+      }
+    }
+  
+    h2 {
+      margin: 0.7em 0px 0.3em 0px !important;
+    }
+  
+    a {
+      color: govuk-colour("white");
+      &:visited, &:hover, &:active {
+        color: govuk-colour("white"); }
+      }
+      details {
+        // margin-bottom: 1em;
+        summary {
+          color: govuk-colour("white");
+        }
+        .panel {
+          border-left-color: govuk-colour("white");
+        }
+      }
+       .button {
+         color: govuk-colour("blue");
+         background-color: govuk-colour("white");
+         // Link styles
+         a {
+           color: govuk-colour("blue");
+         }
+         &:visited {
+           color: govuk-colour("blue");
+         }
+         &:hover {
+           color: govuk-colour("blue");
+         }
+         &:active {
+           color: govuk-colour("blue");
+         }
+       }
+    }
+  
+    @media (min-width: 769px) {
+      .flash-card {
+        margin-top: 1.25em;
+        padding: 35px 50px;
+      }
+    }

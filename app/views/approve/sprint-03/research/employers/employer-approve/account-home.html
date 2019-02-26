@@ -1,0 +1,83 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			APEX ELECTRICAL ENGINEERS LIMITED
+			<span class="govuk-caption-xl">Account ID: 7JDYMV</span>
+		</h1>
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<div class="govuk-grid-row page-dashboard">		
+			<div class="govuk-grid-column-two-thirds">
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Your team</a>
+						</h2>
+						<p>Control what your team can do and invite new team members.</p>
+
+						<h2 class="govuk-heading-m">
+							<a href="start">Reserve funding</a>
+						</h2>
+						<p>Reserve funding for apprenticeship training.</p>
+
+						<h2 class="govuk-heading-m">
+							<a href="#">Your organisations and agreements</a>
+						</h2>
+						<p>Add your organisations that will make contracts with training providers.</p>
+						
+						<h2 class="govuk-heading-m">
+							<a href="#">Apprentices</a>
+						</h2>
+						<p>Add apprentices, update details of existing apprentices and authorise payments to training providers.</p>
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="finance">Finance</a>
+						</h2>
+						<p>View your financial transactions, connect with other employers and send or receive transfer funds.</p>
+						
+						<h2 class="govuk-heading-m">
+							<a href="#">PAYE schemes</a>
+						</h2>
+						<p>Add or remove <abbr title="Pay as your earn">PAYE</abbr> schemes.</p>
+						
+						<h2 class="govuk-heading-m">
+							<a href="https://findapprenticeshiptraining.sfa.bis.gov.uk/" target="_blank" rel="external">Find apprenticeship training</a>
+						</h2>
+						<p>Search for apprenticeships and see details of approved providers who can deliver the training.</p>
+					</div>
+				</div>
+
+				<!-- <div class="govuk-grid-row">
+					<div class="govuk-grid-column-full">
+						<div class="govuk-inset-text">
+							<h3 class="govuk-heading-m">Help us improve this service</h3>
+							<p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank">Take our 3 minute survey</a> so that we can improve this service.</p>
+
+							{% from "button/macro.njk" import govukButton %}
+							{{ govukButton({
+								text: "Take the survey"
+							}) }}
+						</div>
+					</div>
+				</div> -->
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

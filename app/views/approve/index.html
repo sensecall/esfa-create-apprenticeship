@@ -4,40 +4,71 @@
 {% set currentPage = 'approve' %}
 
 {% block pageTitle %}
-Reserve
+Approvals stream
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Approvals
+      Approvals stream
     </h1>
 
-    {% include './sprint-02/_summary.html' %}
+    {% include './sprint-03/_summary.html' %}
 
-    <hr class="govuk-section-break govuk-section-break--visible">
-    <br>
+    <hr class="govuk-section-break govuk-section-break--xl">
+
+    <h2 class="govuk-heading-l">
+      Previous sprints
+    </h2>
+
+    {% set sprint2Html %}
+    {% include './sprint-02/_summary.html' %}
+    {% endset %}
+
+    {% set sprint1Html %}
     {% include './sprint-01/_summary.html' %}
-    
+    {% endset %}
+
+    {% from "accordion/macro.njk" import govukAccordion %}
+    {{ govukAccordion({
+      id: "accordion-default",
+      items:
+      [
+      {
+        heading:
+        {
+          text: "Sprint 2"
+        },
+        content:
+        {
+          html: sprint2Html
+        },
+        summary:
+        {
+          html: '31st January&mdash;14th February 2019'
+        }
+      },
+      {
+        heading:
+        {
+          text: "Sprint 1"
+        },
+        content:
+        {
+          html: sprint1Html
+        },
+        summary:
+        {
+          html: '19th&mdash;30th January 2019'
+        }
+      }
+      ]
+    }) }}
   </div>
 
-  <!--<div class="govuk-grid-column-one-third">
-    <div class="app-related-items">
-      <h2 class="govuk-heading-s">
-        Contents
-      </h2>
-
-      <ul class="govuk-list">
-        <li>
-          <a href="#sprint-0">
-            <a href="./sprint-01/_summary.html">
-            Sprint 1
-          </a>
-        </li>      
-      </div>
-    </div>
-
-  </div>-->
+  <div class="govuk-grid-column-one-third">
+    
+  </div>
 
   {% endblock %}

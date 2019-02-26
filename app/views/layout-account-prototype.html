@@ -1,4 +1,4 @@
-{% extends "layout-provider-account.html" %}
+{% extends "layout.html" %}
 
 {% block cookie_message %}
 <p>{{cookieText | safe }}</p>
@@ -37,7 +37,7 @@
 			<!-- <a href="#user-nav" id="link-settings" aria-hidden="false" aria-label="Access your settings">Settings</a> -->
 			<nav id="user-nav" class="close" aria-hidden="true">
 				<ul role="menubar">
-					<li><a href="#">Help</a></li>
+					<li><a href="/Home/Help">Help</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -45,19 +45,22 @@
 	</div>
 </div>
 {% else %}
-<div id="floating-menu-holder" class="floating-menu-holder--provider">
+<div id="floating-menu-holder" class="employer-menu">
 	<div class="account-information floating-menu" role="navigation">
 		<div class="js-float">
-			<p class="floating-head-text">Your provider account </p>
+			<p class="floating-head-text">Your employer account </p>
 			<nav id="user-nav">
-				<ul role="menubar">
-					<li>
-						<a href="#">Provider Account</a>
+				<ul>
+					<li><a href="/service/help">Help</a></li>
+					<li class="has-sub-menu">
+						<a href="/" role="menuitem">Settings</a>
+						<ul role="menu" class="js-hidden" id="settings-menu" aria-expanded="false">
+							<li><a href="/service/accounts" role="menuitem" class="sub-menu-item">Your accounts</a></li>
+							<li><a href="https://test-login.apprenticeships.sfa.bis.gov.uk/account/changepassword?clientId=easacctest&amp;returnurl=https%3a%2f%2fdas-test-accui-as.azurewebsites.net%2f%2fservice%2fpassword%2fchange" class="sub-menu-item">Change your password</a></li>
+							<li><a href="https://test-login.apprenticeships.sfa.bis.gov.uk/account/changeemail?clientId=easacctest&amp;returnurl=https%3a%2f%2fdas-test-accui-as.azurewebsites.net%2f%2fservice%2femail%2fchange" class="sub-menu-item">Change your email address</a></li>
+						</ul>
 					</li>
-					<li>
-						<a href="#" role="menuitem">Notification settings</a>
-					</li>
-					<li><a href="#" role="menuitem">Sign out</a></li>
+					<li><a href="/service/signOut" role="menuitem">Sign out</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -71,39 +74,42 @@
 				<a href="/{{feature}}/account-home" class="{{'selected' if currentPage == 'account-home' }}" role="menuitem">Home</a>
 			</li>
 			<li>
-				<a href="#" role="menuitem">Your cohorts</a>
+				<a href="#" class="{{'selected' if currentPage == 'finance' }}" role="menuitem">Finance</a>
 			</li>
 			<li>
-				<a href="#" class="{{'selected' if currentPage == 'finance' }}" role="menuitem">Manage apprentices</a>
+				<a href="#" role="menuitem">Recruitment</a>
 			</li>
 			<li>
-				<a href="#" class="" role="menuitem">Recruit apprentices</a>
+				<a href="#" class="" role="menuitem">Apprentices</a>
 			</li>
 			<li>
-				<a href="#" class="" role="menuitem">Organisations and agreements</a>
+				<a href="#" class="" role="menuitem">Your team</a>
 			</li>
-			<!--<li class="menu-link">
+			<li>
+				<a href="#" class="" role="menuitem">Your organisations and agreements</a>
+			</li>
+			<li class="menu-link">
 				<a href="#">More</a>
 				<ul>
 					<li>
-						<a href="#" class="" role="menuitem"></a>
+						<a href="#" class="" role="menuitem">PAYE schemes</a>
 					</li>
 				</ul>
-			</li>-->
+			</li>
 		</ul>
 	</nav>
 </div>
 
-<div class="govuk-width-container">
-        
+<!--GDS prototype banner-->
+<div class="govuk-width-container">        
     <div class="govuk-phase-banner">
         <p class="govuk-phase-banner__content">
             <strong class="govuk-tag govuk-phase-banner__content__tag ">Prototype</strong>
-            <span class="govuk-phase-banner__text">This is a prototype – your feedback will help us to improve it.</span>
+            <span class="govuk-phase-banner__text">This is a prototype – your feedback will help us to improve it. </span>
         </p>
     </div>
-
 </div>
+<!--GDS prototype banner-->
 
 {% endif %}
 {% endblock %}
@@ -112,21 +118,18 @@
 with-proposition
 {% endblock %}
 
-{% block footer %}
-{{ govukFooter({
-  meta: {
-  items: [
-  {
-    href: "prototype-settings",
-    text: "Prototype settings"
-  },
-  {
-    href: "/prototype-admin/clear-data",
-    text: "Clear data"
-  }
-  ]
-}
-}) }}
+{% block footer_support_links %}
+{% if useAutoStoreData %}
+<ul>
+	<li>
+		<a href="/prototype-admin/clear-data">Clear data</a>
+	</li>
+
+	<li>
+		<a href="/{{version}}/settings">Prototype settings</a>
+	</li>
+</ul>
+{% endif %}
 {% endblock %}
 
 {% block body_end %}
