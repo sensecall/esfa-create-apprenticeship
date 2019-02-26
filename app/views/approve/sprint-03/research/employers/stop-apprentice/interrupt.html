@@ -1,0 +1,43 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+  Stopping an apprenticeship
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/form-handler" method="post" novalidate>
+          <div class="flash-card">
+            <h1 class="govuk-heading-xl">Stopping an apprenticeship</h1>
+            <div class="govuk-grid-row">
+              
+                  <p class="govuk-body-l">Once confirmed, this action cannot be undone.</p> 
+                  <p class="govuk-body-l">Do not use a stop to end apprenticeships that have finished or about to finish pending completion payment.</p>
+              
+              {{ govukButton({
+                text: "Continue",
+                href: "stop-date"
+              }) }}
+
+              <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+                <span class="summary"><a href="change-apprentice-status-a">I need help with online services</a></span>
+              </summary>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
