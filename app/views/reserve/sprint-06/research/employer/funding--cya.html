@@ -1,0 +1,117 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+     <h1 class="govuk-heading-xl app-content-required">
+      Check your information
+    </h1>
+
+    <p>
+      You are securing funding for part, or all of the training costs for the following apprenticeship. This will be paid directly to the training provider you choose.
+    </p>
+
+    {% set disclosureHtml %}
+    {{data['course-name']}}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when you add an apprentice's details."
+    }) }}
+    {% endset %}
+
+    {% from "summary-list/macro.njk" import govukSummaryList %}
+
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: data['employer']
+        },
+        actions:
+        {
+          items: 
+          [
+          {
+
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship training start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "javascript: window.history.go(-1)",
+            text: "Change",
+            visuallyHiddenText: "contact information"
+          }
+          ]
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship training"
+        },
+        value:
+        {
+          html: disclosureHtml
+        },
+        actions:
+        {
+          items:
+          [
+          {
+            href: "javascript: window.history.go(-2)",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+          ]
+        }
+      }
+      ]
+    }) }}
+
+    {{govukWarningText({
+      html: "Remember you may need to pay towards the cost of training your apprentice.",
+      iconFallback: "Important information"
+    })}}
+
+    <p>
+      {{govukButton({
+        text: "Confirm and secure funding"
+      })}}
+    </p>
+  </form>
+</div>
+
+{% endblock %}

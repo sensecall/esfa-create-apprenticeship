@@ -1,0 +1,42 @@
+
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="apprentice-details">
+     <h1 class="govuk-heading-xl app-content-required">
+      Confirm the details of your chosen training provider
+    </h1>
+
+    <div class="govuk-inset-text">
+      <h2 class="govuk-heading-m">
+        APEX TRAINING LIMITED
+      </h2>
+
+      <p>
+        UKPRN: {{data['ukprn']}}
+      </p>
+    </div>
+
+    <p>
+      {{govukButton({
+        text: "Save and continue"
+      })}}
+    </p>
+  </form>
+</div>
+</div>
+
+{% endblock %}

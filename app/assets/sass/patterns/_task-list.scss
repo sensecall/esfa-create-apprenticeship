@@ -32,6 +32,10 @@
   @include govuk-media-query($from: tablet) {
     padding-left: govuk-spacing(6);
   }
+
+  .app-task-list--unnumbered & {
+    padding-left: 0;
+  }
 }
 
 .app-task-list__item {

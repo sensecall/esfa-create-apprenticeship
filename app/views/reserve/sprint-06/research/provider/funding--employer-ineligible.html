@@ -1,0 +1,54 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Funding restrictions
+    </h1>
+
+    {{ govukWarningText({
+      html: 'You have already secured funding for this employer to train one apprentice. So you cannot secure any more funding for them. Go to <a href="#">funding restrictions</a> for more information.'
+    }) }}
+
+    <p>
+        
+    </p>
+
+    <p>
+      Any funding you have already secured for this employer is not affected. 
+    </p>
+
+
+    {{govukButton({
+      text: "Return to account",
+      href: "account-home"
+    })}}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

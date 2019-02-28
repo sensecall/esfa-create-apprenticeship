@@ -14,33 +14,37 @@ Reserve
       Reserve
     </h1>
 
+    {% set sprint06Html %}
+    {% include './sprint-06/_summary.html' %}
+    {% endset %}
+
+    {% set sprint05Html %}
     {% include './sprint-05/_summary.html' %}
+    {% endset %}
+
+    {% set sprint04Html %}
+    {% include './sprint-04/_summary.html' %}
+    {% endset %}
+
+    {% set sprint03Html %}
+    {% include './sprint-03/_summary.html' %}
+    {% endset %}
+
+    {% set sprint02Html %}
+    {% include './sprint-02/_summary.html' %}
+    {% endset %}
+
+    {% set sprint01Html %}
+    {% include './sprint-01/_summary.html' %}
+    {% endset %}
+
+    {{sprint06Html | safe}}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
     <h2 class="govuk-heading-l">
       Previous sprints
     </h2>
-
-    {% set sprint5Html %}
-    {% include './sprint-05/_summary.html' %}
-    {% endset %}
-
-    {% set sprint4Html %}
-    {% include './sprint-04/_summary.html' %}
-    {% endset %}
-
-    {% set sprint3Html %}
-    {% include './sprint-03/_summary.html' %}
-    {% endset %}
-
-    {% set sprint2Html %}
-    {% include './sprint-02/_summary.html' %}
-    {% endset %}
-
-    {% set sprint1Html %}
-    {% include './sprint-01/_summary.html' %}
-    {% endset %}
 
     {% from "accordion/macro.njk" import govukAccordion %}
     {{ govukAccordion({
@@ -50,11 +54,25 @@ Reserve
       {
         heading:
         {
+          text: "Sprint 5"
+        },
+        content:
+        {
+          html: sprint05Html
+        },
+        summary:
+        {
+          html: '11th February&mdash;22nd February 2019'
+        }
+      },
+      {
+        heading:
+        {
           text: "Sprint 4"
         },
         content:
         {
-          html: sprint4Html
+          html: sprint04Html
         },
         summary:
         {
@@ -68,7 +86,7 @@ Reserve
         },
         content:
         {
-          html: sprint3Html
+          html: sprint03Html
         },
         summary:
         {
@@ -82,7 +100,7 @@ Reserve
         },
         content:
         {
-          html: sprint2Html
+          html: sprint02Html
         },
         summary:
         {
@@ -96,7 +114,7 @@ Reserve
         },
         content:
         {
-          html: sprint1Html
+          html: sprint01Html
         },
         summary:
         {

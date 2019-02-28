@@ -1,0 +1,88 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="funding--choose-legal-entity">
+      <h1 class="govuk-heading-xl">
+        Get funding for taking on an apprentice
+      </h1>{{releaseVersion | log }}
+
+      {% if 'future-restriction' in data['funding-restrictions'] %}
+      {{ govukWarningText({
+        html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
+        iconFallbackText: "Current Funding restrictions"
+      }) }}
+      {% endif %}
+
+      {% if 'number-of-starts' in data['funding-restrictions'] %}
+      {{ govukWarningText({
+        html: "There is currently a restriction in place on the number of apprenticeships that you can secure funding for.<br>
+        You can secure funding for <u>one apprentice</u>.",
+        iconFallbackText: "Current Funding restrictions"
+      }) }}
+      {% endif %}
+
+      <p>
+        Use this service to secure government funding for training an apprentice. You can only do this up to 6 months before the apprentice starts their apprenticeship training.
+      </p>
+
+      <p>
+        Government funding will pay for part, or all of the cast of training an apprentice. Go to apprenticeship funding to find out how much you are allowed.
+      </p>
+
+      <p>
+        Before you start you will need:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months
+        </li>
+        <li>
+          an idea of the apprenticeship training the apprentice will take (optional)
+        </li>
+      </ul>
+
+      <p>
+        You will be securing funding for 1 apprentice. Repeat the process for more apprentices.
+      </p>  
+
+      <input type="hidden" value="" name="planned-start-date">
+      <input type="hidden" value="" name="course-name">
+
+      <p>
+        {{govukButton({
+          text: "Start",
+          classes: "govuk-button--start"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Get funding for non-levy employers
+    </h1>{{releaseVersion | log }}
+
+    {% if 'future-restriction' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
+
+    {% if 'number-of-starts' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: "You can only secure funding for one apprentice per employer, as funding has been restricted.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
+
+    <p>
+      Use this service to secure government funding for a non-levy employer to train an apprentice. You can only do this up to 6 months before the apprentice starts their apprenticeship training.
+    </p>
+    
+    <p>
+      Your employer must give you permission to secure funding for them. To do this, the employer will need to sign in to their apprenticeship account and go to &lsquo;training provider permissions&rsquo; to give you permission.
+    </p>
+
+    <!-- {{govukInsetText({
+      text: "You can only secure funding up to 6 months before the apprenticeship training is about to start."
+    })}} -->
+
+    <p>
+      Before you start you will need: 
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        an estimate of which month the apprentice will start the apprenticeship training, which can be flexible up to 3 months
+      </li>
+      <li>
+        an idea of the <a href="https://findapprenticeshiptraining.sfa.bis.gov.uk/">apprenticeship training</a> the apprentice will take, which can be changed later
+      </li>
+    </ul>
+
+    <p>
+      You will need to secure funding for each apprentice individually.
+    </p>
+
+    <p>
+      <a href="funding--choose-employer" class="govuk-button govuk-button--start">
+        Start
+      </a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related guidance
+      </h2>
+      
+      <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+         <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work#non-levy-paying-employers"> Apprenticeship funding: how it works</a>
+       </li>
+       <li>
+        <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-funding-rules-2018-to-2019">Apprenticeship funding rules</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-funding-bands">Apprenticeship funding bands</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="https://www.gov.uk/take-on-an-apprentice" target="_blank">
+          Employing an apprentice
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+{% endblock %}
