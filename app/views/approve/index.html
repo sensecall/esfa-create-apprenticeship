@@ -14,13 +14,17 @@ Approvals stream
       Approvals stream
     </h1>
 
-    {% include './sprint-03/_summary.html' %}
+    {% include './sprint-04/_summary.html' %}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
     <h2 class="govuk-heading-l">
       Previous sprints
     </h2>
+
+    {% set sprint3Html %}
+    {% include './sprint-03/_summary.html' %}
+    {% endset %}
 
     {% set sprint2Html %}
     {% include './sprint-02/_summary.html' %}
@@ -35,6 +39,20 @@ Approvals stream
       id: "accordion-default",
       items:
       [
+      {
+        heading:
+        {
+          text: "Sprint 3"
+        },
+        content:
+        {
+          html: sprint3Html
+        },
+        summary:
+        {
+          html: '15th&mdash;28th February 2019'
+        }
+      },
       {
         heading:
         {

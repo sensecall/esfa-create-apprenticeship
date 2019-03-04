@@ -1,0 +1,105 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+  Confirm apprenticeship stop
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/form-handler" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                  Confirm apprenticeship stop
+                </h1>
+              </legend>
+
+              {{ govukWarningText({
+                text: "This action cannot be undone.",
+                iconFallbackText: "Warning"
+              }) }}
+
+              <div class="govuk-body-l">
+                
+              </div>
+              {% from "summary-list/macro.njk" import govukSummaryList %}
+
+              {{ govukSummaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Name"
+                    },
+                    value: {
+                      text: "Sarah Philips"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Unique learner number"
+                    },
+                    value: {
+                      text: "123456789A"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Apprenticeship course"
+                    },
+                    value: {
+                      html: "Bespoke Saddler, Level 5 (Standard)"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Proposed stop date"
+                    },
+                    value: {
+                      html: '<p class="govuk-body">22 February 2019</p>'
+                    }
+                  }
+                ]
+              }) }}
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                    Yes, stop the apprenticeship
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    No, go back to apprentice details
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          {{ govukButton({
+            text: "Save and confirm",
+            href: "apprentice-details-stopped"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
