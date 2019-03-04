@@ -18,7 +18,7 @@ GOV.UK Prototype Kit
     <form action="funding--choose-legal-entity">
       <h1 class="govuk-heading-xl">
         Get funding for taking on an apprentice
-      </h1>{{releaseVersion | log }}
+      </h1>
 
       {% if 'future-restriction' in data['funding-restrictions'] %}
       {{ govukWarningText({
@@ -36,11 +36,11 @@ GOV.UK Prototype Kit
       {% endif %}
 
       <p>
-        Use this service to secure government funding for a non-levy employer to train an apprentice. You can secure funding no more than 6 months in advance of the apprenticeship training start date.
+        Use this service to secure government funding for training an apprentice. Government funding will pay for part, or all of the cast of training an apprentice. You can secure funding no more than 6 months in advance of the date the apprentice starts their off-the-job training. 
       </p>
 
       <p>
-        Your employer must give you permission to secure funding for them. To do this, the employer will need to sign in to their apprenticeship account and go to ‘training provider permissions’ on their dashboard.
+        Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
       </p>
 
       <p>
@@ -49,15 +49,15 @@ GOV.UK Prototype Kit
 
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          an estimate of which month the apprentice will start the apprenticeship training, which can be flexible up to 3 months
+          an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months
         </li>
         <li>
-          an idea of the <a href="#">apprenticeship training</a> that the apprentice will take, which can be changed later
+          an idea of the <a href="#">apprenticeship training</a> the apprentice will take (optional)
         </li>
       </ul>
 
       <p>
-        You will be securing funding for one apprentice at a time.
+        You will be securing funding for 1 apprentice at a time. Repeat the process for more apprentices.
       </p>  
 
       <input type="hidden" value="" name="planned-start-date">
