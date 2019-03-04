@@ -15,29 +15,36 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
-      {{ govukRadios({
-        idPrefix: "planned-start-date",
-        name: "planned-start-date",
+      {{ govukDateInput({
+        id: "planned-start-date",
+        namePrefix: "planned-start-date",
         fieldset:
         {
           legend:
           {
-            text: "When will the apprentice start their off-the-job training?",
+            text: "When did the apprentice start their off-the-job training?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl govuk-!-margin-top-6"
           }
         },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ],
         hint:
         {
-          text: "The apprentice can start their off-the-job training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their off-the-job training anytime from January to March."
-        },
-        items: months
+          text: "For example, 3 2019"
+        }
       }) }}
-
-      {{govukDetails({
-        summaryText: "I want a later start date ",
-        text: "You are securing funding for a non-levy employer to take on an apprentice. This will be paid directly to the training provider, who the employer will confirm at a later date."
-      })}}
 
       <p>
         {{ govukButton ({

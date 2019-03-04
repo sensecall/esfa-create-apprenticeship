@@ -50,8 +50,8 @@ router.get('/funding--choose-month', (req, res) => {
 	var monthFormat = "MMMM YYYY"
 
 	var months = [{
-		value: "Training started before " + moment(currentMonth).startOf('month').format(monthFormat),
-		text: "Training started before " + moment(currentMonth).startOf('month').format(monthFormat)
+		value: "Before " + moment(currentMonth).startOf('month').format(monthFormat),
+		text: "Before " + moment(currentMonth).startOf('month').format(monthFormat)
 	},
 	{
 		divider: "or"
@@ -128,12 +128,16 @@ router.get('/funding--choose-month--errors', (req, res) => {
 })
 
 router.post('/funding--choose-month', (req, res) => {
-	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
-	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
-	req.session.data['reservation-employer'] = req.session.data['employer']
-	req.session.data['reservation-startRange'] = earliest
-	req.session.data['reservation-endRange'] = latest
-	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+	if(req.session.data['planned-start-date'].includes('Before')){
+		res.redirect('funding--backdated')
+	} else {
+		var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
+		var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
+		req.session.data['reservation-employer'] = req.session.data['employer']
+		req.session.data['reservation-startRange'] = earliest
+		req.session.data['reservation-endRange'] = latest
+		req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+	}
 
 	if(req.session.data['course-name'] == ''){
 		req.session.data['course-name'] = 'Unknown'
@@ -142,6 +146,18 @@ router.post('/funding--choose-month', (req, res) => {
 	res.redirect('funding--cya')
 })
 
+// funding backdated
+router.post('/funding--backdated', (req, res) => {
+	var backdatedDate = '01' + ' ' + req.session.data['planned-start-date-month'] + ' ' + req.session.data['planned-start-date-year']
+	var earliest = moment(backdatedDate).startOf('month').format("MMMM YYYY")
+	var latest =  moment(backdatedDate).add(2, 'months').endOf('month').format("MMMM YYYY")
+	req.session.data['reservation-employer'] = req.session.data['employer']
+	req.session.data['reservation-startRange'] = earliest
+	req.session.data['reservation-endRange'] = latest
+	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+
+	res.redirect('funding--cya')
+})
 
 // know course
 router.post('/know-course', (req, res) => {
@@ -172,9 +188,6 @@ router.post('/funding--add-another-reservation', (req, res) => {
 		res.redirect(`account-home`)
 	}
 })
-
-
-
 
 
 // apprentice-details
