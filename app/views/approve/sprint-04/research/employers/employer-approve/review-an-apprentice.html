@@ -20,6 +20,16 @@
       </h1>
       
       <h2 class="govuk-heading-m">
+        Last message from the training provider
+      </h2>
+
+      {{ govukInsetText({ 
+        text: "Please could you approve this at your earliest convenience, cheers Johnny"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">
         Apprentice details
       </h2>
       <dl class="app-check-your-answers app-check-your-answers--short">
@@ -139,17 +149,7 @@
             </a>
           </dd>
         </div>
-      </dl>
-
-      <h2 class="govuk-heading-m">
-        Last message from the training provider
-      </h2>
-
-      {{ govukInsetText({ 
-        text: "Please could you approve this at your earliest convenience, cheers Johnny"
-      }) }}
-
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">      
+      </dl>     
 
       <form method="post">
         {{ govukRadios({
