@@ -28,6 +28,9 @@ GOV.UK Prototype Kit
         <label class="govuk-label" for="choose-apprenticeship">
           Search for a course
         </label>
+        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-1">
+          This information can be changed later. If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.
+        </span>
         <div class="autocomplete-wrapper">
           <select class="autocomplete-element" id="course-name" name="course-name">
             <option value="">Select one</option>
@@ -37,10 +40,6 @@ GOV.UK Prototype Kit
             {% endfor %}
           </select>
         </div>
-
-        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-3">
-          This information can be changed later. If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.
-        </span>
       </div>
 
       <!-- {{ govukCheckboxes({
