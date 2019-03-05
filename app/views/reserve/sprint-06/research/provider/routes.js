@@ -12,7 +12,7 @@ const cryptoRandomString = require('crypto-random-string');
 
 // reservations data storage
 router.use(function (req, res, next) {
-	if (!req.session.data['reservations']) {
+	if (!req.session.data['reservations'] || req.session.data['preload-reservations'] != 'true') {
 		req.session.data['reservations'] = []
 	}
 
