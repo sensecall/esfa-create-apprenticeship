@@ -28,4 +28,9 @@ $govuk-global-styles: true;
 
 @import "components/provider-add-details";
 @import "patterns/card";
-//@import "patterns/interrupt";
+
+
+.heading-dashboard {
+	padding-bottom: $govuk-gutter;
+	border-bottom: 4px solid govuk-colour("grey-3");
+}

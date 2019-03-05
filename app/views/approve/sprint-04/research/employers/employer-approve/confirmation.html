@@ -1,0 +1,30 @@
+{% extends "layout-account-prototype.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Details approved and sent to provider
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Apprentice details approved</h1>
+      </div>
+
+      <p>
+        Your training provider will receive notification of the approval and any message you added shortly.
+      </p>
+
+      <h2 class="govuk-heading-m">What's next?</h2>
+      <p><a href="account-home">Go to homepage</a></p>
+      <p><a href="login">Sign out</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

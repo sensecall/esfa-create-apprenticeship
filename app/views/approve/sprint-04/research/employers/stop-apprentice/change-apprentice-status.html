@@ -1,0 +1,80 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+  Change apprenticeship status
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/form-handler" method="post" novalidate>
+
+         
+
+          {{ govukRadios({
+            idPrefix: "sign-in",
+            name: "sign-in",
+            fieldset: {
+              legend: {
+                text: "Change apprenticeship status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              text: "Which status change would you like to make?"
+            },
+            items: [
+              {
+                value: "pause",
+                text: "Pause the apprenticeship",
+                label: {
+                  classes: "govuk-label--s"
+                },
+                hint: {        
+                  html: "Record a break in an apprentice's learning or 
+                  freeze payments to a training provider for a period of time"
+                }
+              },
+              {
+                value: "stop",
+                text: "Stop the apprenticeship",
+                label: {
+                  classes: "govuk-label--s"
+                },
+                hint: {
+                  html: "Change your training provider during the lifetime of a course or
+                  terminate the apprenticeship and cancel all future payments"
+                }
+              },
+              {
+                value: "nothing",
+                text: "Go back to apprentice details",
+                label: {
+                  classes: "govuk-label--s"
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "change-apprentice-status-a"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
