@@ -115,7 +115,9 @@ GOV.UK Prototype Kit
             <option value="">Select one</option>
             {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
             {% for apprenticeship in apprenticeshipsData.apprenticeships %}
-            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+            {% set courseName %}{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}{% endset %}
+            {{reservationDetails[0].course}}
+            <option value="{{courseName}}" {% if courseName == reservationDetails[0].course %}selected{% endif %}>{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
             {% endfor %}
           </select>
         </div>

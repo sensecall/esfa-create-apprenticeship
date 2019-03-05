@@ -16,6 +16,10 @@ router.use(function (req, res, next) {
 		req.session.data['reservations'] = []
 	}
 
+	if (req.session.data['preload-reservations'] == 'true') {
+		req.session.data['reservations'] = require('./reservations.json')
+	}
+
 	next()
 })
 

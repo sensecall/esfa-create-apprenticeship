@@ -43,6 +43,31 @@
 				value: data['employer']
 			}) }}
 
+			{{ govukCheckboxes({
+				idPrefix: "preload-reservations",
+				name: "preload-reservations",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Preload reservations?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--s"
+					}
+				},
+				hint:
+				{
+					html: "<b>CAUTION</b>: This will erase and reset any reservations already created"
+				},
+				items:
+				[
+				{
+					value: "true",
+					text: "Yes, preload reservations"
+				}
+				]
+			}) }}
+
 			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 			<h2 class="govuk-heading-l">
