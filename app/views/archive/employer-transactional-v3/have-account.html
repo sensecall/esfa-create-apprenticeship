@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+  {{ govukRadios({
+    idPrefix: "have-account",
+    name: "have-account",
+    fieldset:
+    {
+      legend:
+      {
+        text: "Do you already have an Apprenticeships account?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint:
+    {
+      text: "Lorem ipsum laborum sed eu amet ea dolore consequat voluptate ullamco fugiat elit culpa consequat quis reprehenderit ut."
+    },
+    items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+    ]
+  }) }}
+
+  <p>
+    {{ govukButton ({
+      text: "Save and continue"
+    })}}
+  </p>
+</form>
+</div>
+
+{% endblock %}

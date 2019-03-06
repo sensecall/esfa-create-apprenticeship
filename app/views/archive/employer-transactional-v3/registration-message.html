@@ -1,0 +1,57 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<div class="flash-card">
+			<form method="post">
+				{{ govukRadios({
+					idPrefix: "register-now",
+					name: "register-now",
+					fieldset:
+					{
+						legend:
+						{
+							text: "Create an account to save your progress?",
+							isPageHeading: false,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					hint:
+					{
+						text: "You can continue to add some details to this apprenticeship without registering, but you will need to create an account to save your progress and submit the apprenticeship."
+					},
+					items:
+					[
+					{
+						value: "yes",
+						text: "Yes, register now"
+					},
+					{
+						value: "no",
+						text: "No, I'll register later"
+					}
+					]
+				}) }}
+
+				{{govukButton({
+					text: "Continue"
+				})}}
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

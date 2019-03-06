@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "know-date",
+        name: "know-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you know when the apprentice will start their off-the-job training?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint:
+        {
+          text: "Lorem ipsum laborum sed eu amet ea dolore consequat voluptate ullamco fugiat elit culpa consequat quis reprehenderit ut."
+        },
+        items: [
+        {
+          value: "date-estimate",
+          text: "Yes"
+        },
+        {
+          value: "date-unknown",
+          text: "No, I don't know yet"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

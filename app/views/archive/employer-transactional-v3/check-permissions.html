@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "give-permission",
+        name: "give-permission",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you want " + data['provider-name'] + " to manage this apprenticeship on your behalf?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint:
+        {
+          text: "Lorem ipsum cupidatat occaecat dolor commodo dolore incididunt occaecat est irure qui pariatur cupidatat elit veniam excepteur ut pariatur labore.."
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No, I will manage it myself"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

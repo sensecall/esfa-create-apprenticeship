@@ -1,0 +1,68 @@
+{% extends "layout-account.html" %}
+
+{% set currentPage = "login" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Sign in
+		</h1>
+		<p>
+			Sign in or <a href="#">create an account</a> to manage your apprenticeship funds.
+		</p>
+
+		<form action="{{data['redirectUrl'] or 'know-provider'}}">
+			{% from "input/macro.njk" import govukInput %}
+			{{ govukInput({
+				label:
+				{
+					text: "Email address",
+					classes: "govuk-!-width-three-quarters"
+				},
+				id: "email",
+				name: "email",
+				type: "email",
+				classes: "govuk-!-width-three-quarters"
+			}) }}
+
+			{{ govukInput({
+				label:
+				{
+					text: "Password",
+					classes: "govuk-!-width-three-quarters"
+				},
+				hint:
+				{
+					text: ""
+				},
+				id: "password",
+				name: "password",
+				type: "password",
+				classes: "govuk-!-width-three-quarters"
+			}) }}
+
+			<input type="hidden" value="true" name="loggedIn">
+			<input type="hidden" value="" name="create-account">
+
+			{% from "button/macro.njk" import govukButton %}
+			{{ govukButton({
+				text: "Sign in"
+			}) }}
+		</form>
+
+
+		<ul class="govuk-list">
+			<li><a href="/docs/tutorials-and-examples">Forgotten your password?</a></li>
+		</ul>
+	</div>
+</div>
+
+{% endblock %}

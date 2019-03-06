@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="reserve-confirm">
+    {{ govukDateInput({
+      id: "start-date",
+      namePrefix: "start-date",
+      fieldset:
+      {
+        legend:
+        {
+          text: "When will your apprenticeship start?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      hint:
+      {
+        text: "This must be no more than 28 days after today"
+      }
+    }) }}
+
+  <p>
+    {{ govukButton ({
+      text: "Save and continue"
+    })}}
+  </p>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="flash-card">
+      <header>
+        <h1 class="govuk-heading-xl">
+          Government funding for this apprenticeship is not guaranteed
+        </h1>
+      </header>
+      
+      <p class="govuk-body-l">
+        You must know when the apprentice will begin their training in order to secure government funding for apprenticeship training 
+      </p>
+
+        <a href="know-details" class="govuk-button govuk-!-margin-top-2">
+          Ok, I understand
+        </a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
