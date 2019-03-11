@@ -1,0 +1,180 @@
+{% extends "layout-provider-new-account.html" %}
+
+{% set currentPage = 'dashboard' %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			APEX TRAINING LIMITED
+			<span class="govuk-caption-xl">Account ID: 7JDYMV</span>
+		</h1>
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+     <div class="card">
+       <div class="card-body">
+         <h3 class="govuk-heading-m card-heading">
+           <a class="card-link" href="vacancies?status=live">
+             <span class="card-number">9</span>
+             future apprentices
+           </a>
+         </h3>
+       </div>
+
+       <div class="card-task">
+         <ul class="govuk-list">
+           <li>
+             <a class="govuk-link" href="vacancies?status=any" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">6 awaiting employer approval</a>
+           </li>
+           <li>
+             <a class="govuk-link" href="vacancies?status=any" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">3 in draft</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </div>
+
+   <div class="govuk-grid-column-one-third">
+     <div class="card">
+       <div class="card-body">
+         <h3 class="govuk-heading-m card-heading">
+
+           <a class="card-link" href="vacancies?status=rejected">
+             <span class="card-number">12</span>
+             active apprentices
+           </a>
+         </h3>
+       </div>
+       <div class="card-task">
+         <ul class="govuk-list">
+          <li>
+            <a class="ga-track-anchor-click" href="vacancies?status=pending%20review" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">10 live</a>
+          </li> 
+          <li>
+             <a class="ga-track-anchor-click" href="vacancies?status=pending%20review" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">1 paused</a>
+           </li>
+           <li>
+             <a class="ga-track-anchor-click" href="vacancies?status=pending%20review" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">1 waiting to start</a>
+           </li>
+         </ul>
+       </div>
+     </div> 
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="govuk-heading-m card-heading">
+ 
+            <a class="card-link" href="vacancies?status=rejected">
+              <span class="card-number">10</span>
+              finished apprentices
+            </a>
+          </h3>
+        </div>
+        <div class="card-task">
+          <ul class="govuk-list">
+           <li>
+             <a class="ga-track-anchor-click" href="vacancies?status=pending%20review" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">8 completed</a>
+           </li> 
+           <li>
+              <a class="ga-track-anchor-click" href="vacancies?status=pending%20review" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out how to access Self Assessment">2 withdrawn</a>
+            </li>
+          </ul>
+        </div>
+      </div> 
+     </div>
+    </div>   
+
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-grid-row page-dashboard">		
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <h2 class="govuk-heading-m">
+                Add apprentices
+              </h2>
+              <ul class="govuk-list">
+                <li>
+                  <a class="govuk-link" href="#">Add apprentice details</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Approve apprentice records</a>
+                </li>						
+                <li>
+                  <a class="govuk-link" href="#">Upload new apprentices from a file</a>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="govuk-grid-column-one-half">
+              <h2 class="govuk-heading-m">
+                Manage apprentices
+              </h2>
+              <ul class="govuk-list">
+                <li>
+                  <a class="govuk-link" href="#">View apprentice records</a>
+                </li>					
+                <li>
+                  <a class="govuk-link" href="#">Edit apprentice records</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Resolve a problem</a>
+                </li>						
+              </ul>
+              </ul>
+            </div>
+          </div>         
+  
+<br>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <h2 class="govuk-heading-m">
+                Get funding
+              </h2>
+              <ul class="govuk-list">
+                <li>
+                  <a class="govuk-link" href="#">Get funding</a>
+                </li>					
+                <li>
+                  <a class="govuk-link" href="#">Manage funding reservations</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">How funding works</a>
+                </li>						
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-half">
+              <h2 class="govuk-heading-m">
+                  Recruit apprentices
+              </h2>
+              <ul class="govuk-list">
+                <li>
+                  <a class="govuk-link" href="#">Create a new vacancy</a>
+                </li>					
+                <li>
+                  <a class="govuk-link" href="#">Manage vacancies</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Manage applications</a>
+                </li>						
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+				
+            </div>
+          </div>
+
+        </div>
+
+
+  
+  </div>
+</div>
+
+   {% endblock %}

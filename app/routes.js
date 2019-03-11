@@ -37,4 +37,9 @@ router.use(/\/reserve\/sprint-([0-99]+)/, (req, res, next) => {
   require(`./views/reserve/sprint-${req.params[0]}/routes`)(req, res, next);
 })
 
+// Provider account
+router.use(/\/provider-account\/version-([0-99]+)/, (req, res, next) => {
+  require(`./views/provider-account/version-${req.params[0]}/routes`)(req, res, next);
+})
+
 module.exports = router

@@ -1,0 +1,153 @@
+{% extends "./layout-provider-account.html" %}
+
+{% set currentPage = 'account-home' %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.autocomplete-element').each(function() {
+			var selectEl = document.querySelector('#' + $(this).attr('id') )
+			accessibleAutocomplete.enhanceSelectElement({
+				autoselect: false,
+				defaultValue: '',
+				minLength: 2,
+				selectElement: selectEl,
+				placeholder: 'Start typing to search apprenticeships',
+				showAllValues: true
+			})
+		})
+	})
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			APEX TRAINING LIMITED
+			<span class="govuk-caption-m govuk-!-font-weight-bold">UKPRN: 7JDYMV</span>
+		</h1>
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<h2 class="govuk-heading-m">
+			Cohorts and apprentices
+		</h2>
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="#">Manage your apprentices</a>
+				</h2>
+				<p>View and update approved apprentice records.</p>	
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="#">Create a cohort</a>
+				</h2>
+				<p>
+					Create new cohorts on behalf of an employer.
+				</p>
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="add__choose-employer">Manage your cohorts</a>
+				</h2>
+				<p>
+					Review, edit, approve and add apprentices to new cohorts.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+	<div class="govuk-grid-column-full">
+		<h2 class="govuk-heading-m">
+			Organisations
+		</h2>
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="manage-reservations">Secure funding for non-levy employers</a>
+				</h2>
+				<p>
+					Secure funding on behalf of an employer.
+				</p>
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="manage-reservations">Manage funding for non-levy employers</a>
+				</h2>
+				<p>
+					Manage funds secured on behalf of an employer.
+				</p>
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="#">Organisations and agreements</a>
+				</h2>
+				<p>Find and view organisations and their agreement IDs.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+	<div class="govuk-grid-column-full">
+		<h2 class="govuk-heading-m">
+			Recruitment
+		</h2>
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="#">Recruit apprentices</a>
+				</h2>
+				<p>Create a vacancy to recruit an apprentice and manage applications.</p>
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				<h2 class="govuk-heading-s">
+					<a href="#">Manage your vacancies</a>
+				</h2>
+				<p>Create a vacancy to recruit an apprentice and manage applications.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-6">
+	<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-form-group govuk-!-margin-bottom-8">
+			<label class="govuk-label govuk-!-font-weight-bold govuk-!-font-size-36
+			govuk-!-margin-bottom-2" for="search-account">
+			Search your account
+		</label>
+		<div class="autocomplete-wrapper">
+			<select class="autocomplete-element" id="search-account" name="search-account">
+				<option value="">Select one</option>
+				{% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+				{% for apprenticeship in apprenticeshipsData.apprenticeships %}
+				<option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+</div> -->
+
+{% endblock %}
