@@ -29,14 +29,18 @@
                 <h2 class="govuk-!-font-weight-bold govuk-heading-m">Pause an apprenticeship to:</h2>
                 <ul class="govuk-list govuk-list--bullet">
                   <li>record a break in learning</li>
-                  <li>freeze <b>[future]</b> payments to a training provider for a period of time</li>
+                  <li>freeze future payments to a training provider for a period of time</li>
                 </ul>                
                 <!--<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">-->
                 <h2 class="govuk-!-font-weight-bold govuk-heading-m">Stop an apprenticeship to:</h2>
                 <ul class="govuk-list govuk-list--bullet">
                   <li>change your training provider during the lifetime of a course</li>
-                  <li>terminate <b>a completed</b> apprenticeship and cancel all future payments <b>[unless completion payments are pending]</b></li>
+                  <li>cancel all future payments</li>
                 </ul>
+                {{ govukWarningText({
+                  text: "Don't stop an apprenticeship if lorem ipsum.",
+                  iconFallbackText: "Warning"
+                }) }}
               </div>
               <!--<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">-->
               <div class="govuk-radios govuk-!-margin-top-9">
