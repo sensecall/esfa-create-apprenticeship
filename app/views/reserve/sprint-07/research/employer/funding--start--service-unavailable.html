@@ -1,4 +1,4 @@
-{% extends "layout-provider-account.html" %}
+{% extends "layout-account--new.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -16,26 +16,20 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Funding restrictions
-    </h1>
+      Sorry, the service is unavailable
+    </h1>{{releaseVersion | log }}
 
     {{ govukWarningText({
-      html: 'This employer has already secured funding to train one apprentice so you cannot secure any more funding for them. Go to <a href="#">funding restrictions</a> for more information.'
+      html: "Funding for training an apprentice is currently not available. Any funding secured before January 2019 is not affected.",
+      iconFallbackText: "Current Funding restrictions"
     }) }}
 
     <p>
-        
+      You can find out when funding will be available by keeping in touch with the Apprenticeships service:
     </p>
-
-    <p>
-      Any funding you have already secured for this employer is not affected. 
-    </p>
-
-
-    {{govukButton({
-      text: "Return to account",
-      href: "account-home"
-    })}}
+    <ul class="govuk-list govuk-list--bullet">
+      <li></li>
+    </ul>
   </div>
 
   <div class="govuk-grid-column-one-third">

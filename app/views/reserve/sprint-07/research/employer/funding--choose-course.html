@@ -1,0 +1,112 @@
+{% extends "layout-account--new.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Which apprenticeship training will your apprentice take? (optional)",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="choose-apprenticeship">
+          Search for a course
+        </label>
+        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-1">
+          This information can be changed later. If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.
+        </span>
+        <div class="autocomplete-wrapper">
+          <select class="autocomplete-element" id="course-name" name="course-name">
+            <option value="">Select one</option>
+            {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <!-- {{ govukCheckboxes({
+        idPrefix: "waste",
+        name: "waste",
+        items:
+        [
+        {
+          value: "unknown",
+          text: "I don't know the course yet"
+        }
+        ]
+      }) }} -->
+      {% endcall %}
+
+
+      <p class="govuk-!-margin-bottom-0">
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+
+      <p>
+        <a href="funding--choose-month">I don’t know this yet</a>
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search apprenticeships',
+        showAllValues: false
+      })
+    })
+  })
+
+
+  $(document).ready(function(){
+    var startInput = $("#reservation-startRange");
+    var endInput = $("#reservation-endRange");
+    endInput.parent().hide();
+
+    startInput.prepend("<option value='Select a month' selected>Select a month</option>");
+
+    startInput.on('change', function(){
+        // endInput.find('option').remove().end();
+        var selectedIndex = $(this).prop('selectedIndex') - 1
+
+        endInput.children(':lt(' + selectedIndex + ')').prop('disabled', true);
+        endInput.children(':lt(' + (selectedIndex+2) + ')').prop('disabled', true);
+        endInput.children(':gt(' + selectedIndex + ')').prop('disabled', false);
+        endInput.children(':eq(' + selectedIndex + ')').prop('disabled', false);
+        endInput.children(':not([disabled]):first').prop('selected', true);
+        endInput.parent().show();
+      })
+  })
+</script>
+{% endblock %}
