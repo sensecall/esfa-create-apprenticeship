@@ -1,0 +1,71 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+  When did the apprenticeship stop? - iteration #4
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/form-handler" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            {{ govukDateInput({
+              id: "stop-date",
+              namePrefix: "stop-date",
+              fieldset:
+              {
+                legend:
+                {
+                  text: "When did this apprenticeship stop?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }             
+              },
+              items:
+              [
+              {
+                name: "day",
+                id: "day",
+                classes: "govuk-input--width-2"
+              },
+              {
+                name: "month",
+                id: "month",
+                classes: "govuk-input--width-2"
+              },
+              {
+                name: "year",
+                id: "year",
+                classes: "govuk-input--width-4"
+              }
+              ],
+              hint:
+              {
+                html: "<span style='color:#000;''>This date must be today's date or earlier. The earliest date you can enter <br>is 01 08 2018</span>"
+              }
+            }) }}
+          </div>
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "confirm-stop"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
