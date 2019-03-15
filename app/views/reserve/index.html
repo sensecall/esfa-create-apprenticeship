@@ -12,6 +12,9 @@ Reserve
     <h1 class="govuk-heading-xl">
       Reserve
     </h1>
+    {% set sprint07Html %}
+    {% include './sprint-07/_summary.html' %}
+    {% endset %}
 
     {% set sprint06Html %}
     {% include './sprint-06/_summary.html' %}
@@ -37,7 +40,7 @@ Reserve
     {% include './sprint-01/_summary.html' %}
     {% endset %}
 
-    {{sprint06Html | safe}}
+    {{sprint07Html | safe}}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
@@ -51,6 +54,19 @@ Reserve
       items:
       [
       {
+        heading:
+        {
+          text: "Sprint 6"
+        },
+        content:
+        {
+          html: sprint06Html
+        },
+        summary:
+        {
+          html: '25th February&mdash;8th March 2019'
+        }
+      },{
         heading:
         {
           text: "Sprint 5"

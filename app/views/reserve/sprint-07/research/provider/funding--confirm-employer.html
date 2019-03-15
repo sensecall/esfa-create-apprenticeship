@@ -1,4 +1,4 @@
-{% extends "layout-provider-account.html" %}
+{% extends "./layout-provider-current.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -21,10 +21,8 @@ GOV.UK Prototype Kit
 
       <h2 class="govuk-heading-l">
         {{data['employer']}}
-        <span class="govuk-caption-l">
-          Account name: {{data['apprentice-name']}}
-          <br>
-          Agreement ID: {{data['agreementID']}}
+        <span class="govuk-caption-m">
+          Account name: {{data['apprentice-name']}} &nbsp;&nbsp; Agreement ID: {{data['agreementID']}}
         </span>
       </h2>
 
@@ -37,7 +35,7 @@ GOV.UK Prototype Kit
           {
             text: "Are you sure you want to secure funds for this employer?",
             isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-fieldset__legend--s"
           }
         },
         items: [

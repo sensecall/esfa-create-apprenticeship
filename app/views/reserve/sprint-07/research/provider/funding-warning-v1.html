@@ -44,6 +44,17 @@ GOV.UK Prototype Kit
 
 				<br>
 
+				{{ govukCheckboxes({
+					idPrefix: "waste",
+					name: "waste",
+					items: [
+					{
+						value: "hide-funding-warning",
+						text: "Don't remind me again"
+					}
+					]
+				}) }}
+
 				<p>
 					{{govukButton({
 						text: "Continue",
