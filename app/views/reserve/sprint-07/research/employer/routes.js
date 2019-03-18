@@ -40,7 +40,7 @@ router.get('/funding--start', (req, res) => {
 
 // choose course
 router.post('/funding--choose-course', (req, res) => {
-	if(req.session.data['know-course'] == 'no'){
+	if(req.session.data['know-course'] == 'no' || req.session.data['course-name'] == ''){
 		req.session.data['course-name'] = 'Unknown'
 	}
 	res.redirect('funding--cya')
@@ -61,13 +61,14 @@ router.get('/funding--choose-month', (req, res) => {
 	var currentMonth = moment().format('MMMM YYYY')
 	var monthFormat = "MMMM YYYY"
 
-	var months = [{
-		value: "Before " + moment(currentMonth).startOf('month').format(monthFormat),
-		text: "Before " + moment(currentMonth).startOf('month').format(monthFormat)
-	},
-	{
-		divider: "or"
-	},
+	var months = [
+	// {
+	// 	value: "Before " + moment(currentMonth).startOf('month').format(monthFormat),
+	// 	text: "Before " + moment(currentMonth).startOf('month').format(monthFormat)
+	// },
+	// {
+	// 	divider: "or"
+	// },
 	{
 		value: currentMonth,
 		text: moment(currentMonth).startOf('month').format(monthFormat),
@@ -96,7 +97,7 @@ router.get('/funding--choose-month', (req, res) => {
 		}
 	}
 
-	addMonths(6)
+	addMonths(4)
 
 	res.render(`${req.feature}/funding--choose-month`,{months})
 })
