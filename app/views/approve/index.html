@@ -4,23 +4,27 @@
 {% set currentPage = 'approve' %}
 
 {% block pageTitle %}
-Approvals stream
+Approve
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Approvals stream
+      Approve
     </h1>
 
-    {% include './sprint-04/_summary.html' %}
+    {% include './sprint-05/_summary.html' %}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
     <h2 class="govuk-heading-l">
       Previous sprints
     </h2>
+
+    {% set sprint4Html %}
+    {% include './sprint-04/_summary.html' %}
+    {% endset %}
 
     {% set sprint3Html %}
     {% include './sprint-03/_summary.html' %}
@@ -39,6 +43,20 @@ Approvals stream
       id: "accordion-default",
       items:
       [
+      {
+        heading:
+        {
+          text: "Sprint 4"
+        },
+        content:
+        {
+          html: sprint4Html
+        },
+        summary:
+        {
+          html: '1st&mdash;14th March 2019'
+        }
+      },
       {
         heading:
         {
