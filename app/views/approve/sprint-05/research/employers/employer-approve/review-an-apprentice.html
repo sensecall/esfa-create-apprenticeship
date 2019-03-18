@@ -1,0 +1,197 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+  Review apprentice details
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Review apprentice details
+      </h1>
+      
+      <h2 class="govuk-heading-m">
+        Last message from the training provider
+      </h2>
+
+      {{ govukInsetText({ 
+        text: "Please could you approve this at your earliest convenience, cheers Johnny"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">
+        Apprentice details
+      </h2>
+      <dl class="app-check-your-answers app-check-your-answers--short">
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Name
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            Sarah Philips
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="apprentice-details#name">
+              Edit<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Date of birth
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            5 January 2002
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Edit<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Cohort reference
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            VKKG8P
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              <span class="govuk-visually-hidden">Edit cohort reference</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">
+        Apprenticeship details
+      </h2>
+      <dl class="app-check-your-answers app-check-your-answers--short">
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Apprenticeship training course
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            Bespoke Saddler, Level 5 (Standard)
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Edit<span class="govuk-visually-hidden"> apprenticeship training course</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Training provider
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            APEX TRAINING LIMITED
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              <span class="govuk-visually-hidden">Edit training provider</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Planned training start date
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            February 2019
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Edit <span class="govuk-visually-hidden"> planned training start date</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Planned training finish date
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            March 2020
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Edit <span class="govuk-visually-hidden"> planned training finish date</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Total agreed apprenticeship price (excluding VAT)
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            £1,500
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Edit <span class="govuk-visually-hidden"> total agreed apprenticeship price (excluding VAT)</span>
+            </a>
+          </dd>
+        </div>
+      </dl>     
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" style="font-weight: 700; font-size:24px;" for="more-detail">
+          Send a message to your training provider
+        </label>
+        <span id="more-detail-hint" class="govuk-hint">
+          Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next.
+        </span>
+        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+      <!--<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">-->
+
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "approve",
+          name: "approve",
+          fieldset:
+          {
+            legend:
+            {
+              text: "Approve these details?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
+            }
+          },
+          items: [
+          {
+            value: "yes",
+            text: "Yes, approve these details"
+          },
+          {
+            value: "no",
+            text: "No, request changes from provider"
+          }
+          ]
+        }) }}
+
+        {{ govukButton ({
+          text: "Save and submit"
+        })}}
+      </form>
+    </div>
+  </div>
+{% endblock %}
