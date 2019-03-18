@@ -33,18 +33,13 @@ GOV.UK Prototype Kit
       {% endset -%}
 
       {{ govukRadios({
-        classes: "govuk-radios--inline",
-        idPrefix: "changed-name",
-        name: "changed-name",
-        hint:
-        {
-          html: 'This information can be changed later. If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.'
-        },
+        idPrefix: "know-month",
+        name: "know-month",
         fieldset:
         {
           legend:
           {
-            text: "Do you know which apprenticeship training your apprentice will take?",
+            text: "Do you know when the apprentice will start their off-the-job training?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
@@ -53,15 +48,11 @@ GOV.UK Prototype Kit
         [
         {
           value: "yes",
-          text: "Yes",
-          conditional:
-          {
-            html: courseHtml
-          }
+          text: "Yes"
         },
         {
           value: "no",
-          text: "No, I'll enter this later"
+          text: "No"
         }
         ]
       }) }}

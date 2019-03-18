@@ -40,7 +40,16 @@ router.get('/funding--start', (req, res) => {
 
 // choose course
 router.post('/funding--choose-course', (req, res) => {
-	res.redirect('funding--choose-month')
+	res.redirect('funding--know-month')
+})
+
+// know month
+router.post('/funding--know-month', (req, res) => {
+	if(req.session.data['know-month'] == 'yes'){
+		res.redirect('funding--choose-month')
+	} else {
+		res.redirect('funding--month-warning')
+	}
 })
 
 
