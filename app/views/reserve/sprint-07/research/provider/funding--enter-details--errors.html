@@ -1,4 +1,4 @@
-{% extends "layout-provider-account.html" %}
+{% extends "./funding--enter-details.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -21,6 +21,10 @@ GOV.UK Prototype Kit
       {
         text: "You must select a start date",
         href: "#planned-start-date-1"
+      },
+      {
+        text: "Select a course or leave the field empty",
+        href: "#course-name"
       }
       ]
     }) }}
@@ -30,34 +34,34 @@ GOV.UK Prototype Kit
         Apprenticeship training
       </h1>
 
-      {% call govukFieldset({
-        legend:
-        {
-          text: "Which apprenticeship training will the apprentice take? (optional)",
-          classes: "govuk-fieldset__legend--l",
-          isPageHeading: false
-        }
-      }) %}
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            Which apprenticeship training will the apprentice take? (optional)
+          </legend>
 
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="choose-apprenticeship">
-          Search for a course
-        </label>
-        <div class="autocomplete-wrapper">
-          <select class="autocomplete-element" id="course-name" name="course-name">
-            <option value="">Select one</option>
-            {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
-            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
-            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
-            {% endfor %}
-          </select>
-        </div>
+          <span id="planned-start-date-error" class="govuk-error-message">
+            Select a course from the list or leave this field empty.
+          </span>
 
-        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-4">
-          This information can be changed later without affecting your funding. 
-        </span>
+          <label class="govuk-label" for="choose-apprenticeship">
+            Search for a course
+          </label>
+          <div class="autocomplete-wrapper">
+            <select class="autocomplete-element" id="course-name" name="course-name">
+              <option value="">Select one</option>
+              {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+              {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+              <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-4">
+            This information can be changed later.
+          </span>
+        </fieldset>
       </div>
-      {% endcall %}
 
       {{ govukRadios({
         idPrefix: "planned-start-date",
@@ -78,7 +82,7 @@ GOV.UK Prototype Kit
             isPageHeading: false,
             hint:
             {
-              text: "Your funding will be secured for the chosen month and the following 2 months. For example funds secured for January will can be used for starts from January to March."
+              text: "The apprentice can start their apprenticeship training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their training anytime from January to March."
             },
             classes: "govuk-fieldset__legend--l govuk-!-margin-top-4"
           }

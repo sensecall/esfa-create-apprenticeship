@@ -116,7 +116,11 @@ router.get('/funding--enter-details', (req, res) => {
 	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
 		res.redirect(`funding--employer-ineligible`)
 	} else {
-		res.render(`${req.feature}/funding--enter-details`,{months,employerReservationCount})
+		if ( req.session.data['page-errors'] ){
+			res.render(`${req.feature}/funding--enter-details--errors`,{months,employerReservationCount})
+		} else {
+			res.render(`${req.feature}/funding--enter-details`,{months,employerReservationCount})
+		}
 	}
 })
 
