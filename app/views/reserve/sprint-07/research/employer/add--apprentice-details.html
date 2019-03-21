@@ -39,12 +39,12 @@ GOV.UK Prototype Kit
         Add apprentice details
       </h2>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-        Provider
-      </h3>
-      <p class="govuk-!-margin-bottom-6">
-        APEX TRAINING LIMITED
-      </p>
+      {{govukInsetText({
+        html: "<p class='govuk-body-s'>You must add the apprentice’s first and last names - fill in as many other fields as you can. You'll be able to return later to make changes or add more information.</p>
+        <p class='govuk-body-s'>You'll only be able to authorise payments for this apprentice once all the fields have been completed - either by yourself or your training provider.</p>"
+      })}}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
       {% call govukFieldset({
         legend:
@@ -76,6 +76,8 @@ GOV.UK Prototype Kit
       }) }}
       {% endcall %}
 
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
       {{ govukDateInput({
         id: "dob",
         namePrefix: "dob",
@@ -94,8 +96,25 @@ GOV.UK Prototype Kit
         }
       }) }}
 
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Unique learner number",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+      }) %}
+      <p class="govuk-hint">
+        This will be added by your training provider.
+      </p>
+      {% endcall %}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
       <div class="govuk-form-group">
-        <label class="govuk-label" for="choose-apprenticeship">
+        <label class="govuk-label govuk-!-font-weight-bold" for="choose-apprenticeship">
           Apprenticeship training course
         </label>
         <span id="course-name-hint" class="govuk-hint">
@@ -112,18 +131,7 @@ GOV.UK Prototype Kit
         </div>
       </div>
 
-      <!-- {{ govukInput({
-        label:
-        {
-          text: "Apprenticeship training course"
-        },
-        hint:
-        {
-          text: "Start typing the name of the course or choose an option from the list"
-        },
-        id: "course-name",
-        name: "course-name"
-      }) }} -->
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
       {{ govukDateInput({
         id: "start-date",
@@ -187,12 +195,15 @@ GOV.UK Prototype Kit
         }
       }) }}
 
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
       {{ govukInput({
         type: "number",
         classes: "govuk-input--width-10",
         label:
         {
-          text: "Agreed cost"
+          text: "Total agreed apprenticeship price (excluding VAT)",
+          classes: "govuk-!-font-weight-bold"
         },
         hint:
         {
@@ -202,18 +213,40 @@ GOV.UK Prototype Kit
         name: "cost"
       }) }}
 
-      {{ govukInput({
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {% from "character-count/macro.njk" import govukCharacterCount %}
+      {{ govukCharacterCount({
+        name: "word-count",
+        id: "word-count",
+        maxlength: 20,
+        threshold: 0,
+        rows: 2,
         label:
         {
-          text: "Reference (optional)"
+          text: "Reference (optional)",
+          classes: "govuk-!-font-weight-bold"
         },
-        hint:
-        {
-          html: "You can add a reference, such as employee number or location."
-        },
-        id: "reference",
-        name: "reference"
+        hint: "Add a reference, such as employee number or location - this won't be seen by the training provider"
       }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{govukInsetText({
+        html: "<h4 class='govuk-heading-s'>
+          End-point assessments
+        </h4>
+        <p>
+          If you've chosen an apprenticeship standard, we'll ask you to confirm the <a href='#'>apprentice assessment organisation</a> for this apprentice. We'll do this before the end of the apprenticeship.
+        </p>
+        <p>
+          Apprenticeship frameworks have different assessment arrangements and don't need end-point assessments.
+        </p>",
+        attributes:
+        {
+          style: "background: #eee"
+        }
+      })}}
 
       <p>
         {{ govukButton ({
