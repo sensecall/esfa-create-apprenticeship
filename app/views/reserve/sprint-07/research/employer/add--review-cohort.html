@@ -84,8 +84,65 @@ GOV.UK Prototype Kit
 		</p>
 
 		<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-	</form>
-</div>
+
+		{% if cohorts != 'true' %}
+		<h3 class="govuk-heading-m">
+			1 x Academic Professional, Level: 7 (Standard)
+		</h3>
+
+		<p>
+			Training code: 272
+		</p>
+
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th class="govuk-table__header" scope="col">
+						Name
+					</th>
+					<th class="govuk-table__header" scope="col">
+						Unique learner number 	
+					</th>
+					<th class="govuk-table__header" scope="col">
+						Date of birth 	
+					</th>
+					<th class="govuk-table__header" scope="col">
+						Training dates 	
+					</th>
+					<th class="govuk-table__header" scope="col" colspan="2">
+						Cost
+					</th>
+				</tr>
+			</thead>
+
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">
+						J J
+					</td>
+					<td class="govuk-table__cell">
+						–
+					</td>
+					<td class="govuk-table__cell">
+						1 Jan 2000
+					</td>
+					<td class="govuk-table__cell">
+						February 2019 to April 2020 
+					</td>
+					<td class="govuk-table__cell">
+						£2,000
+					</td>
+					<td class="govuk-table__cell">
+						<a href="#" class="govuk-body-s">
+							Edit
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		{% endif %}
+	</div>
 </div>
 
 {% endblock %}
