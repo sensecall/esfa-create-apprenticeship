@@ -4,15 +4,21 @@
 GOV.UK Prototype Kit
 {% endblock %}
 
-{% block content %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
 
+{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
       Get funding for non-levy employers
     </h1>{{releaseVersion | log }}
 
-    {% if 'future-restriction' in data['funding-restrictions'] %}
+    <!-- {% if 'future-restriction' in data['funding-restrictions'] %}
     {{ govukWarningText({
       html: 'Employers cannot get any government funding to train apprentices from 1 April 2019. You must get funding for your non-levy employers before this date. 
       <br class="govuk-!-margin-bottom-2">
@@ -28,7 +34,7 @@ Any funding that was secured before 1 April 2019  is not affected. Go to the <a 
       Once an employer’s apprentice has started and we have made the first payment of funds to you, then you can secure funding for that employer’s next apprentice. You can see this payment in your account.'
     }) }}
     {% endif %}
-
+ -->
     <p>
       Use this service to secure government funding for a non-levy employer to train an apprentice. You can secure funding no more than 6 months in advance of the apprenticeship training start date.
     </p>

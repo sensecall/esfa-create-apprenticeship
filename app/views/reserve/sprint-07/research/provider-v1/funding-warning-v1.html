@@ -42,7 +42,13 @@ GOV.UK Prototype Kit
 				</p>
 				{% endif %}
 
-				<br>
+				<p>
+					{{govukButton({
+						text: "Continue",
+						href: 'funding--start',
+						classes: "govuk-!-margin-bottom-0"
+					})}}
+				</p>
 
 				{{ govukCheckboxes({
 					idPrefix: "waste",
@@ -54,14 +60,6 @@ GOV.UK Prototype Kit
 					}
 					]
 				}) }}
-
-				<p>
-					{{govukButton({
-						text: "Continue",
-						href: 'funding--start',
-						classes: "govuk-!-margin-bottom-0"
-					})}}
-				</p>
 			</div>
 		</form>
 	</div>

@@ -15,7 +15,21 @@
 		</h1>
 
 		<form action="account-home" id="form">
-			<h2 class="govuk-heading-l">
+			<h2 class="govuk-heading-m">
+				Provider info
+			</h2>
+
+			{{ govukInput({
+				label:
+				{
+					text: "Provider name"
+				},
+				id: "provider-name",
+				name: "provider-name",
+				value: data['provider-name']
+			}) }}
+
+			<h2 class="govuk-heading-m">
 				Employer info
 			</h2>
 
@@ -29,29 +43,28 @@
 				value: data['employer']
 			}) }}
 
-			{{ govukRadios({
-				idPrefix: "multiple-legal-entities",
-				name: "multiple-legal-entities",
+			{{ govukCheckboxes({
+				idPrefix: "preload-reservations",
+				name: "preload-reservations",
 				fieldset:
 				{
 					legend:
 					{
-						text: "Does the employer account have multiple legal entities?",
+						text: "Preload reservations?",
 						isPageHeading: false,
 						classes: "govuk-fieldset__legend--s"
 					}
+				},
+				hint:
+				{
+					html: "<b>CAUTION</b>: This will erase and reset any reservations already created"
 				},
 				items:
 				[
 				{
 					value: "true",
-					text: "Yes",
-					checked: checked("multiple-legal-entities", "true")
-				},
-				{
-					value: "false",
-					text: "No",
-					checked: checked("multiple-legal-entities", "false")
+					text: "Yes, preload reservations",
+					checked: checked("preload-reservations", "true")
 				}
 				]
 			}) }}

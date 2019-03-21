@@ -42,4 +42,9 @@ router.use(/\/provider-account\/version-([0-99]+)/, (req, res, next) => {
   require(`./views/provider-account/version-${req.params[0]}/routes`)(req, res, next);
 })
 
+// Employer end-to-end testing
+router.get('/reserve/e2e/', (req, res) => {
+  res.redirect(`/reserve/sprint-07/research/employer/funding--start`)
+})
+
 module.exports = router

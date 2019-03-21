@@ -14,8 +14,13 @@ router.get('/', function (req, res) {
 })
 
 // provider
-router.use(/\/research\/provider/, (req, res, next) => {
-  require(`./research/provider/routes`)(req, res, next);
+router.use(/\/research\/provider-v1/, (req, res, next) => {
+  require(`./research/provider-v1/routes`)(req, res, next);
+})
+
+// provider
+router.use(/\/research\/provider-v2/, (req, res, next) => {
+  require(`./research/provider-v2/routes`)(req, res, next);
 })
 
 // employer 

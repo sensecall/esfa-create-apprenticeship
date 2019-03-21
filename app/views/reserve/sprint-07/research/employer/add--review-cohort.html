@@ -1,0 +1,73 @@
+
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="add--review-cohort">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+				Review your cohort
+			</h1>
+
+			<div class="cohorts-box cohorts-box--dark-purple">
+				<p class="govuk-!-font-size-48">
+					0
+				</p>
+
+				<p class="govuk-!-font-size-19">
+					Apprentices
+				</p>
+			</div>
+
+			<div class="cohorts-box cohorts-box--dark-purple">
+				<p class="govuk-!-font-size-48">
+					0
+				</p>
+
+				<p class="govuk-!-font-size-19">
+					Apprentices
+				</p>
+			</div>
+
+			<div class="cohorts-box cohorts-box--dark-purple">
+				<p class="govuk-!-font-size-48">
+					0
+				</p>
+
+				<p class="govuk-!-font-size-19">
+					Apprentices
+				</p>
+			</div>
+
+
+			<p>
+				{{govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-display-inline-block"
+				})}}
+
+				{{govukButton({
+					text: "Add an apprentice",
+					attributes:
+					{
+						style: "background: #ccc; color: #333"
+					},
+					classes: "govuk-!-display-inline-block"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

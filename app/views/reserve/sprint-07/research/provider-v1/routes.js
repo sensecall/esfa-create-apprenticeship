@@ -277,6 +277,8 @@ router.get('/funding-warning', (req, res) => {
 router.post('/funding--reservation-complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
 		res.redirect(`apprentice-details`)
+	} else if (req.session.data['add-apprentice'] == '' ) {
+		res.redirect(`funding--reservation-complete--errors`)
 	} else {
 		res.redirect(`account-home`)
 	}

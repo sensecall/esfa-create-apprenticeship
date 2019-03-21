@@ -186,7 +186,7 @@ router.post('/know-course', (req, res) => {
 // reservation complete
 router.post('/funding--complete', (req, res) => {
 	if (req.session.data['add-apprentice'] == 'yes' ) {
-		res.redirect(`add-apprentice`)
+		res.redirect(`add--start`)
 	} else {
 		res.redirect(`account-home`)
 	}
