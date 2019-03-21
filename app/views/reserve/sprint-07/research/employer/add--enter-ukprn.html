@@ -19,7 +19,7 @@ GOV.UK Prototype Kit
       {% call govukFieldset({
         legend:
         {
-          text: "What is the UKPRN of your chosen training provider?",
+          text: "Add training provider details",
           classes: "govuk-fieldset__legend--xl",
           isPageHeading: true
         }
@@ -28,21 +28,27 @@ GOV.UK Prototype Kit
       {{ govukInput({
         label:
         {
-          text: "UKPRN"
+          text: "UK Provider Reference Number"
         },
         id: "ukprn",
         name: "ukprn",
         attributes:
         {
           required: "required"
-        }
+        },
+        classes: "govuk-input--width-10"
       }) }}
+
+      {{govukDetails({
+        summaryText: "What is a UK Provider Reference Number?",
+        text: "A UK Provider Reference Number (UKPRN) is a unique, 8-digit number that identifies a training provider. Your training provider can tell you their UKPRN."
+      })}}
 
       {% endcall %}
 
       <p>
         {{ govukButton ({
-          text: "Save and continue"
+          text: "Continue"
         })}}
       </p>
     </form>
