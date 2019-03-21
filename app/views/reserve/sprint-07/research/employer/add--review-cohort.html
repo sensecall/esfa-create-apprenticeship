@@ -69,7 +69,8 @@ GOV.UK Prototype Kit
 		<p class="govuk-!-margin-bottom-0">
 			{{govukButton({
 				text: "Save and continue",
-				classes: "govuk-!-display-inline-block"
+				classes: "govuk-!-display-inline-block",
+				href: "add--finished-check"
 			})}}
 
 			{{govukButton({
@@ -85,7 +86,7 @@ GOV.UK Prototype Kit
 
 		<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-		{% if cohorts != 'true' %}
+		{% if data['cohorts'] == 'true' %}
 		<h3 class="govuk-heading-m">
 			1 x Academic Professional, Level: 7 (Standard)
 		</h3>
