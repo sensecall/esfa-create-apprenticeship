@@ -1,0 +1,31 @@
+// review cohorts page styles
+#app-review-cohorts {
+  .heading-small {
+    font-size: 24px;
+  }
+
+  * {
+    color: #fff;
+  }
+
+  .govuk-heading-xl {
+    font-size: 72px;
+    margin-bottom: 20px;
+  }
+
+  .all-apps {
+    background: #2e3391;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .incomplete-apps {
+    background: #8e2a8d;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .total-cost {
+    background: #d03a84;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
