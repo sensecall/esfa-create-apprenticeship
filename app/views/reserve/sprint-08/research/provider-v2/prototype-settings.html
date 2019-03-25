@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Prototype settings
+		</h1>
+
+		<form action="account-home" id="form">
+			<h2 class="govuk-heading-m">
+				Provider info
+			</h2>
+
+			{{ govukInput({
+				label:
+				{
+					text: "Provider name"
+				},
+				id: "provider-name",
+				name: "provider-name",
+				value: data['provider-name']
+			}) }}
+
+			<h2 class="govuk-heading-m">
+				Employer info
+			</h2>
+
+			{{ govukInput({
+				label:
+				{
+					text: "Employer name"
+				},
+				id: "employer",
+				name: "employer",
+				value: data['employer']
+			}) }}
+
+			{{ govukCheckboxes({
+				idPrefix: "preload-reservations",
+				name: "preload-reservations",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Preload reservations?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--s"
+					}
+				},
+				hint:
+				{
+					html: "<b>CAUTION</b>: This will erase and reset any reservations already created"
+				},
+				items:
+				[
+				{
+					value: "true",
+					text: "Yes, preload reservations",
+					checked: checked("preload-reservations", "true")
+				}
+				]
+			}) }}
+
+			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+			<h2 class="govuk-heading-l">
+				Funding restrictions
+			</h2>
+
+			{{ govukRadios({
+				idPrefix: "funding-restrictions",
+				name: "funding-restrictions",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Select funding restrictions that should be in place",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--m"
+					}
+				},
+				hint:
+				{
+					text: "Select any that apply. Select none if there are no restrictions"
+				},
+				items:
+				[
+				{
+					value: "",
+					text: "DEFAULT (no restrictions)",
+					checked: checked("funding-restrictions", "number-of-starts"),
+					checked: true
+				},
+				{
+					value: "number-of-starts",
+					text: "RESTRICTED - Restrict number of starts",
+					checked: checked("funding-restrictions", "number-of-starts")
+				},
+				{
+					value: "future-restriction",
+					text: "NOTICE - No starts will be allowed after a particular date",
+					checked: checked("funding-restrictions", "future-restriction")
+				},
+				{
+					value: "current-restriction",
+					text: "FUNDING STOPPED - No starts allowed right now",
+					checked: checked("funding-restrictions", "current-restriction")
+				}
+				]
+			}) }}
+
+			<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+			<p>
+				<a id="urlValue" href="#"></a>
+			</p>
+
+			<p>
+				——— OR ———
+			</p>
+
+			{{ govukButton({
+				text: "Save and continue"
+			}) }}
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script>
+	$(document).ready(function() {
+		function updateUrl() {
+			var newUrl = window.location.href.replace("prototype-settings", "account-home") + "?" + $('#form').serialize();
+			$('#urlValue').html(newUrl).attr('href',newUrl)
+		}
+
+		updateUrl()
+
+		$('input').each(function(){
+			$(this).on('change keyup',function(){
+				updateUrl()
+			})
+		})
+	})
+</script>
+{% endblock %}

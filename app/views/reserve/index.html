@@ -12,6 +12,10 @@ Reserve
     <h1 class="govuk-heading-xl">
       Reserve
     </h1>
+    {% set sprint08Html %}
+    {% include './sprint-08/_summary.html' %}
+    {% endset %}
+
     {% set sprint07Html %}
     {% include './sprint-07/_summary.html' %}
     {% endset %}
@@ -40,7 +44,7 @@ Reserve
     {% include './sprint-01/_summary.html' %}
     {% endset %}
 
-    {{sprint07Html | safe}}
+    {{sprint08Html | safe}}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
@@ -53,6 +57,20 @@ Reserve
       id: "accordion-default",
       items:
       [
+      {
+        heading:
+        {
+          text: "Sprint 7"
+        },
+        content:
+        {
+          html: sprint07Html
+        },
+        summary:
+        {
+          html: '11th March&mdash;22nd March 2019'
+        }
+      },
       {
         heading:
         {

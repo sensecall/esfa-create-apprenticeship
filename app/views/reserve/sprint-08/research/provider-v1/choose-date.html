@@ -1,0 +1,49 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "planned-start-date",
+        name: "planned-start-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "When do you expect your apprenticeship training to start?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint:
+        {
+          html: 'Funding will be guaranteed for a 3 month period, one month either side of your
+          chosen start month.
+          <br class="govuk-!-margin-bottom-2">
+          Your funding will no longer be guaranteed if the apprenticeship does not start within this 3 month
+          period.'
+        },
+        items: months
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

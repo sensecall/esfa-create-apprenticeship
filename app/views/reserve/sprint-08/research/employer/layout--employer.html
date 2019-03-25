@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block cookie_message %}
+<p>{{cookieText | safe }}</p>
+{% endblock %}
+
+{% block proposition_header %}
+<div class="header-proposition">
+	<div class="content">
+		<nav id="proposition-menu">
+			<a href="/" id="proposition-name">
+				{% block service_name %}
+				{% if serviceName %} {{ serviceName }} {% endif %}
+				{% endblock %}
+			</a>
+		</nav>
+	</div>
+</div>
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+	homepageUrl: "/",
+	serviceName: serviceName,
+	serviceUrl: "/",
+	classes: "app-apprentice-service-header"
+}) }}
+<style>
+#global-header-bar{ display:block !important;}
+.govuk-header{border-bottom-color:#fff;}
+.govuk-header__container {
+    position: relative;
+    margin-bottom: -10px;
+    padding-top: 10px;
+    border-bottom: 10px solid #005ea5 !important;
+}
+</style>
+{% if currentPage == 'login' %}
+<div class="header-user">
+	<div class="header-inner">
+		<div class="account-information" role="navigation">
+			<!-- <a href="#user-nav" id="link-settings" aria-hidden="false" aria-label="Access your settings">Settings</a> -->
+			<nav id="user-nav" class="close" aria-hidden="true">
+				<ul role="menubar">
+					<li><a href="/Home/Help">Help</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+{% elif currentPage != 'account-home' %}
+<div class="header-organisation" role="navigation">
+	<nav class="header-inner">
+		<ul role="menubar" id="global-nav-links">
+			<li>
+				<a href="/account-home" class="{{'selected' if currentPage == 'account-home' }}" role="menuitem">Home</a>
+			</li>
+			<li>
+				<a href="#" class="{{'selected' if currentPage == 'finance' }}" role="menuitem">Finance</a>
+			</li>
+			<li>
+				<a href="#" role="menuitem">Recruitment</a>
+			</li>
+			<li>
+				<a href="#" class="" role="menuitem">Apprentices</a>
+			</li>
+			<li>
+				<a href="#" class="" role="menuitem">Your team</a>
+			</li>
+			<li>
+				<a href="#" class="" role="menuitem">Your organisations and agreements</a>
+			</li>
+			<li class="menu-link">
+				<a href="#">More</a>
+				<ul>
+					<li>
+						<a href="#" class="" role="menuitem">PAYE schemes</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block header_class %}
+with-proposition
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+  items: [
+  {
+    href: "prototype-settings",
+    text: "Prototype settings"
+  },
+  {
+    href: "/prototype-admin/clear-data",
+    text: "Clear data"
+  }
+  ]
+}
+}) }}
+{% endblock %}
+
+{% block body_end %}
+{% block scripts %}
+{% include "includes/scripts.html" %}
+
+{% block pageScripts %}
+{% endblock %}
+
+{% endblock %}
+<!-- GOV.UK Prototype kit {{releaseVersion}} -->
+{% endblock %}
