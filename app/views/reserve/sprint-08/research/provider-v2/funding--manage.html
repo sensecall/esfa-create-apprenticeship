@@ -1,0 +1,95 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		{% if showDeleteConfirmation %}
+		<div class="govuk-inset-text govuk-inset-text--warning" id="alert">
+			<h2 class="govuk-heading-s govuk-!-margin-bottom-0" style="display:inline-block">Funding deleted</h2>
+			<span style="display:inline-block;float:right;font-size: 16px">
+				<a href="#" onclick="document.getElementById('alert').parentNode.style.display='none';">Dismiss</a>
+			</span>
+		</div>
+		{% endif %}
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<form action="confirm-employer">
+			{% if data['reservations'].length %}
+			<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds">
+					<h3 class="govuk-heading-xl govuk-!-margin-top-6">
+						Manage funding for non-levy employers
+					</h3>
+				</div>
+			</div>
+
+			<table class="govuk-table govuk-!-font-size-16" id="funding-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header" scope="col" aria-sort="none">Employer</th>
+						<th class="govuk-table__header" scope="col" aria-sort="none">Apprenticeship training</th>
+						<th class="govuk-table__header" scope="col" colspan="3">Apprenticeship start date</th>
+						<!-- <th class="govuk-table__header" colspan="3" scope="col">Created</th> -->
+					</tr>
+				</thead>
+
+				<tbody class="govuk-table__body">
+					{% for reservation in data['reservations'] %}
+					{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">{{reservation.employer}}</td>
+						<td class="govuk-table__cell">{{reservation.course}}</td>
+						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
+						<td class="govuk-!-font-size-16 govuk-table__cell">
+							<span class="govuk-!-display--inline-block"><a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a></span>
+							<br class="govuk-!-margin-bottom-3">
+							<span class="govuk-!-display--inline-block"><a href="funding--delete?reservation-id={{reservation.id}}">Delete funding</a></span>
+						</td>
+
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			{% else %}
+
+			<h2 class="govuk-heading-m">
+				None of your employers have any funding to use.
+			</h2>
+
+			<p>
+				You need to secure funding in order to add a new apprentice.
+			</p>
+			{% endif %}
+
+			{% include './_secureFundingStartButton.html' %}
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+	var table = document.getElementById('funding-table');
+	new SortableTable(table); 
+</script>
+{% endblock %}

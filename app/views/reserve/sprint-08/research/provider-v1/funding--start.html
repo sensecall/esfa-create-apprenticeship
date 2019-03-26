@@ -1,0 +1,100 @@
+{% extends "./layout-provider-current.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Get funding for non-levy employers
+    </h1>{{releaseVersion | log }}
+
+    <!-- {% if 'future-restriction' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: 'Employers cannot get any government funding to train apprentices from 1 April 2019. You must get funding for your non-levy employers before this date. 
+      <br class="govuk-!-margin-bottom-2">
+Any funding that was secured before 1 April 2019  is not affected. Go to the <a href="#">funding restrictions</a> for more information.',
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+    {% endif %}
+
+    {% if 'number-of-starts' in data['funding-restrictions'] %}
+    {{ govukWarningText({
+      html: 'We have restricted government funding. Training providers can only secure funding for 1 apprentice per 1 employer at a time.
+      <br class="govuk-!-margin-bottom-2">
+      Once an employer’s apprentice has started and we have made the first payment of funds to you, then you can secure funding for that employer’s next apprentice. You can see this payment in your account.'
+    }) }}
+    {% endif %}
+ -->
+    <p>
+      Use this service to secure government funding for a non-levy employer to train an apprentice. You can secure funding no more than 6 months in advance of the apprenticeship training start date.
+    </p>
+    
+    <p>
+      Your employer must give you permission to secure funding for them. To do this, the employer will need to sign in to their apprenticeship account and go to &lsquo;training provider permissions&rsquo; on their dashboard.
+    </p>
+
+    <!-- {{govukInsetText({
+      text: "You can only secure funding up to 6 months before the apprenticeship training is about to start."
+    })}} -->
+
+    <p>
+      Before you start you will need: 
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        an estimate of which month the apprentice will start the apprenticeship training, which can be flexible up to 3 months
+      </li>
+      <li>
+        an idea of the <a href="https://findapprenticeshiptraining.sfa.bis.gov.uk/">apprenticeship training</a> the apprentice will take, which can be changed later
+      </li>
+    </ul>
+
+    <p>
+      You will be securing funding for one apprentice at a time.
+    </p>
+
+    <p>
+      <a href="funding--choose-employer" class="govuk-button govuk-button--start">
+        Start
+      </a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related guidance
+      </h2>
+      
+      <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+         <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work#non-levy-paying-employers"> Apprenticeship funding: how it works</a>
+       </li>
+       <li>
+        <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-funding-rules-2018-to-2019">Apprenticeship funding rules</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="https://www.gov.uk/government/publications/apprenticeship-funding-bands">Apprenticeship funding bands</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="https://www.gov.uk/take-on-an-apprentice" target="_blank">
+          Employing an apprentice
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+{% endblock %}

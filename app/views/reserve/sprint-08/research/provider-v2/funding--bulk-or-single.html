@@ -1,0 +1,55 @@
+{% extends "./layout-provider-current.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "bulk-single",
+        name: "bulk-single",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Are you securing funds for more than one apprenticeship?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          attributes:
+          {
+            required: "required"
+          },
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No, just one"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

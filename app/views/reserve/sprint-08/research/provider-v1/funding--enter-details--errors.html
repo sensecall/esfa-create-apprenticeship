@@ -1,0 +1,151 @@
+{% extends "./funding--enter-details.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList:
+      [
+      {
+        text: "You must select a start date",
+        href: "#planned-start-date-1"
+      },
+      {
+        text: "Select a course or leave the field empty",
+        href: "#course-name"
+      }
+      ]
+    }) }}
+
+    <form method="post">
+      <h1 class="govuk-heading-xl">
+        Apprenticeship training
+      </h1>
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            Which apprenticeship training will the apprentice take? (optional)
+          </legend>
+
+          <span id="planned-start-date-error" class="govuk-error-message">
+            Select a course from the list or leave this field empty.
+          </span>
+
+          <label class="govuk-label" for="choose-apprenticeship">
+            Search for a course
+          </label>
+          <div class="autocomplete-wrapper">
+            <select class="autocomplete-element" id="course-name" name="course-name">
+              <option value="">Select one</option>
+              {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+              {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+              <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-4">
+            This information can be changed later.
+          </span>
+        </fieldset>
+      </div>
+
+      {{ govukRadios({
+        idPrefix: "planned-start-date",
+        name: "planned-start-date",
+        hint:
+        {
+          text: "The apprenticeship training can start anytime in the month you choose, or the following 2 months. For example if you select January, the apprenticeship training can start anytime from January to March."
+        },
+        errorMessage:
+        {
+          text: "Select a start date"
+        },
+        fieldset:
+        {
+          legend:
+          {
+            text: "When will the apprenticeship training start?",
+            isPageHeading: false,
+            hint:
+            {
+              text: "The apprentice can start their apprenticeship training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their training anytime from January to March."
+            },
+            classes: "govuk-fieldset__legend--l govuk-!-margin-top-4"
+          }
+        },
+        items: months
+      }) }}
+
+      {{govukDetails({
+        text: "You can secure funding no more than 6 months in advance of the apprenticeship training start date. If you want to secure funding for a later date, come back later.",
+        summaryText: "I want a later start date "
+      })}}
+
+      <!-- {{ govukInsetText({
+        text: "Funding will only be provided if the apprentice starts their training in the selected month, or in the 2 months that follow the selected start date."
+      })}} -->
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search apprenticeships',
+        showAllValues: true
+      })
+    })
+  })
+
+
+  $(document).ready(function(){
+    var startInput = $("#reservation-startRange");
+    var endInput = $("#reservation-endRange");
+    endInput.parent().hide();
+
+    startInput.prepend("<option value='Select a month' selected>Select a month</option>");
+
+    startInput.on('change', function(){
+        // endInput.find('option').remove().end();
+        var selectedIndex = $(this).prop('selectedIndex') - 1
+
+        endInput.children(':lt(' + selectedIndex + ')').prop('disabled', true);
+        endInput.children(':lt(' + (selectedIndex+2) + ')').prop('disabled', true);
+        endInput.children(':gt(' + selectedIndex + ')').prop('disabled', false);
+        endInput.children(':eq(' + selectedIndex + ')').prop('disabled', false);
+        endInput.children(':not([disabled]):first').prop('selected', true);
+        endInput.parent().show();
+      })
+  })
+</script>
+{% endblock %}

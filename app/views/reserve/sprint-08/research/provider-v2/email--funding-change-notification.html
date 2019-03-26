@@ -1,0 +1,42 @@
+{% extends "layout-email.html" %}
+
+{% set serviceName = 'EMAIL' %}
+
+{% block page_title %}
+{{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <a href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency" target="_blank">
+    <img src="/public/images/esfa-logo.png" width="180px" id="logo">
+  </a>
+
+  <h1 class="heading-large">
+    Government funding for apprenticeship training
+  </h1>
+
+  <p>
+    We will be restricting government funding for apprenticeship training on 1 September 2019. From this date, training providers can only secure funding for 1 apprentice per 1 employer at a time.
+  </p>
+
+  <p>
+    For more information go to:<br>
+    <a href="#">gov.uk/government-funding-for-apprenticeships</a>
+  </p>
+
+  <p>
+    This is an automated message. Please don't reply to this email.
+  </p>
+
+  <p>
+    Kind regards,
+  </p>
+
+  <p>
+    Apprenticeship service team,<br>
+    Education and Skills Funding Agency
+  </p>
+</main>
+{% endblock %}
