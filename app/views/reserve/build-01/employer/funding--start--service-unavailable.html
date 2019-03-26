@@ -1,0 +1,48 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Sorry, the service is unavailable
+    </h1>{{releaseVersion | log }}
+
+    {{ govukWarningText({
+      html: "Funding for training an apprentice is currently not available. Any funding secured before January 2019 is not affected.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+
+    <p>
+      You can find out when funding will be available by keeping in touch with the Apprenticeships service:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li></li>
+    </ul>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

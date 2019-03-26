@@ -8,10 +8,15 @@ Reserve
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
       Reserve
     </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     {% set sprint08Html %}
     {% include './sprint-08/_summary.html' %}
     {% endset %}
@@ -85,81 +90,93 @@ Reserve
           html: '25th February&mdash;8th March 2019'
         }
       },{
-        heading:
-        {
-          text: "Sprint 5"
-        },
-        content:
-        {
-          html: sprint05Html
-        },
-        summary:
-        {
-          html: '11th February&mdash;22nd February 2019'
-        }
-      },
+      heading:
       {
-        heading:
-        {
-          text: "Sprint 4"
-        },
-        content:
-        {
-          html: sprint04Html
-        },
-        summary:
-        {
-          html: '28th January&mdash;8th February 2019'
-        }
+        text: "Sprint 5"
       },
+      content:
       {
-        heading:
-        {
-          text: "Sprint 3"
-        },
-        content:
-        {
-          html: sprint03Html
-        },
-        summary:
-        {
-          html: '14th January&mdash;25th February 2019'
-        }
+        html: sprint05Html
       },
+      summary:
       {
-        heading:
-        {
-          text: "Sprint 2"
-        },
-        content:
-        {
-          html: sprint02Html
-        },
-        summary:
-        {
-          html: '2nd&mdash;11th January 2019'
-        }
-      },
-      {
-        heading:
-        {
-          text: "Sprint 1"
-        },
-        content:
-        {
-          html: sprint01Html
-        },
-        summary:
-        {
-          html: 'December 2018'
-        }
+        html: '11th February&mdash;22nd February 2019'
       }
-      ]
-    }) }}
-  </div>
+    },
+    {
+      heading:
+      {
+        text: "Sprint 4"
+      },
+      content:
+      {
+        html: sprint04Html
+      },
+      summary:
+      {
+        html: '28th January&mdash;8th February 2019'
+      }
+    },
+    {
+      heading:
+      {
+        text: "Sprint 3"
+      },
+      content:
+      {
+        html: sprint03Html
+      },
+      summary:
+      {
+        html: '14th January&mdash;25th February 2019'
+      }
+    },
+    {
+      heading:
+      {
+        text: "Sprint 2"
+      },
+      content:
+      {
+        html: sprint02Html
+      },
+      summary:
+      {
+        html: '2nd&mdash;11th January 2019'
+      }
+    },
+    {
+      heading:
+      {
+        text: "Sprint 1"
+      },
+      content:
+      {
+        html: sprint01Html
+      },
+      summary:
+      {
+        html: 'December 2018'
+      }
+    }
+    ]
+  }) }}
+</div>
 
-  <div class="govuk-grid-column-one-third">
-    
-  </div>
+<div class="govuk-grid-column-one-third">
+  <h2 class="govuk-heading-l">
+    Links for build
+  </h2>
+  
+  <div class="govuk-inset-text">
+    <h2 class="govuk-heading-s">
+      <a href="./build-01/">Build 1</a>
+    </h2>
 
-  {% endblock %}
+    <p class="govuk-body-s">
+      This link will take you to the prototype showing what we're building against for our first release in April 2019-ish.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

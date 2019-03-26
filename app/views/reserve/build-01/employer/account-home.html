@@ -1,0 +1,192 @@
+{% extends "./layout--employer.html" %}
+
+{% block page_title %}
+Apprenticeships
+{% endblock %}
+
+{% set currentPage = 'account-home' %}
+
+{% block content %}
+<main class="govuk-main-wrapper govuk-main-wrapper--l">
+	<section id="allContentHome" class="">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">{{data['employer']}}
+			<span class="govuk-caption-l">Account ID: XJBMNV</span></h1>
+
+			{{url}}
+
+			<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds column-minimum">
+					<ol class="app-task-list app-task-list--unnumbered">
+						<li>
+							<h2 class="app-task-list__section">
+								Get funding for taking on an apprentice
+							</h2>
+
+							<p>
+								Use this service to secure government funding for training an apprentice.
+							</p>
+							
+							<ul class="app-task-list__items">
+								<li class="app-task-list__item " id="claimMyFunding">
+									<a class="app-task-list__task-name" href="funding--start" aria-describedby="eligibility-completed">
+										Get funding
+									</a>
+								</li>
+								<li class="app-task-list__item " id="claimMyFunding">
+									<a class="app-task-list__task-name" href="funding--manage" aria-describedby="eligibility-completed">
+										View and manage funding
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<h2 class="app-task-list__section">
+								Find apprenticeships
+							</h2>
+
+							<p>
+								Find the right apprenticeship for your business and find a training provider to deliver the training. You can save your searches.
+							</p>
+
+							<ul class="app-task-list__items" >
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Find apprenticeship training and get costs
+									</a> 
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										View your saved apprenticeships
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<h2 class="app-task-list__section">
+								Find training providers
+							</h2>
+
+							<p>
+								Find training providers to deliver training and save them to a list. You can give saved training providers permission to carry out tasks on your behalf.
+							</p>
+
+							<ul class="app-task-list__items">
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Find training providers
+									</a>
+
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										View your training providers 
+									</a>
+
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<h2 class="app-task-list__section">
+								Recruit apprentices
+							</h2>
+
+							<p>
+								Advertise your apprenticeships and view current applications you have been sent.
+							</p>
+
+							<ul class="app-task-list__items">
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Advertise an apprenticeship
+									</a>
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Manage current vacancies
+									</a>
+
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										View current applications
+									</a>
+
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<h2 class="app-task-list__section">
+								Add and Manage apprentices
+							</h2>
+
+							<p>
+								Add and manage apprentices in your account.
+							</p>
+
+							<ul class="app-task-list__items">
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Add a new apprentice
+									</a>
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Review and approve new apprentices
+									</a>
+
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										View your current apprentices
+									</a>
+
+								</li>
+
+							</ul>
+						</li>
+
+						<li>
+							<h2 class="app-task-list__section">
+								 Your account preferences
+							</h2>
+
+							<p>
+								Add the correct details to access your funds and authorise the spending of those funds.
+							</p>
+
+							<ul class="app-task-list__items">
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Add and view organisations and agreements
+									</a>
+
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name" href="#">
+										Add and view Tax details
+									</a>
+
+								</li>
+								<li class="app-task-list__item">
+									<a class="app-task-list__task-name"  href="#">
+										Add and manage team members
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</div>
+			</li>
+
+			<div class="govuk-grid-column-one-third">
+
+			</div>
+		</div>
+	</ol>
+</div>
+
+{% endblock %}

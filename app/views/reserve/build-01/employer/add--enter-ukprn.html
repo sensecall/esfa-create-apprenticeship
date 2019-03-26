@@ -1,0 +1,58 @@
+
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="add--confirm-provider">
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Add training provider details",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+      {{ govukInput({
+        label:
+        {
+          text: "UK Provider Reference Number"
+        },
+        id: "ukprn",
+        name: "ukprn",
+        attributes:
+        {
+          required: "required"
+        },
+        classes: "govuk-input--width-10"
+      }) }}
+
+      {{govukDetails({
+        summaryText: "What is a UK Provider Reference Number?",
+        text: "A UK Provider Reference Number (UKPRN) is a unique, 8-digit number that identifies a training provider. Your training provider can tell you their UKPRN."
+      })}}
+
+      {% endcall %}
+
+      <p>
+        {{ govukButton ({
+          text: "Continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

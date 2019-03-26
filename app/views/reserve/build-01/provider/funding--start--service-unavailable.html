@@ -1,0 +1,50 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Sorry, the service is unavailable
+    </h1>{{releaseVersion | log }}
+
+    {{ govukWarningText({
+      html: "There is no longer any government funding for training an apprentice. Therefore you cannot secure any funding for employers. Go to the <a href='#'>funding restrictions</a> for more information.",
+      iconFallbackText: "Current Funding restrictions"
+    }) }}
+
+    <p>
+      Any funding you have already secured is not affected.
+    </p>
+
+   {{govukButton({
+    text: "Return to account",
+    href: "account-home"
+   })}}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <!-- <div class="app-related-items">
+      <h2 class="govuk-heading-m">
+        Related
+      </h2>
+      
+      <p>
+        Blah blah blah
+      </p>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

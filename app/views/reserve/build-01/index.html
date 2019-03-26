@@ -1,0 +1,68 @@
+{% extends "layout-prototype-info.html" %}
+
+{% set currentPage = 'reserve' %}
+
+{% block pageTitle %}
+Reserve
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l" id="sprint-0">
+      Build 1
+      <span class="govuk-caption-l">
+        Target release: April 2019
+      </span>
+    </h2>
+
+    <h3 class="govuk-heading-m" id="employer-journeys">
+      Provider journeys
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <b><a href="provider/account-home?funding-restrictions=">Default (no restrictions)</a></b>
+      </li>
+      <li>
+        <a href="provider/account-home?funding-restrictions=current-restriction">Funding restriction in place</a>
+      </li>
+      <li>
+        <a href="provider/account-home?funding-restrictions=future-restriction">Upcoming funding restriction</a>
+      </li>
+      <li>
+        <a href="provider/account-home?funding-restrictions=number-of-starts">Restricted to 1 reservation</a>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h3 class="govuk-heading-m" id="employer-journeys">
+      Employer journeys
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <b><a href="employer/account-home?funding-restrictions=">Default (no restrictions)</a></b>
+      </li>
+      <li>
+        <a href="employer/account-home?funding-restrictions=current-restriction">Funding restriction in place</a>
+      </li>
+      <li>
+        <a href="employer/account-home?funding-restrictions=future-restriction">Upcoming funding restriction</a>
+      </li>
+      <li>
+        <a href="employer/account-home?funding-restrictions=number-of-starts">Restricted to 1 reservation</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

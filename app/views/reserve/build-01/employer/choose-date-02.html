@@ -1,0 +1,89 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form method="post">
+			{% call govukFieldset({
+				legend:
+				{
+					text: "When will the apprentice's training course start?",
+					classes: "govuk-fieldset__legend--xl",
+					isPageHeading: true
+				}
+			}) %}
+
+			<p>
+				You can secure funding for a 3 month period. For example January to March.
+			</p>
+
+			{{ govukSelect({
+				id: "reservation-startRange",
+				name: "reservation-startRange",
+				label:
+				{
+					text: "Earliest start month",
+					isPageHeading: false
+				},
+				items: months
+			}) }}
+
+			{{ govukSelect({
+				id: "reservation-endRange",
+				name: "reservation-endRange",
+				label:
+				{
+					text: "Latest start month"
+				},
+				items: months,
+				classes: "govuk-input--width-2"
+			}) }}
+
+			{% endcall %}
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+
+	{% endblock %}
+
+	{% block pageScripts %}
+	<script src="/public/javascripts/jquery-1.11.3.js"></script>  
+	<script src="/public/javascripts/moment.js"></script>  
+	<script>
+		$(document).ready(function(){
+			var startInput = $("#reservation-startRange");
+			var endInput = $("#reservation-endRange");
+			endInput.parent().hide();
+
+			startInput.prepend("<option value='Select a month' selected>Select a month</option>");
+
+			startInput.on('change', function(){
+				// endInput.find('option').remove().end();
+				var selectedIndex = $(this).prop('selectedIndex') - 1
+
+				endInput.children(':lt(' + selectedIndex + ')').prop('disabled', true);
+				endInput.children(':lt(' + (selectedIndex+2) + ')').prop('disabled', true);
+				endInput.children(':gt(' + selectedIndex + ')').prop('disabled', false);
+				endInput.children(':eq(' + selectedIndex + ')').prop('disabled', false);
+				endInput.children(':not([disabled]):first').prop('selected', true);
+				endInput.parent().show();
+			})
+		})
+	</script>
+	{% endblock %}
