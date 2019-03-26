@@ -1,7 +1,7 @@
 {% extends "layout-account-prototype.html" %}
 
 {% block pageTitle %}
-  Apprentice stopped
+  Apprentice details
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,16 +19,6 @@
           Apprenticeship stopped
         </h1>
       </div>
-      <!--<div class="grid-row notification-wrapper">
-        <div class="column-two-thirds">
-            <div class="panel panel-border-wide alert-default flash-alert">
-              <p>
-                  <i class="icon-green-tick"></i>
-                  Apprentice paused.
-              </p>
-            </div>
-          </div>
-      </div>-->
       <br>
 
       <form method="post" class="form">
@@ -37,6 +27,10 @@
         Sarah Philips
       </h1>
 
+      {{ govukInsetText({
+        text: "Edit details if there's a change in apprentice or apprenticeship circumstances."
+      }) }}
+      
       <dl class="app-check-your-answers app-check-your-answers--short">
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
@@ -56,11 +50,11 @@
             Stopped date
           </dt>
           <dd class="app-check-your-answers__answer">
-            June 2018
+            22 February 2019
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="stop-date">
-              <span class="govuk-visually-hidden">Edit stopped date</span>
+              Edit <span class="govuk-visually-hidden"> stopped date</span>
             </a>
           </dd>
         </div>
@@ -95,7 +89,7 @@
         <!--only add a heading for a list if there is more than one list-->
         <h2 class="govuk-heading-m">
           Apprentice details
-          <!--<span style="float:right; text-align:right; font-weight:400; font-size:19px;"><a href="#">Edit</a></span>-->
+          <span style="float:right; text-align:right; font-weight:400; font-size:19px;"><a href="#">Edit</a></span>
         </h2>
         <dl class="app-check-your-answers app-check-your-answers--short">        
         <div class="app-check-your-answers__contents">
