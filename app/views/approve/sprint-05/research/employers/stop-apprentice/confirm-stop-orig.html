@@ -1,4 +1,4 @@
-{% extends "layout-account.html" %}
+{% extends "layout-account-prototype.html" %}
 
 {% block pageTitle %}
   Confirm apprenticeship stop
@@ -29,7 +29,7 @@
               </legend>
 
               {{ govukWarningText({
-                text: "This apprenticeship cannot be restarted once stopped.",
+                text: "This action cannot be undone.",
                 iconFallbackText: "Warning"
               }) }}
 
@@ -69,7 +69,7 @@
                       text: "Proposed stop date"
                     },
                     value: {
-                      html: '<p class="govuk-body">June 2018</p>'
+                      html: '<p class="govuk-body">22 February 2019</p>'
                     }
                   }
                 ]

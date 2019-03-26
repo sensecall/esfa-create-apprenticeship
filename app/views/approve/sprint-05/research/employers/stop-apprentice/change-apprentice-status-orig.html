@@ -1,7 +1,7 @@
-{% extends "layout-account.html" %}
+{% extends "layout-account-prototype.html" %}
 
 {% block pageTitle %}
-  Which status change would you like to make?
+  Change apprenticeship status - Iteration #4
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,7 +28,7 @@
               <div class="govuk-body-l">
                 <h2 class="govuk-!-font-weight-bold govuk-heading-m">Pause an apprenticeship to:</h2>
                 <ul class="govuk-list govuk-list--bullet">
-                  <li>record a break in learning as agreed with the training provider</li>
+                  <li>record a break in learning</li>
                   <li>freeze future payments to a training provider for a period of time</li>
                 </ul>                
   
@@ -36,7 +36,6 @@
                 <ul class="govuk-list govuk-list--bullet">
                   <li>change your training provider during the lifetime of a course</li>
                   <li>cancel all future payments</li>
-                  <li>discard a record to correct uneditable details</li>
                 </ul>
   
                 {{ govukWarningText({

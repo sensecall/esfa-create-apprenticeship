@@ -179,7 +179,7 @@
         </div>
       </dl>     
 
-      <!--<div class="govuk-form-group">
+      <div class="govuk-form-group">
         <label class="govuk-label" style="font-weight: 700; font-size:24px;" for="more-detail">
           Send a message to your training provider
         </label>
@@ -187,23 +187,11 @@
           Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next.
         </span>
         <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
-      </div>-->
+      </div>
 
       <!--<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">-->
 
       <form method="post">
-          {% set textHtml %}
-          {{ govukInput({
-            id: "msg-content",
-            name: "msg-content",
-            type: "textarea",
-            classes: "govuk-textarea",
-            label: {
-              html: "<b>Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next (optional)</b>"
-            }
-          }) }}
-          {% endset -%}
-
         {{ govukRadios({
           idPrefix: "approve",
           name: "approve",
@@ -223,10 +211,7 @@
           },
           {
             value: "no",
-            text: "No, request changes from provider",
-            conditional: {
-              html: textHtml
-            }
+            text: "No, request changes from provider"
           }
           ]
         }) }}

@@ -1,7 +1,7 @@
-{% extends "layout-account-prototype.html" %}
+{% extends "layout-account.html" %}
 
 {% block pageTitle %}
-  Review apprentice details - version B
+  Apprentice details
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,52 +15,43 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        Review apprentice details
-      </h1>
-      
-      <h2 class="govuk-heading-m">
-        Last message from the training provider
-      </h2>
+      <form method="post" class="form">
 
-      {{ govukInsetText({ 
-        text: "Please could you approve this at your earliest convenience, cheers Johnny"
+      <h1 class="govuk-heading-xl">
+        Sarah Philips
+      </h1>
+
+      {{ govukInsetText({
+        text: "Edit details if there's a change in apprentice or apprenticeship circumstances."
       }) }}
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-      <h2 class="govuk-heading-m">
-        Apprentice details
-      </h2>
       <dl class="app-check-your-answers app-check-your-answers--short">
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Name
+            Status
           </dt>
           <dd class="app-check-your-answers__answer">
-            Sarah Philips
+            Live
           </dd>
           <dd class="app-check-your-answers__change">
-            <a href="apprentice-details#name">
-              <span class="govuk-visually-hidden">Edit name</span>
+            <a href="change-apprentice-status">
+              Edit status<span class="govuk-visually-hidden"></span>
             </a>
           </dd>
         </div>
-
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Date of birth
+            Training provider
           </dt>
           <dd class="app-check-your-answers__answer">
-            5 January 2002
+            APEX TRAINING LIMITED
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="#">
-              <span class="govuk-visually-hidden">Edit date of birth</span>
+              <span class="govuk-visually-hidden">Edit training provider</span>
             </a>
           </dd>
         </div>
-
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
             Cohort reference
@@ -76,10 +67,58 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">
-        Apprenticeship details
-      </h2>
-      <dl class="app-check-your-answers app-check-your-answers--short">
+        <!--only add a heading for a list if there is more than one list-->
+        <h2 class="govuk-heading-m">
+          Apprentice details
+        <span style="float:right; text-align:right; font-weight:400; font-size:19px;"><a href="#">Edit</a></span>
+        </h2>
+        <dl class="app-check-your-answers app-check-your-answers--short">        
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Name
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            Sarah Philips
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="apprentice-details#name">
+              <span class="govuk-visually-hidden">Edit name</span>
+            </a>
+          </dd>
+        </div>        
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Unique learner number
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            123456789A
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              <span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div>
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Date of birth
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            5 January 2002
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              <span class="govuk-visually-hidden">Edit date of birth</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+        <h2 class="govuk-heading-m">
+          Apprenticeship details
+        </h2>
+
+        <dl class="app-check-your-answers app-check-your-answers--short">
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
             Apprenticeship training course
@@ -90,20 +129,6 @@
           <dd class="app-check-your-answers__change">
             <a href="#">
               <span class="govuk-visually-hidden">Edit apprenticeship training course</span>
-            </a>
-          </dd>
-        </div>
-
-        <div class="app-check-your-answers__contents">
-          <dt class="app-check-your-answers__question">
-            Training provider
-          </dt>
-          <dd class="app-check-your-answers__answer">
-            APEX TRAINING LIMITED
-          </dd>
-          <dd class="app-check-your-answers__change">
-            <a href="#">
-              <span class="govuk-visually-hidden">Edit training provider</span>
             </a>
           </dd>
         </div>
@@ -138,10 +163,10 @@
 
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Total agreed apprenticeship price 
+            Total agreed apprenticeship price (excluding VAT)
           </dt>
           <dd class="app-check-your-answers__answer">
-            £1,500 excluding VAT
+            £1,500
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="#">
@@ -149,92 +174,21 @@
             </a>
           </dd>
         </div>
-
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Government pays
+            Reference (optional)
           </dt>
           <dd class="app-check-your-answers__answer">
-            £1,350 (90%)
+            This is my reference
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="#">
-              <span class="govuk-visually-hidden">Edit total agreed apprenticeship price (excluding VAT)</span>
+              <span class="govuk-visually-hidden">Edit reference</span>
             </a>
           </dd>
         </div>
-
-        <div class="app-check-your-answers__contents">
-          <dt class="app-check-your-answers__question">
-            ABC Trading pays
-          </dt>
-          <dd class="app-check-your-answers__answer">
-            £150 (10%)
-          </dd>
-          <dd class="app-check-your-answers__change">
-            <a href="#">
-              <span class="govuk-visually-hidden">Edit total agreed apprenticeship price (excluding VAT)</span>
-            </a>
-          </dd>
-        </div>
-      </dl>     
-
-      <!--<div class="govuk-form-group">
-        <label class="govuk-label" style="font-weight: 700; font-size:24px;" for="more-detail">
-          Send a message to your training provider
-        </label>
-        <span id="more-detail-hint" class="govuk-hint">
-          Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next.
-        </span>
-        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
-      </div>-->
-
-      <!--<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">-->
-
-      <form method="post">
-          {% set textHtml %}
-          {{ govukInput({
-            id: "msg-content",
-            name: "msg-content",
-            type: "textarea",
-            classes: "govuk-textarea",
-            label: {
-              html: "<b>Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next (optional)</b>"
-            }
-          }) }}
-          {% endset -%}
-
-        {{ govukRadios({
-          idPrefix: "approve",
-          name: "approve",
-          fieldset:
-          {
-            legend:
-            {
-              text: "Approve these details?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
-            }
-          },
-          items: [
-          {
-            value: "yes",
-            text: "Yes, approve these details"
-          },
-          {
-            value: "no",
-            text: "No, request changes from provider",
-            conditional: {
-              html: textHtml
-            }
-          }
-          ]
-        }) }}
-
-        {{ govukButton ({
-          text: "Save and submit"
-        })}}
-      </form>
+      </dl>
+    </form>
     </div>
   </div>
 {% endblock %}
