@@ -193,14 +193,15 @@
 
       <form method="post">
           {% set textHtml %}
-          {{ govukInput({
+          {{ govukTextarea({
             id: "msg-content",
             name: "msg-content",
             type: "textarea",
             classes: "govuk-textarea",
             label: {
-              html: "<b>Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next (optional)</b>"
-            }
+              html: "Let APEX TRAINING LIMITED know about any errors they need to fix or what you'd like them to do next (optional)"
+            },
+            rows: 5
           }) }}
           {% endset -%}
 
