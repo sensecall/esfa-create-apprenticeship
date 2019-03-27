@@ -238,7 +238,7 @@ router.get('/funding--choose-legal-entity', (req, res) => {
 	if (req.session.data['multiple-legal-entities'] == 'true' ) {
 		res.render(`${req.feature}/funding--choose-legal-entity`)
 	} else {
-		res.redirect(`funding--know-month`)
+		res.redirect(`funding--choose-month`)
 	}
 })
 
