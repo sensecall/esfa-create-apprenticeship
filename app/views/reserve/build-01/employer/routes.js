@@ -53,7 +53,7 @@ router.post('/funding--choose-course', (req, res) => {
 	if(req.session.data['know-course'] == 'no' || req.session.data['course-name'] == ''){
 		req.session.data['course-name'] = 'Unknown'
 	}
-	res.redirect('funding--cya')
+	res.redirect('funding--choose-month')
 })
 
 // know month
@@ -166,7 +166,7 @@ router.post('/funding--choose-month', (req, res) => {
 		req.session.data['course-name'] = 'Unknown'
 	}
 
-	res.redirect('funding--choose-course')
+	res.redirect('funding--cya')
 })
 
 // funding backdated
@@ -238,7 +238,7 @@ router.get('/funding--choose-legal-entity', (req, res) => {
 	if (req.session.data['multiple-legal-entities'] == 'true' ) {
 		res.render(`${req.feature}/funding--choose-legal-entity`)
 	} else {
-		res.redirect(`funding--choose-month`)
+		res.redirect(`funding--choose-course`)
 	}
 })
 
