@@ -18,7 +18,7 @@
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="/form-handler" method="post" novalidate>
+        <form method="post" novalidate>
 
           <div class="govuk-form-group">
             {{ govukDateInput({
@@ -60,8 +60,7 @@
           </div>
 
           {{ govukButton({
-            text: "Save and continue",
-            href: "confirm-stop"
+            text: "Save and continue"
           }) }}
 
         </form>

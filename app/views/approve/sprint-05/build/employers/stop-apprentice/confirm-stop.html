@@ -11,6 +11,8 @@
 }) }}
 {% endblock %}
 
+var firstName = req.session.data['stop-date']['month']
+
 {% block content %}
 <div class="govuk-width-container">
 
@@ -69,7 +71,7 @@
                       text: "Proposed stop date"
                     },
                     value: {
-                      html: '<p class="govuk-body">June 2018</p>'
+                      html: '<p class="govuk-body">'+data["formattedDate"]+'</p>'
                     }
                   }
                 ]
