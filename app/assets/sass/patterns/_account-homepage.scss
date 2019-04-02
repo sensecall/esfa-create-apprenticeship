@@ -1,0 +1,46 @@
+@import "node_modules/govuk_frontend_toolkit/stylesheets/_grid_layout";
+
+.account-home {
+	background: govuk-colour('grey-4') !important;
+
+	.app-account-header {
+		background: white;
+		padding: $govuk-gutter 0;
+	}
+
+	.app-account-main {
+		padding-top: $govuk-gutter
+	}
+
+	.app-cta-box {
+		padding: $govuk-gutter;
+		margin-bottom: $govuk-gutter;
+		background: white;
+
+		&.app-cta-box--main {
+			background: govuk-colour("blue");
+
+			p,
+			a {
+				color: white;
+			}
+
+			.app-cta-box__heading {
+				@extend .govuk-heading-l;
+				color: white;
+			}
+		}
+
+		.app-cta-box__heading {
+			@extend .govuk-heading-m;
+		}
+	}
+
+	.govuk-grid-column-two-fifths {
+		@include grid-column( 2/5, $full-width: tablet );
+	}
+
+	.govuk-grid-column-three-fifths {
+		@include grid-column( 3/5, $full-width: tablet );
+	}
+}

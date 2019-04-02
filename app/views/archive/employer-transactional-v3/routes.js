@@ -23,6 +23,7 @@ router.get('/have-account', (req, res) => {
 
 router.post('/have-account', (req, res) => {
 	if (req.session.data['have-account'] == 'yes' ) {
+		req.session.data['redirectUrl'] = 'know-apprenticeship'
 		res.redirect(`login`)
 	} else {
 		req.session.data['loggedIn'] = 'false'
@@ -34,6 +35,7 @@ router.post('/registration-message', (req, res) => {
 	if (req.session.data['register-now'] == 'yes' ) {
 		res.redirect(`registration`)
 	} else {
+		req.session.data['registered'] = 'false'
 		res.redirect(`know-provider`)
 	}
 })
@@ -46,7 +48,11 @@ router.post('/choose-apprenticeship', (req, res) => {
 // Check permission
 router.post('/check-permissions', (req, res) => {
 	if (req.session.data['give-permission'] == 'yes' ) {
-		res.redirect(`permission-confirm`)
+		if(req.session.data['registered'] == 'false'){
+			res.redirect(`must-register`)
+		} else {
+			res.redirect('permission-confirm')
+		}
 	} else {
 		res.redirect(`know-apprenticeship`)
 	}
@@ -57,7 +63,7 @@ router.post('/know-provider', (req, res) => {
 	if (req.session.data['know-provider'] == 'yes' ) {
 		res.redirect(`choose-provider`)
 	} else {
-		res.redirect(`choose-apprenticeship`)
+		res.redirect(`know-apprenticeship`)
 	}
 })
 
@@ -79,7 +85,16 @@ router.post('/reserve-confirm', (req, res) => {
 			res.render(`${req.feature}/reserve-confirm`)
 		}
 	} else {
-		res.redirect(`know-apprenticeship`)
+		res.redirect(`funding-secured`)
+	}
+})
+
+// Reserve confirm
+router.post('/funding-secured', (req, res) => {
+	if (req.session.data['add-apprentice-now'] == 'yes') {
+		
+	} else {
+		res.redirect('account-home')
 	}
 })
 
