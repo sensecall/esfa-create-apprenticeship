@@ -16,6 +16,23 @@ router.post('/review-an-apprentice', (req, res) => {
 	} else {
 	  res.redirect('not-confirmed')
 	}
-  })
+})
+
+  //end of journey screens
+router.post('/confirmation', (req, res) => {
+	if (req.session.data['next-step'] == 'homepage') {
+	  res.redirect('https://marvelapp.com/3ff4j45')
+	} else {
+	  res.redirect('login')
+	}
+	})
+	
+	router.post('/not-confirmed', (req, res) => {
+		if (req.session.data['next-step'] == 'homepage') {
+			res.redirect('https://marvelapp.com/3ff4j45')
+		} else {
+			res.redirect('login')
+		}
+		})
   
   module.exports = router

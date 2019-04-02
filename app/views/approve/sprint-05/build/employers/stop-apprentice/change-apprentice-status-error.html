@@ -12,9 +12,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-width-container">
 
-  <main class="govuk-main-wrapper" id="main-content" role="main">
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select whether to change this apprenticeship status or not",
+      href: "#where-do-you-live-1"
+    }
+  ]
+}) }}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form action="/form-handler" method="post" novalidate>
@@ -45,7 +55,10 @@
                 }) }}
               </div>
   
-              <div class="govuk-radios">
+              <div class="govuk-radios govuk-form-group--error">
+                  <span id="status-change-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Select whether to change this apprenticeship status or not
+                    </span>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
                   <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
@@ -73,10 +86,6 @@
             href: "stop-date"
           }) }}
 
-          {{ govukDetails({
-            summaryText: "Error states",
-            html: "<a href='change-apprentice-status-error'>No option chosen</a>"
-          }) }}
         </form>
       </div>
     </div>

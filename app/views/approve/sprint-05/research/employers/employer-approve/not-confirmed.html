@@ -20,10 +20,39 @@
         Your training provider will receive notification of any changes you've asked them to make shortly.
       </p>
 
-      <h2 class="govuk-heading-m">What's next?</h2>
+      <!--<h2 class="govuk-heading-m">What's next?</h2>
       <p><a href="https://marvelapp.com/3ff4j45">Go to homepage</a></p>
-      <p><a href="login">Sign out</a></p>
+      <p><a href="login">Sign out</a></p>-->
 
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "next-step",
+          name: "next-step",
+          fieldset:
+          {
+            legend:
+            {
+              text: "What's next?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
+            }
+          },
+          items: [
+          {
+            value: "homepage",
+            text: "Go to homepage"
+          },
+          {
+            value: "signout",
+            text: "Sign out"
+          }
+          ]
+        }) }}
+        
+        {{ govukButton ({
+          text: "Continue"
+        })}}
+      </form>
     </div>
   </div>
 

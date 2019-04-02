@@ -16,6 +16,11 @@ router.post('/review-an-apprentice', (req, res) => {
 	} else {
 	  res.redirect('not-confirmed')
 	}
-  })
+	})
+	
+	// employer 
+router.use('/stop-apprentice', (req, res, next) => {
+  require(`./stop-apprentice/routes`)(req, res, next);
+})
   
   module.exports = router

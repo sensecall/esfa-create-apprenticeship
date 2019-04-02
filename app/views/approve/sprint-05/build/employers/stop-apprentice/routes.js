@@ -1,4 +1,5 @@
 const express = require('express')
+var moment = require('moment');
 const router = new express.Router()
 
 // Home page redirect
@@ -100,13 +101,14 @@ router.post('/review-an-apprentice', (req, res) => {
 	}
 })
 
-//manage-apprentices
-router.post('/manage-apprentices', (req, res) => {
-	if (req.session.data['details-correct'] == 'yes' ) {
-		res.redirect(`confirmation`)
-	} else {
-		res.redirect(`not-confirmed`)
-	}
+//stop-date
+router.post('/stop-date', (req, res) => {
+	 var month = req.session.data['stop-date-month']
+	 var year =  req.session.data['stop-date-year']
+	 req.session.data['formattedDate'] = moment().date(1).month(month - 1).year(year).format('MMMM YYYY')
+
+	 res.redirect(`confirm-stop`)
 })
+
 
 module.exports = router

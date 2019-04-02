@@ -12,15 +12,24 @@
 {% endblock %}
 
 {% block content %}
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Enter a date after this apprenticeship's start date",
+      href: "#stop-date"
+    }
+  ]
+}) }}
+
 <div class="govuk-width-container">
-
-
-  <main class="govuk-main-wrapper " id="main-content" role="main">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form method="post" novalidate>
 
-          <div class="govuk-form-group">
+          <div class="govuk-form-group  govuk-form-group--error">
             {{ govukDateInput({
               id: "stop-date",
               namePrefix: "stop-date",
@@ -33,19 +42,6 @@
                   classes: "govuk-fieldset__legend--xl"
                 }             
               },
-              items:
-              [
-              {
-                name: "month",
-                id: "month",
-                classes: "govuk-input--width-2"
-              },
-              {
-                name: "year",
-                id: "year",
-                classes: "govuk-input--width-4"
-              }
-              ],
               hint:
               {
                 html: "<span style='color:#000;'>
@@ -55,7 +51,23 @@
                 </span>
                 
                 For example, 6 2018"
+              },
+              errorMessage: {
+                text: "Enter a date after this apprenticeship's start date"
+              },
+              items:
+              [
+              {
+                name: "month",
+                id: "month",
+                classes: "govuk-input--width-2 govuk-input--error"
+              },
+              {
+                name: "year",
+                id: "year",
+                classes: "govuk-input--width-4 govuk-input--error"
               }
+              ]
             }) }}
           </div>
 
@@ -63,11 +75,6 @@
             text: "Save and continue"
           }) }}
 
-
-          {{ govukDetails({
-            summaryText: "Error states",
-            html: "<a href='stop-date-error-no-data'>No data input</a><br><br><a href='stop-date-error-date'>Date error</a>"
-          }) }}
         </form>
       </div>
     </div>
