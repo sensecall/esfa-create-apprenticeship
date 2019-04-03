@@ -1,192 +1,134 @@
-{% extends "./layout--employer.html" %}
+{% extends "layout.html" %}
 
-{% block page_title %}
-Apprenticeships
+{% set bodyClasses = "account-home" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
 {% endblock %}
 
-{% set currentPage = 'account-home' %}
+{% block main %}
+<div class="app-account-header">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p class="govuk-body-l govuk-!-margin-bottom-0">
+          Your employer account
+        </p>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">
+          {{data['employer']}}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% block content %}
-<main class="govuk-main-wrapper govuk-main-wrapper--l">
-	<section id="allContentHome" class="">
-		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">{{data['employer']}}
-			<span class="govuk-caption-l">Account ID: XJBMNV</span></h1>
+<div class="app-account-main">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-fifths">
+        <div class="app-cta-box app-cta-box--main">
+          <h2 class="app-cta-box__heading">
+            Get government funding
+          </h2>
 
-			{{url}}
+          <p>
+            Lorem ipsum ex cillum id mollit labore aliquip labore incididunt dolore labore anim minim duis in officia proident consequat minim laborum ad amet proident.
+          </p>
 
-			<div class="govuk-grid-row">
-				<div class="govuk-grid-column-two-thirds column-minimum">
-					<ol class="app-task-list app-task-list--unnumbered">
-						<li>
-							<h2 class="app-task-list__section">
-								Get funding for taking on an apprentice
-							</h2>
+          <p>
+            <a href="funding--start">
+              Get funding now
+            </a>
+          </p>
+        </div>
+      </div>
 
-							<p>
-								Use this service to secure government funding for training an apprentice.
-							</p>
-							
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item " id="claimMyFunding">
-									<a class="app-task-list__task-name" href="funding--start" aria-describedby="eligibility-completed">
-										Get funding
-									</a>
-								</li>
-								<li class="app-task-list__item " id="claimMyFunding">
-									<a class="app-task-list__task-name" href="funding--manage" aria-describedby="eligibility-completed">
-										View and manage funding
-									</a>
-								</li>
-							</ul>
-						</li>
+      <div class="govuk-grid-column-two-fifths">
+        <div class="app-cta-box">
+          <h2 class="app-cta-box__heading">
+            ABC Training Ltd
+            <span class="govuk-caption-m">
+              UKPRN: 1000000
+            </span>
+          </h2>
 
-						<li>
-							<h2 class="app-task-list__section">
-								Find apprenticeships
-							</h2>
+          <p>
+            Labore cupidatat eu ex dolore deserunt qui pariatur aliquip ut cupidatat sit in sunt eu commodo reprehenderit qui in ut in in aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
 
-							<p>
-								Find the right apprenticeship for your business and find a training provider to deliver the training. You can save your searches.
-							</p>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-fifths">
+        <div class="app-cta-box">
+          <h2 class="app-cta-box__heading">
+            Your saved apprenticeships and training providers
+          </h2>
 
-							<ul class="app-task-list__items" >
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Find apprenticeship training and get costs
-									</a> 
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										View your saved apprenticeships
-									</a>
-								</li>
-							</ul>
-						</li>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <p>
+                <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">
+                  12
+                </span>
+                <br>
+                <span class="govuk-!-font-size-16">
+                  Saved apprenticeships
+                </span>
+              </p>
+            </div>
 
-						<li>
-							<h2 class="app-task-list__section">
-								Find training providers
-							</h2>
+            <div class="govuk-grid-column-one-half">
+              <p>
+                <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">
+                  5
+                </span>
+                <br>
+                <span class="govuk-!-font-size-16">
+                  Saved training providers
+                </span>
+              </p>
+            </div>
+          </div>
 
-							<p>
-								Find training providers to deliver training and save them to a list. You can give saved training providers permission to carry out tasks on your behalf.
-							</p>
+          <p>
+            <a href="#">Back to preferences</a>
+          </p>
+        </div>
+      </div>
 
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Find training providers
-									</a>
+      <div class="govuk-grid-column-two-fifths">
+        <div class="app-cta-box">
+          <h2 class="app-cta-box__heading">
+            Your account settings
+          </h2>
 
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										View your training providers 
-									</a>
-
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section">
-								Recruit apprentices
-							</h2>
-
-							<p>
-								Advertise your apprenticeships and view current applications you have been sent.
-							</p>
-
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Advertise an apprenticeship
-									</a>
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Manage current vacancies
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										View current applications
-									</a>
-
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section">
-								Add and Manage apprentices
-							</h2>
-
-							<p>
-								Add and manage apprentices in your account.
-							</p>
-
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Add a new apprentice
-									</a>
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Review and approve new apprentices
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										View your current apprentices
-									</a>
-
-								</li>
-
-							</ul>
-						</li>
-
-						<li>
-							<h2 class="app-task-list__section">
-								 Your account preferences
-							</h2>
-
-							<p>
-								Add the correct details to access your funds and authorise the spending of those funds.
-							</p>
-
-							<ul class="app-task-list__items">
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Add and view organisations and agreements
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name" href="#">
-										Add and view Tax details
-									</a>
-
-								</li>
-								<li class="app-task-list__item">
-									<a class="app-task-list__task-name"  href="#">
-										Add and manage team members
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ol>
-				</div>
-			</li>
-
-			<div class="govuk-grid-column-one-third">
-
-			</div>
-		</div>
-	</ol>
+          <ul class="govuk-list">
+            <li>
+              <a href="#">Link 1</a>
+            </li>
+            <li>
+              <a href="#">Link 2</a>
+            </li>
+            <li>
+              <a href="#">Link 3</a>
+            </li>
+            <li>
+              <a href="#">Link 4</a>
+            </li>
+            <li>
+              <a href="#">Link 5</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>    
+  </div>
 </div>
+
+{% endblock %}
+
 
 {% endblock %}
