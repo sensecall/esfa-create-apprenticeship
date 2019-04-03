@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% set bodyClasses = "account-home" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+<div class="app-account-header">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p class="govuk-body-l govuk-!-margin-bottom-0">
+          Your employer account
+        </p>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">
+          {{data['employer']}}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block content %}
+<div class="app-account-main">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-fifths">
+        <div class="app-cta-box app-cta-box--main">
+          <h2 class="app-cta-box__heading">
+            Get government funding
+          </h2>
+
+          <p>
+            Lorem ipsum ex cillum id mollit labore aliquip labore incididunt dolore labore anim minim duis in officia proident consequat minim laborum ad amet proident.
+          </p>
+
+          <p>
+            <a href="funding--start">
+              Get funding now
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-two-fifths">
+        <div class="app-cta-box">
+          <h2 class="app-cta-box__heading">
+            ABC Training Ltd
+            <span class="govuk-caption-m">
+              UKPRN: 1000000
+            </span>
+          </h2>
+
+          <p>
+            Labore cupidatat eu ex dolore deserunt qui pariatur aliquip ut cupidatat sit in sunt eu commodo reprehenderit qui in ut in in aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-fifths">
+        <div class="app-cta-box">
+          <h2 class="app-cta-box__heading">
+            Your saved apprenticeships and training providers
+          </h2>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <p>
+                <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">
+                  12
+                </span>
+                <br>
+                <span class="govuk-!-font-size-16">
+                  Saved apprenticeships
+                </span>
+              </p>
+            </div>
+
+            <div class="govuk-grid-column-one-half">
+              <p>
+                <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">
+                  5
+                </span>
+                <br>
+                <span class="govuk-!-font-size-16">
+                  Saved training providers
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <p>
+            <a href="#">Back to preferences</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-two-fifths">
+        <div class="app-cta-box">
+          <h2 class="app-cta-box__heading">
+            Your account settings
+          </h2>
+
+          <ul class="govuk-list">
+            <li>
+              <a href="#">Link 1</a>
+            </li>
+            <li>
+              <a href="#">Link 2</a>
+            </li>
+            <li>
+              <a href="#">Link 3</a>
+            </li>
+            <li>
+              <a href="#">Link 4</a>
+            </li>
+            <li>
+              <a href="#">Link 5</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% endblock %}

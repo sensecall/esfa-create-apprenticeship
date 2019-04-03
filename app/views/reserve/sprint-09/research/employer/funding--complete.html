@@ -1,0 +1,144 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "Funding secured for this apprenticeship",
+      classes: "govuk-!-margin-bottom-6"
+    }) }}
+
+    {% set disclosureHtml %}
+    {{data['course-name']}}
+    <br class="govuk-!-margin-bottom-2">
+    {{ govukDetails({
+      summaryText: "Can I change the course?",
+      text: "You can change the course when you add an apprentice's details."
+    }) }}
+    {% endset %}
+
+    {% from "summary-list/macro.njk" import govukSummaryList %}
+
+    {{ govukSummaryList({
+      rows:
+      [
+      {
+        key:
+        {
+          text: "Employer"
+        },
+        value:
+        {
+          text: data['employer']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship training start date"
+        },
+        value:
+        {
+          html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+        }
+      },
+      {
+        key:
+        {
+          text: "Apprenticeship training"
+        },
+        value:
+        {
+          html: disclosureHtml
+        }
+      }
+      ]
+    }) }}
+
+    <p>
+      You can <a href="#" onclick="window.print();return false;">print this confirmation screen</a> to show your training provider that you have secured funding.
+    </p>
+
+    <h2 class="govuk-heading-l">
+      Making changes 
+    </h2>
+
+    <p>
+      You can add or change the apprenticeship training when you add an apprentice’s details.
+    </p>
+
+    <p>
+      You cannot change:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the off-the-job training start date, outside of the 3 month window you selected</li>
+    </ul>
+
+    <p>
+      To select a different apprenticeship start date, you will need to start again and secure new funding.
+    </p>
+
+    <h2 class="govuk-heading-l">
+      What you need to do now
+    </h2>
+
+    <p>
+      If you know who your apprentice and training provider will be, you can add the apprentice’s details.
+    </p>
+
+    <p>
+      If you do not know who the apprentice or training provider will be, follow these steps:
+    </p>
+
+    <ol class="govuk-list govuk-list--number">
+      <li>
+        Find an apprentice. You can use our <a href="#">recruitment service</a> to find an apprentice
+      </li>
+      <li>
+        Find a training provider. Use the <a href="#">find apprenticeship training</a> service to find a training provider who offers the course you would like.
+      </li>
+      <li>
+        Add your apprentice’s details
+      </li>
+    </ol>
+
+    <form method="post">
+      {{ govukRadios({
+        idPrefix: "add-apprentice",
+        name: "add-apprentice",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Do you want to add an apprentice now?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No, not right now"
+        }
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Continue"
+        })}}
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

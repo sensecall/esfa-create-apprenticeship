@@ -9,14 +9,12 @@ $info-highlighted: govuk-colour("purple");
 .app-notification {
 	border-width: 4px;
 	border-style: solid;
-
-	margin-top: $govuk-gutter / 2;
-	margin-bottom: $govuk-gutter / 2;
-	padding: ($govuk-gutter / 2) 10px;
+	margin-top: 0;
+	padding: $govuk-gutter / 2 $govuk-gutter / 3 * 2;
 
 	margin-bottom: $govuk-gutter;
 
-	@include govuk-media-query($from: tablet) {
+	@include govuk-media-query($until: desktop) {
 		border-width: 5px;
 		border-style: solid;
 

@@ -1,0 +1,59 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Reserve funds
+    </h1>
+    <form action="reservation-complete">
+      <div class="flash-card">
+        <header>
+          <h2 class="govuk-heading-l app-content-required">
+            Current Funding Status
+          </h2>
+        </header>
+
+        {{ govukWarningText({
+          text: "There are currently no funding restrictions in place",
+          iconFallbackText: "Warning",
+          classes: "govuk-!-margin-bottom-"
+        }) }}
+
+       <p>
+        You can reserve funding for all apprenticeship types for the next 6 months.
+      </p>
+
+      <br>
+
+      <p>
+        {% set buttonUrl %}
+        {% if data['employer'] %}
+        choose-date
+        {% else %}
+        reserve__choose-employer
+        {% endif %}
+        {% endset %}
+
+        {{govukButton({
+          text: "Continue to reserve funding",
+          href: buttonUrl,
+          classes: "govuk-!-margin-bottom-0"
+        })}}
+      </p>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
