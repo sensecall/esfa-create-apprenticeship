@@ -15,13 +15,52 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		<h1 class="govuk-heading-l">
+		<h1 class="govuk-heading-xl">
 			You need to register
 		</h1>
 
 		<p class="govuk-body-l">
 			You must create an account to give permissions to a training provider to do stuff on your behalf.
 		</p>
+
+		<br clear="govuk-!-margin-bottom-8">
+
+		<form action="registration">
+			{{ govukRadios({
+				classes: "govuk-radios--",
+				idPrefix: "create-account",
+				name: "create-account",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Do you want to create an account now?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},
+				hint:
+				{
+					text: "You will need to register in order to guarantee government funding for this apprenticeship."
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes"
+				},
+				{
+					value: "no",
+					text: "No"
+				}
+				]
+			}) }}
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
 	</div>
 </div>
 

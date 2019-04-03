@@ -23,7 +23,7 @@ router.get('/have-account', (req, res) => {
 
 router.post('/have-account', (req, res) => {
 	if (req.session.data['have-account'] == 'yes' ) {
-		req.session.data['redirectUrl'] = 'know-apprenticeship'
+		req.session.data['redirectUrl'] = 'know-provider'
 		res.redirect(`login`)
 	} else {
 		req.session.data['loggedIn'] = 'false'
@@ -61,10 +61,25 @@ router.post('/check-permissions', (req, res) => {
 // Know provider
 router.post('/know-provider', (req, res) => {
 	if (req.session.data['know-provider'] == 'yes' ) {
-		res.redirect(`choose-provider`)
+		if (req.session.data['loggedIn'] == 'true' ) {
+			res.redirect('use-existing-provider')
+		} else {
+			res.redirect('choose-provider')
+		}
 	} else {
 		res.redirect(`know-apprenticeship`)
 	}
+})
+
+// use existing provider
+router.post('/use-existing-provider', (req, res) => {
+	if (req.session.data['choose-provider'] == 'new' ) {
+		req.session.data['provider-name'] = req.session.data['new-provider-name']
+	} else {
+		req.session.data['provider-name'] = req.session.data['choose-provider']
+	}
+	
+	res.redirect('confirm-provider')
 })
 
 router.post('/know-details', (req, res) => {

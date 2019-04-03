@@ -15,14 +15,69 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		{{ govukPanel({
-			titleText: "Provider permssion has been requested",
-			classes: "govuk-!-margin-bottom-8"
-		}) }}
+		<h1 class="govuk-heading-xl">
+			Confirm granting permission
+		</h1>
 
 		<p>
-			Nulla amet tempor ut sed adipisicing exercitation esse laboris sunt eiusmod irure ad aliquip sint ut.
+			This will allow {{data['provider-name']}} to:
 		</p>
+
+		<ul class="govuk-list govuk-list--bullet">
+			<li>
+				Thing #1
+			</li>
+			<li>
+				Thing #2
+			</li>
+			<li>
+				Other thing #3
+			</li>
+		</ul>
+
+		<hr class="govuk-section-break govuk-section-break--xl">
+
+		<form action="permission-sent">
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				idPrefix: "changed-name",
+				name: "changed-name",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Do you want to give " + data['provider-name'] + " permission?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},
+				hint:
+				{
+					text: "This includes changing your last name or spelling your name differently."
+				},
+				items:
+				[
+				{
+					value: "yes",
+					text: "Yes"
+				},
+				{
+					value: "no",
+					text: "No"
+				}
+				]
+			}) }}
+
+			<p>
+				Nulla amet tempor ut sed adipisicing exercitation esse laboris sunt eiusmod irure ad aliquip sint ut.
+			</p>
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
 	</div>
 </div>
 

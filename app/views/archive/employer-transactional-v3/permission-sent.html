@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{{ govukPanel({
+			titleText: "Provider permssion has been requested",
+			classes: "govuk-!-margin-bottom-8"
+		}) }}
+
+		<p>
+			Nulla amet tempor ut sed adipisicing exercitation esse laboris sunt eiusmod irure ad aliquip sint ut.
+		</p>
+
+		<p>
+        {{ govukButton ({
+          text: "Return to your account",
+          href: "account-home"
+        })}}
+      </p>
+	</div>
+</div>
+
+{% endblock %}

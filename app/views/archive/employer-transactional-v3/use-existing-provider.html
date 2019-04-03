@@ -1,0 +1,81 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {% set searchInput %}
+      {{ govukInput({
+        label:
+        {
+          text: "Search for the training provider"
+        },
+        hint:
+        {
+          text: "You can search by the provider's name or UKPRN"
+        },
+        id: "new-provider-name",
+        name: "new-provider-name"
+      }) }}
+      {% endset %}
+
+      {{ govukRadios({
+        idPrefix: "choose-provider",
+        name: "choose-provider",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Add a new provider or choose one of your current training providers",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint:
+        {
+          text: "Lorem ipsum cupidatat occaecat dolor commodo dolore incididunt occaecat est irure qui pariatur cupidatat elit veniam excepteur ut pariatur labore.."
+        },
+        items: [
+        {
+          value: "new",
+          text: "Add a new provider",
+          conditional:
+          {
+            html: searchInput
+          }
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "ABC Training Ltd",
+          text: "ABC Training Ltd"
+        },
+        {
+          value: "XYZ Skills",
+          text: "XYZ Skills"
+        }        
+        ]
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}
