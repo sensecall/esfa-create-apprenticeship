@@ -19,26 +19,20 @@ GOV.UK Prototype Kit
       Government funding is currently unavailable
     </h1>{{releaseVersion | log }}
 
-    {{ govukWarningText({
-      html: 'There's currently no government funding available for apprentice training. Visit <a href="#">funding restrictions</a> for more information.',
-      iconFallbackText: "Current Funding restrictions"
-    }) }}
+    <p>
+      There's currently no government funding available for apprentice training. Visit <a href='#'>funding restrictions</a> for more information.
+    </p>
 
     <p>
       Any funding you've already secured is unaffected by this change.
     </p>
-  </div>
 
-  <div class="govuk-grid-column-one-third">
-    <!-- <div class="app-related-items">
-      <h2 class="govuk-heading-m">
-        Related
-      </h2>
-      
-      <p>
-        Blah blah blah
-      </p>
-    </div> -->
+    <p>
+      {{govukButton({
+        text: "Return to account",
+        href: "account-home"
+      })}}
+    </p>
   </div>
 </div>
 
