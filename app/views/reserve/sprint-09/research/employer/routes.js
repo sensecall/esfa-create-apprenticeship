@@ -12,11 +12,7 @@ router.get('/', (req, res) => {
 
 // account home
 router.get('/account-home', (req, res) => {
-	if( req.get('host').includes('localhost') ){
-		res.render(`${req.feature}/account-home`)
-	} else {
-		res.redirect('https://marvelapp.com/1e07dceg')
-	}
+	res.render(`${req.feature}/account-home`)
 })
 
 
