@@ -1,0 +1,83 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+  When did the apprenticeship stop?
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Enter the stop date for this apprenticeship",
+      href: "#stop-date"
+    }
+  ]
+}) }}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post" novalidate>
+
+          <div class="govuk-form-group  govuk-form-group--error">
+            {{ govukDateInput({
+              id: "stop-date",
+              namePrefix: "stop-date",
+              fieldset:
+              {
+                legend:
+                {
+                  text: "When did this apprenticeship training stop?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }             
+              },
+              hint:
+              {
+                html: "<span style='color:#000;'>
+                The earliest date you can enter is this apprenticeship's start date of June 2018. Any outstanding payments will be made for activity up to this date.
+                <br><br>
+                
+                </span>
+                
+                For example, 6 2018"
+              },
+              errorMessage: {
+                text: "Enter the stop date for this apprenticeship"
+              },
+              items:
+              [
+              {
+                name: "month",
+                id: "month",
+                classes: "govuk-input--width-2 govuk-input--error"
+              },
+              {
+                name: "year",
+                id: "year",
+                classes: "govuk-input--width-4 govuk-input--error"
+              }
+              ]
+            }) }}
+          </div>
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

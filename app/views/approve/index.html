@@ -14,13 +14,17 @@ Approve
       Approve
     </h1>
 
-    {% include './sprint-05/_summary.html' %}
+    {% include './sprint-06/_summary.html' %}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
     <h2 class="govuk-heading-l">
       Previous sprints
     </h2>
+
+    {% set sprint5Html %}
+    {% include './sprint-05/_summary.html' %}
+    {% endset %}
 
     {% set sprint4Html %}
     {% include './sprint-04/_summary.html' %}
@@ -43,6 +47,20 @@ Approve
       id: "accordion-default",
       items:
       [
+      {
+        heading:
+        {
+          text: "Sprint 5"
+        },
+        content:
+        {
+          html: sprint5Html
+        },
+        summary:
+        {
+          html: '15th&mdash;28th March 2019'
+        }
+      },
       {
         heading:
         {

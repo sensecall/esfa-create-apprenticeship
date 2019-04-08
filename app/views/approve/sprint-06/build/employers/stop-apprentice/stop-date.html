@@ -1,0 +1,76 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+  When did the apprenticeship stop?
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post" novalidate>
+
+          <div class="govuk-form-group">
+            {{ govukDateInput({
+              id: "stop-date",
+              namePrefix: "stop-date",
+              fieldset:
+              {
+                legend:
+                {
+                  text: "When did this apprenticeship training stop?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }             
+              },
+              items:
+              [
+              {
+                name: "month",
+                id: "month",
+                classes: "govuk-input--width-2"
+              },
+              {
+                name: "year",
+                id: "year",
+                classes: "govuk-input--width-4"
+              }
+              ],
+              hint:
+              {
+                html: "<span style='color:#000;'>
+                The earliest date you can enter is this apprenticeship's start date of June 2018. Any outstanding payments will be made for activity up to this date.
+                <br><br>
+                
+                </span>
+                
+                For example, 6 2018"
+              }
+            }) }}
+          </div>
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+
+
+          {{ govukDetails({
+            summaryText: "Error states",
+            html: "<a href='stop-date-error-no-data'>No data input</a><br><br><a href='stop-date-error-date'>Date error</a>"
+          }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
