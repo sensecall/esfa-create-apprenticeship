@@ -185,7 +185,7 @@ router.post('/funding--choose-month', (req, res) => {
 
 // funding backdated
 router.post('/funding--backdated', (req, res) => {
-	var backdatedDate = '01' + ' ' + req.session.data['planned-start-date-month'] + ' ' + req.session.data['planned-start-date-year']
+	var backdatedDate = req.session.data['planned-start-date-year'] + '-' + req.session.data['planned-start-date-month'] + '-01'
 	var earliest = moment(backdatedDate).startOf('month').format("MMMM YYYY")
 	var latest =  moment(backdatedDate).add(2, 'months').endOf('month').format("MMMM YYYY")
 	req.session.data['reservation-employer'] = req.session.data['employer']
@@ -193,7 +193,7 @@ router.post('/funding--backdated', (req, res) => {
 	req.session.data['reservation-endRange'] = latest
 	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
 
-	res.redirect('funding--cya')
+	res.redirect('funding--choose-course')
 })
 
 // know course
@@ -281,7 +281,11 @@ router.post('/funding--cya', (req, res) => {
 
 	req.session.data['reservations'].push(reservation)
 
-	res.redirect(`funding--complete`)
+	if (req.session.data['confirm-funding'] == 'yes' ) {
+		res.redirect(`funding--complete`)
+	} else {
+		res.redirect(`account-home`)
+	}
 })
 
 
