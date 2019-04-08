@@ -17,6 +17,10 @@ Reserve
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {% set sprint09Html %}
+    {% include './sprint-09/_summary.html' %}
+    {% endset %}
+
     {% set sprint08Html %}
     {% include './sprint-08/_summary.html' %}
     {% endset %}
@@ -49,19 +53,32 @@ Reserve
     {% include './sprint-01/_summary.html' %}
     {% endset %}
 
-    {{sprint08Html | safe}}
+    {{sprint09Html | safe}}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
     <h2 class="govuk-heading-l">
       Previous sprints
     </h2>
-
     {% from "accordion/macro.njk" import govukAccordion %}
     {{ govukAccordion({
       id: "accordion-default",
       items:
       [
+      {
+        heading:
+        {
+          text: "Sprint 8"
+        },
+        content:
+        {
+          html: sprint08Html
+        },
+        summary:
+        {
+          html: '25th March 2019&mdash;5th April 2019'
+        }
+      },
       {
         heading:
         {
