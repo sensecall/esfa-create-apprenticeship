@@ -37,4 +37,14 @@ router.use('/research/providers/manage-your-apprentices', (req, res, next) => {
   require(`./research/providers/manage-your-apprentices/routes`)(req, res, next);
 })
 
+// employer 
+router.use('/build/providers/', (req, res, next) => {
+  require(`./build/providers/routes`)(req, res, next);
+})
+
+// employer 
+router.use('/build/employers/', (req, res, next) => {
+  require(`./build/employers/routes`)(req, res, next);
+})
+
 module.exports = router
