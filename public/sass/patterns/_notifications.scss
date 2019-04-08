@@ -2,136 +2,82 @@
 $info-colour: govuk-colour("purple");
 $success-colour: govuk-colour("turquoise");
 $warning-colour: govuk-colour("orange");
+$danger-colour: govuk-colour("red");
 $info-highlighted: govuk-colour("purple");
 
-// Container for notifications, to reduce space between them wehen there are multiple
-.error-summary,.warning-summary,.success-summary,.info-summary, .info-highlighted {
-  margin-bottom:0px !important;
-  &:last-child {
-   margin-bottom:100px; 
- }
-}
-
-
 // Share notification styles
-.error-summary, .info-summary, .success-summary, .warning-summary, .info-highlighted {
-  border-width: 4px;
-  border-style: solid;
+.app-notification {
+	border-width: 4px;
+	border-style: solid;
+	margin-top: 0;
+	padding: $govuk-gutter / 2 $govuk-gutter / 3 * 2;
 
-  margin-top: $govuk-gutter / 2;
-  margin-bottom: $govuk-gutter / 2;
-  padding: ($govuk-gutter / 2) 10px;
+	margin-bottom: $govuk-gutter;
 
-  @include govuk-media-query($from: tablet) {
-    border-width: 5px;
-    border-style: solid;
+	@include govuk-media-query($until: desktop) {
+		border-width: 5px;
+		border-style: solid;
 
-    margin-top: $govuk-gutter;
-    margin-bottom: $govuk-gutter;
+		margin-top: $govuk-gutter;
+		margin-bottom: $govuk-gutter;
 
-    padding: $govuk-gutter * 2 / 3 $govuk-gutter / 2 $govuk-gutter / 2;
-  }
+		padding: ($govuk-gutter / 2) ($govuk-gutter / 2);
+	}
 
-    // Use the GOV.UK outline focus style
-    &:focus {
-      outline: 3px solid govuk-gutter('yellow');
-    }
+	&:focus {
+		outline: 3px solid govuk-gutter('yellow');
+	}
 
-    p {
-      margin-bottom: 10px;
-    }
+	p {
+		margin-bottom: 10px;
+	}
 
-    &-heading {
-      margin-top: 0;
-    }
-    
-    @for $index from 1 through 6 {
-      h#{$index}{
-      }
-      h#{$index}[class^="heading-"] {
-        margin: 0;
-      }
-    }
-    
-    &-list {
-      padding-left: 0;
-      li {
-        @include govuk-media-query($from: tablet) {
-          margin-bottom: 5px;
-        }
-      }
-      a {
-        font-weight: bold;
-        text-decoration: underline;
-      }
-    }  
-  }
+	@for $index from 1 through 6 {
+		h#{$index}[class^="govuk-heading-"] {
+			margin: 0;
+		}
+	}
 
-  .info-dismiss, .success-dismiss, .warning-dismiss {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-// Info notification styles
-.info-summary {
-  border-color: $info-colour;
-
-  @include govuk-media-query($from: tablet) {
-    border-color: $info-colour;
-  }
-
-  .info-summary-list {
-    a {
-      color: $info-colour;
-    }
-  }
-  .info-dismiss {
-    color: $info-colour;
-  }
+	&__list {
+		padding-left: 0;
+		li {
+			@include govuk-media-query($from: tablet) {
+				margin-bottom: 5px;
+			}
+		}
+		a {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}  
 }
 
-// Success notification styles
-.success-summary {
-  border-color: $success-colour;
-
-  @include govuk-media-query($from: tablet) {
-    border-color: $success-colour;
-  }
-
-  .success-summary-list {
-    a {
-      color: $success-colour;
-    }
-  }
-  .success-dismiss {
-    color: $success-colour;
-  }
+@mixin notificationStyle($colour) {
+	border-color: $colour;
 }
 
-// Warning notification styles
-.warning-summary {
-  border-color: $warning-colour;
-
-  @include govuk-media-query($from: tablet) {
-    border-color: $warning-colour;
-  }
-
-  .warning-summary-list {
-    a {
-      color: $warning-colour;
-    }
-  }
-  .warning-dismiss {
-    color: $warning-colour;
-  }
+.app-notification--success {
+	@include notificationStyle($success-colour);
 }
 
-// info-highlighted styles
+.app-notification--info {
+	@include notificationStyle($info-colour);
+}
+
+.app-notification--warning {
+	@include notificationStyle($warning-colour);
+}
+
+.app-notification--danger {
+	@include notificationStyle($danger-colour);
+}
+
+
 .info-highlighted {
-  max-width: 30em;
-  background: mix(white,govuk-colour("purple"),90%);
-  border: none;
-  border-left: solid 10px govuk-colour("purple");
+	max-width: 30em;
+	background: mix(white,govuk-colour("purple"),90%);
+	border: none;
+	border-left: solid 10px govuk-colour("purple");
 }
 
 
@@ -141,6 +87,6 @@ $info-highlighted: govuk-colour("purple");
 // ==========================================================================
 
 .sfa-govuk-box-highlight {
-  padding-left:0.5em;
-  padding-right:0.5em;
+	padding-left:0.5em;
+	padding-right:0.5em;
 }
