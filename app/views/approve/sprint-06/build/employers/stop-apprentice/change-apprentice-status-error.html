@@ -1,0 +1,94 @@
+{% extends "layout-account.html" %}
+
+{% block pageTitle %}
+  Which status change would you like to make?
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select whether to change this apprenticeship status or not",
+      href: "#where-do-you-live-1"
+    }
+  ]
+}) }}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/form-handler" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-9">
+                  Which status change would you like to make?
+                </h1>
+              </legend>              
+              <div class="govuk-body-l">
+                <h2 class="govuk-!-font-weight-bold govuk-heading-m">Pause an apprenticeship to:</h2>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>record a break in learning as agreed with the training provider</li>
+                  <li>freeze future payments to a training provider for a period of time</li>
+                </ul>                
+  
+                <h2 class="govuk-!-font-weight-bold govuk-heading-m">Stop an apprenticeship to:</h2>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>change your training provider during the lifetime of a course</li>
+                  <li>cancel all future payments</li>
+                  <!--<li>discard a record to correct uneditable details</li>-->
+                </ul>
+  
+                {{ govukWarningText({
+                  text: "Do not stop completed apprenticeships.",
+                  iconFallbackText: "Warning"
+                }) }}
+              </div>
+  
+              <div class="govuk-radios govuk-form-group--error">
+                  <span id="status-change-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Select whether to change this apprenticeship status or not
+                    </span>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                    Pause this apprenticeship
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    Stop this apprenticeship
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                    Go back to apprentice details
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          {{ govukButton({
+            text: "Save and continue",
+            href: "stop-date"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
