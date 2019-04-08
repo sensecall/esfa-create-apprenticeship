@@ -65,13 +65,20 @@ router.post('/funding--know-month', (req, res) => {
 	}
 })
 
-
-// date plus course variant
-router.get('/funding--choose-month', (req, res) => {
+function setMonths(req, res) {
 	var monthFormat = "MMMM YYYY"
 	var currentMonth = moment().format(monthFormat)
 
 	var months = [
+	{
+		value: 'before-now',
+		text: "Before " + currentMonth,
+		checked: req.session.data['planned-start-date'] == "before-now",
+		attributes:
+		{
+			required: "required"
+		}
+	},
 	{
 		value: currentMonth,
 		text: moment(currentMonth).startOf('month').format(monthFormat),
@@ -84,7 +91,7 @@ router.get('/funding--choose-month', (req, res) => {
 	]
 
 	function addMonths(m){
-		if(months.length <= m){
+		if(months.length <= m + 1){
 			var date = moment(months[months.length-1]["value"]).add(1, 'months').format(monthFormat);
 			var month = {
 				value: date,
@@ -100,17 +107,23 @@ router.get('/funding--choose-month', (req, res) => {
 			addMonths(m)
 		}
 	}
-
 	addMonths(5)
 
 	months.push({
 		divider: "or"
 	},
 	{
-		value: "I don't know",
+		value: "dont-know",
 		text: "I don't know",
+		checked: req.session.data['planned-start-date'] == "dont-know",
 	})
 
+	return months
+}
+
+// date plus course variant
+router.get('/funding--choose-month', (req, res) => {
+	var months = setMonths(req, res)
 
 	res.render(`${req.feature}/funding--choose-month`,{months})
 })
@@ -154,8 +167,10 @@ router.get('/funding--choose-month--errors', (req, res) => {
 })
 
 router.post('/funding--choose-month', (req, res) => {
-	if(req.session.data['planned-start-date'].includes('Before')){
+	if(req.session.data['planned-start-date'] == 'before-now'){
 		res.redirect('funding--backdated')
+	} else if (req.session.data['planned-start-date'] == 'dont-know'){
+		res.redirect('funding--month-warning')
 	} else {
 		var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
 		var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
@@ -241,7 +256,7 @@ router.get('/funding--choose-legal-entity', (req, res) => {
 	if (req.session.data['multiple-legal-entities'] == 'true' ) {
 		res.render(`${req.feature}/funding--choose-legal-entity`)
 	} else {
-		res.redirect(`funding--know-month`)
+		res.redirect(`funding--choose-month`)
 	}
 })
 
