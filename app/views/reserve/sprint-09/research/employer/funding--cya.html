@@ -23,6 +23,10 @@ GOV.UK Prototype Kit
 
 			{% from "summary-list/macro.njk" import govukSummaryList %}
 
+			{% set dateText %}
+			{{data['reservation-startRange']}}
+			{% endset %}
+
 			{{ govukSummaryList({
 				rows:
 				[
@@ -52,14 +56,14 @@ GOV.UK Prototype Kit
 					},
 					value:
 					{
-						html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+						html: dateText
 					},
 					actions:
 					{
 						items:
 						[
 						{
-							href: "javascript: window.history.go(-2)",
+							href: "funding--choose-month",
 							text: "Change",
 							visuallyHiddenText: "contact information"
 						}
@@ -80,7 +84,7 @@ GOV.UK Prototype Kit
 						items:
 						[
 						{
-							href: "javascript: window.history.go(-1)",
+							href: "funding--choose-course",
 							text: "Change",
 							visuallyHiddenText: "date of birth"
 						}

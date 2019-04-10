@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 // account home
 router.get('/account-home', (req, res) => {
 	req.session.data['saved-for-later'] = 'false'
-	
+
 	res.render(`${req.feature}/account-home`)
 })
 
@@ -189,10 +189,9 @@ router.post('/funding--choose-month', (req, res) => {
 router.post('/funding--backdated', (req, res) => {
 	var backdatedDate = req.session.data['planned-start-date-year'] + '-' + req.session.data['planned-start-date-month'] + '-01'
 	var earliest = moment(backdatedDate).startOf('month').format("MMMM YYYY")
-	var latest =  moment(backdatedDate).add(2, 'months').endOf('month').format("MMMM YYYY")
 	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
-	req.session.data['reservation-endRange'] = latest
+	req.session.data['reservation-endRange'] = ''
 	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
 
 	res.redirect('funding--choose-course')
