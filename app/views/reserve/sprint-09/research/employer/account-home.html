@@ -60,6 +60,7 @@ GOV.UK Prototype Kit
           </span>
         </h2>
 
+        {% if data['given-permission'] == 'true' %}
         <p>
           You have given permission for {{data['provider-name']}} to do the following on behalf of {{data['employer']}}:
         </p>
@@ -71,6 +72,11 @@ GOV.UK Prototype Kit
             add and manage apprenticeships
           </li>
         </ul>
+        {% else %}
+        <p>
+          You have not given permission to any providers to do tasks in your account on your behalf.
+        </p>
+        {% endif %}
 
       </div>
     </div>
