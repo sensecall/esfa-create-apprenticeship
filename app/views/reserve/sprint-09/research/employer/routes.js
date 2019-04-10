@@ -172,6 +172,8 @@ router.post('/funding--choose-month', (req, res) => {
 	} else {
 		var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
 		var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
+
+		req.session.data['backdated'] = 'false'
 		req.session.data['reservation-employer'] = req.session.data['employer']
 		req.session.data['reservation-startRange'] = earliest
 		req.session.data['reservation-endRange'] = latest
@@ -189,6 +191,8 @@ router.post('/funding--choose-month', (req, res) => {
 router.post('/funding--backdated', (req, res) => {
 	var backdatedDate = req.session.data['planned-start-date-year'] + '-' + req.session.data['planned-start-date-month'] + '-01'
 	var earliest = moment(backdatedDate).startOf('month').format("MMMM YYYY")
+
+	req.session.data['backdated'] = 'true'
 	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
 	req.session.data['reservation-endRange'] = ''
@@ -280,9 +284,15 @@ router.post('/funding--cya', (req, res) => {
 		"course": req.session.data['course-name']
 	}
 
+	req.session.data['current-reservation'] = reservation
 	req.session.data['reservations'].push(reservation)
 
 	if (req.session.data['confirm-funding'] == 'yes' ) {
+		var d = req.session.data
+		d['know-month'] = ''
+		d['know-course'] = ''
+		d['course-name'] = ''
+
 		res.redirect(`funding--complete`)
 	} else {
 		req.session.data['saved-for-later'] = 'true'

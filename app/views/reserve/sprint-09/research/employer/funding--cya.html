@@ -25,6 +25,9 @@ GOV.UK Prototype Kit
 
 			{% set dateText %}
 			{{data['reservation-startRange']}}
+			{% if data['backdated'] == 'false' %}
+			to {{data['reservation-endRange']}}
+			{% endif %}
 			{% endset %}
 
 			{{ govukSummaryList({
