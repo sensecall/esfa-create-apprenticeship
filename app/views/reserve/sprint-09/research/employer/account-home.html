@@ -25,6 +25,13 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="app-account-main">
   <div class="govuk-width-container">
+    {% if data['saved-for-later'] == 'true' %}
+    <div class="app-notification app-notification--success">
+        <h2 class="govuk-heading-m app-content-required">
+          Your apprenticeship has been saved for later. Government funding was not secured.
+        </h2>
+      </div>
+    {% endif %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-fifths">
         <div class="app-cta-box app-cta-box--main">

@@ -12,6 +12,8 @@ router.get('/', (req, res) => {
 
 // account home
 router.get('/account-home', (req, res) => {
+	req.session.data['saved-for-later'] = 'false'
+	
 	res.render(`${req.feature}/account-home`)
 })
 
@@ -284,6 +286,7 @@ router.post('/funding--cya', (req, res) => {
 	if (req.session.data['confirm-funding'] == 'yes' ) {
 		res.redirect(`funding--complete`)
 	} else {
+		req.session.data['saved-for-later'] = 'true'
 		res.redirect(`account-home`)
 	}
 })
