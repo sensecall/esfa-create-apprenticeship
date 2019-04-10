@@ -21,15 +21,6 @@ GOV.UK Prototype Kit
 				</h1>
 			</div>
 
-			{% set disclosureHtml %}
-			{{data['course-name']}}
-			<br class="govuk-!-margin-bottom-2">
-			{{ govukDetails({
-				summaryText: "Can I change the course?",
-				text: "You can change the course when you add an apprentice's details."
-			}) }}
-			{% endset %}
-
 			{% from "summary-list/macro.njk" import govukSummaryList %}
 
 			{{ govukSummaryList({
@@ -82,7 +73,7 @@ GOV.UK Prototype Kit
 					},
 					value:
 					{
-						html: disclosureHtml
+						html: data['course-name']
 					},
 					actions:
 					{
