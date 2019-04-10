@@ -32,19 +32,35 @@ GOV.UK Prototype Kit
       </div>
       {% endset -%}
 
+      {% set fieldsetTitle %}
+      {% if data['backdated'] == 'true' %}
+      Do you know which apprenticeship training your apprentice is taking?
+      {% else %}
+      Do you know which apprenticeship training your apprentice will take?
+      {% endif %}
+      {% endset %}
+
+      {% set hintText %}
+      {% if data['backdated'] == 'true' %}
+      If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.
+      {% else %}
+      This information can be changed later. If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.
+      {% endif %}
+      {% endset %}
+
       {{ govukRadios({
         classes: "govuk-radios--inline",
         idPrefix: "know-course",
         name: "know-course",
         hint:
         {
-          html: 'This information can be changed later. If you want to find the correct training, you can check <a href="#">Find an apprentice</a> or ask your training provider.'
+          html: hintText
         },
         fieldset:
         {
           legend:
           {
-            text: "Do you know which apprenticeship training your apprentice will take?",
+            text: fieldsetTitle,
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }

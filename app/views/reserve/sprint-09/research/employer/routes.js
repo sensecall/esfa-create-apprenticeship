@@ -166,6 +166,7 @@ router.get('/funding--choose-month--errors', (req, res) => {
 
 router.post('/funding--choose-month', (req, res) => {
 	if(req.session.data['planned-start-date'] == 'before-now'){
+		req.session.data['backdated'] = 'true'
 		res.redirect('funding--backdated')
 	} else if (req.session.data['planned-start-date'] == 'dont-know'){
 		res.redirect('funding--month-warning')
@@ -192,7 +193,6 @@ router.post('/funding--backdated', (req, res) => {
 	var backdatedDate = req.session.data['planned-start-date-year'] + '-' + req.session.data['planned-start-date-month'] + '-01'
 	var earliest = moment(backdatedDate).startOf('month').format("MMMM YYYY")
 
-	req.session.data['backdated'] = 'true'
 	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
 	req.session.data['reservation-endRange'] = ''
