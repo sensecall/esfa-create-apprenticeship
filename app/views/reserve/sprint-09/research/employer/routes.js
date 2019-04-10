@@ -287,6 +287,10 @@ router.post('/funding--cya', (req, res) => {
 	req.session.data['current-reservation'] = reservation
 	req.session.data['reservations'].push(reservation)
 
+	// reset question answers
+	req.session.data['know-course'] = ''
+	req.session.data['know-month'] = ''
+
 	if (req.session.data['confirm-funding'] == 'yes' ) {
 		var d = req.session.data
 		d['know-month'] = ''
