@@ -236,6 +236,7 @@ router.post('/funding--confirm-details', (req, res) => {
 		"id": reservationId,
 		"month": req.session.data['planned-start-date'],
 		"startMonth": req.session.data['reservation-startRange'],
+		"startDateFull": moment(req.session.data['reservation-startRange']).format("YYYYMMDD"),
 		"endMonth": req.session.data['reservation-endRange'],
 		"created": req.session.data['reservation-created'],
 		"employer": req.session.data['reservation-employer'],

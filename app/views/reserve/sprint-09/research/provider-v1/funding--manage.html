@@ -42,7 +42,7 @@ GOV.UK Prototype Kit
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header" scope="col" aria-sort="none">Employer</th>
 						<th class="govuk-table__header" scope="col" aria-sort="none">Apprenticeship training</th>
-						<th class="govuk-table__header" scope="col" colspan="3">Apprenticeship start date</th>
+						<th class="govuk-table__header" scope="col" aria-sort="none" colspan="3">Apprenticeship start date</th>
 						<!-- <th class="govuk-table__header" colspan="3" scope="col">Created</th> -->
 					</tr>
 				</thead>
@@ -53,7 +53,7 @@ GOV.UK Prototype Kit
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">{{reservation.employer}}</td>
 						<td class="govuk-table__cell">{{reservation.course}}</td>
-						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+						<td class="govuk-table__cell" aria-sort-by="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
 						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
 						<td class="govuk-!-font-size-16 govuk-table__cell">
 							<span class="govuk-!-display--inline-block"><a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a></span>
