@@ -13,10 +13,76 @@ Manage your apprentices
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <form method="post" class="form">
+    <form method="post" class="form">
+    <div class="govuk-grid-column-two-thirds">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+          <h1 class="govuk-fieldset__heading">
+            Manage your apprentices
+          </h1>
+        </legend>  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="search">
+            Search by apprentice name, apprenticeship course or training provider
+        </label>
+        <input class="govuk-input" id="search" name="search" type="text">
+      </div>          
+      <button type="submit" class="govuk-button">
+        Search
+      </button>
+      </fieldset>
+       <!-- <details class="govuk-details" style="background-color: lightgrey;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text" style="text-decoration: none; color:black; margin-top:10px;">
+                Search using advanced filters
+              </span>
+            </summary>
+            <div class="govuk-details__text" style="border: none;">
+              <div class="govuk-grid-row govuk-!-width-one-third"> 
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="search">
+                      Training provider
+                  </label>
+                  <input class="govuk-input" id="provider" name="provider" type="text">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-town">
+                    Apprenticeship course
+                  </label>
+                  <input class="govuk-input" id="course" name="course" type="text">
+                </div>   
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="sort">
+                    Status
+                  </label>
+                  <select class="govuk-select" id="sort" name="sort">
+                    <option value="published">Completed</option>
+                    <option value="updated" selected>Live</option>
+                    <option value="views">Paused</option>
+                    <option value="comments">Stopped</option>
+                  </select>
+                </div>  
+              </div>
+            </details>
+
+              <div class="govuk-details__text govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  <p>govuk-grid-column-two-thirds</p>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+                      <p>govuk-grid-column-one-half</p>
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+                      <p>govuk-grid-column-one-half</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          -->
+    </div>
+    <div class="govuk-grid-column-full">      
         <table class="govuk-table" id="apprentice-table">
-          <caption class="govuk-table__caption govuk-heading-xl">Manage your apprentices</caption>
+          <!--<caption class="govuk-table__caption govuk-heading-xl">Manage your apprentices</caption>-->
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>
@@ -77,7 +143,7 @@ Manage your apprentices
           </tbody>
         </table>
       </form>
-      <p class="govuk-grid-row" style="float:right; padding-right:12px;"><a href="">Download this data (in CSV format)</a></p>
+      <p class="govuk-grid-row" style="float:right; padding-right:12px;"><a href="">Download table data (CSV)</a></p>
     </div>
   </div>
 {% endblock %}
