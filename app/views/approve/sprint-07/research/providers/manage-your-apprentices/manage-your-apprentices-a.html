@@ -13,8 +13,26 @@ Manage your apprentices
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
       <form method="post" class="form">
+    <div class="govuk-grid-column-two-thirds">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+              <h1 class="govuk-fieldset__heading">
+                Manage your apprentices
+              </h1>
+            </legend>  
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="search">
+                Search by apprentice name, apprenticeship course or employer
+            </label>
+            <input class="govuk-input" id="search" name="search" type="text">
+          </div>          
+          <button type="submit" class="govuk-button">
+            Search
+          </button>
+          </fieldset>
+</div>
+<div class="govuk-grid-column-full"></div>
         <table class="govuk-table" id="apprentice-table">
           <caption class="govuk-table__caption govuk-heading-xl">Manage your apprentices</caption>
           <thead class="govuk-table__head">
