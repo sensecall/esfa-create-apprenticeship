@@ -2,8 +2,8 @@ const express = require('express')
 const router = new express.Router()
 
 // custom filters
-var moment = require('moment');
-var _ = require('underscore');
+const moment = require('moment');
+const _ = require('underscore');
 const cryptoRandomString = require('crypto-random-string');
 
 // data
