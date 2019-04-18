@@ -82,7 +82,7 @@ GOV.UK Prototype Kit
 
 		{% if reservationResults %}
 		<p>
-			{{ reservationResults.length }} reservation{% if reservationResults.length > 1 %}s{% endif %} found
+			{{ reservationResults.length }} reservation{% if reservationResults.length != 1 %}s{% endif %} found
 		</p>
 		{% endif %}
 	</div>
