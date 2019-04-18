@@ -285,9 +285,11 @@ router.get('/apprentice-details', (req, res) => {
 })
 
 router.post('/apprentice-details', (req, res) => {
-	req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
-		return item.id !== req.session.data['choose-reservation']
-	});
+	let reservation = req.session.data['reservations'].find(f => f.id == req.session.data['choose-reservation']);
+	
+	if(reservation){
+		reservation.status = 'draft'
+	}
 
 	res.redirect(`review-apprentice-details`)
 })

@@ -29,21 +29,26 @@ GOV.UK Prototype Kit
 	<div class="govuk-grid-column-full">
 		<form action="confirm-employer">
 			{% if data['reservations'].length %}
-			<div class="govuk-grid-row">
-				<div class="govuk-grid-column-two-thirds">
-					<h3 class="govuk-heading-xl govuk-!-margin-top-6">
-						Manage funding for non-levy employers
-					</h3>
-				</div>
-			</div>
+			<h3 class="govuk-heading-xl govuk-!-margin-top-6">
+				Funding for non-levy employers
+			</h3>
+
+			<p class="govuk-!-margin-bottom-8">
+				<a href="funding--start" class="govuk-!-font-weight-bold">
+					Secure more funding
+				</a>
+			</p>
+
+			<p>
+				{{data['reservations'].length}} reservations
+			</p>
 
 			<table class="govuk-table govuk-!-font-size-16" id="funding-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<th class="govuk-table__header" scope="col" aria-sort="none">Employer</th>
-						<th class="govuk-table__header" scope="col" aria-sort="none">Apprenticeship training</th>
+						<th class="govuk-table__header" scope="col">Employer</th>
+						<th class="govuk-table__header" scope="col">Apprenticeship training course</th>
 						<th class="govuk-table__header" scope="col" colspan="3">Apprenticeship start date</th>
-						<!-- <th class="govuk-table__header" colspan="3" scope="col">Created</th> -->
 					</tr>
 				</thead>
 
@@ -56,9 +61,11 @@ GOV.UK Prototype Kit
 						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
 						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
 						<td class="govuk-!-font-size-16 govuk-table__cell">
-							<span class="govuk-!-display--inline-block"><a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a></span>
-							<br class="govuk-!-margin-bottom-3">
-							<span class="govuk-!-display--inline-block"><a href="funding--delete?reservation-id={{reservation.id}}">Delete funding</a></span>
+							{% if reservation.status != 'draft' %}
+							<a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a>
+							{% else %}
+							<span class="govuk-tag" style="background:#999">Draft</span>
+							{% endif %}
 						</td>
 
 					</tr>
@@ -76,8 +83,6 @@ GOV.UK Prototype Kit
 				You need to secure funding in order to add a new apprentice.
 			</p>
 			{% endif %}
-
-			{% include './_secureFundingStartButton.html' %}
 		</form>
 	</div>
 </div>
