@@ -1,0 +1,85 @@
+	{% extends "./layout--employer.html" %}
+
+	{% block pageTitle %}
+	GOV.UK Prototype Kit
+	{% endblock %}
+
+	{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "javascript: window.history.go(-1)"
+	}) }}
+	{% endblock %}
+
+	{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			{{ govukErrorSummary({
+				titleText: "There is a problem",
+				errorList:
+				[
+				{
+					text: "Select an organisation",
+					href: "#confirm-employer-1"
+				}
+				]
+			}) }}
+
+			<form action="funding--choose-course">
+				{{ govukRadios({
+					idPrefix: "choose-legal-entity",
+					name: "choose-legal-entity",
+					fieldset:
+					{
+						legend:
+						{
+							text: "Choose organisation",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					hint:
+					{
+						text: "Which organisation is named on the contract with the training provider for the apprentices you'd like to add?"
+					},
+					errorMessage:
+					{
+						text: "Select an organisation"
+					},
+					items:
+					[
+					{
+						value: "Coventry",
+						text: "Coventry"
+					},
+					{
+						value: "Birmingham",
+						text: "Birmingham"
+					}
+					]
+				}) }}
+
+				{{govukDetails({
+					html: "<p>
+						A contract for services is a formal agreement between a buyer and a supplier.
+					</p>
+					<p>
+						In this case, the contract is between the organisation that's buying apprenticeship training for their apprentices and the training provider that's training the apprentices.
+					</p>
+					<p>
+						If you're an employer-provider, for example, you won't need a contract for services as your organisation is both the buyer and the supplier.
+					</p>",
+					summaryText: "What is a contract for services?"
+				})}}
+
+				{{govukButton({
+					text: "Save and continue"
+				})}}
+			</form>
+		</div>
+
+		<div class="column-one-third">
+
+		</div>
+	</div>
+	{% endblock %}

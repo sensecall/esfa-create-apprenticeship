@@ -5,6 +5,19 @@ GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
+<style type="text/css">
+	.govuk-checkboxes--small .govuk-checkboxes__item {
+		min-height: 40px;
+		margin-left: 10px;
+	}
+	.govuk-checkboxes--small .govuk-checkboxes__label::before {
+		background: #fff;
+	}
+	.govuk-table__row.selected {
+		background: #ffeede;
+	}
+</style>
+
 {{ govukBackLink({
 	text: "Back",
 	href: "javascript: window.history.go(-1)"
@@ -40,7 +53,8 @@ GOV.UK Prototype Kit
 			<table class="govuk-table govuk-!-font-size-16" id="funding-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<th class="govuk-table__header" scope="col" aria-sort="none" colspan="2">Employer</th>
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header" scope="col" aria-sort="none">Employer</th>
 						<th class="govuk-table__header" scope="col" aria-sort="none">Apprenticeship training</th>
 						<th class="govuk-table__header" scope="col" aria-sort="none">Apprenticeship start date</th>
 					</tr>
@@ -55,9 +69,17 @@ GOV.UK Prototype Kit
 								idPrefix: "organisation",
 								name: "organisation",
 								classes: "govuk-checkboxes--small",
+								attributes:
+								{
+									style: "min-height: auto"
+								},
 								formGroup: 
 								{
-									classes: "govuk-!-margin-bottom-0"
+									classes: "govuk-!-margin-bottom-0",
+									attributes:
+									{
+										style: "min-height: auto"
+									}
 								},
 								items:
 								[
@@ -101,5 +123,28 @@ GOV.UK Prototype Kit
 <script>
 	var table = document.getElementById('funding-table');
 	new SortableTable(table); 
+
+	function checkboxes() {
+		let checkbox = $('#funding-table .govuk-checkboxes__input');
+
+		function highlightRow(row) {
+			row.toggleClass('selected')
+		}
+
+		function unHighlightRow(row) {
+			row.toggleClass('selected')
+		}
+
+		checkbox.on('change',function(){
+			let row = $(this).closest('.govuk-table__row')
+
+			if(this.checked){
+				highlightRow(row)
+			} else {
+				unHighlightRow(row)
+			}
+		})
+	}
+	checkboxes()
 </script>
 {% endblock %}

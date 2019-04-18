@@ -1,10 +1,10 @@
 {
   "name": "express-prototype",
   "description": "GOVUK prototyping app in Express",
-  "version": "8.5.0",
+  "version": "8.9.0",
   "private": true,
   "engines": {
-    "node": "^8.9.1"
+    "node": "^10.0.0"
   },
   "scripts": {
     "start": "node start.js",
@@ -27,8 +27,9 @@
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",
     "fancy-log": "^1.3.3",
+    "fuse.js": "^3.4.4",
     "govuk-elements-sass": "^3.1.3",
-    "govuk-frontend": "^2.5.1",
+    "govuk-frontend": "^2.9.0",
     "govuk_frontend_toolkit": "^7.5.0",
     "govuk_template_jinja": "^0.24.1",
     "gulp": "^4.0.0",
@@ -37,7 +38,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "keypather": "^3.0.0",
     "marked": "^0.4.0",
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "notifications-node-client": "^4.1.0",
     "nunjucks": "^3.1.3",
     "portscanner": "^2.1.1",
@@ -53,7 +54,7 @@
     ]
   },
   "devDependencies": {
-    "jest": "^23.6.0",
+    "jest": "^24.0.1",
     "standard": "^12.0.1",
     "supertest": "^3.0.0"
   }

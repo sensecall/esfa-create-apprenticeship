@@ -4,6 +4,9 @@ $govuk-global-styles: true;
 // Import GOV.UK Frontend
 @import "node_modules/govuk-frontend/all";
 
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
 // Patterns that aren't in Frontend
 @import "patterns/check-your-answers";
 @import "patterns/step-by-step-navigation";
@@ -33,6 +36,7 @@ $govuk-global-styles: true;
 @import "components/checkmark";
 @import "patterns/app-review-cohorts";
 @import "patterns/account-homepage";
+@import "components/search";
 
 
 .heading-dashboard {

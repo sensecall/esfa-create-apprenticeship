@@ -1,0 +1,108 @@
+.gem-c-search {
+	position: relative;
+	margin-bottom: 30px;
+
+	.gem-c-search__label {
+		font-size: 19px;
+		line-height: 40px;
+		display: block;
+		font-family: "nta", Arial, sans-serif;
+		font-weight: 400;
+		text-transform: none;
+		font-size: 16px;
+		line-height: 40px;
+		position: absolute;
+		left: 15px;
+		top: 1px;
+		z-index: 1;
+		color: #6f777b;
+	}
+
+	.gem-c-search__item-wrapper {
+		display: table;
+		width: 100%;
+		background: #fff;
+	}
+
+	.gem-c-search__input[type="search"] {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		font-family: "nta", Arial, sans-serif;
+		font-weight: 400;
+		text-transform: none;
+		font-size: 16px;
+		line-height: 1.75;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		padding: 6px;
+		width: 100%;
+		height: 40px;
+		border: 0;
+		background: #fff;
+		border-radius: 0;
+
+		&:focus, &.focus {
+			z-index: 2;
+		}
+		&:focus {
+			outline: 3px solid #ffbf47;
+			outline-offset: 0;
+		}
+	}
+
+	input[type="search"] {
+		font-family: "nta", Arial, sans-serif;
+		font-weight: 400;
+		text-transform: none;
+		font-size: 14px;
+		line-height: 1.1428571429;
+		border: 1px solid #bbb;
+		min-width: 8em;
+		padding: 0.25em;
+	}
+
+	input[type="search"] {
+		-webkit-appearance: textfield;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+
+	.gem-c-search__item {
+		position: relative;
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	.gem-c-search__submit-wrapper {
+		width: 1%;
+	}
+
+	.gem-c-search--on-govuk-blue .gem-c-search__submit {
+		color: #fff;
+	}
+
+	&--on-govuk-white {
+		border: solid 2px black;
+		background-color: #000000;
+		color: #ffffff;
+	}
+
+	.gem-c-search__submit {
+		background-color: #000000;
+		background-size: 52.5px auto;
+		position: relative;
+		padding: 0;
+		width: 40px;
+		height: 40px;
+		background-image: url(https://assets.publishing.service.gov.uk/frontend/govuk_publishing_components/search-button-ca89b2a79f944909ceb7370d3f0b78811d32b96e883348fcd8886f63dd619585.png);
+		background-repeat: no-repeat;
+		background-position: -15px 50%;
+		text-indent: -5000px;
+		overflow: hidden;
+		border: 0;
+		cursor: pointer;
+		border-radius: 0;
+	}
+}

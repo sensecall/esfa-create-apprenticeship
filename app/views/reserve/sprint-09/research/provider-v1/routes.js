@@ -5,6 +5,7 @@ const router = new express.Router()
 const moment = require('moment');
 const _ = require('underscore');
 const cryptoRandomString = require('crypto-random-string');
+const Fuse = require('fuse.js');
 
 // data
 // var reservations = [];
@@ -352,6 +353,34 @@ router.post('/details-sent', (req, res) => {
 	} else {
 		res.redirect(`account-home`)
 	}
+})
+
+
+// manage v3
+router.get('/funding--manage--v3', (req, res) => {
+	if ( ! req.session.data['search-funding'] ) {
+		req.session.data['search-funding']
+		res.render(`${req.feature}/funding--manage--v3`)
+	} else {
+		var options = {
+			keys: ['course', 'employer']
+		}
+		let fuse = new Fuse(req.session.data['reservations'], options)
+		let reservationResults = fuse.search( req.session.data['search-funding'] );
+		
+		res.render(`${req.feature}/funding--manage--v3`, {reservationResults})
+	}
+})
+
+
+
+// reservation details
+router.get('/funding--details', (req, res) => {
+	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
+	})
+
+	res.render(`${req.feature}/funding--details`,{reservationDetails})
 })
 
 module.exports = router
