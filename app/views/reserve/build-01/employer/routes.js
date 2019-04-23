@@ -23,19 +23,19 @@ router.get('/account-home', (req, res) => {
 // ----------------------------------------------------------------------
 // Reservations data storage
 // ----------------------------------------------------------------------
-// We use this to set an empty array which will hold all the reservations
-// created by the user.
-//
-// In the future we might want to expand this so that we can run research
-// sessions with a provider and an employer user at the same time.
 router.use(function (req, res, next) {
 	if (!req.session.data['reservations']) {
 		req.session.data['reservations'] = []
 	}
 
+	if (req.session.data['preload-reservations'] == 'true') {
+		req.session.data['reservations'] = require('../reservations.json')
+	}
+	
+	req.session.data['preload-reservations'] = 'false'
+
 	next()
 })
-// ----------------------------------------------------------------------
 
 
 // funding start
@@ -68,8 +68,8 @@ router.post('/funding--know-month', (req, res) => {
 
 // date plus course variant
 router.get('/funding--choose-month', (req, res) => {
-	var currentMonth = moment().format('MMMM YYYY')
-	var monthFormat = "MMMM YYYY"
+	var currentMonth = moment().format('MMM YYYY')
+	var monthFormat = "MMM YYYY"
 
 	var months = [
 	// {
@@ -114,8 +114,8 @@ router.get('/funding--choose-month', (req, res) => {
 
 // date plus course variant
 router.get('/funding--choose-month--errors', (req, res) => {
-	var currentMonth = moment().format('MMMM YYYY')
-	var monthFormat = "MMMM YYYY"
+	var currentMonth = moment().format('MMM YYYY')
+	var monthFormat = "MMM YYYY"
 
 	var months = [{
 		value: currentMonth,
@@ -154,12 +154,12 @@ router.post('/funding--choose-month', (req, res) => {
 	if(req.session.data['planned-start-date'].includes('Before')){
 		res.redirect('funding--backdated')
 	} else {
-		var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
-		var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
+		var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMM YYYY")
+		var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMM YYYY")
 		req.session.data['reservation-employer'] = req.session.data['employer']
 		req.session.data['reservation-startRange'] = earliest
 		req.session.data['reservation-endRange'] = latest
-		req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+		req.session.data['reservation-created'] = moment().format('MMM YYYY')
 	}
 
 	if(req.session.data['course-name'] == ''){
@@ -172,12 +172,12 @@ router.post('/funding--choose-month', (req, res) => {
 // funding backdated
 router.post('/funding--backdated', (req, res) => {
 	var backdatedDate = '01' + ' ' + req.session.data['planned-start-date-month'] + ' ' + req.session.data['planned-start-date-year']
-	var earliest = moment(backdatedDate).startOf('month').format("MMMM YYYY")
-	var latest =  moment(backdatedDate).add(2, 'months').endOf('month').format("MMMM YYYY")
+	var earliest = moment(backdatedDate).startOf('month').format("MMM YYYY")
+	var latest =  moment(backdatedDate).add(2, 'months').endOf('month').format("MMM YYYY")
 	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
 	req.session.data['reservation-endRange'] = latest
-	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+	req.session.data['reservation-created'] = moment().format('MMM YYYY')
 
 	res.redirect('funding--cya')
 })
@@ -220,6 +220,15 @@ router.post('/apprentice-details', (req, res) => {
 	});
 
 	res.redirect(`review-apprentice-details`)
+})
+
+// manage funding
+router.get('/funding--manage', (req, res) => {
+	let filteredReservations = req.session.data['reservations'].filter(function(item) {
+		return item.employer == req.session.data['employer']
+	});
+
+	res.render(`${req.feature}/funding--manage`,{filteredReservations})
 })
 
 

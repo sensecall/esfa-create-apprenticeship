@@ -17,8 +17,10 @@ router.use(function (req, res, next) {
 	}
 
 	if (req.session.data['preload-reservations'] == 'true') {
-		req.session.data['reservations'] = require('./reservations.json')
+		req.session.data['reservations'] = require('../reservations.json')
 	}
+	
+	req.session.data['preload-reservations'] = 'false'
 
 	next()
 })
@@ -60,8 +62,8 @@ router.get('/funding--start', (req, res) => {
 
 // Choose date
 router.get('/funding--enter-details', (req, res) => {
-	var currentMonth = moment().format('MMMM YYYY')
-	var monthFormat = "MMMM YYYY"
+	var currentMonth = moment().format('MMM YYYY')
+	var monthFormat = "MMM YYYY"
 
 	var months = [{
 		value: currentMonth,
@@ -104,12 +106,12 @@ router.get('/funding--enter-details', (req, res) => {
 })
 
 router.post('/funding--enter-details', (req, res) => {
-	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMMM YYYY")
-	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMMM YYYY")
+	var earliest = moment(req.session.data['planned-start-date']).startOf('month').format("MMM YYYY")
+	var latest =  moment(req.session.data['planned-start-date']).add(2, 'months').endOf('month').format("MMM YYYY")
 	req.session.data['reservation-employer'] = req.session.data['employer']
 	req.session.data['reservation-startRange'] = earliest
 	req.session.data['reservation-endRange'] = latest
-	req.session.data['reservation-created'] = moment().format('MMMM YYYY')
+	req.session.data['reservation-created'] = moment().format('MMM YYYY')
 
 	if(req.session.data['course-name'] == ''){
 		req.session.data['course-name'] = 'Unknown'
@@ -121,8 +123,8 @@ router.post('/funding--enter-details', (req, res) => {
 
 // Choose date
 router.get('/funding--enter-details--errors', (req, res) => {
-	var currentMonth = moment().format('MMMM YYYY')
-	var monthFormat = "MMMM YYYY"
+	var currentMonth = moment().format('MMM YYYY')
+	var monthFormat = "MMM YYYY"
 
 	var months = [{
 		value: currentMonth,

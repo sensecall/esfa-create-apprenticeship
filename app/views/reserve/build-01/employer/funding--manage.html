@@ -13,61 +13,98 @@ GOV.UK Prototype Kit
 
 {% block content %}
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
-		
+	<div class="govuk-grid-column-full">
+		{% if showDeleteConfirmation %}
+		<div class="govuk-inset-text govuk-inset-text--warning" id="alert">
+			<h2 class="govuk-heading-s govuk-!-margin-bottom-0" style="display:inline-block">Funding deleted</h2>
+			<span style="display:inline-block;float:right;font-size: 16px">
+				<a href="#" onclick="document.getElementById('alert').parentNode.style.display='none';">Dismiss</a>
+			</span>
+		</div>
+		{% endif %}
 	</div>
 </div>
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
+		<h3 class="govuk-heading-xl govuk-!-margin-top-6">
+			Your funding reservations
+		</h3>
+		
 		<form action="confirm-employer">
-			{% if data['reservations'].length %}
-			<div class="govuk-grid-row">
-				<div class="govuk-grid-column-two-thirds">
-					<h3 class="govuk-heading-xl govuk-!-margin-top-6">
-						Manage funding
-					</h3>
-				</div>
-			</div>
+			{% if filteredReservations.length %}
+			<p class="govuk-!-margin-bottom-8">
+				<a href="funding--start" class="govuk-!-font-weight-bold govuk-body-l">
+					Secure more funding
+				</a>
+			</p>
 
-			<table class="govuk-table govuk-!-font-size-16">
+			<p>
+				{{filteredReservations.length}} reservation{{'s' if filteredReservations.length != 1 }}
+			</p>
+
+			<table class="govuk-table" id="funding-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<th class="govuk-table__header" scope="col">Business name</th>
-						<th class="govuk-table__header" scope="col">Course</th>
-						<th class="govuk-table__header" colspan="2" scope="col">Valid dates</th>
+						{% if data['multiple-legal-entities'] == 'true' %}
+						<th class="govuk-table__header" scope="col">Organisation</th>
+						{% endif %}
+						<th class="govuk-table__header" scope="col">Apprenticeship training course</th>
+						<th class="govuk-table__header" scope="col">Start date</th>
+						<th class="govuk-table__header" scope="col"></th>
 					</tr>
 				</thead>
 
 				<tbody class="govuk-table__body">
-					{% for reservation in data['reservations'] %}
+					{% for reservation in filteredReservations %}
 					{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
 					<tr class="govuk-table__row">
+						{% if data['multiple-legal-entities'] == 'true' %}
 						<td class="govuk-table__cell">{{reservation.employer}}</td>
-						<td class="govuk-table__cell">{{reservation.course}}</td>
-						<td class="govuk-table__cell">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
-						<td class="govuk-!-font-size-16 govuk-table__cell" style="text-align: right;">
-							<a href="funding--view-details?reservation-id={{reservation.id}}">View</a>
+						{% endif %}
+						<td class="govuk-table__cell" width="60%">{{reservation.course}}</td>
+						<td class="govuk-table__cell" width="22%">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
+						<td class="govuk-table__cell govuk-table__cell--numeric" width="14%">
+							{% if reservation.status != 'draft' %}
+							<a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a>
+							{% else %}
+							<span class="govuk-tag" style="background:#999">Draft</span>
+							{% endif %}
 						</td>
+
 					</tr>
 					{% endfor %}
 				</tbody>
 			</table>
-			
-			<!-- {% include './_secureFundingButton.html' %} -->
 
 			{% else %}
+
 			<h2 class="govuk-heading-m">
-				None of your employers have any funding to use.
+				There are no funding reservations to use.
 			</h2>
 
 			<p>
-				You need to secure funding in order to add a new apprentice.
+				You need to reserve funding in order to add a new apprentice.
 			</p>
-			{% endif %}
 
-			{% include './_secureFundingButton.html' %}
+			{{govukButton({
+				text: "Reserve more funding",
+				href: "funding--start"
+			})}}
+			{% endif %}
 		</form>
 	</div>
+</div>
 
-	{% endblock %}
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+	var table = document.getElementById('funding-table');
+	new SortableTable(table); 
+</script>
+{% endblock %}
