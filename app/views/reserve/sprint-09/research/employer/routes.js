@@ -37,11 +37,15 @@ router.use(function (req, res, next) {
 
 
 // funding start
-router.get('/funding--start', (req, res) => {
-	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
-		res.render(`${req.feature}/funding--start--service-unavailable`)
+router.get('/funding--spend-control-check', (req, res) => {
+	if ( req.session.data['funding-restrictions'] != '' ) {
+		if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
+			res.redirect(`funding--start--service-unavailable`)
+		} else {
+			res.redirect(`funding--warning`)
+		}
 	} else {
-		res.render(`${req.feature}/funding--start`)
+		res.redirect(`funding--start`)
 	}
 })
 

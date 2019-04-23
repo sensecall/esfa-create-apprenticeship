@@ -20,21 +20,6 @@ GOV.UK Prototype Kit
         Check and get funding for taking on an apprentice
       </h1>
 
-      {% if 'future-restriction' in data['funding-restrictions'] %}
-      {{ govukWarningText({
-        html: "From April 2019, you will not be able to secure any funding for training an apprentice. Any funding you have secured before April 2019 will not be affected.",
-        iconFallbackText: "Current Funding restrictions"
-      }) }}
-      {% endif %}
-
-      {% if 'number-of-starts' in data['funding-restrictions'] %}
-      {{ govukWarningText({
-        html: "There is currently a restriction in place on the number of apprenticeships that you can secure funding for.<br>
-        You can secure funding for <u>one apprentice</u>.",
-        iconFallbackText: "Current Funding restrictions"
-      }) }}
-      {% endif %}
-
       <p>
         Use this service to secure government funding for training an apprentice. Government funding will pay for part, or all of the cost of training an apprentice. You can secure funding no more than 6 months in advance of the date the apprentice starts their off-the-job training. 
       </p>

@@ -65,7 +65,7 @@ GOV.UK Prototype Kit
 							{% if reservation.status != 'draft' %}
 							<a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a>
 							{% else %}
-							<span class="govuk-tag" style="background:#999">Draft</span>
+							<span class="govuk-tag" style="background:#999;border-radius:4px;font-size:14px">Used</span>
 							{% endif %}
 						</td>
 
@@ -83,6 +83,11 @@ GOV.UK Prototype Kit
 			<p>
 				You need to secure funding in order to add a new apprentice.
 			</p>
+
+			{{govukButton({
+				text: "Reserve funding",
+				href: "funding--start"
+			})}}
 			{% endif %}
 		</form>
 	</div>

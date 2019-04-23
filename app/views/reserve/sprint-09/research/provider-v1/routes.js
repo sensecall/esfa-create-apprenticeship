@@ -357,7 +357,7 @@ router.post('/details-sent', (req, res) => {
 
 
 // manage v3
-router.get('/funding--manage--v3', (req, res) => {
+router.get('/funding--manage', (req, res) => {
 	if ( ! req.session.data['search-funding'] ) {
 		req.session.data['search-funding']
 		res.render(`${req.feature}/funding--manage--v3`)
