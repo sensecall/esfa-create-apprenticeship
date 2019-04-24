@@ -225,6 +225,12 @@ router.post('/funding--complete', (req, res) => {
 	}
 })
 
+router.get('/funding--complete', (req, res) => {
+	req.session.data['course-name'] = ''
+	
+	res.render(`${req.feature}/funding--complete`)
+})
+
 
 // add another reservation
 router.post('/funding--add-another-reservation', (req, res) => {
@@ -299,7 +305,6 @@ router.post('/funding--cya', (req, res) => {
 		var d = req.session.data
 		d['know-month'] = ''
 		d['know-course'] = ''
-		d['course-name'] = ''
 
 		res.redirect(`funding--complete`)
 	} else {

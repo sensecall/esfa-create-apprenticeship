@@ -20,9 +20,16 @@ Example usage:
 var moment = require('moment');
 
 module.exports = {
-	"current-date": moment().format('D'),
-	"current-month": moment().format('MMMM'),
-	"current-year": moment().format('YYYY'),
+	"current-date": {
+		DDDD: moment().format('DDDD'),
+		D: moment().format('D'),
+		DD: moment().format('DD'),
+		MM: moment().format('MM'),
+		MMM: moment().format('MMM'),
+		MMMM: moment().format('MMM'),
+		YYYY: moment().format('YYYY')
+	},
+	"random-future-date": moment().add(2,'months').startOf('month').format('D MMMM YYYY'),
 	"employer": "Keyphase Ltd",
 	"provider-name": "APEX TRAINING LIMITED",
 	"multiple-legal-entities": "false",
