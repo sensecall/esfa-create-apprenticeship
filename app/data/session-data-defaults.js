@@ -38,3 +38,18 @@ module.exports = {
 	"reservation-endRange": moment().add(2,'month').endOf('month').format('DD MMMM YYYY'),
 	"course-name": "Unknown"
 }
+
+var _ = require('underscore');
+var articles = require('../views/records.json')
+
+module.exports = {
+
+  'employer-records': articles.filter( function(article) {
+  	return _.contains(article.user, 'employer')
+  }),
+
+  'training-provider-records': articles.filter( function(article) {
+  	return _.contains(article.user, 'training provider')
+  })
+
+}
