@@ -1,0 +1,159 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+Manage your apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <form method="post" class="form">
+    <div class="govuk-grid-column-two-thirds">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+          <h1 class="govuk-fieldset__heading">
+            Manage your apprentices
+          </h1>
+        </legend>  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="search">
+            Search by apprentice name, apprenticeship course or training provider
+        </label>
+        <input class="govuk-input" id="search" name="search" type="text">
+      </div>          
+      <button type="submit" class="govuk-button">
+        Search
+      </button>
+      </fieldset>
+       <!-- <details class="govuk-details" style="background-color: lightgrey;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text" style="text-decoration: none; color:black; margin-top:10px;">
+                Search using advanced filters
+              </span>
+            </summary>
+            <div class="govuk-details__text" style="border: none;">
+              <div class="govuk-grid-row govuk-!-width-one-third"> 
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="search">
+                      Training provider
+                  </label>
+                  <input class="govuk-input" id="provider" name="provider" type="text">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-town">
+                    Apprenticeship course
+                  </label>
+                  <input class="govuk-input" id="course" name="course" type="text">
+                </div>   
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="sort">
+                    Status
+                  </label>
+                  <select class="govuk-select" id="sort" name="sort">
+                    <option value="published">Completed</option>
+                    <option value="updated" selected>Live</option>
+                    <option value="views">Paused</option>
+                    <option value="comments">Stopped</option>
+                  </select>
+                </div>  
+              </div>
+            </details>
+
+              <div class="govuk-details__text govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  <p>govuk-grid-column-two-thirds</p>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+                      <p>govuk-grid-column-one-half</p>
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+                      <p>govuk-grid-column-one-half</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          -->
+    </div>
+    <div class="govuk-grid-column-full">      
+        <table class="govuk-table" id="apprentice-table">
+          <!--<caption class="govuk-table__caption govuk-heading-xl">Manage your apprentices</caption>-->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending" style="width:18%;">Planned start date</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Provider</th>
+              <!--<th class="govuk-table__header" scope="col">ULN</th>-->
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
+              <th class="govuk-table__header" scope="col">Alerts</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Adnan Tester</a></th>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <!--<td class="govuk-table__cell">456789012</td>-->
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Andrew Smith</a></th>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <!--<td class="govuk-table__cell">345678901</td>-->
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">April Lewis</a></th>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <!--<td class="govuk-table__cell">234567890</td>-->
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Billy Fisher</a></th>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <!--<td class="govuk-table__cell">345678901</td>-->
+              <td class="govuk-table__cell">Completed</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Sarah Philips</a></th>              
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <!--<td class="govuk-table__cell">234567890</td>-->
+              <td class="govuk-table__cell">Withdrawn</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      <p class="govuk-grid-row" style="float:right; padding-right:12px;"><a href="">Download table data (CSV)</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+  var table = document.getElementById('apprentice-table');
+  new SortableTable(table); 
+</script>
+{% endblock %}
