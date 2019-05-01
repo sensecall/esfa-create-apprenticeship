@@ -39,7 +39,7 @@ router.use(function (req, res, next) {
 // funding start
 router.get('/funding--spend-control-check', (req, res) => {
 	if ( req.session.data['funding-restrictions'] != '' ) {
-		if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
+		if ( req.session.data['funding-restrictions'] && req.session.data['funding-restrictions'].includes('current-restriction') ) {
 			res.redirect(`funding--start--service-unavailable`)
 		} else {
 			res.redirect(`funding--warning`)
