@@ -68,7 +68,7 @@ GOV.UK Prototype Kit
 						{
 							href: "funding--choose-month",
 							text: "Change",
-							visuallyHiddenText: "contact information"
+							visuallyHiddenText: "apprenticeship training start date"
 						}
 						]
 					}
@@ -76,7 +76,7 @@ GOV.UK Prototype Kit
 				{
 					key:
 					{
-						text: "Apprenticeship training"
+						text: "Apprenticeship training course"
 					},
 					value:
 					{
@@ -89,7 +89,7 @@ GOV.UK Prototype Kit
 						{
 							href: "funding--choose-course",
 							text: "Change",
-							visuallyHiddenText: "date of birth"
+							visuallyHiddenText: "apprenticeship training course"
 						}
 						]
 					}
@@ -104,35 +104,30 @@ GOV.UK Prototype Kit
 				{
 					legend:
 					{
-						text: "Do you want to secure funding for this apprenticeship training now?",
+						text: "Do you want to reserve funding for this apprenticeship training now?",
 						isPageHeading: false,
 						classes: "govuk-fieldset__legend--l govuk-!-margin-top-4"
 					}
 				},
 				hint:
 				{
-					text: "You are securing funding for part, or all of the training costs for the following apprenticeship. This will be paid directly to the training provider you choose."
+					text: "You are reserving funding for part, or all of the training cost for this apprenticeship. You may need to pay up to a maximum of 5% of the total training cost."
 				},
 				items: [
 				{
 					value: "yes",
-					text: "Yes, secure funding now"
+					text: "Yes, reserve funding now"
 				},
 				{
 					value: "no",
-					text: "No, save this for later"
+					text: "No, save these details for later"
 				}
 				]
 			}) }}
 
-			{{govukWarningText({
-				html: "Remember you may need to pay towards the cost of training your apprentice.",
-				iconFallback: "Important information"
-			})}}
-
 			<p>
 				{{govukButton({
-					text: "Confirm and secure funding"
+					text: "Confirm and reserve funding"
 				})}}
 			</p>
 		</form>
