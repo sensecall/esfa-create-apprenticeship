@@ -1,0 +1,343 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+Manage your apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <form method="post" class="form">
+    <div class="govuk-grid-column-two-thirds">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+          <h1 class="govuk-fieldset__heading">
+            Manage your apprentices
+          </h1>
+        </legend>  
+      <!--<div class="govuk-form-group">
+        <label class="govuk-label" for="search">
+            Search by apprentice name, apprenticeship course or training provider
+        </label>
+        <input class="govuk-input" id="search" name="search" type="text">
+      </div>          
+      <button type="submit" class="govuk-button">
+        Search
+      </button>-->
+      
+      <label class="govuk-label" for="search">
+        Search by apprentice or training provider
+      </label>
+      <div class="gem-c-search gem-c-search--on-govuk-white govuk-form-group">        
+        <label for="search" class="gem-c-search__label">
+          <!--placeholder text-->
+        </label>
+        <div class="gem-c-search__item-wrapper">
+          <input type="search" value="" id="search" name="search" title="Search" class="gem-c-search__item gem-c-search__input js-class-toggle">
+          <div class="gem-c-search__item gem-c-search__submit-wrapper">
+            <button type="submit" class="gem-c-search__submit">Search</button>
+          </div>
+        </div>
+      </div>
+
+      </fieldset>
+       <!-- <details class="govuk-details" style="background-color: lightgrey;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text" style="text-decoration: none; color:black; margin-top:10px;">
+                Search using advanced filters
+              </span>
+            </summary>
+            <div class="govuk-details__text" style="border: none;">
+              <div class="govuk-grid-row govuk-!-width-one-third"> 
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="search">
+                      Training provider
+                  </label>
+                  <input class="govuk-input" id="provider" name="provider" type="text">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-town">
+                    Apprenticeship course
+                  </label>
+                  <input class="govuk-input" id="course" name="course" type="text">
+                </div>   
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="sort">
+                    Status
+                  </label>
+                  <select class="govuk-select" id="sort" name="sort">
+                    <option value="published">Live</option>
+                    <option value="updated" selected>Live</option>
+                    <option value="views">Paused</option>
+                    <option value="comments">Live</option>
+                  </select>
+                </div>  
+              </div>
+            </details>
+
+              <div class="govuk-details__text govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  <p>govuk-grid-column-two-thirds</p>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+                      <p>govuk-grid-column-one-half</p>
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+                      <p>govuk-grid-column-one-half</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          -->
+    </div>
+    <div class="govuk-grid-column-full"> 
+        <p class="govuk-grid-row"> 
+          <span style="float:left; padding-left:15px;"><b>26</b> records found.</span>
+          <span style="float:right; padding-right:15px;"><a href="">Download table data (CSV)</a></span>
+        </p>    
+        <table class="govuk-table" id="apprentice-table" style="font-size:18px;">
+          <!--<caption class="govuk-table__caption govuk-heading-xl">Manage your apprentices</caption>-->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned start date</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Training provider</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
+              <th class="govuk-table__header" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Adnan Tester
+                <!--<span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>-->
+              </td>           
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Andrew Smith</td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">April Lewis</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Barry Gibb</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Billy Fisher</td>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Blake Griffin</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Bryan Robson</td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Callum Gold</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Chris James</td>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Colin Smith</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr><tr class="govuk-table__row">
+              <td class="govuk-table__cell">Constance Dixon</td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Cristiano Smith</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Dave Elliot</td>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Dave Fisher</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Withdrawn</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr><tr class="govuk-table__row">
+              <td class="govuk-table__cell">Dillon Gibbs</td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Donald Duck</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Donna Summer</td>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Elliot Jones</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Withdrawn</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr><tr class="govuk-table__row">
+              <td class="govuk-table__cell">Emma Jones</td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Fiona Philips</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Gurdeep Singh</td>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Gary Base
+                <!--<span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>-->
+              </td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Harry Draper
+                <!--<span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>-->
+              </td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Henry Says</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Stopped</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Jane Brown</td>            
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Sarah Philips</td>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+  var table = document.getElementById('apprentice-table');
+  new SortableTable(table); 
+</script>
+{% endblock %}

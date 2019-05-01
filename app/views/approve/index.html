@@ -14,13 +14,17 @@ Approve
       Approve
     </h1>
 
-    {% include './sprint-07/_summary.html' %}
+    {% include './sprint-08/_summary.html' %}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
     <h2 class="govuk-heading-l">
       Previous sprints
     </h2>
+
+    {% set sprint7Html %}
+    {% include './sprint-07/_summary.html' %}
+    {% endset %}
 
     {% set sprint6Html %}
     {% include './sprint-06/_summary.html' %}
@@ -52,6 +56,19 @@ Approve
       items:
       [
       {
+        heading:
+        {
+          text: "Sprint 7"
+        },
+        content:
+        {
+          html: sprint7Html
+        },
+        summary:
+        {
+          html: '12th&mdash;25th April 2019'
+        }
+      },{
         heading:
         {
           text: "Sprint 6"

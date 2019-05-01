@@ -1,0 +1,120 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+Manage your apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <form method="post" class="form">
+    <div class="govuk-grid-column-two-thirds">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+              <h1 class="govuk-fieldset__heading">
+                Manage your apprentices
+              </h1>
+            </legend>  
+            <label class="govuk-label" for="search">
+                Search by apprentice or employer
+              </label>
+              <div class="gem-c-search gem-c-search--on-govuk-white govuk-form-group">        
+                <label for="search" class="gem-c-search__label">
+                  <!--placeholder text-->
+                </label>
+                <div class="gem-c-search__item-wrapper">
+                  <input type="search" value="" id="search" name="search" title="Search" class="gem-c-search__item gem-c-search__input js-class-toggle">
+                  <div class="gem-c-search__item gem-c-search__submit-wrapper">
+                    <button type="submit" class="gem-c-search__submit">Search</button>
+                  </div>
+                </div>
+              </div>
+          </fieldset>
+          
+</div>
+<div class="govuk-grid-column-full">
+    <p class="govuk-grid-row"> 
+        <span style="float:left; padding-left:15px;"><b>5</b> records found.</span>
+        <span style="float:right; padding-right:15px;"><a href="">Download table data (CSV)</a></span>
+      </p>   
+        <table class="govuk-table" id="apprentice-table" style="font-size:18px;">
+          <!--<caption class="govuk-table__caption govuk-heading-xl">Manage your apprentices</caption>-->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>      
+              <th class="govuk-table__header" scope="col">ULN</th>        
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Employer</th>    
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned start date</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
+              <th class="govuk-table__header"></td>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Adnan Tester</td>
+              <td class="govuk-table__cell">456789012</td>                            
+              <td class="govuk-table__cell">ABC Trading Ltd</td>
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>              
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Andrew Smith</td>              
+              <td class="govuk-table__cell">345678901</td> 
+              <td class="govuk-table__cell">ABC Trading Ltd</td>             
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2017</td>
+              <td class="govuk-table__cell">Completed</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">April Lewis</td>              
+              <td class="govuk-table__cell">234567890</td>
+              <td class="govuk-table__cell">ABC Finance Ltd</td>
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Billy Fisher</td>
+              <td class="govuk-table__cell">345678901</td>
+              <td class="govuk-table__cell">ABC Finance Ltd</td>              
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Jan 2019</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Sarah Philips</td>              
+              <td class="govuk-table__cell">234567890</td>  
+              <td class="govuk-table__cell">ABC Finance Ltd</td>             
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Jan 2019</td>             
+              <td class="govuk-table__cell">Withdrawn</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>      
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+  var table = document.getElementById('apprentice-table');
+  new SortableTable(table); 
+</script>
+{% endblock %}
