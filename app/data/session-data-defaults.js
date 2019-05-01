@@ -17,6 +17,9 @@ Example usage:
 
 */
 
+var records = require('./records.json');
+var providerRecords = require('./provider-records.json');
+
 var moment = require('moment');
 
 module.exports = {
@@ -36,20 +39,8 @@ module.exports = {
 	"funding-restrictions": [],
 	"reservation-startRange": moment().startOf('month').format('DD MMMM YYYY'),
 	"reservation-endRange": moment().add(2,'month').endOf('month').format('DD MMMM YYYY'),
-	"course-name": "Unknown"
+	"course-name": "Unknown",
+	"records": records,
+	"provider-records": providerRecords
 }
 
-var _ = require('underscore');
-var articles = require('../views/records.json')
-
-module.exports = {
-
-  'employer-records': articles.filter( function(article) {
-  	return _.contains(article.user, 'employer')
-  }),
-
-  'training-provider-records': articles.filter( function(article) {
-  	return _.contains(article.user, 'training provider')
-  })
-
-}
