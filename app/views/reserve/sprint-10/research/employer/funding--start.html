@@ -6,68 +6,76 @@ GOV.UK Prototype Kit
 
 {% block beforeContent %}
 {{ govukBackLink({
-  text: "Back",
-  href: "javascript: window.history.go(-1)"
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
 }) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form action="funding--choose-legal-entity">
-      <h1 class="govuk-heading-xl">
-        Check and reserve funding for taking on an apprentice
-      </h1>
+	<div class="govuk-grid-column-two-thirds">
+		<form action="funding--choose-legal-entity">
+			<h1 class="govuk-heading-xl">
+				Check and reserve funding for taking on an apprentice
+			</h1>
 
-      <p>
-        Use this service to reserve government funding for training an apprentice. Government funding will pay for part, or all of the cost of training an apprentice. You can reserve funding no more than 6 months in advance of the date the apprentice starts their off-the-job training. 
-      </p>
+			<p>
+				Government funding can pay for part or all of the cost of training an apprentice - up to the funding band maximum. You may need to pay up to a maximum of 5% of the total cost of the training.
+			</p>
 
-      <p>
-        Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
-      </p>
+			<p>
+				To ensure government funds are available for your apprenticeship training, you will need reserve funding.
+			</p>
 
-      <p>
-        Before you start you will need:
-      </p>
+			<p>
+				The reservation can be no more than 6 months in advance of the apprentice’s planned apprenticeship training start date.  
+			</p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months
-        </li>
-        <li>
-          the <a href="#">apprenticeship training</a> the apprentice will take
-        </li>
-      </ul>
+			<p>
+				Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
+			</p>
 
-      <p>
-        You will be reserving funding for 1 apprentice at a time. Repeat the process for more apprentices.
-      </p>  
+			<h2 class="govuk-heading-m">
+				What you'll need
+			</h2>
 
-      <input type="hidden" value="" name="planned-start-date">
-      <input type="hidden" value="" name="course-name">
+			<p>
+				To reserve government funding you will need: 
+			</p>
 
-      <p>
-        {{govukButton({
-          text: "Start",
-          classes: "govuk-button--start"
-        })}}
-      </p>
-    </form>
-  </div>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>
+					an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months 
+				</li>
+				<li>
+					an idea of the <a href="#">apprenticeship training</a> the apprentice will take (optional)
+				</li>
+			</ul>
 
-  <div class="govuk-grid-column-one-third">
-    <!-- <div class="app-related-items">
-      <h2 class="govuk-heading-m">
-        Related
-      </h2>
-      
-      <p>
-        Blah blah blah
-      </p>
-    </div> -->
-  </div>
+			<input type="hidden" value="" name="planned-start-date">
+			<input type="hidden" value="" name="course-name">
+
+			<p>
+				{{govukButton({
+					text: "Reserve funding",
+					classes: "govuk-button--start"
+				})}}
+			</p>
+		</form>
+	</div>
+
+	<div class="govuk-grid-column-one-third">
+		<!-- <div class="app-related-items">
+			<h2 class="govuk-heading-m">
+				Related
+			</h2>
+			
+			<p>
+				Blah blah blah
+			</p>
+		</div> -->
+	</div>
 </div>
 
 {% endblock %}

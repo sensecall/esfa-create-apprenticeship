@@ -44,3 +44,17 @@ module.exports = {
 	"provider-records": providerRecords
 }
 
+// var _ = require('underscore');
+// var articles = require('../views/records.json')
+
+// module.exports = {
+
+//   'employer-records': articles.filter( function(article) {
+//   	return _.contains(article.user, 'employer')
+//   }),
+
+//   'training-provider-records': articles.filter( function(article) {
+//   	return _.contains(article.user, 'training provider')
+//   })
+
+// }

@@ -39,7 +39,7 @@ router.use(function (req, res, next) {
 // funding start
 router.get('/funding--spend-control-check', (req, res) => {
 	if ( req.session.data['funding-restrictions'] != '' ) {
-		if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
+		if ( req.session.data['funding-restrictions'] && req.session.data['funding-restrictions'].includes('current-restriction') ) {
 			res.redirect(`funding--start--service-unavailable`)
 		} else {
 			res.redirect(`funding--warning`)
@@ -219,9 +219,15 @@ router.post('/know-course', (req, res) => {
 
 // reservation complete
 router.post('/funding--complete', (req, res) => {
-	if (req.session.data['add-apprentice'] == 'yes' ) {
+	let nextThing = req.session.data['whats-next']
+
+	if (nextThing == 'add-apprentice' ) {
 		res.redirect(`add--start`)
-	} else {
+	} else if (nextThing == 'recruit-apprentice' ) {
+		res.redirect(`recruit--start`)
+	} else if (nextThing == 'find-provider' ) {
+		res.redirect(`fat`)
+	} else if (nextThing == 'return-to-homepage' ) {
 		res.redirect(`account-home`)
 	}
 })
