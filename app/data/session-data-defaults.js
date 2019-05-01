@@ -18,7 +18,7 @@ Example usage:
 */
 
 var records = require('./records.json');
-var providerRecords = require('./provider-records.json');
+var providerrecords = require('./providerrecords.json');
 
 var moment = require('moment');
 
@@ -41,5 +41,5 @@ module.exports = {
 	"reservation-endRange": moment().add(2,'month').endOf('month').format('DD MMMM YYYY'),
 	"course-name": "Unknown",
 	"records": records,
-	"provider-records": providerRecords
+	"providerrecords": providerrecords
 }

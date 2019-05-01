@@ -6,8 +6,8 @@ var moment = require('moment');
 const cryptoRandomString = require('crypto-random-string');
 
 
-router.get('*/manage-your-apprentices-search', function (req, res) {
-	res.render('approve/sprint-08/research/employers/manage-your-apprentices/manage-your-apprentices-search', {
+router.get('*/manage-your-apprentices', function (req, res) {
+	res.render('approve/sprint-08/research/employers/manage-your-apprentices/manage-your-apprentices', {
    "query" : req.query,
    }
   )
