@@ -1,4 +1,4 @@
-{% extends "layout-provider-account.html" %}
+{% extends "./layout--employer.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -15,7 +15,7 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Reservation details
+      Funding details
     </h1>
 
     <form action="apprentice-details">
@@ -27,7 +27,7 @@ GOV.UK Prototype Kit
           </tr>
 
           <tr class="govuk-table__row">
-            <th class="govuk-table__header">Course</th>
+            <th class="govuk-table__header">Apprenticeship</th>
             <td class="govuk-table__cell">{{reservationDetails[0]['course']}}</td>
           </tr>
 
@@ -58,13 +58,13 @@ GOV.UK Prototype Kit
       <input type="hidden" name="choose-reservation" value="{{reservationDetails[0]['id']}}">
 
       {{ govukButton({
-        text: "Use this reservation",
+        text: "Use these funds",
         classes: "govuk-!-margin-top-0 govuk-!-display-inline-block"
       }) }}
 
       <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
-        <a href="funding--delete?reservation-id={{reservationDetails[0]['id']}}">
-          Delete this reservation
+        <a href="delete-reservation?reservation-id={{reservationDetails[0]['id']}}">
+          Cancel these funds
         </a>
       </p>
     </form>

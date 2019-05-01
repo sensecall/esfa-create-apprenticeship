@@ -1,0 +1,74 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="reservation-complete">
+			<div class="flash-card">
+				{% if 'future-restriction' in data['funding-restrictions'] %}
+				<header>
+					<h2 class="govuk-heading-l app-content-required">
+						Upcoming change to government-funded training
+					</h2>
+				</header>
+
+				<p>
+					Government funding to train apprentices will stop from 1 April 2019. You must get funding for your non-levy employers’ training before this date.
+				</p>
+
+				<p>
+					This change will not affect any funding secured before 1 April 2019.
+				</p>
+
+				<p>
+					See <a href="#">funding restrictions</a> for more information.
+				</p>
+				{% endif %}
+
+				{% if 'number-of-starts' in data['funding-restrictions'] %}
+				<header>
+					<h2 class="govuk-heading-l app-content-required">
+						Funding restriction
+					</h2>
+				</header>
+				<p>
+					We have restricted government funding. Training providers can only secure funding for 1 apprentice per 1 employer at a time.
+					<br class="govuk-!-margin-bottom-2">
+					Once an employer’s apprentice has started and we have made the first payment of funds to you, then you can secure funding for that employer’s next apprentice. You can see this payment in your account.
+				</p>
+				{% endif %}
+
+				<p>
+					{{govukButton({
+						text: "Continue",
+						href: 'funding--start',
+						classes: "govuk-!-margin-bottom-0"
+					})}}
+				</p>
+
+				{{ govukCheckboxes({
+					idPrefix: "waste",
+					name: "waste",
+					items: [
+					{
+						value: "hide-funding-warning",
+						text: "Don't remind me again"
+					}
+					]
+				}) }}
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

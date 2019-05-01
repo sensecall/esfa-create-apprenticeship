@@ -36,6 +36,8 @@
     "gulp-nodemon": "^2.1.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.0",
+    "json2csv": "^4.5.0",
+    "jsonexport": "^2.4.1",
     "keypather": "^3.0.0",
     "marked": "^0.4.0",
     "moment": "^2.24.0",

@@ -1,0 +1,141 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form method="post">
+			<div class="app-notification app-notification--success">
+				<h1 class="govuk-heading-l app-content-required">
+					Government funding is available for your apprenticeship
+				</h1>
+			</div>
+
+			{% from "summary-list/macro.njk" import govukSummaryList %}
+
+			{% set dateText %}
+			{{data['reservation-startRange']}}
+			{% if data['backdated'] == 'false' %}
+			to {{data['reservation-endRange']}}
+			{% endif %}
+			{% endset %}
+
+			{{ govukSummaryList({
+				rows:
+				[
+				{
+					key:
+					{
+						text: "Employer"
+					},
+					value:
+					{
+						text: data['employer']
+					},
+					actions:
+					{
+						items: 
+						[
+						{
+
+						}
+						]
+					}
+				},
+				{
+					key:
+					{
+						text: "Apprenticeship training start date"
+					},
+					value:
+					{
+						html: dateText
+					},
+					actions:
+					{
+						items:
+						[
+						{
+							href: "funding--choose-month",
+							text: "Change",
+							visuallyHiddenText: "contact information"
+						}
+						]
+					}
+				},
+				{
+					key:
+					{
+						text: "Apprenticeship training"
+					},
+					value:
+					{
+						html: data['course-name']
+					},
+					actions:
+					{
+						items:
+						[
+						{
+							href: "funding--choose-course",
+							text: "Change",
+							visuallyHiddenText: "date of birth"
+						}
+						]
+					}
+				}
+				]
+			}) }}
+
+			{{ govukRadios({
+				idPrefix: "confirm-funding",
+				name: "confirm-funding",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Do you want to secure funding for this apprenticeship training now?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--l govuk-!-margin-top-4"
+					}
+				},
+				hint:
+				{
+					text: "You are securing funding for part, or all of the training costs for the following apprenticeship. This will be paid directly to the training provider you choose."
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes, secure funding now"
+				},
+				{
+					value: "no",
+					text: "No, save this for later"
+				}
+				]
+			}) }}
+
+			{{govukWarningText({
+				html: "Remember you may need to pay towards the cost of training your apprentice.",
+				iconFallback: "Important information"
+			})}}
+
+			<p>
+				{{govukButton({
+					text: "Confirm and secure funding"
+				})}}
+			</p>
+		</form>
+	</div>
+
+	{% endblock %}

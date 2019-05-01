@@ -1,0 +1,74 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="reservation-complete">
+			<div class="flash-card">
+				{% if 'future-restriction' in data['funding-restrictions'] %}
+				<header>
+					<h2 class="govuk-heading-l app-content-required">
+						Upcoming change to government-funded training
+					</h2>
+				</header>
+
+				<p>
+					Government funding to train apprentices will stop from {{data['random-future-date']}}. You must get funding for your apprenticeship training before this date.
+				</p>
+
+				<p>
+					This change will not affect any funding secured before {{data['random-future-date']}}.
+				</p>
+
+				<p>
+					See <a href="#">funding restrictions</a> for more information.
+				</p>
+				{% endif %}
+
+				{% if 'number-of-starts' in data['funding-restrictions'] %}
+				<header>
+					<h2 class="govuk-heading-l app-content-required">
+						Funding restriction
+					</h2>
+				</header>
+				<p>
+					We have restricted government funding. You can only secure funding for 1 apprentice at a time.
+					<br class="govuk-!-margin-bottom-2">
+					Once the apprentice has started and we have made the first payment of funds to your apprenticeship training provider, then you can secure funding for another apprentice.
+				</p>
+				{% endif %}
+
+				<p>
+					{{govukButton({
+						text: "Continue",
+						href: 'funding--start',
+						classes: "govuk-!-margin-bottom-0"
+					})}}
+				</p>
+
+				{{ govukCheckboxes({
+					idPrefix: "funding-reminder",
+					name: "funding-reminder",
+					items: [
+					{
+						value: "hide-funding-warning",
+						text: "Don't remind me again"
+					}
+					]
+				}) }}
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "./layout-provider-current.html" %}
+{% extends "./layout--employer.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -15,25 +15,13 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="post">
-      <h1 class="govuk-heading-xl">
-        Apprenticeship training
-      </h1>
-
-      {% call govukFieldset({
-        legend:
-        {
-          text: "Which apprenticeship training will the apprentice take?",
-          classes: "govuk-fieldset__legend--l",
-          isPageHeading: false
-        }
-      }) %}
-
+      {% set courseHtml %}
       <div class="govuk-form-group">
         <label class="govuk-label" for="choose-apprenticeship">
           Search for a course
         </label>
         <div class="autocomplete-wrapper">
-          <select class="autocomplete-element" id="course-name" name="course-name" required>
+          <select class="autocomplete-element" id="course-name" name="course-name">
             <option value="">Select one</option>
             {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
             {% for apprenticeship in apprenticeshipsData.apprenticeships %}
@@ -41,46 +29,35 @@ GOV.UK Prototype Kit
             {% endfor %}
           </select>
         </div>
-
-        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-4">
-          This information can be changed later.
-        </span>
       </div>
-      {% endcall %}
+      {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "planned-start-date",
-        name: "planned-start-date",
-        hint:
-        {
-          text: "The apprenticeship training can start anytime in the month you choose, or the following 2 months. For example if you select January, the apprenticeship training can start anytime from January to March."
-        },
+        idPrefix: "know-month",
+        name: "know-month",
         fieldset:
         {
           legend:
           {
-            text: "When will the apprenticeship training start?",
-            isPageHeading: false,
-            hint:
-            {
-              text: "The apprentice can start their apprenticeship training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their training anytime from January to March."
-            },
-            classes: "govuk-fieldset__legend--l govuk-!-margin-top-4"
+            text: "Do you know when the apprentice will start their off-the-job training?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
           }
         },
-        items: months
+        items:
+        [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+        ]
       }) }}
 
-      {{govukDetails({
-        text: "You can secure funding no more than 6 months in advance of the apprenticeship training start date. If you want to secure funding for a later date, come back later.",
-        summaryText: "I want a later start date "
-      })}}
-
-      <!-- {{ govukInsetText({
-        text: "Funding will only be provided if the apprentice starts their training in the selected month, or in the 2 months that follow the selected start date."
-      })}} -->
-
-      <p>
+      <p class="govuk-!-margin-bottom-0">
         {{ govukButton ({
           text: "Save and continue"
         })}}

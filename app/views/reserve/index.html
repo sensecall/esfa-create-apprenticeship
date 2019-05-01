@@ -17,6 +17,10 @@ Reserve
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {% set sprint10Html %}
+    {% include './sprint-10/_summary.html' %}
+    {% endset %}
+
     {% set sprint09Html %}
     {% include './sprint-09/_summary.html' %}
     {% endset %}
@@ -53,7 +57,7 @@ Reserve
     {% include './sprint-01/_summary.html' %}
     {% endset %}
 
-    {{sprint09Html | safe}}
+    {{sprint10Html | safe}}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
@@ -61,10 +65,25 @@ Reserve
       Previous sprints
     </h2>
     {% from "accordion/macro.njk" import govukAccordion %}
+    
     {{ govukAccordion({
       id: "accordion-default",
       items:
       [
+      {
+        heading:
+        {
+          text: "Sprint 9"
+        },
+        content:
+        {
+          html: sprint09Html
+        },
+        summary:
+        {
+          html: '8th April 2019&mdash;19th April 2019'
+        }
+      },
       {
         heading:
         {
@@ -182,12 +201,12 @@ Reserve
 
 <div class="govuk-grid-column-one-third">
   <h2 class="govuk-heading-l">
-    Links for build
+    Links for MVP builds
   </h2>
   
   <div class="govuk-inset-text">
     <h2 class="govuk-heading-s">
-      <a href="./build-01/">Build 1</a>
+      <a href="./build-01/">MVP 1</a>
     </h2>
 
     <p class="govuk-body-s">
