@@ -27,7 +27,7 @@ Manage your apprentices
         </p>
     </div>
     <div class="govuk-grid-column-two-thirds">  
-      <form action="manage-your-apprentices-search" method="get">
+      <form action="manage-your-apprentices" method="get">
         <div class="row-group">
           <div class="search-table column-two-thirds govuk-!-margin-bottom-4">                
             <fieldset class="govuk-fieldset">
@@ -35,7 +35,7 @@ Manage your apprentices
                 <input type="hidden" name="clientsFilter" value="new">
                 <div class="search-input search-input-with-button">
                   <label class="govuk-label" for="search">                     
-                    Enter the apprentice name, course or employer                     
+                    Enter the apprentice name, course or training provider                    
                   </label>
                   <div class="autocomplete__parent_wrapper">
                     <div class="autocomplete__wrapper">
@@ -44,7 +44,7 @@ Manage your apprentices
                         <span>,,</span>
                       </div>
                       <p id="search-default-value" class="hidden">{% if search %}{{search}}{% endif%}</p>
-                      <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="Search by apprentice name, course or employer" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
+                      <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="Search by apprentice name, course or training provider" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
                       <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
                     </div>
                   </div>
@@ -57,29 +57,37 @@ Manage your apprentices
             </fieldset>
           </div>
         </div>
-        <div class="row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
+        <div class="govuk-grid-two-thirds row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
             <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-                  <h2 class="govuk-heading-s">
-                    Filter apprentices
-                  </h2>
-                </legend>
-            <div class="govuk-grid-row">
-              <div class="govuk-grid-column-one-half">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="provider">
-                    Training provider
-                  </label>
-                  <input class="govuk-input" id="provider" name="provider" type="text">
-                </div>
+              <legend class="govuk-fieldset__legend" style="margin-bottom: 0px;">
+                <h2 class="govuk-heading-s">
+                  Filter apprentices                                  
+                </h2>
+              </legend>
+            </fieldset>
+            <span style="font-weight: 400;"><a href="manage-your-apprentices">Hide</a></span>
+            <div class="govuk-grid-row govuk-!-margin-top-4">                
+              <div class="govuk-grid-column-one-half">                  
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="course">
                     Apprenticeship training course
                   </label>
                   <input class="govuk-input" id="course" name="course" type="text">
                 </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="provider">
+                    Training provider
+                  </label>
+                  <input class="govuk-input" id="provider" name="provider" type="text">
+                </div>                
               </div>
               <div class="govuk-grid-column-one-half">
+                  <div class="govuk-form-group">
+                      <label class="govuk-label" for="start-date">
+                        Planned start date
+                      </label>
+                      <input class="govuk-input" id="start-date" name="start-date" type="text">
+                    </div>
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="status">
                     Status
@@ -93,13 +101,14 @@ Manage your apprentices
     </div>
     <div class="govuk-grid-column-full"> 
       <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
-        <span style="float:left; padding-left:15px;"><b>X</b> records found of {{data.records.length}} total. <a href="manage-your-apprentices-search" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
+        <span style="float:left; padding-left:15px;"><b>X</b> records found of {{data.records.length}} total. <a href="manage-your-apprentices" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
         <!--<span style="float:right; padding-right:15px;"><a href="#" title="Export all records (CSV)">Export all records (CSV)</a></span>-->
       </p>
 
       <div class="govuk-visually-hidden">
           {%for record in data.records%}
           <span class="data-name">{{record.name}}</span>
+          <span class="data-course">{{record.course}}</span>
           <span class="data-providers">{{record.trainingProvider}}</span>
           {%endfor%}
       </div>
@@ -118,7 +127,7 @@ Manage your apprentices
         <tbody class="govuk-table__body">
           {%for record in data.records%}
           {%if query.search %}
-            {% if query.search in record.name or query.search in record.trainingProvider %}
+            {% if query.search in record.name or query.search in record.course or query.search in record.trainingProvider %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{record.name}}</td>           
               <td class="govuk-table__cell">{{record.course}}</td>
@@ -159,6 +168,7 @@ Manage your apprentices
 <script type="text/javascript">
   function getData() {
     var names = document.getElementsByClassName("data-name");
+    var course = document.getElementsByClassName("data-course");
     var providers = document.getElementsByClassName("data-providers");
     var data = [];
     for (var i = 0; i < names.length; i++) {
@@ -216,7 +226,7 @@ Manage your apprentices
     autoselect: true,
     minLength: 1,
     onConfirm: fireSearch,
-    //placeholder: 'Search by apprentice name or employer',
+    //placeholder: 'Search by apprentice name, course or employer',
     displayMenu: 'overlay'
   });
   myInput.style.display = 'none';
