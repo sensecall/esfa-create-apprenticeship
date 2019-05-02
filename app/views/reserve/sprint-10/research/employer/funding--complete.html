@@ -7,11 +7,6 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		{{ govukPanel({
-			titleText: "Funding reserved for this apprenticeship",
-			classes: "govuk-!-margin-bottom-6"
-		}) }}
-
 		{% set disclosureHtml %}
 		{{data['course-name']}}
 		<br class="govuk-!-margin-bottom-2">
@@ -21,15 +16,20 @@ GOV.UK Prototype Kit
 		}) }}
 		{% endset %}
 
-		{% from "summary-list/macro.njk" import govukSummaryList %}
+		{{ govukPanel({
+			titleText: "You have successfully reserved funding for apprenticeship training",
+			classes: "govuk-!-margin-bottom-4",
+			html: htmlContent
+		}) }}
 
+		{% from "summary-list/macro.njk" import govukSummaryList %}
 		{{ govukSummaryList({
 			rows:
 			[
 			{
 				key:
 				{
-					text: "Employer"
+					text: "Organisation"
 				},
 				value:
 				{
@@ -58,6 +58,8 @@ GOV.UK Prototype Kit
 			}
 			]
 		}) }}
+
+		<hr class="govuk-section-break govuk-section-break--xl">
 
 		<h2 class="govuk-heading-l">
 			Making changes 
