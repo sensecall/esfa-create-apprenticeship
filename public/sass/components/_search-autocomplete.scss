@@ -1,0 +1,86 @@
+// Autocomplete search styling
+
+.search-field {
+  position: relative;
+}
+
+.search-input {
+  position: static;
+  margin: 0;
+  padding: 0;
+}
+
+.search-input-with-button {
+  padding-right: 50px;
+}
+
+.search-submit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  overflow: visible;
+}
+
+.search-input input {
+  -webkit-appearance: none;
+  border-radius: 0;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0 10px;
+  display: block;
+  height: 50px;
+  border-color: #bfc1c3;
+  line-height: 48px !important;
+}
+@media (min-width: 641px) {
+  .search-input input {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+
+.search-field-darker .search-input input {
+  border-color: #6f777b;
+}
+
+.search-input-with-button input {
+  border-right: none;
+}
+
+.search-submit button {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  overflow: hidden;
+  text-indent: -5000px;
+  color: #fff;
+  background-color: #2b8cc4;
+  background-image: url("/public/images/search-button.png");
+  background-repeat: no-repeat;
+  background-position: -12.5% 50%;
+}
+
+.search-submit button:focus,
+.search-submit button:hover {
+  background-color: #267daf;
+}
