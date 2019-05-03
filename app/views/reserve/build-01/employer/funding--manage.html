@@ -67,7 +67,7 @@ GOV.UK Prototype Kit
 						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
 						<td class="govuk-table__cell govuk-table__cell--numeric" width="14%">
 							{% if reservation.status != 'draft' %}
-							<a href="add--apprentice-details?reservation-id={{reservation.id}}">Add apprentice</a>
+							<a href="add--apprentice-details?reservation-id={{reservation.id}}" class="govuk-!-margin-bottom-2 govuk-!-display-inline-block">Add apprentice</a>
 							<a href="funding--delete?reservation-id={{reservation.id}}">Delete</a>
 							{% else %}
 							<span class="govuk-tag" style="background:#999;border-radius:4px">Used</span>

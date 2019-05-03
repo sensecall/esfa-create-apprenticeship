@@ -14,7 +14,7 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
-		{% if showDeleteConfirmation %}
+		{% if data['showDeleteConfirmation'] == 'true' %}
 		<div class="govuk-inset-text govuk-inset-text--warning" id="alert">
 			<h2 class="govuk-heading-s govuk-!-margin-bottom-0" style="display:inline-block">Funding deleted</h2>
 			<span style="display:inline-block;float:right;font-size: 16px">
@@ -63,7 +63,8 @@ GOV.UK Prototype Kit
 						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
 						<td class="govuk-!-font-size-16 govuk-table__cell govuk-table__cell--numeric" width="14%">
 							{% if reservation.status != 'draft' %}
-							<a href="apprentice-details?choose-reservation={{reservation.id}}">Add apprentice</a>
+							<a href="apprentice-details?choose-reservation={{reservation.id}}" class="govuk-!-margin-bottom-2 govuk-!-display-inline-block">Add apprentice</a>
+							<a href="funding--delete?reservation-id={{reservation.id}}">Delete</a>
 							{% else %}
 							<span class="govuk-tag" style="background:#999;border-radius:4px;font-size:14px">Used</span>
 							{% endif %}

@@ -312,8 +312,19 @@ router.post('/funding--delete', (req, res) => {
 		});
 	}
 
+	req.session.data['showDeleteConfirmation'] = 'true'
+
 	res.redirect(`funding--manage`)
 })
+
+
+//funding manage
+router.get('/funding--manage', (req, res) => {
+	req.session.data['showDeleteConfirmation'] = 'false'
+
+	res.render(`${req.feature}/funding--manage`)
+})
+
 
 // add another reservation
 router.post('/funding--add-another-reservation', (req, res) => {
