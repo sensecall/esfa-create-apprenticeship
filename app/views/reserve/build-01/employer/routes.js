@@ -48,6 +48,28 @@ router.get('/funding--start', (req, res) => {
 })
 
 
+// delete reservation
+router.get('/funding--delete', (req, res) => {
+	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
+	})
+
+	res.render(`${req.feature}/funding--delete`,{reservationDetails})
+})
+
+router.post('/funding--delete', (req, res) => {
+	if (req.session.data['delete-reservation'] == 'yes' ) {
+		req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+			return item.id !== req.session.data['reservation-id']
+		});
+
+		req.session.data['showDeleteConfirmation'] = 'true'
+	}
+
+	res.redirect(`funding--manage`)
+})
+
+
 // choose course
 router.post('/funding--choose-course', (req, res) => {
 	if(req.session.data['know-course'] == 'no' || req.session.data['course-name'] == ''){
@@ -227,6 +249,8 @@ router.get('/funding--manage', (req, res) => {
 	let filteredReservations = req.session.data['reservations'].filter(function(item) {
 		return item.employer == req.session.data['employer']
 	});
+
+	req.session.data['showDeleteConfirmation'] = 'false'
 
 	res.render(`${req.feature}/funding--manage`,{filteredReservations})
 })
