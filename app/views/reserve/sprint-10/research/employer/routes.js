@@ -31,6 +31,12 @@ router.use(function (req, res, next) {
 		req.session.data['reservations'] = []
 	}
 
+	if (req.session.data['preload-reservations'] == 'true') {
+		req.session.data['reservations'] = require('../reservations.json')
+	}
+	
+	req.session.data['preload-reservations'] = 'false'
+
 	next()
 })
 // ----------------------------------------------------------------------
@@ -279,6 +285,8 @@ router.get('/funding--choose-legal-entity', (req, res) => {
 })
 
 
+
+
 // view details
 router.get('/funding--view-details', (req, res) => {
 	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
@@ -324,6 +332,40 @@ router.post('/funding--cya', (req, res) => {
 // choose course
 router.post('/choose-course', (req, res) => {
 	res.redirect('choose-date')
+})
+
+
+// manage funding
+router.get('/funding--manage', (req, res) => {
+	let filteredReservations = req.session.data['reservations'].filter(function(item) {
+		return item.employer == req.session.data['employer']
+	});
+
+	req.session.data['showDeleteConfirmation'] = 'false'
+
+	res.render(`${req.feature}/funding--manage`,{filteredReservations})
+})
+
+
+// delete reservation
+router.get('/funding--delete', (req, res) => {
+	var reservationDetails = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
+	})
+
+	res.render(`${req.feature}/funding--delete`,{reservationDetails})
+})
+
+router.post('/funding--delete', (req, res) => {
+	if (req.session.data['delete-reservation'] == 'yes' ) {
+		req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
+			return item.id !== req.session.data['reservation-id']
+		});
+
+		req.session.data['showDeleteConfirmation'] = 'true'
+	}
+
+	res.redirect(`funding--manage`)
 })
 
 

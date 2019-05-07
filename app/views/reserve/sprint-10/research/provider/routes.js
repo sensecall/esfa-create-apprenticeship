@@ -20,7 +20,7 @@ router.use(function (req, res, next) {
 	}
 
 	if (req.session.data['preload-reservations'] == 'true') {
-		req.session.data['reservations'] = require('./reservations.json')
+		req.session.data['reservations'] = require('../reservations.json')
 	}
 	
 	req.session.data['preload-reservations'] = 'false'
