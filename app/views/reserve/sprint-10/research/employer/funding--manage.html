@@ -31,69 +31,104 @@ GOV.UK Prototype Kit
 			Your funding reservations
 		</h3>
 		
-		<form action="confirm-employer">
-			{% if filteredReservations.length %}
-			<p class="govuk-!-margin-bottom-8">
-				<a href="funding--start" class="govuk-!-font-weight-bold govuk-body-l">
-					Secure more funding
-				</a>
-			</p>
+		{% if filteredReservations.length %}
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-half">
+				<form novalidate>
+					{{ govukInput({
+						label:
+						{
+							text: "Search reservations",
+							classes: "govuk-!-font-weight-bold"
+						},
+						hint:
+						{
+							text: "You can search employers, courses and start dates.",
+							classes: "govuk-!-font-size-16"
+						},
+						id: "search-funding",
+						name: "search-funding",
+						value: data['search-funding'],
+						formGroup:
+						{
+							classes: "govuk-!-margin-bottom-4"
+						}
+					}) }}
 
-			<p>
-				{{filteredReservations.length}} reservation{{'s' if filteredReservations.length != 1 }}
-			</p>
+					{{ govukButton({
+						text: "Search",
+						classes: "govuk-!-margin-top-0 govuk-!-margin-right-4 govuk-!-display-inline-block"
+					})}}
 
-			<table class="govuk-table" id="funding-table">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						{% if data['multiple-legal-entities'] == 'true' %}
-						<th class="govuk-table__header" scope="col">Organisation</th>
+					{% if data['search-funding'] %}
+					<a href="?search-funding=" class="govuk-!-margin-top-1 govuk-!-display-inline-block">
+						Clear search
+					</a>
+					{% endif %}
+				</form>
+			</div>
+		</div>
+
+		<p class="govuk-!-margin-bottom-8">
+			<a href="funding--start" class="govuk-!-font-weight-bold govuk-body-l">
+				Secure more funding
+			</a>
+		</p>
+
+		<p>
+			{{filteredReservations.length}} reservation{{'s' if filteredReservations.length != 1 }}
+		</p>
+
+		<table class="govuk-table" id="funding-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					{% if data['multiple-legal-entities'] == 'true' %}
+					<th class="govuk-table__header" scope="col">Organisation</th>
+					{% endif %}
+					<th class="govuk-table__header" scope="col">Apprenticeship training course</th>
+					<th class="govuk-table__header" scope="col">Start date</th>
+					<th class="govuk-table__header" scope="col"></th>
+				</tr>
+			</thead>
+
+			<tbody class="govuk-table__body">
+				{% for reservation in filteredReservations %}
+				{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
+				<tr class="govuk-table__row">
+					{% if data['multiple-legal-entities'] == 'true' %}
+					<td class="govuk-table__cell">{{reservation.employer}}</td>
+					{% endif %}
+					<td class="govuk-table__cell" width="60%">{{reservation.course}}</td>
+					<td class="govuk-table__cell" width="22%">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+					<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
+					<td class="govuk-table__cell govuk-table__cell--numeric" width="14%">
+						{% if reservation.status != 'draft' %}
+						<a href="funding--view-details?reservation-id={{reservation.id}}">View</a>
+						{% else %}
+						<span class="govuk-tag" style="background:#999;border-radius:4px">Used</span>
 						{% endif %}
-						<th class="govuk-table__header" scope="col">Apprenticeship training course</th>
-						<th class="govuk-table__header" scope="col">Start date</th>
-						<th class="govuk-table__header" scope="col"></th>
-					</tr>
-				</thead>
+					</td>
 
-				<tbody class="govuk-table__body">
-					{% for reservation in filteredReservations %}
-					{% set name = apprentice["first name"] + " " + apprentice["last name"] %}
-					<tr class="govuk-table__row">
-						{% if data['multiple-legal-entities'] == 'true' %}
-						<td class="govuk-table__cell">{{reservation.employer}}</td>
-						{% endif %}
-						<td class="govuk-table__cell" width="60%">{{reservation.course}}</td>
-						<td class="govuk-table__cell" width="22%">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
-						<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
-						<td class="govuk-table__cell govuk-table__cell--numeric" width="14%">
-							{% if reservation.status != 'draft' %}
-							<a href="funding--view-details?reservation-id={{reservation.id}}">View</a>
-							{% else %}
-							<span class="govuk-tag" style="background:#999;border-radius:4px">Used</span>
-							{% endif %}
-						</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+		{% else %}
 
-			{% else %}
+		<h2 class="govuk-heading-m">
+			There are no funding reservations to use.
+		</h2>
 
-			<h2 class="govuk-heading-m">
-				There are no funding reservations to use.
-			</h2>
+		<p>
+			You need to reserve funding in order to add a new apprentice.
+		</p>
 
-			<p>
-				You need to reserve funding in order to add a new apprentice.
-			</p>
-
-			{{govukButton({
-				text: "Reserve funding",
-				href: "funding--start"
-			})}}
-			{% endif %}
-		</form>
+		{{govukButton({
+			text: "Reserve funding",
+			href: "funding--start"
+		})}}
+		{% endif %}
 	</div>
 </div>
 

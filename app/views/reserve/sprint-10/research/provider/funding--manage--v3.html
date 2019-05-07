@@ -85,57 +85,56 @@ GOV.UK Prototype Kit
 			{{ reservationResults.length }} reservation{% if reservationResults.length != 1 %}s{% endif %} found
 		</p>
 		{% endif %}
-	</div>
-</div>
+		
 
-<table class="govuk-table govuk-!-font-size-16" id="funding-table">
-	<thead class="govuk-table__head">
-		<tr class="govuk-table__row">
-			<th class="govuk-table__header" scope="col">Employer</th>
-			<th class="govuk-table__header" scope="col">Apprenticeship training</th>
-			<th class="govuk-table__header" scope="col">Apprenticeship start date</th>
-			<th class="govuk-table__header"></th>
-		</tr>
-	</thead>
+		<table class="govuk-table govuk-!-font-size-16" id="funding-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th class="govuk-table__header" scope="col">Employer</th>
+					<th class="govuk-table__header" scope="col">Apprenticeship training</th>
+					<th class="govuk-table__header" scope="col">Apprenticeship start date</th>
+					<th class="govuk-table__header"></th>
+				</tr>
+			</thead>
 
-	<tbody class="govuk-table__body">
-		{% if reservationResults %}
-		{% for reservation in reservationResults %}
-		<tr class="govuk-table__row">
-			<td class="govuk-table__cell">{{reservation.employer}}</td>
-			<td class="govuk-table__cell">{{reservation.course}}</td>
-			<td class="govuk-table__cell" data-sort-value="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
-			<td class="govuk-table__cell">
-				<a href="funding--details?reservation-id={{reservation.id}}">Manage</a>
-			</td>
-		</tr>
-		{% endfor %}
+			<tbody class="govuk-table__body">
+				{% if reservationResults %}
+				{% for reservation in reservationResults %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">{{reservation.employer}}</td>
+					<td class="govuk-table__cell">{{reservation.course}}</td>
+					<td class="govuk-table__cell" data-sort-value="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+					<td class="govuk-table__cell">
+						<a href="funding--details?reservation-id={{reservation.id}}">Manage</a>
+					</td>
+				</tr>
+				{% endfor %}
+
+				{% else %}
+				{% for reservation in data['reservations'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">{{reservation.employer}}</td>
+					<td class="govuk-table__cell">{{reservation.course}}</td>
+					<td class="govuk-table__cell" data-sort-value="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+					<td class="govuk-table__cell">
+						<a href="funding--details?reservation-id={{reservation.id}}">Manage</a>
+					</td>
+				</tr>
+				{% endfor %}
+				{% endif %}
+			</tbody>
+		</table>
 
 		{% else %}
-		{% for reservation in data['reservations'] %}
-		<tr class="govuk-table__row">
-			<td class="govuk-table__cell">{{reservation.employer}}</td>
-			<td class="govuk-table__cell">{{reservation.course}}</td>
-			<td class="govuk-table__cell" data-sort-value="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
-			<td class="govuk-table__cell">
-				<a href="funding--details?reservation-id={{reservation.id}}">Manage</a>
-			</td>
-		</tr>
-		{% endfor %}
+		<h2 class="govuk-heading-m">
+			None of your employers have any funding to use.
+		</h2>
+
+		<p>
+			You need to secure funding in order to add a new apprentice.
+		</p>
 		{% endif %}
-	</tbody>
-</table>
-
-{% else %}
-<h2 class="govuk-heading-m">
-	None of your employers have any funding to use.
-</h2>
-
-<p>
-	You need to secure funding in order to add a new apprentice.
-</p>
-{% endif %}
-</div>
+	</div>
 </div>
 
 {% endblock %}

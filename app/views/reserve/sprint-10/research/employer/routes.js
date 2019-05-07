@@ -4,6 +4,7 @@ const router = new express.Router()
 var _ = require('underscore');
 var moment = require('moment');
 const cryptoRandomString = require('crypto-random-string');
+const Fuse = require('fuse.js');
 
 router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
@@ -343,7 +344,21 @@ router.get('/funding--manage', (req, res) => {
 
 	req.session.data['showDeleteConfirmation'] = 'false'
 
-	res.render(`${req.feature}/funding--manage`,{filteredReservations})
+	// search
+	if ( ! req.session.data['search-funding'] ) {
+		req.session.data['search-funding']
+		res.render(`${req.feature}/funding--manage`,{filteredReservations})
+	} else {
+		var options = {
+			keys: ['course', 'employer']
+		}
+		
+		let fuse = new Fuse(filteredReservations, options)
+		
+		filteredReservations = fuse.search( req.session.data['search-funding'] );
+		
+		res.render(`${req.feature}/funding--manage`, {filteredReservations})
+	}
 })
 
 
