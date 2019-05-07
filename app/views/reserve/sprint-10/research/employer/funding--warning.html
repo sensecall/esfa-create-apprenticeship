@@ -24,16 +24,13 @@ GOV.UK Prototype Kit
 				</header>
 
 				<p>
-					Government funding to train apprentices will stop from {{data['random-future-date']}}. You must get funding for your apprenticeship training before this date.
+					Government funding for apprenticeship training will be paused on {{data['random-future-date']}}. You must reserve funding for your training before this date.
 				</p>
 
 				<p>
-					This change will not affect any funding secured before {{data['random-future-date']}}.
+					This change will not affect funding reserved before {{data['random-future-date']}}
 				</p>
 
-				<p>
-					See <a href="#">funding restrictions</a> for more information.
-				</p>
 				{% endif %}
 
 				{% if 'number-of-starts' in data['funding-restrictions'] %}
@@ -63,7 +60,7 @@ GOV.UK Prototype Kit
 					items: [
 					{
 						value: "hide-funding-warning",
-						text: "Don't remind me again"
+						text: "Do not show this message again"
 					}
 					]
 				}) }}
