@@ -40,8 +40,18 @@ router.use(function (req, res, next) {
 
 // funding start
 router.get('/funding--start', (req, res) => {
+	// check there isn't a spend control in place now
 	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
 		res.render(`${req.feature}/funding--start--service-unavailable`)
+	}
+
+	// check that the selected employer hasnt got too many reservations yet
+	var a = req.session.data['reservations']
+	var e = req.session.data['employer']
+	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
+
+	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
+		res.redirect(`funding--employer-ineligible`)
 	} else {
 		res.render(`${req.feature}/funding--start`)
 	}
