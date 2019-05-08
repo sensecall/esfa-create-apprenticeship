@@ -44,7 +44,7 @@ GOV.UK Prototype Kit
          </p>
 
          <p>
-          <a href="funding--spend-control-check">
+          <a href="funding--sc-check">
             Check and reserve funding now
           </a>
         </p>
@@ -159,4 +159,21 @@ GOV.UK Prototype Kit
 {% endblock %}
 
 
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+  items: [
+  {
+    href: "prototype-settings",
+    text: "Prototype settings"
+  },
+  {
+    href: "/prototype-admin/clear-data",
+    text: "Clear data"
+  }
+  ]
+}
+}) }}
 {% endblock %}

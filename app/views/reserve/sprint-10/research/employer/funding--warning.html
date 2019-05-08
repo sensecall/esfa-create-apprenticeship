@@ -14,7 +14,7 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		<form action="reservation-complete">
+		<form action="funding--start">
 			<div class="flash-card">
 				{% if 'future-restriction' in data['funding-restrictions'] %}
 				<header>
@@ -49,17 +49,16 @@ GOV.UK Prototype Kit
 				<p>
 					{{govukButton({
 						text: "Continue",
-						href: 'funding--start',
 						classes: "govuk-!-margin-bottom-0"
 					})}}
 				</p>
 
 				{{ govukCheckboxes({
-					idPrefix: "funding-reminder",
-					name: "funding-reminder",
+					idPrefix: "seen-warning",
+					name: "seen-warning",
 					items: [
 					{
-						value: "hide-funding-warning",
+						value: "true",
 						text: "Do not show this message again"
 					}
 					]

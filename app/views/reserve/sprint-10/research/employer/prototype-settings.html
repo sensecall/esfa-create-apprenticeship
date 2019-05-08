@@ -108,18 +108,20 @@
 				[
 				{
 					value: "",
-					text: "DEFAULT (no restrictions)",
-					checked: checked("funding-restrictions", "number-of-starts"),
-					checked: true
+					text: "NO SPEND CONTROLS (Default)",
+					checked: checked
+				},
+				{
+					divider: "or"
 				},
 				{
 					value: "number-of-starts",
-					text: "RESTRICTED - Restrict number of starts",
+					text: "LIMIT RESERVATIONS - Restrict number of reservations",
 					checked: checked("funding-restrictions", "number-of-starts")
 				},
 				{
 					value: "future-restriction",
-					text: "NOTICE - No starts will be allowed after a particular date",
+					text: "UPCOMING SPEND CONTROL - No starts will be allowed after a particular date",
 					checked: checked("funding-restrictions", "future-restriction")
 				},
 				{

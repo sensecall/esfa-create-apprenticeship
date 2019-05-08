@@ -44,14 +44,35 @@ router.use(function (req, res, next) {
 
 
 // funding start
-router.get('/funding--spend-control-check', (req, res) => {
-	if ( req.session.data['funding-restrictions'] != '' ) {
-		if ( req.session.data['funding-restrictions'] && req.session.data['funding-restrictions'].includes('current-restriction') ) {
+router.get('/funding--sc-check', (req, res) => {
+
+	let sc = req.session.data['funding-restrictions']
+	let a = req.session.data['reservations']
+	let e = req.session.data['employer']
+	let seenWarning = req.session.data['seen-warning']
+	
+	// check that the selected employer hasnt got too many reservations yet
+	// https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
+	let employerReservationCount = a.filter((obj) => obj.employer === e).length
+
+
+	// check if there's a spend control in place
+	if ( sc != '' ) {
+		// if there is a current restriction don't let the user go any further
+		if ( sc.includes('current-restriction') ) {
 			res.redirect(`funding--start--service-unavailable`)
+		} else if( sc.includes('number-of-starts') && employerReservationCount > 2 ) {
+			res.redirect(`funding--employer-ineligible`)
 		} else {
-			res.redirect(`funding--warning`)
+			// check they've seen a warning
+			if( seenWarning != 'true' ) {
+				res.redirect(`funding--warning`)
+			} else {
+				res.redirect(`funding--start`)
+			}
 		}
 	} else {
+		// if no spend control then let them continue
 		res.redirect(`funding--start`)
 	}
 })
