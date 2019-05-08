@@ -7,6 +7,8 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+		{% block errorMessage %}{% endblock %}
+
 		{{ govukPanel({
 			titleText: "Funding secured for this apprenticeship",
 			classes: "govuk-!-margin-bottom-6"
@@ -63,10 +65,6 @@ GOV.UK Prototype Kit
 			]
 		}) }}
 
-		<!-- <p>
-			You can <a href="#" onclick="window.print();return false;">print this page</a> to show your employer that you have secured funding for them. 
-		</p> -->
-
 		<h2 class="govuk-heading-l">
 			Making changes 
 		</h2>
@@ -76,21 +74,9 @@ GOV.UK Prototype Kit
 		</p>
 
 		<p>
-			You cannot change: 
+			You must make a new funding reservation to change the apprenticeship training start date outside of the 3-month window you originally selected.
 		</p>
 
-		<ul class="govuk-list govuk-list--bullet">
-			<li>
-				the employer
-			</li>
-			<li>
-				the apprenticeship training start date, outside of the 3 month window you selected
-			</li>
-		</ul>
-
-		<p>
-			To select a different employer or apprenticeship training start date, you will need to start again and secure new funding. 
-		</p>
 
 		<h2 class="govuk-heading-l">
 			What you need to do now
