@@ -1,4 +1,4 @@
-{% extends "layout-provider-account.html" %}
+{% extends "layout-account-prototype.html" %}
 
 {% block pageTitle %}
 Manage your apprentices
@@ -16,7 +16,6 @@ Manage your apprentices
     
     <div class="govuk-grid-column-full">
       <fieldset class="govuk-fieldset">
-      <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">-->
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
           <h1 class="govuk-fieldset__heading">
             Manage your apprentices
@@ -24,7 +23,7 @@ Manage your apprentices
         </legend>      
     </div>
     <div class="govuk-grid-column-two-thirds">  
-      <form action="manage-your-apprentices-alerts" method="get">
+      <form action="manage-your-apprentices" method="get">
         <div class="row-group">
           <div class="search-table column-two-thirds govuk-!-margin-bottom-4">                
             <fieldset class="govuk-fieldset">
@@ -32,7 +31,7 @@ Manage your apprentices
                 <input type="hidden" name="clientsFilter" value="new">
                 <div class="search-input search-input-with-button">
                   <label class="govuk-label" for="search">                     
-                    Search by apprentice name or employer                    
+                    Search by apprentice name or training provider                    
                   </label>
                   <div class="autocomplete__parent_wrapper">
                     <div class="autocomplete__wrapper">
@@ -41,7 +40,7 @@ Manage your apprentices
                         <span>,,</span>
                       </div>
                       <p id="search-default-value" class="hidden">{% if search %}{{search}}{% endif%}</p>
-                      <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="Search by apprentice name or employer" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
+                      <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="Search by apprentice name or training provider" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
                       <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
                     </div>
                   </div>
@@ -54,7 +53,7 @@ Manage your apprentices
             </fieldset>
           </div>
         </div>
-        <div class="govuk-grid-two-thirds row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
+        <!--<div class="govuk-grid-two-thirds row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend" style="margin-bottom: 0px;">
                 <h2 class="govuk-heading-s">
@@ -62,83 +61,88 @@ Manage your apprentices
                 </h2>
               </legend>
             </fieldset>
-            <span style="font-weight: 400;"><a href="manage-your-apprentices-filters">Show</a></span>
-        </div>
+            <span style="font-weight: 400;"><a href="manage-your-apprentices">Hide</a></span>
+            <div class="govuk-grid-row govuk-!-margin-top-4">                
+              <div class="govuk-grid-column-one-half">                  
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="course">
+                    Apprenticeship training course
+                  </label>
+                  <input class="govuk-input" id="course" name="course" type="text">
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="provider">
+                    Training provider
+                  </label>
+                  <input class="govuk-input" id="provider" name="provider" type="text">
+                </div>                
+              </div>
+              <div class="govuk-grid-column-one-half">
+                  <div class="govuk-form-group">
+                      <label class="govuk-label" for="start-date">
+                        Planned start date
+                      </label>
+                      <input class="govuk-input" id="start-date" name="start-date" type="text">
+                    </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="status">
+                    Status
+                  </label>
+                  <input class="govuk-input" id="status" name="status" type="text">
+                </div>
+              </div>
+            </div>
+        </div>-->
       </form>
     </div>
     <div class="govuk-grid-column-full"> 
       <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
-        <span style="float:left; padding-left:15px;"><b>6</b> records found of 6 total. <a href="manage-your-apprentices-alerts" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
+        <span style="float:left; padding-left:15px;"><b>X</b> records found of {{data.records.length}} total. <a href="manage-your-apprentices" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
         <span style="float:right; padding-right:15px;"><a href="#" title="Export all records (CSV)">Export all records (CSV)</a></span>
       </p>
 
       <div class="govuk-visually-hidden">
-          {%for record in data.providerrecords%}
+          {%for record in data.records%}
           <span class="data-name">{{record.name}}</span>          
-          <span class="data-providers">{{record.employer}}</span>
+          <span class="data-providers">{{record.trainingProvider}}</span>
           {%endfor%}
       </div>
 
       <table class="govuk-table" id="apprentice-table" style="font-size:18px;">          
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>      
-              <th class="govuk-table__header" scope="col" aria-sort="ascending">ULN</th>        
-              <th class="govuk-table__header" scope="col" aria-sort="ascending">Employer</th>    
-              <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
-              <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned start date</th>
-              <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
-              <th class="govuk-table__header"></td>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned start date</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Training provider</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
+            <th class="govuk-table__header" scope="col"></th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
+          {%for record in data.records%}
+          {%if query.search %}
+            {% if query.search in record.name or query.search in record.trainingProvider %}
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Adnan Tester</td>
-                <td class="govuk-table__cell">456789012</td>                            
-                <td class="govuk-table__cell">Red Shoes limited</td>
-                <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
-                <td class="govuk-table__cell">Mar 2019</td>              
-                <td class="govuk-table__cell">Live</td>
-                <td class="govuk-table__cell"><a href="#">View</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Andrew Smith</td>              
-                <td class="govuk-table__cell">345678901</td> 
-                <td class="govuk-table__cell">Red Shoes limited</td>             
-                <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
-                <td class="govuk-table__cell">Mar 2017</td>
-                <td class="govuk-table__cell">Completed</td>
-                <td class="govuk-table__cell"><a href="#">View</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">April Lewis
-                    <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Pending changes</span>
-                </td>              
-                <td class="govuk-table__cell">234567890</td>
-                <td class="govuk-table__cell">AGrooverider</td>
-                <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
-                <td class="govuk-table__cell">Apr 2019</td>
-                <td class="govuk-table__cell">Paused</td>
-                <td class="govuk-table__cell"><a href="#">View</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Billy Fisher</td>
-                <td class="govuk-table__cell">345678901</td>
-                <td class="govuk-table__cell">Grooverider</td>     
-                <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
-                <td class="govuk-table__cell">Jan 2019</td>
-                <td class="govuk-table__cell">Live</td>
-                <td class="govuk-table__cell"><a href="#">View</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Sarah Philips</td>              
-                <td class="govuk-table__cell">234567890</td>  
-                <td class="govuk-table__cell">Grooverider</td>             
-                <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
-                <td class="govuk-table__cell">Jan 2019</td>             
-                <td class="govuk-table__cell">Withdrawn</td>
-                <td class="govuk-table__cell"><a href="#">View</a></td>
-              </tr>
+              <td class="govuk-table__cell">{{record.name}}</td>           
+              <td class="govuk-table__cell">{{record.course}}</td>
+              <td class="govuk-table__cell">{{record.startDate}}</td>
+              <td class="govuk-table__cell">{{record.trainingProvider}}</td>
+              <td class="govuk-table__cell">{{record.status}}</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            {%endif%} 
+            {%else%}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{record.name}}</td>           
+              <td class="govuk-table__cell">{{record.course}}</td>
+              <td class="govuk-table__cell">{{record.startDate}}</td>
+              <td class="govuk-table__cell">{{record.trainingProvider}}</td>
+              <td class="govuk-table__cell">{{record.status}}</td>
+              <td class="govuk-table__cell"><a href="#">View</a></td>
+            </tr>
+            {%endif%}          
+          {%endfor%}            
         </tbody>
       </table>      
     </div>
@@ -188,8 +192,7 @@ Manage your apprentices
   }
 
   // Trigger search click.  Taken out the clich for the prototype.
-  function fireSearch() {
-    console.log("search fired")
+  function fireSearch() {    
     setTimeout(function() {
       $("#searchSubmit").trigger("click")
     }, 200);
