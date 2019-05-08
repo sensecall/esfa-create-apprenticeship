@@ -1,0 +1,37 @@
+{% extends "./layout-provider-current.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+        You can not reserve funds
+      </h1>
+
+      <p class="govuk-body-l">
+        No employers have given you permission to reserve funds on their behalf.
+      </p>
+
+      <p>
+        Velit dolor incididunt laborum eiusmod voluptate dolor sit dolor sunt aute laborum sit cillum adipisicing velit voluptate ut in in minim tempor minim sint tempor incididunt ullamco pariatur eiusmod esse excepteur est.
+      </p>
+
+      {{govukButton({
+        text: "Return to account"
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}
