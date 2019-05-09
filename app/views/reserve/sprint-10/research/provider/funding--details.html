@@ -56,20 +56,16 @@ GOV.UK Prototype Kit
       
       {{ govukButton({
         text: "Use this reservation",
-        classes: "govuk-!-display-inline-block"
+        classes: "govuk-!-display-inline-block govuk-!-margin-right-2"
       }) }}
 
       {{ govukButton({
-        text: "Use this reservation",
-        classes: "govuk-button--warning"
+        text: "Delete this reservation",
+        classes: "govuk-button--warning",
+        href: "funding--delete?reservation-id=" + reservationDetails[0]['id']
       }) }}
-
-      <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
-        <a href="delete-reservation?reservation-id={{reservationDetails[0]['id']}}">
-          Delete this reservation
-        </a>
-      </p>
     </form>
   </div>
+</div>
 
-  {% endblock %}
+{% endblock %}
