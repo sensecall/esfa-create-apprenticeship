@@ -256,9 +256,15 @@ router.get('/funding-warning', (req, res) => {
 
 // reservation complete
 router.post('/funding--reservation-complete', (req, res) => {
-	if (req.session.data['add-apprentice'] == 'yes' ) {
-		res.redirect(`apprentice-details`)
-	} else {
+	let nextThing = req.session.data['whats-next']
+
+	if (nextThing == 'add-apprentice' ) {
+		res.redirect(`add--start`)
+	} else if (nextThing == 'recruit-apprentice' ) {
+		res.redirect(`recruit--start`)
+	} else if (nextThing == 'find-provider' ) {
+		res.redirect(`fat`)
+	} else if (nextThing == 'return-to-homepage' ) {
 		res.redirect(`account-home`)
 	}
 })

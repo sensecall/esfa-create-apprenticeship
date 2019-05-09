@@ -38,7 +38,7 @@ module.exports = {
 	"multiple-legal-entities": "false",
 	"funding-restrictions": [],
 	"reservation-startRange": moment().startOf('month').format('DD MMMM YYYY'),
-	"reservation-endRange": moment().add(2,'month').endOf('month').format('DD MMMM YYYY'),
+	"reservation-endRange": moment().add(2,'months').endOf('month').format('DD MMMM YYYY'),
 	"course-name": "Unknown",
 	"records": records,
 	"providerrecords": providerrecords

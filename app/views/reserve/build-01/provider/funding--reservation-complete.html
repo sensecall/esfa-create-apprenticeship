@@ -10,7 +10,7 @@ GOV.UK Prototype Kit
 		{% block errorMessage %}{% endblock %}
 
 		{{ govukPanel({
-			titleText: "Funding secured for this apprenticeship",
+			titleText: "You have successfully reserved funding for apprenticeship training",
 			classes: "govuk-!-margin-bottom-6"
 		}) }}
 
@@ -31,15 +31,6 @@ GOV.UK Prototype Kit
 				value:
 				{
 					text: data['employer']
-				},
-				actions:
-				{
-					items: 
-					[
-					{
-
-					}
-					]
 				}
 			},
 			{
@@ -55,7 +46,7 @@ GOV.UK Prototype Kit
 			{
 				key:
 				{
-					text: "Apprenticeship training"
+					text: "Apprenticeship training course"
 				},
 				value:
 				{
@@ -74,51 +65,55 @@ GOV.UK Prototype Kit
 		</p>
 
 		<p>
-			You must make a new funding reservation to change the apprenticeship training start date outside of the 3-month window you originally selected.
+			You cannot change:
 		</p>
 
-
-		<h2 class="govuk-heading-l">
-			What you need to do now
-		</h2>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>
+				the employer
+			</li>
+			<li>
+				the apprenticeship training start date, outside of the 3-month window you selected
+			</li>
+		</ul>
 
 		<p>
-			If the employer has not found an apprentice yet, use our <a href="#">recruitment service</a> to find an apprentice.
-		</p>
-
-		<p>
-			If you know who the apprentice will be, you can add an apprentice to this funding now.
+			To select a different employer or apprenticeship training start date, you will need to start a new funding reservation.
 		</p>
 
 
 		<form method="post">
 			{{ govukRadios({
-				idPrefix: "add-apprentice",
-				name: "add-apprentice",
+				idPrefix: "whats-next",
+				name: "whats-next",
 				fieldset:
 				{
 					legend:
 					{
-						text: "Do you want to add an apprentice now?",
+						text: "What's next?",
 						isPageHeading: true,
-						classes: "govuk-fieldset__legend--m"
+						classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
 					}
 				},
 				items: [
 				{
-					value: "yes",
-					text: "Yes"
+					value: "recruit-apprentice",
+					text: "Recruit an apprentice"
 				},
 				{
-					value: "no",
-					text: "No, not right now"
+					value: "add-apprentice",
+					text: "Add apprentice's details"
+				},
+				{
+					value: "return-to-homepage",
+					text: "Go to homepage"
 				}
 				]
-			}) }}
+			}) }} 
 
 			<p>
 				{{ govukButton ({
-					text: "Continue"
+					text: "Save and continue"
 				})}}
 			</p>
 		</form>
