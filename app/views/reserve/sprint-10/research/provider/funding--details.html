@@ -59,6 +59,11 @@ GOV.UK Prototype Kit
         classes: "govuk-!-display-inline-block"
       }) }}
 
+      {{ govukButton({
+        text: "Use this reservation",
+        classes: "govuk-button--warning"
+      }) }}
+
       <p class="govuk-!-display-inline-block govuk-!-margin-top-1 govuk-!-margin-left-4">
         <a href="delete-reservation?reservation-id={{reservationDetails[0]['id']}}">
           Delete this reservation

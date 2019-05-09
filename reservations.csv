@@ -1,20 +1,3 @@
-id,created,startMonth,endMonth,startDateFull,month,employer,course,startMonthNumber,startYearNumber
-5cb093d5f8afea2288382e81,February 2019,August 2019,October 2019,20190801,August 2019,Funholding Ltd,"IS Business Analyst, Level: 4 (Standard)"
-5cb093d53946005cb4c92306,March 2019,June 2019,August 2019,20190601,June 2019,Finjocane Ltd,"Data analyst, Level: 4 (Standard)"
-5cb093d55049bad076ade686,April 2019,July 2019,September 2019,20190701,July 2019,Grooveholding UK Ltd,"Activity Leadership: Leadership, Level: 2",7,2019
-5cb093d534ea6d19f876761b,March 2019,July 2019,September 2019,20190701,July 2019,Finjocane (Sheffield) Ltd,"Construction Technical and Professional: Building Control, Level: 3",,
-5cb093d5aba328ab28f1dad7,March 2019,June 2019,August 2019,20190601,June 2019,Quadtech (UK),"Data analyst, Level: 4 (Standard)",,
-5cb093d50e26c335ab93e962,February 2019,June 2019,August 2019,20190601,June 2019,Finjocane Ltd,"Activity Leadership: Leadership, Level: 2",,
-5cb093d5a178c67118374424,March 2019,September 2019,November 2019,20190901,September 2019,Keyphase Ltd,"Business Administrator, Level: 3 (Standard)",,
-5cb093d5905c24afdc15faa0,March 2019,July 2019,September 2019,20190701,July 2019,Finjocane Ltd,"Construction Technical and Professional: Building Control, Level: 3",,
-5cb093d57495c09e4274580d,February 2019,July 2019,September 2019,20190701,July 2019,Funholding Ltd,"IS Business Analyst, Level: 4 (Standard)",,
-5cb093d5b69b8da804d37f06,February 2019,July 2019,September 2019,20190701,July 2019,Funholding Ltd,"Business and Professional Administration: Business and Professional Administration, Level: 4",,
-5cb093d567fb1497055018da,February 2019,August 2019,October 2019,20190801,August 2019,Finjocane Ltd,"Construction Technical and Professional: Building Control, Level: 3",,
-5cb093d54a5b6f7c08826727,March 2019,May 2019,July 2019,20190501,May 2019,Finjocane (Sheffield) Ltd,"Business Administrator, Level: 3 (Standard)",,
-5cb093d5b8aeea9c8b70ad13,March 2019,July 2019,September 2019,20190701,July 2019,Quadtech (UK),"Activity Leadership: Leadership, Level: 2",,
-5cb093d5e0da4ce7fdfdbf14,April 2019,June 2019,August 2019,20190601,June 2019,Finjocane (Sheffield) Ltd,"Data analyst, Level: 4 (Standard)",,
-5cb093d553858738dab53e6c,March 2019,July 2019,September 2019,20190701,July 2019,Soloity Ltd,"IS Business Analyst, Level: 4 (Standard)",,
-5cb093d5374d034392f434b0,March 2019,September 2019,November 2019,20190901,September 2019,Soloity Ltd,"Business and Professional Administration: Business and Professional Administration, Level: 4",,
-5cb093d5d77694fcf40eaed3,February 2019,June 2019,August 2019,20190601,June 2019,Keyphase Ltd,"Construction Technical and Professional: Building Control, Level: 3",,
-5cb093d56728f5bf8a7adaef,March 2019,May 2019,July 2019,20190501,May 2019,Opencare Ltd,"Business and Professional Administration: Business and Professional Administration, Level: 4",,
-5cb093d5e66c1fe131c62fef,April 2019,August 2019,October 2019,20190801,August 2019,Funholding Ltd,"Construction Technical and Professional: Building Control, Level: 3",,
+id,month,startMonth,startDateFull,endMonth,created,employer,course
+7be6819cff,May 2019,May 2019,20190501,July 2019,May 2019,Grooveholding UK Ltd,"Asbestos Analyst/Surveyor, Level: 3 (Standard)"
+d354793a2e,May 2019,May 2019,,Jul 2019,May 2019,Grooveholding UK Ltd,"Non-destructive testing (NDT) operator, Level: 2 (Standard)"
