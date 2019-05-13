@@ -331,14 +331,22 @@ router.get('/funding--delete', (req, res) => {
 })
 
 router.post('/funding--delete', (req, res) => {
+	req.session.data['deleted-reservation-details'] = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
+	})
+
 	if (req.session.data['delete-reservation'] == 'yes' ) {
 		req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
 			return item.id !== req.session.data['reservation-id']
 		});
-	}
 
-	res.redirect(`funding--manage`)
+		res.redirect(`funding--deleted`)
+	} else {
+		res.redirect(`funding--manage`)
+	}
 })
+
+
 
 // add another reservation
 router.post('/funding--add-another-reservation', (req, res) => {

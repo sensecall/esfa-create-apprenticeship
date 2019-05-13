@@ -18,15 +18,6 @@ GOV.UK Prototype Kit
 			Delete reservation
 		</h1>
 
-		{% set disclosureHtml %}
-		{{reservationDetails[0]['course']}}
-		<br class="govuk-!-margin-bottom-2">
-		{{ govukDetails({
-			summaryText: "Can I change the course?",
-			text: "You can change the course when adding an apprentice's details, without affecting your funding."
-		}) }}
-		{% endset %}
-
 		{% from "summary-list/macro.njk" import govukSummaryList %}
 
 		{{ govukSummaryList({
@@ -59,7 +50,7 @@ GOV.UK Prototype Kit
 				},
 				value:
 				{
-					html: disclosureHtml
+					html: reservationDetails[0]['course']
 				}
 			}
 			]

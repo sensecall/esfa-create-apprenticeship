@@ -103,7 +103,7 @@ GOV.UK Prototype Kit
 					<!-- <td class="govuk-table__cell">{{reservation.created}}</td> -->
 					<td class="govuk-table__cell govuk-table__cell--numeric" width="14%">
 						{% if reservation.status != 'draft' %}
-						<a href="funding--view-details?reservation-id={{reservation.id}}">View</a>
+						<a href="funding--view-details?reservation-id={{reservation.id}}">Manage</a>
 						{% else %}
 						<span class="govuk-tag" style="background:#999;border-radius:4px">Used</span>
 						{% endif %}

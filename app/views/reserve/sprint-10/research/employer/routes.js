@@ -393,15 +393,31 @@ router.get('/funding--delete', (req, res) => {
 })
 
 router.post('/funding--delete', (req, res) => {
+	req.session.data['deleted-reservation-details'] = _.filter(req.session.data['reservations'], function(item){
+		return item['id'] === req.session.data['reservation-id'];
+	})
+
 	if (req.session.data['delete-reservation'] == 'yes' ) {
 		req.session.data['reservations'] = req.session.data['reservations'].filter(function(item) {
 			return item.id !== req.session.data['reservation-id']
 		});
 
-		req.session.data['showDeleteConfirmation'] = 'true'
-	}
+		// req.session.data['showDeleteConfirmation'] = 'true'
 
-	res.redirect(`funding--manage`)
+		res.redirect(`funding--deleted`)
+	} else {
+		res.redirect(`funding--manage`)
+	}
+})
+
+
+// funding deleted
+router.post('/funding--deleted', (req, res) => {
+	if (req.session.data['whats-next'] == 'manage' ) {
+		res.redirect(`funding--manage`)
+	} else if (req.session.data['whats-next'] == 'return-to-homepage' ) {
+		res.redirect(`account-home`)
+	}
 })
 
 
