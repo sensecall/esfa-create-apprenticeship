@@ -249,10 +249,20 @@ router.post('/choose-reservation', (req, res) => {
 	}
 })
 
-// funding warning skip
-router.get('/funding-warning', (req, res) => {
-	res.redirect('choose-date')
+
+// funding warning
+router.get('/funding-warning-v1', (req, res) => {
+	if ( req.session.data['funding-restrictions'] != '' ) {
+		if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
+			res.redirect(`funding--start--service-unavailable`)
+		} else {
+			res.render(`${req.feature}/funding-warning-v1`)
+		}
+	} else {
+		res.redirect(`funding--start`)
+	}
 })
+
 
 // reservation complete
 router.post('/funding--reservation-complete', (req, res) => {

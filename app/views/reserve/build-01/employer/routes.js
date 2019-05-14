@@ -39,21 +39,37 @@ router.use(function (req, res, next) {
 
 
 // funding start
-router.get('/funding--start', (req, res) => {
-	// check there isn't a spend control in place now
-	if ( req.session.data['funding-restrictions'].includes('current-restriction') ) {
-		res.render(`${req.feature}/funding--start--service-unavailable`)
-	}
+// funding start
+router.get('/funding--sc-check', (req, res) => {
 
+	let sc = req.session.data['funding-restrictions']
+	let a = req.session.data['reservations']
+	let e = req.session.data['employer']
+	let seenWarning = req.session.data['seen-warning']
+	
 	// check that the selected employer hasnt got too many reservations yet
-	var a = req.session.data['reservations']
-	var e = req.session.data['employer']
-	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
+	// https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
+	let employerReservationCount = a.filter((obj) => obj.employer === e).length
 
-	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
-		res.redirect(`funding--employer-ineligible`)
+
+	// check if there's a spend control in place
+	if ( sc != '' ) {
+		// if there is a current restriction don't let the user go any further
+		if ( sc.includes('current-restriction') ) {
+			res.redirect(`funding--start--service-unavailable`)
+		} else if( sc.includes('number-of-starts') && employerReservationCount > 2 ) {
+			res.redirect(`funding--employer-ineligible`)
+		} else {
+			// check they've seen a warning
+			if( seenWarning != 'true' ) {
+				res.redirect(`funding--warning`)
+			} else {
+				res.redirect(`funding--start`)
+			}
+		}
 	} else {
-		res.render(`${req.feature}/funding--start`)
+		// if no spend control then let them continue
+		res.redirect(`funding--start`)
 	}
 })
 

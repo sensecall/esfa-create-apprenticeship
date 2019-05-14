@@ -1,4 +1,4 @@
-{% extends "./layout-provider-current.html" %}
+{% extends "./layout--employer.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -14,7 +14,7 @@ GOV.UK Prototype Kit
 {% block content %}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		<form action="reservation-complete">
+		<form action="funding--start">
 			<div class="flash-card">
 				{% if 'future-restriction' in data['funding-restrictions'] %}
 				<header>
@@ -24,7 +24,7 @@ GOV.UK Prototype Kit
 				</header>
 
 				<p>
-					Government funding for apprenticeship training will be paused on {{data['random-future-date']}}. You must reserve funding for your non-levy employers’ training before this date.
+					Government funding for apprenticeship training will be paused on {{data['random-future-date']}}. You must reserve funding for your training before this date.
 				</p>
 
 				<p>
@@ -40,26 +40,25 @@ GOV.UK Prototype Kit
 					</h2>
 				</header>
 				<p>
-					We have restricted government funding. Training providers can only secure funding for 1 apprentice per 1 employer at a time.
+					We have restricted government funding. You can only secure funding for 1 apprentice at a time.
 					<br class="govuk-!-margin-bottom-2">
-					Once an employer’s apprentice has started and we have made the first payment of funds to you, then you can secure funding for that employer’s next apprentice. You can see this payment in your account.
+					Once the apprentice has started and we have made the first payment of funds to your apprenticeship training provider, then you can secure funding for another apprentice.
 				</p>
 				{% endif %}
 
 				<p>
 					{{govukButton({
 						text: "Continue",
-						href: 'funding--start',
 						classes: "govuk-!-margin-bottom-0"
 					})}}
 				</p>
 
 				<!-- {{ govukCheckboxes({
-					idPrefix: "waste",
-					name: "waste",
+					idPrefix: "seen-warning",
+					name: "seen-warning",
 					items: [
 					{
-						value: "hide-funding-warning",
+						value: "true",
 						text: "Do not show this message again"
 					}
 					]
