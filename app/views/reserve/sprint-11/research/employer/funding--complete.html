@@ -1,0 +1,118 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{% set disclosureHtml %}
+		{{data['course-name']}}
+		<br class="govuk-!-margin-bottom-2">
+		{{ govukDetails({
+			summaryText: "Can I change the course?",
+			text: "You can change the course when you add an apprentice's details."
+		}) }}
+		{% endset %}
+
+		{{ govukPanel({
+			titleText: "You have successfully reserved funding for apprenticeship training",
+			classes: "govuk-!-margin-bottom-4",
+			html: htmlContent
+		}) }}
+
+		{% from "summary-list/macro.njk" import govukSummaryList %}
+		{{ govukSummaryList({
+			rows:
+			[
+			{
+				key:
+				{
+					text: "Organisation"
+				},
+				value:
+				{
+					text: data['employer']
+				}
+			},
+			{
+				key:
+				{
+					text: "Apprenticeship training start date"
+				},
+				value:
+				{
+					html: data['reservation-startRange'] + " to " + data['reservation-endRange']
+				}
+			},
+			{
+				key:
+				{
+					text: "Apprenticeship training course"
+				},
+				value:
+				{
+					html: disclosureHtml
+				}
+			}
+			]
+		}) }}
+
+		<hr class="govuk-section-break govuk-section-break--xl">
+
+		<h2 class="govuk-heading-l">
+			Making changes 
+		</h2>
+
+		<p>
+			You can add or change the apprenticeship training when you add an apprentice’s details.
+		</p>
+
+		<p>
+			You will need to reserve new funding to change the apprenticeship training start date to outside of the 3-month window you originally selected. 
+		</p>
+
+		<form method="post">
+			{{ govukRadios({
+				idPrefix: "whats-next",
+				name: "whats-next",
+				fieldset:
+				{
+					legend:
+					{
+						text: "What's next?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--m govuk-!-margin-top-4"
+					}
+				},
+				items: [
+				{
+					value: "recruit-apprentice",
+					text: "Recruit an apprentice"
+				},
+				{
+					value: "find-provider",
+					text: "Find a training provider"
+				},
+				{
+					value: "add-apprentice",
+					text: "Add apprentice's details"
+				},
+				{
+					value: "return-to-homepage",
+					text: "Go to homepage"
+				}
+				]
+			}) }} 
+
+			<p>
+				{{ govukButton ({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

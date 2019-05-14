@@ -1,0 +1,51 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-l">
+			Government funding for this apprenticeship cannot be reserved 
+		</h1>
+
+		<p class="govuk-body-l">
+			You must know 
+			{% if data['planned-start-date'] == 'dont-know' %}
+			when the apprentice will begin their training 
+			{% elif data['know-course'] == 'no' %}
+			which apprenticeship training the apprentice will take 
+			{% endif %}
+			in order to reserve government funding for apprenticeship training.
+		</p>
+
+		<p>
+			Use the <a href="http://findapprenticeshiptraining.sfa.bis.gov.uk/" target="_blank">Find apprenticeship training</a> service to view apprenticeship training courses and choose a training provider.
+		</p>
+
+		<p>
+			Alternatively, you can contact your chosen Training provider to:
+		</p>
+
+		<ul class="govuk-list govuk-list--bullet">
+			<li>find out when the apprentice will start their off-the-job training</li>
+			<li>find out which apprenticeship training the apprentice will take</li>
+			<li>reserve government funding on your behalf, using the <a href="#">provider permissions</a> service</li>
+		</ul>
+
+		<a href="account-home" class="govuk-button govuk-!-margin-top-2">
+			Return to your account 
+		</a>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "./layout-provider-current.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+{{searchData}}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		{% if showDeleteConfirmation %}
+		<div class="govuk-inset-text govuk-inset-text--warning" id="alert">
+			<h2 class="govuk-heading-s govuk-!-margin-bottom-0" style="display:inline-block">Funding deleted</h2>
+			<span style="display:inline-block;float:right;font-size: 16px">
+				<a href="#" onclick="document.getElementById('alert').parentNode.style.display='none';">Dismiss</a>
+			</span>
+		</div>
+		{% endif %}
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<h3 class="govuk-heading-xl govuk-!-margin-top-6">
+			Funding for non-levy employers
+		</h3>
+
+		{% if data['reservations'].length %}
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-half">
+				<form novalidate>
+					{{ govukInput({
+						label:
+						{
+							text: "Search reservations",
+							classes: "govuk-!-font-weight-bold"
+						},
+						hint:
+						{
+							text: "You can search employers, courses and start dates."
+						},
+						id: "search-funding",
+						name: "search-funding",
+						value: data['search-funding'],
+						formGroup:
+						{
+							classes: "govuk-!-margin-bottom-4"
+						}
+					}) }}
+
+					{{ govukButton({
+						text: "Search",
+						classes: "govuk-!-margin-top-0 govuk-!-margin-right-4 govuk-!-display-inline-block"
+					})}}
+
+					{% if data['search-funding'] %}
+					<a href="?search-funding=" class="govuk-!-margin-top-1 govuk-!-display-inline-block">
+						Clear search
+					</a>
+					{% endif %}
+				</form>
+			</div>
+		</div>
+
+		<p class="govuk-!-font-weight-bold govuk-!-margin-bottom-8">
+			<a href="funding--start" class="govuk-!-display-inline-block govuk-!-margin-right-4">
+				Secure more funding
+			</a>
+
+			<a href="download-all-reservations" class="govuk-!-display-inline-block">
+				Download all data (CSV)
+			</a>
+		</p>
+
+		{% if reservationResults %}
+		<p>
+			{{ reservationResults.length }} reservation{% if reservationResults.length != 1 %}s{% endif %} found
+		</p>
+		{% endif %}
+		
+
+		<table class="govuk-table govuk-!-font-size-16" id="funding-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th class="govuk-table__header" scope="col">Employer</th>
+					<th class="govuk-table__header" scope="col">Apprenticeship training</th>
+					<th class="govuk-table__header" scope="col">Apprenticeship start date</th>
+					<th class="govuk-table__header"></th>
+				</tr>
+			</thead>
+
+			<tbody class="govuk-table__body">
+				{% if reservationResults %}
+				{% for reservation in reservationResults %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">{{reservation.employer}}</td>
+					<td class="govuk-table__cell">{{reservation.course}}</td>
+					<td class="govuk-table__cell" data-sort-value="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+					<td class="govuk-table__cell">
+						<a href="funding--details?reservation-id={{reservation.id}}">Manage</a>
+					</td>
+				</tr>
+				{% endfor %}
+
+				{% else %}
+				{% for reservation in data['reservations'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">{{reservation.employer}}</td>
+					<td class="govuk-table__cell">{{reservation.course}}</td>
+					<td class="govuk-table__cell" data-sort-value="{{reservation.startDateFull}}">{{reservation.startMonth}} to {{reservation.endMonth}}</td>
+					<td class="govuk-table__cell">
+						<a href="funding--details?reservation-id={{reservation.id}}">Manage</a>
+					</td>
+				</tr>
+				{% endfor %}
+				{% endif %}
+			</tbody>
+		</table>
+
+		{% else %}
+		<h2 class="govuk-heading-m">
+			None of your employers have any funding to use.
+		</h2>
+
+		<p>
+			You need to secure funding in order to add a new apprentice.
+		</p>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+<script src="/public/javascripts/search-toggle.js"></script>
+
+<script>
+	var table = document.getElementById('funding-table');
+	new SortableTable(table); 
+</script>
+{% endblock %}

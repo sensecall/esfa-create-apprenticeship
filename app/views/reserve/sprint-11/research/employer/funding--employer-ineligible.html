@@ -1,0 +1,38 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Funding currently restricted to one reservation
+    </h1>
+
+    <p>
+      You can reserve funding for another apprentice once the initial apprentice has started their training and we’ve made the first payment of funds to your apprenticeship training provider.
+    </p>
+
+    {{govukButton({
+      text: "Return to account",
+      href: "account-home",
+      classes: "govuk-!-margin-top-4"
+    })}}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+
+{% endblock %}

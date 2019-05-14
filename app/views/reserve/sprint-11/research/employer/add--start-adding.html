@@ -1,0 +1,65 @@
+
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="add--review-cohort">
+     <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+      Start adding apprentices
+    </h1>
+
+    <p class="govuk-body-l">
+      You can start adding details of your apprentices or ask your training provider to add them for you.
+    </p>
+
+    <p class="govuk-body-l">
+      If you ask your training provider to add them, you need to check and agree the details before any payments are made.
+    </p>
+
+    {{ govukRadios({
+        idPrefix: "confirm-provider",
+        name: "confirm-provider",
+        fieldset:
+        {
+          legend:
+          {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items:
+        [
+        {
+          value: "yes",
+          text: "I will add apprentices"
+        },
+        {
+          value: "no",
+          text: "I would like my provider to add apprentices"
+        }
+        ]
+      }) }}
+
+    <p>
+      {{govukButton({
+        text: "Continue"
+      })}}
+    </p>
+  </form>
+</div>
+</div>
+
+{% endblock %}
