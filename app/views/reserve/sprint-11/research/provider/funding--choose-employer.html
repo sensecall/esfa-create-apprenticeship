@@ -19,6 +19,34 @@ GOV.UK Prototype Kit
         Which non-levy employer are you reserving funds for?
       </h1>
 
+      <form novalidate>
+        {{ govukInput({
+          label:
+          {
+            text: "Search employers",
+            classes: "govuk-!-font-weight-bold"
+          },
+          id: "search-funding",
+          name: "search-funding",
+          value: data['search-funding'],
+          formGroup:
+          {
+            classes: "govuk-!-margin-bottom-4"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Search",
+          classes: "govuk-!-margin-top-0 govuk-!-margin-right-4 govuk-!-display-inline-block"
+        })}}
+
+        {% if data['search-funding'] %}
+        <a href="?search-funding=" class="govuk-!-margin-top-1 govuk-!-display-inline-block">
+          Clear search
+        </a>
+        {% endif %}
+      </form>
+
       {% import './apprentices.json' as apprenticesData %}
       <table class="govuk-table" id="employer-table">
         <thead class="govuk-table__head">

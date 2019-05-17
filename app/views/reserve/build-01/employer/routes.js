@@ -116,8 +116,8 @@ router.post('/funding--know-month', (req, res) => {
 
 // date plus course variant
 router.get('/funding--choose-month', (req, res) => {
-	var currentMonth = moment().format('MMM YYYY')
-	var monthFormat = "MMM YYYY"
+	var monthFormat = "MMMM YYYY"
+	var currentMonth = moment().format(monthFormat)
 
 	var months = [
 	// {
