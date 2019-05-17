@@ -54,22 +54,17 @@ Manage your apprentices
             </fieldset>
           </div>
         </div>
-        <div class="govuk-grid-two-thirds row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend" style="margin-bottom: 0px;">
-                <h2 class="govuk-heading-s">
-                  Filter apprentices                                  
-                </h2>
-              </legend>
-            </fieldset>
-            <span style="font-weight: 400;"><a href="manage-your-apprentices-filters">Show</a></span>
+        <div class="govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px; height:25px;">         
+          <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
+            <span class="govuk-heading-s" style="float:left; padding-left:15px; font-weight:700;">Filter apprentices</span>           
+            <span style="float:right; padding-right:15px;"><a href="manage-your-apprentices-filters">Show</a></span>
         </div>
       </form>
     </div>
     <div class="govuk-grid-column-full"> 
       <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
-        <span style="float:left; padding-left:15px;"><b>6</b> records found of 6 total. <a href="manage-your-apprentices-alerts" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
-        <span style="float:right; padding-right:15px;"><a href="#" title="Export all records (CSV)">Export all records (CSV)</a></span>
+        <span style="float:left; padding-left:15px;"><b>5</b> records found of 5 total. <a href="manage-your-apprentices-alerts" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
+        <span style="float:right; padding-right:15px;"><a href="#" title="Export all records (CSV)">Download all data (CSV)</a></span>
       </p>
 
       <div class="govuk-visually-hidden">
@@ -79,7 +74,7 @@ Manage your apprentices
           {%endfor%}
       </div>
 
-      <table class="govuk-table" id="apprentice-table" style="font-size:18px;">          
+      <table class="govuk-table" id="apprentice-table" style="font-size:16px;">          
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>      
@@ -93,7 +88,9 @@ Manage your apprentices
         </thead>
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Adnan Tester</td>
+                <td class="govuk-table__cell" scope="row">Adnan Tester
+                  <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>
+                </td>
                 <td class="govuk-table__cell">456789012</td>                            
                 <td class="govuk-table__cell">Red Shoes Limited</td>
                 <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
@@ -102,7 +99,9 @@ Manage your apprentices
                 <td class="govuk-table__cell"><a href="#">View</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Andrew Smith</td>              
+                <td class="govuk-table__cell" scope="row">Andrew Smith
+                  <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>
+                </td>              
                 <td class="govuk-table__cell">345678901</td> 
                 <td class="govuk-table__cell">Red Shoes Limited</td>             
                 <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
@@ -112,7 +111,7 @@ Manage your apprentices
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" scope="row">April Lewis
-                    <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">ILR Data Mismatch</span>
+                    <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>
                 </td>              
                 <td class="govuk-table__cell">234567890</td>
                 <td class="govuk-table__cell">Grooverider</td>
@@ -122,7 +121,9 @@ Manage your apprentices
                 <td class="govuk-table__cell"><a href="#">View</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Billy Fisher</td>
+                <td class="govuk-table__cell" scope="row">Billy Fisher
+                  <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">ILR Data Mismatch</span>
+                </td>
                 <td class="govuk-table__cell">345678901</td>
                 <td class="govuk-table__cell">Grooverider</td>     
                 <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
@@ -131,7 +132,9 @@ Manage your apprentices
                 <td class="govuk-table__cell"><a href="#">View</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Sarah Philips</td>              
+                <td class="govuk-table__cell" scope="row">Sarah Philips
+                  <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">ILR Data Mismatch</span>
+                </td>              
                 <td class="govuk-table__cell">234567890</td>  
                 <td class="govuk-table__cell">Grooverider</td>             
                 <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>

@@ -1,0 +1,229 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+Manage your apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    
+    <div class="govuk-grid-column-full">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">        
+          <h1 class="govuk-fieldset__heading">
+            Manage your apprentices
+          </h1>
+        </legend> 
+      </fieldset>     
+    </div>
+    <div class="govuk-grid-column-two-thirds">  
+      <form action="manage-your-apprentices-empty-state" method="get">
+        <div class="row-group">
+          <div class="search-table column-two-thirds govuk-!-margin-bottom-4">                
+            <fieldset class="govuk-fieldset">
+              <div class="form-group search-field search-field-darker">
+                <input type="hidden" name="clientsFilter" value="new">
+                <div class="search-input search-input-with-button">
+                  <label class="govuk-label" for="search">                     
+                    Search by apprentice name or employer              
+                  </label>
+                  <div class="autocomplete__parent_wrapper">
+                    <div class="autocomplete__wrapper">
+                      <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px 0px 0px 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                        <span>No search results.</span>
+                        <span>,,</span>
+                      </div>
+                      <p id="search-default-value" class="hidden">{% if search %}{{search}}{% endif%}</p>
+                      <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="Search by apprentice name or employer" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
+                      <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
+                    </div>
+                  </div>
+                  <input class="form-control form-control-3-4" name="" id="searchClients-old" type="text" value="{%if search %}{{search}}{%endif%}" style="display: none;">
+                </div>
+                <div class="search-submit">
+                  <button class="button" type="submit" id="searchSubmit" name="searchSubmit" value="Search">Search clients</button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <!--<div class="govuk-grid-two-thirds row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend" style="margin-bottom: 0px;">
+                <h2 class="govuk-heading-s">
+                  Filter apprentices                                  
+                </h2>
+              </legend>
+            </fieldset>
+            <span style="font-weight: 400;"><a href="manage-your-apprentices-empty-state">Show</a></span>
+            
+        </div>-->
+      </form>
+    </div>
+    <div class="govuk-grid-column-full"> 
+      <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
+        <span style="float:left; padding-left:15px;">You have no records that have changes pending or ILR data mismatches. <a href="manage-your-apprentices" title="See all apprentices">See all apprentices</a></span>
+        <!--<span style="float:right; padding-right:15px;"><a href="#" title="Export all records (CSV)">Download all data (CSV)</a></span>-->
+      </p>
+
+      <div class="govuk-visually-hidden">
+          {%for record in data.records%}
+          <span class="data-name">{{record.name}}</span>          
+          <span class="data-providers">{{record.trainingProvider}}</span>
+          {%endfor%}
+      </div>
+
+      <!--<table class="govuk-table" id="apprentice-table" style="font-size:18px;">          
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned start date</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Training provider</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Adnan Tester</td>           
+            <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+            <td class="govuk-table__cell">Mar 2019</td>
+            <td class="govuk-table__cell">ABC Training Ltd</td>
+            <td class="govuk-table__cell">Live</td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Andrew Smith</td>              
+            <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+            <td class="govuk-table__cell">Mar 2019</td>
+            <td class="govuk-table__cell">ABC Training Ltd</td>
+            <td class="govuk-table__cell">Paused</td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Barry Gibson
+              <span class="govuk-tag govuk-!-font-size-14" style="background:#005ea5; color:#fff;">Changes pending</span>
+            </td>
+            <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+            <td class="govuk-table__cell">Mar 2018</td>
+            <td class="govuk-table__cell">DEF Providers</td>
+            <td class="govuk-table__cell">Live</td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Billy Fisher</td>            
+            <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+            <td class="govuk-table__cell">Feb 2017</td>
+            <td class="govuk-table__cell">DEF Providers</td>
+            <td class="govuk-table__cell">Live</td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Sarah Philips</td>
+            <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+            <td class="govuk-table__cell">Apr 2019</td>
+            <td class="govuk-table__cell">DEF Providers</td>
+            <td class="govuk-table__cell">Live</td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Andrew Smith</td>              
+            <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+            <td class="govuk-table__cell">Mar 2019</td>
+            <td class="govuk-table__cell">ABC Training Ltd</td>
+            <td class="govuk-table__cell">Live</td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>   
+        </tbody>
+      </table>-->    
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+  var table = document.getElementById('apprentice-table');
+  new SortableTable(table); 
+</script>
+
+{{super()}}
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+  function getData() {
+    var names = document.getElementsByClassName("data-name");
+    var providers = document.getElementsByClassName("data-providers");
+    var data = [];
+    for (var i = 0; i < names.length; i++) {
+      var name = names[i].textContent
+      if (!data.includes(name)) {
+        data.push(name);
+      }
+    }
+    for (var i = 0; i < providers.length; i++) {
+      var org = providers[i].textContent;
+      if (data.indexOf(org) == -1) {
+        // no duplicate
+        data.push(org);
+      }
+
+    }
+    return data;
+  }
+
+  function suggest(data, populateResults) {
+    const results = getData();
+    const filteredResults = results.filter(
+      result => result.toUpperCase().indexOf(data.trim().toUpperCase()) !== -1
+    )
+    // console.log(filteredResults)
+    populateResults(filteredResults);
+  }
+
+  // Trigger search click.  Taken out the clich for the prototype.
+  function fireSearch() {
+    console.log("search fired")
+    setTimeout(function() {
+      $("#searchSubmit").trigger("click")
+    }, 200);
+  }
+  var myInput = document.querySelector('#search');
+  var myInputID = myInput.id;
+  var element = document.createElement('div');
+  var value = ""
+
+  if (document.getElementById('search-default-value').innerHTML != "") {
+    value = document.getElementById("search-default-value").innerHTML;
+  }
+
+  element.className = "autocomplete__parent_wrapper";
+  myInput.parentNode.insertBefore(element, myInput)
+  accessibleAutocomplete({
+    // other options
+    element: element,
+    id: myInputID,
+    name: myInput.name,
+    source: suggest,
+    defaultValue: value,
+    confirmOnBlur: false,
+    autoselect: true,
+    minLength: 1,
+    onConfirm: fireSearch,
+    //placeholder: 'Search by apprentice name or employer',
+    displayMenu: 'overlay'
+  });
+  myInput.style.display = 'none';
+  myInput.id = myInputID + '-old';
+  myInput.name = '';
+</script>
+{% endblock %}
