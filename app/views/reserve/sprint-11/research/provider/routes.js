@@ -347,6 +347,15 @@ router.post('/funding--delete', (req, res) => {
 })
 
 
+// funding deleted
+router.post('/funding--deleted', (req, res) => {
+	if (req.session.data['whats-next'] == 'account-home' ) {
+		res.redirect(`account-home`)
+	} else if (req.session.data['whats-next'] == 'manage-reservations' ) {
+		res.redirect(`funding--manage`)
+	}
+})
+
 
 // add another reservation
 router.post('/funding--add-another-reservation', (req, res) => {
