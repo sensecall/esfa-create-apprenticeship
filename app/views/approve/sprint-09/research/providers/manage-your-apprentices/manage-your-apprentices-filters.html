@@ -22,7 +22,7 @@ Manage your apprentices
   </fieldset>
 </div>
 <div class="govuk-grid-column-two-thirds govuk-grid-row">
-  <form action="manage-your-apprentices" method="get">
+  <form action="manage-your-apprentices-filters" method="get">
     <div class="row-group">
       <div class="search-table column-two-thirds govuk-!-margin-bottom-4">                
         <fieldset class="govuk-fieldset">
@@ -58,10 +58,58 @@ Manage your apprentices
   <div style="background-color:#DEE0E2; padding:10px; height:25px;">
     <p class="govuk-!-margin-bottom-9"> 
       <span class="govuk-heading-s" style="float:left; padding-left:15px; font-weight:700;">Filter apprentices</span>           
-      <span style="float:right; padding-right:15px;"><a href="manage-your-apprentices-filters">Show</a></span>
+      <span style="float:right; padding-right:15px;"><a href="manage-your-apprentices">Hide</a></span>
     </p>
+    
+    <div class="govuk-grid-row">                
+      <div class="govuk-grid-column-one-third">                  
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="course">
+            Apprenticeship training course
+          </label>
+          <input class="govuk-input" id="course" name="course" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="status">
+            Status
+          </label>
+          <input class="govuk-input" id="status" name="status" type="text">
+        </div>                    
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="start-date">
+            Planned start date
+          </label>
+          <input class="govuk-input" id="start-date" name="start-date" type="text">              
+        </div>  
+        <div class="gov-form-group">
+          <label class="govuk-label" for="alerts">
+            Alerts
+          </label>
+          <input class="govuk-input" id="alerts" name="alerts" type="text">
+        </div>              
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="end-date">
+            Planned end date
+          </label>
+          <input class="govuk-input" id="end-date" name="end-date" type="text">              
+        </div>  
+        <div class="gov-form-group">
+          <label class="govuk-label" for="funding-status">
+            Funding status
+          </label>
+          <input class="govuk-input" id="funding-status" name="funding-status" type="text">
+        </div>              
+      </div>
+    </div>
+    
     <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
-        <span style="float:left; padding-left:15px;"><b>{{data.records.length}}</b> records found of {{data.records.length}} total. <a href="manage-your-apprentices" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
+        <span style="float:left; padding-left:15px;"><b>{{data.records.length}}</b> records found of {{data.records.length}} total. <a href="manage-your-apprentices-filters" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
         <span style="float:right; padding-right:15px;"><a href="download" title="Download all data as a spreadsheet">Download all data (CSV)</a></span>
         <br><br>    
         <span style="float:right; padding-right:15px;"><a href="download" title="Download current view as a spreadsheet">Download current view (CSV)</a></span>
