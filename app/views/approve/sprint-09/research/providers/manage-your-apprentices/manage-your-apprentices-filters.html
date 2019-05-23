@@ -54,13 +54,13 @@ Manage your apprentices
     </div>
   </form>
 </div>
-<div class="govuk-grid-column-full govuk-grid-row govuk-!-margin-bottom-4">
+<div class="govuk-grid-column-full govuk-grid-row govuk-!-margin-bottom-4" style="background-color:#DEE0E2;">
   <div style="background-color:#DEE0E2; padding:10px; height:25px;">
     <p class="govuk-!-margin-bottom-9"> 
       <span class="govuk-heading-s" style="float:left; padding-left:15px; font-weight:700;">Filter apprentices</span>           
       <span style="float:right; padding-right:15px;"><a href="manage-your-apprentices">Hide</a></span>
     </p>
-    
+
     <div class="govuk-grid-row">                
       <div class="govuk-grid-column-one-third">                  
         <div class="govuk-form-group">
@@ -107,9 +107,11 @@ Manage your apprentices
         </div>              
       </div>
     </div>
-    
-    <p class="govuk-grid-row govuk-!-margin-bottom-9"> 
-        <span style="float:left; padding-left:15px;"><b>{{data.records.length}}</b> records found of {{data.records.length}} total. <a href="manage-your-apprentices-filters" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>          
+  </div> 
+</div>
+<div class="govuk-grid-column-full govuk-grid-row govuk-!-margin-bottom-4">
+    <p class="govuk-grid-row " style="background-color:#fff;"> 
+        <span style="float:left; padding-left:15px;"><b>{{data.records.length}}</b> records found of {{data.records.length}} total, 5 with alerts. <a href="manage-your-apprentices-filters" title="View all apprentice records" style="padding-left:10px;">View all apprentice records</a></span>          
         <span style="float:right; padding-right:15px;"><a href="download" title="Download all data as a spreadsheet">Download all data (CSV)</a></span>
         <br><br>    
         <span style="float:right; padding-right:15px;"><a href="download" title="Download current view as a spreadsheet">Download current view (CSV)</a></span>
@@ -121,7 +123,6 @@ Manage your apprentices
     <span class="data-employer">{{record.employer}}</span>
     {%endfor%}
   </div>
-</div>
   <table class="govuk-table" id="apprentice-table" style="font-size:18px;">          
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
