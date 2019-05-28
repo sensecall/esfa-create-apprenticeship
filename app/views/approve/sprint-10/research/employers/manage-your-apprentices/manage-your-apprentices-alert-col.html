@@ -1,0 +1,135 @@
+{% extends "layout-account-prototype.html" %}
+
+{% block pageTitle %}
+Manage your apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-grid-column-two-thirds">
+  <form action="manage-your-apprentices-alert-col" method="get">
+      <div class="row-group">
+        <div class="search-table column-two-thirds govuk-!-margin-bottom-4">
+          <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+                  <h1 class="govuk-fieldset__heading">
+                    Manage your apprentices
+                  </h1>
+                </legend>
+            <div class="form-group search-field search-field-darker">
+              <input type="hidden" name="clientsFilter" value="new">
+              <div class="search-input search-input-with-button">
+                <label class="govuk-label" for="search">
+                  Search by apprentice name or training provider
+                </label>
+                <div class="autocomplete__parent_wrapper">
+                  <div class="autocomplete__wrapper">
+                    <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px 0px 0px 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                      <span>No search results.</span>
+                      <span>,,</span>
+                    </div>
+                    <p id="search-default-value" class="hidden">{% if search %}{{search}}{% endif%}</p>
+                    <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
+                    <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
+                  </div>
+                </div>
+                <input class="form-control form-control-3-4" name="" id="searchClients-old" type="text" value="{%if search %}{{search}}{%endif%}" style="display: none;">
+              </div>
+              <div class="search-submit">
+                <button class="button" type="submit" id="searchSubmit" name="searchSubmit" value="Search">Search clients</button>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <!--<div class="govuk-grid-two-thirds row-group govuk-!-margin-bottom-4" style="background-color:#DEE0E2; padding:10px;">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend" style="margin-bottom: 0px;">
+              <h2 class="govuk-heading-s">
+                Filter apprentices
+              </h2>
+            </legend>
+          </fieldset>
+          <span style="font-weight: 400;"><a href="manage-your-apprentices-filters">Show</a></span>
+      </div>-->
+    </form>
+
+</div>
+<p class="govuk-grid-row govuk-!-margin-bottom-9">
+<span style="float:left; padding-left:15px;"><b>5</b> records found of 5 total. <a href="manage-your-apprentices-alert-col" title="See all apprentices" style="padding-left:10px;">See all apprentices</a></span>
+<span style="float:right; padding-right:15px;"><a href="#" title="Download all data (CSV)">Download all data (CSV)</a></span>
+</p>
+        <table class="govuk-table" id="apprentice-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Name</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Apprenticeship training course</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending" style="width:18%;">Planned start date</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Provider</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Status</th>
+              <th class="govuk-table__header" scope="col" aria-sort="ascending">Alerts</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Adnan Tester</a></th>
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Live</td>
+              <td class="govuk-table__cell"><a href="#">Changes pending</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Andrew Smith</a></th>
+              <td class="govuk-table__cell">Bespoke Saddler: Level 3 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2019</td>
+              <td class="govuk-table__cell">ABC Training Ltd</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"><a href="#">Changes pending</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">April Lewis</a></th>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Mar 2018</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Paused</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Billy Fisher</a></th>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Feb 2017</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Completed</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row"><a href="#">Sarah Philips</a></th>
+              <td class="govuk-table__cell">Accountancy: Level 4 (Standard)</td>
+              <td class="govuk-table__cell">Apr 2019</td>
+              <td class="govuk-table__cell">DEF Providers</td>
+              <td class="govuk-table__cell">Withdrawn</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+  var table = document.getElementById('apprentice-table');
+  new SortableTable(table);
+</script>
+{% endblock %}

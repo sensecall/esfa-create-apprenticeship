@@ -1,0 +1,81 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="funding--choose-legal-entity">
+			<h1 class="govuk-heading-xl">
+				Check and reserve funding for taking on an apprentice
+			</h1>
+
+			<p>
+				Government funding can pay for part or all of the cost of training an apprentice - up to the funding band maximum. You may need to pay up to a maximum of 5% of the total cost of the training.
+			</p>
+
+			<p>
+				To ensure government funds are available for your apprenticeship training, you will need reserve funding.
+			</p>
+
+			<p>
+				The reservation can be no more than 6 months in advance of the apprentice’s planned apprenticeship training start date.  
+			</p>
+
+			<!-- <p>
+				Go to <a href="#">apprenticeship funding</a> to find out how much you are allowed.
+			</p> -->
+
+			<h2 class="govuk-heading-m">
+				What you'll need
+			</h2>
+
+			<p>
+				To reserve government funding you will need: 
+			</p>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li>
+					an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months 
+				</li>
+				<li>
+					the <a href="#">apprenticeship training</a> the apprentice will take, which can be changed later 
+				</li>
+			</ul>
+
+			<input type="hidden" value="" name="planned-start-date">
+			<input type="hidden" value="" name="course-name">
+
+			<p>
+				{{govukButton({
+					text: "Reserve funding",
+					classes: "govuk-button--start"
+				})}}
+			</p>
+		</form>
+	</div>
+
+	<div class="govuk-grid-column-one-third">
+		<!-- <div class="app-related-items">
+			<h2 class="govuk-heading-m">
+				Related
+			</h2>
+			
+			<p>
+				Blah blah blah
+			</p>
+		</div> -->
+	</div>
+</div>
+
+{% endblock %}
