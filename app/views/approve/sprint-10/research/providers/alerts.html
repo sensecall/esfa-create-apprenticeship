@@ -1,0 +1,31 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+Changes pending or ILR data mismatch
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">    
+    <div class="govuk-grid-column-two-thirds">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+          <h1 class="govuk-fieldset__heading">
+            Changes pending or ILR data mismatch
+          </h1>
+        </legend> 
+      </fieldset>                     
+    </div>
+    <div class="govuk-grid-column-two-thirds">  
+      <p class="govuk-grid-row">
+        There's something to do here...
+      </p>
+    </div>
+  </div>
+{% endblock %}

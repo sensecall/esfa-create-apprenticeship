@@ -13,8 +13,8 @@ router.get('/', function (req, res) {
 })
 
 // provider
-router.use(/\/research\/provider/, (req, res, next) => {
-  require(`./research/provider/routes`)(req, res, next);
+router.use(/\/research\/providers/, (req, res, next) => {
+  require(`./research/providers/routes`)(req, res, next);
 })
 
 // employer approvals
@@ -32,12 +32,7 @@ router.use('/research/employers/manage-your-apprentices', (req, res, next) => {
   require(`./research/employers/manage-your-apprentices/routes`)(req, res, next);
 })
 
-// providers manage apprentices
-router.use('/research/providers/manage-your-apprentices', (req, res, next) => {
-  require(`./research/providers/manage-your-apprentices/routes`)(req, res, next);
-})
-
-// employer 
+// provider 
 router.use('/build/providers/', (req, res, next) => {
   require(`./build/providers/routes`)(req, res, next);
 })

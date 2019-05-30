@@ -9,13 +9,18 @@ router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/email`)
 })
 
-//review an apprentice
-router.post('/review-an-apprentice', (req, res) => {
-	if (req.session.data['approve'] == 'yes') {
-	  res.redirect('confirmation')
-	} else {
-	  res.redirect('not-confirmed')
-	}
-  })
+router.get('*/manage-your-apprentices', function (req, res) {
+	res.render('approve/sprint-10/research/providers/manage-your-apprentices', {
+   "query" : req.query,
+   }
+  )
+ })
+
+ router.get('*/manage-your-apprentices-filters', function (req, res) {
+	res.render('approve/sprint-10/research/providers/manage-your-apprentices-filters', {
+   "query" : req.query,
+   }
+  )
+ })
   
   module.exports = router
