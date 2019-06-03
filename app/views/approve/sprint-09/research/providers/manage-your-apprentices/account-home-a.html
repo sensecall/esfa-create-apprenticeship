@@ -1,0 +1,143 @@
+{% extends "layout-provider-account.html" %}
+
+{% set currentPage = 'account-home' %}
+
+{% set showSurvey = 'false' %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-7">
+	<div class="govuk-grid-column-full">
+		<h1 class="govuk-heading-xl heading-dashboard" id="company-Name">
+			{{data['provider-name']}}
+			<span class="govuk-caption-m govuk-!-font-weight-bold">UKPRN: 10000000</span>
+		</h1>
+	</div>
+</div>
+
+{% if data['funding-restrictions'] == 'change to "!=" with empty string' %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<div class="govuk-error-summary">
+			<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds">
+					{% if 'future-restriction' in data['funding-restrictions'] %}
+					<h2 class="govuk-error-summary__title">
+						Upcoming change to government funding
+					</h2>
+					<div class="govuk-error-summary__body">
+						<p>
+							Employers cannot get any government funding to train apprentices from 1 April 2019. You must get funding for your non-levy employers before this date. 
+							<br class="govuk-!-margin-bottom-2">
+							Any funding that was secured before 1 April 2019  is not affected. Go to the <a href="#">funding restrictions</a> for more information.
+						</p>
+					</div>
+					{% elif 'number-of-starts' in data['funding-restrictions'] %}
+					<header>
+						<h2 class="govuk-heading-m">
+							Funding restriction
+						</h2>
+					</header>
+					<p>
+						We have restricted government funding. Training providers can only secure funding for 1 apprentice per 1 employer at a time.
+						<br class="govuk-!-margin-bottom-2">
+						Once an employer’s apprentice has started and we have made the first payment of funds to you, then you can secure funding for that employer’s next apprentice. You can see this payment in your account.
+					</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		<div class="govuk-grid-row page-dashboard">		
+			<div class="govuk-grid-column-two-thirds">
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="add__choose-employer">Create a cohort</a>
+						</h2>
+						<p>
+							Create new cohorts on behalf of an employer.
+						</p>
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="funding-warning-v1">Get funding for non-levy employers</a>
+						</h2>
+						<p>
+							Secure funding for a non-levy employer to train an apprentice
+						</p>
+					</div>
+				</div>
+
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Manage your apprentices</a>
+						</h2>
+						<p>View and update approved apprentice records.</p>	
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="funding--manage">Manage funding for non-levy employers</a>
+						</h2>
+						<p>
+							Add apprentice information to funding you have already secured for non-levy employers.
+						</p>	
+					</div>
+				</div>
+
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Your cohorts</a>
+						</h2>
+						<p>
+							Review, edit, approve and add apprentices to new cohorts.
+						</p>					
+					</div>
+
+					<div class="govuk-grid-column-one-half">
+						<h2 class="govuk-heading-m">
+							<a href="#">Organisations and agreements</a>
+						</h2>
+						<p>Find and view organisations and their agreement IDs.</p>
+					</div>
+				</div>
+
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+				<hr class="govuk-section-break govuk-section-break--xl">
+
+				<h3 class="govuk-heading-m">Instructions for the apprentices' employer</h3>
+
+				<p>Employers need to register to manage their apprenticeship funds.</p>
+
+				<p>Once they've registered they need to:</p>
+				<ol class="govuk-list govuk-list--number govuk-!-font-size-16">
+					<li>Add the PAYE schemes that the apprentices will be paid through.</li>
+					<li>Added the employer organisations that will contract with the training provider.</li>
+					<li>Sign agreements for their organisations so that they can spend levy funds.</li>
+					<li>Add apprentices to their account so they can authorise payments to you.</li>
+				</ol>
+			</div>
+
+			<div class="govuk-grid-column-one-third">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

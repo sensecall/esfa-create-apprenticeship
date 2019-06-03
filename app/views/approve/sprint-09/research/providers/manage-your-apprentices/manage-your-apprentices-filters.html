@@ -1,0 +1,251 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+Manage your apprentices
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-column-full govuk-grid-row">
+  <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-9">
+      <h1 class="govuk-fieldset__heading">
+        Manage your apprentices
+      </h1>
+    </legend>      
+  </fieldset>
+</div>
+<div class="govuk-grid-column-two-thirds govuk-grid-row">
+  <form action="manage-your-apprentices-filters" method="get">
+    <div class="row-group">
+      <div class="search-table column-two-thirds govuk-!-margin-bottom-4">                
+        <fieldset class="govuk-fieldset">
+          <div class="form-group search-field search-field-darker">
+            <input type="hidden" name="clientsFilter" value="new">
+            <div class="search-input search-input-with-button">
+              <label class="govuk-label" for="search">                     
+                Search by apprentice name, ULN or employer                    
+              </label>
+              <div class="autocomplete__parent_wrapper">
+                <div class="autocomplete__wrapper">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px 0px 0px 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                    <span>No search results.</span>
+                    <span>,,</span>
+                  </div>
+                  <p id="search-default-value" class="hidden">{% if search %}{{search}}{% endif%}</p>
+                  <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="search" name="search" placeholder="Search by apprentice name or employer" role="combobox" type="text" value="{%if search %}{{search}}{%endif%}">
+                  <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
+                </div>
+              </div>
+              <input class="form-control form-control-3-4" name="" id="searchClients-old" type="text" value="{%if search %}{{search}}{%endif%}" style="display: none;">
+            </div>
+            <div class="search-submit">
+              <button class="button" type="submit" id="searchSubmit" name="searchSubmit" value="Search">Search clients</button>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="govuk-grid-column-full govuk-grid-row govuk-!-margin-bottom-4" style="background-color:#DEE0E2;">
+  <div style="background-color:#DEE0E2; padding:10px; height:25px;">
+    <p class="govuk-!-margin-bottom-9"> 
+      <span class="govuk-heading-s" style="float:left; padding-left:15px; font-weight:700;">Filter apprentices</span>           
+      <span style="float:right; padding-right:15px;"><a href="manage-your-apprentices">Hide</a></span>
+    </p>
+
+    <div class="govuk-grid-row">                
+      <div class="govuk-grid-column-one-third">                  
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="course">
+            Apprenticeship training course
+          </label>
+          <input class="govuk-input" id="course" name="course" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="status">
+            Status
+          </label>
+          <input class="govuk-input" id="status" name="status" type="text">
+        </div>                    
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="start-date">
+            Planned start date
+          </label>
+          <input class="govuk-input" id="start-date" name="start-date" type="text">              
+        </div>  
+        <div class="gov-form-group">
+          <label class="govuk-label" for="alerts">
+            Alerts
+          </label>
+          <input class="govuk-input" id="alerts" name="alerts" type="text">
+        </div>              
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="end-date">
+            Planned end date
+          </label>
+          <input class="govuk-input" id="end-date" name="end-date" type="text">              
+        </div>  
+        <div class="gov-form-group">
+          <label class="govuk-label" for="funding-status">
+            Funding status
+          </label>
+          <input class="govuk-input" id="funding-status" name="funding-status" type="text">
+        </div>          
+      </div>
+    </div>
+  </div> 
+</div>
+<div class="govuk-grid-column-full govuk-grid-row govuk-!-margin-bottom-4">
+    <p class="govuk-grid-row " style="background-color:#fff;"> 
+        <span style="float:left; padding-left:15px;"><b>{{data.records.length}}</b> records found of {{data.records.length}} total, <b>5</b> with alerts. <a href="manage-your-apprentices-filters" title="View all apprentice records" style="padding-left:10px;">View all apprentice records</a></span>          
+        <span style="float:right; padding-right:15px;"><a href="download" title="Download all data as a spreadsheet">Download all data (CSV)</a></span>
+        <br><br>    
+        <span style="float:right; padding-right:15px;"><a href="download" title="Download current view as a spreadsheet">Download current view (CSV)</a></span>
+    </p>
+  </div>
+  <div class="govuk-visually-hidden">
+    {%for record in data.providerrecords%}
+    <span class="data-name">{{record.name}}</span>          
+    <span class="data-employer">{{record.employer}}</span>
+    {%endfor%}
+  </div>
+  <table class="govuk-table" id="apprentice-table" style="font-size:18px;">          
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col" aria-sort="ascending" style="width:15%;">Name</th>      
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">ULN</th>        
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Employer</th>    
+            <th class="govuk-table__header" scope="col" aria-sort="ascending" style="width:20%;">Apprenticeship training course</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned start date</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Planned end date</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending" style="width:5%;">Status</th>
+            <th class="govuk-table__header" scope="col" aria-sort="ascending">Alerts</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {%for record in data.providerrecords%}
+        {%if query.search %}
+          {% if query.search in record.name or query.search in record.employer %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="apprentice-details">{{record.name}}</a></td>
+            <td class="govuk-table__cell">{{record.uln}}</td>                            
+            <td class="govuk-table__cell">{{record.employer}}</td>
+            <td class="govuk-table__cell">{{record.course}}</td>
+            <td class="govuk-table__cell">{{record.startDate}}</td>   
+            <td class="govuk-table__cell">{{record.endDate}}</td>             
+            <td class="govuk-table__cell">{{record.status}}</td>
+            <td class="govuk-table__cell"><a href="alerts">{{record.alert}}</a></td>
+          </tr>
+          {%endif%} 
+          {%else%}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="apprentice-details">{{record.name}}</a></td>
+            <td class="govuk-table__cell">{{record.uln}}</td>                            
+            <td class="govuk-table__cell">{{record.employer}}</td>
+            <td class="govuk-table__cell">{{record.course}}</td>
+            <td class="govuk-table__cell">{{record.startDate}}</td> 
+            <td class="govuk-table__cell">{{record.endDate}}</td>              
+            <td class="govuk-table__cell">{{record.status}}</td>
+            <td class="govuk-table__cell"><a href="alerts">{{record.alert}}</a></td>
+          </tr>
+          {%endif%}          
+        {%endfor%}            
+      </tbody>
+    </table>      
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/sortable-table.js"></script>
+
+<script>
+var table = document.getElementById('apprentice-table');
+new SortableTable(table); 
+</script>
+
+{{super()}}
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+function getData() {
+  var names = document.getElementsByClassName("data-name");
+  var providers = document.getElementsByClassName("data-employers");
+  var data = [];
+  for (var i = 0; i < names.length; i++) {
+    var name = names[i].textContent
+    if (!data.includes(name)) {
+      data.push(name);
+    }
+  }
+  for (var i = 0; i < providers.length; i++) {
+    var org = providers[i].textContent;
+    if (data.indexOf(org) == -1) {
+      // no duplicate
+      data.push(org);
+    }
+
+  }
+  return data;
+}
+
+function suggest(data, populateResults) {
+  const results = getData();
+  const filteredResults = results.filter(
+    result => result.toUpperCase().indexOf(data.trim().toUpperCase()) !== -1
+  )
+   console.log(filteredResults)
+  populateResults(filteredResults);
+}
+
+// Trigger search click.  Taken out the clich for the prototype.
+function fireSearch() {
+  //console.log("search fired")
+  setTimeout(function() {
+    $("#searchSubmit").trigger("click")
+  }, 200);
+}
+var myInput = document.querySelector('#search');
+var myInputID = myInput.id;
+var element = document.createElement('div');
+var value = ""
+
+if (document.getElementById('search-default-value').innerHTML != "") {
+  value = document.getElementById("search-default-value").innerHTML;
+}
+
+element.className = "autocomplete__parent_wrapper";
+myInput.parentNode.insertBefore(element, myInput)
+accessibleAutocomplete({
+  // other options
+  element: element,
+  id: myInputID,
+  name: myInput.name,
+  source: suggest,
+  defaultValue: value,
+  confirmOnBlur: false,
+  autoselect: true,
+  minLength: 1,
+  onConfirm: fireSearch,
+  //placeholder: 'Search by apprentice name or employer',
+  displayMenu: 'overlay'
+});
+myInput.style.display = 'none';
+myInput.id = myInputID + '-old';
+myInput.name = '';
+</script>
+{% endblock %}

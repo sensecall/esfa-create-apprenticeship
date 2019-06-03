@@ -1,0 +1,273 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '{{data["course-name"]}}',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Search for an apprenticeship',
+        showAllValues: true
+      })
+    })
+  })
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!--<form action="add--review-cohort">-->
+    <form action="add--review-cohort-1-apprentice">
+      <h2 class="govuk-heading-xl">
+        Add apprentice details
+      </h2>
+
+      {{govukInsetText({
+        html: "<p class='govuk-body-s'>You must add the apprentice’s first and last names - fill in as many other fields as you can. You'll be able to return later to make changes or add more information.</p>
+        <p class='govuk-body-s'>You'll only be able to authorise payments for this apprentice once all the fields have been completed - either by yourself or your training provider.</p>"
+      })}}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Training provider",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+      }) %}
+      <p class="govuk-hint  govuk-!-margin-bottom-9">
+        APEX TRAINING LIMITED
+      </p>
+      {% endcall %}
+
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Apprentice name",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+      }) %}
+
+      {{ govukInput({
+        label:
+        {
+          text: "First name"
+        },
+        id: "first-name",
+        name: "first-name",
+        classes: "govuk-input--width-20"
+      }) }}
+
+      {{ govukInput({
+        label:
+        {
+          text: "Last name"
+        },
+        id: "last-name",
+        name: "last-name",
+        classes: "govuk-input--width-20"
+      }) }}
+      {% endcall %}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{ govukDateInput({
+        id: "dob",
+        namePrefix: "dob",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Date of birth",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint:
+        {
+          text: "For example, 31 3 1980"
+        }
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Unique learner number",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+      }) %}
+      <p class="govuk-hint">
+        This will be added by your training provider.
+      </p>
+      {% endcall %}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-!-font-weight-bold" for="choose-apprenticeship">
+          Apprenticeship training course
+        </label>
+        <span id="course-name-hint" class="govuk-hint">
+          Start typing the name of the course or choose an option from the list
+        </span>
+        <div class="autocomplete-wrapper">
+          <select class="autocomplete-element" id="course-name" name="course-name">
+            <option value="">Select one</option>
+            {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{ govukDateInput({
+        id: "start-date",
+        namePrefix: "start-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Planned training start date",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ],
+        hint:
+        {
+          text: "For example, 3 2019"
+        }
+      }) }}
+
+      {{ govukDateInput({
+        id: "finish-date",
+        namePrefix: "finish-date",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Projected finish date",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ],
+        hint:
+        {
+          text: "For example, 3 2019"
+        }
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{ govukInput({
+        type: "number",
+        classes: "govuk-input--width-10",
+        label:
+        {
+          text: "Total agreed apprenticeship price (excluding VAT)",
+          classes: "govuk-!-font-weight-bold"
+        },
+        hint:
+        {
+          text: "Enter the price, including any end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500"
+        },
+        id: "cost",
+        name: "cost"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {% from "character-count/macro.njk" import govukCharacterCount %}
+      {{ govukCharacterCount({
+        name: "word-count",
+        id: "word-count",
+        maxlength: 20,
+        threshold: 0,
+        rows: 2,
+        label:
+        {
+          text: "Reference (optional)",
+          classes: "govuk-!-font-weight-bold"
+        },
+        hint: "Add a reference, such as employee number or location - this won't be seen by the training provider"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{govukInsetText({
+        html: "<h4 class='govuk-heading-s'>
+          End-point assessments
+        </h4>
+        <p>
+          If you've chosen an apprenticeship standard, we'll ask you to confirm the <a href='#'>apprentice assessment organisation</a> for this apprentice. We'll do this before the end of the apprenticeship.
+        </p>
+        <p>
+          Apprenticeship frameworks have different assessment arrangements and don't need end-point assessments.
+        </p>",
+        attributes:
+        {
+          style: "background: #eee"
+        }
+      })}}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

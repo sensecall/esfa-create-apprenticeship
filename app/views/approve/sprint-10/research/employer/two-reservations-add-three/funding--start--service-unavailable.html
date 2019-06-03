@@ -1,0 +1,39 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Government funding is currently paused
+    </h1>{{releaseVersion | log }}
+
+    <p>
+      There's currently no government funding available for apprentice training. Visit <a href='#'>funding restrictions</a> for more information.
+    </p>
+
+    <p>
+      Any funding you've already reserved is unaffected by this change.
+    </p>
+
+    <p>
+      {{govukButton({
+        text: "Return to account",
+        href: "account-home"
+      })}}
+    </p>
+  </div>
+</div>
+
+{% endblock %}
