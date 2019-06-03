@@ -15,10 +15,17 @@ GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Manage funding reserved for {{reservationDetails[0]['employer']}} 
+      Reservation details
     </h1>
 
     <form action="apprentice-details">
+      <h2 class="govuk-heading-s">
+        Employer
+      </h2>
+      <p>
+        {{reservationDetails[0]['employer']}}
+      </p>
+      
       <h2 class="govuk-heading-s">
         Apprenticeship training course
       </h2>
@@ -31,13 +38,6 @@ GOV.UK Prototype Kit
       </h2>
       <p>
         {{reservationDetails[0]['startMonth']}} to {{reservationDetails[0]['endMonth']}}
-      </p>
-
-      <h2 class="govuk-heading-s">
-        Organisation
-      </h2>
-      <p>
-        {{reservationDetails[0]['employer']}}
       </p>
       
       <h2 class="govuk-heading-s">

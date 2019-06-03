@@ -23,11 +23,10 @@ GOV.UK Prototype Kit
 		{% endset %}
 
 		{{ govukPanel({
-			titleText: "Reservation deleted",
-			html: content
+			titleText: "Reservation successfully deleted"
 		}) }}
 
-		<!-- <form method="post">
+		<form method="post">
 			{{ govukRadios({
 				idPrefix: "whats-next",
 				name: "whats-next",
@@ -42,11 +41,11 @@ GOV.UK Prototype Kit
 				},
 				items: [
 				{
-					value: "manage",
-					text: "Manage reservations"
+					value: "manage-reservations",
+					text: "Return to your funding reservations"
 				},
 				{
-					value: "return-to-homepage",
+					value: "account-home",
 					text: "Go to homepage"
 				}
 				]
@@ -57,13 +56,7 @@ GOV.UK Prototype Kit
 					text: "Save and continue"
 				})}}
 			</p>
-		</form> -->
-
-		{{ govukButton ({
-			text: "Return to manage reservations",
-			classes: "govuk-!-margin-top-3",
-			href: "funding--manage"
-		})}}
+		</form>
 	</div>
 
 	{% endblock %}

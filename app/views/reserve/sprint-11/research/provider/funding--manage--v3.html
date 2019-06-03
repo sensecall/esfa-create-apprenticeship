@@ -79,12 +79,19 @@ GOV.UK Prototype Kit
 			</a>
 		</p>
 
-		{% if reservationResults %}
+		{% if reservationResults.length == 0 %}
+		<h3 class="govuk-heading-m">
+			No results found.
+		</h3>
 		<p>
-			{{ reservationResults.length }} reservation{% if reservationResults.length != 1 %}s{% endif %} found
+			Try searching again using different search criteria.
 		</p>
-		{% endif %}
+
+		{% else %}
 		
+		<p>
+			{{ reservationResults.length or data['reservations'].length }} reservation{% if reservationResults.length != 1 %}s{% endif %} found
+		</p>	
 
 		<table class="govuk-table govuk-!-font-size-16" id="funding-table">
 			<thead class="govuk-table__head">
@@ -123,6 +130,7 @@ GOV.UK Prototype Kit
 				{% endif %}
 			</tbody>
 		</table>
+		{% endif %}
 
 		{% else %}
 		<h2 class="govuk-heading-m">
@@ -130,7 +138,7 @@ GOV.UK Prototype Kit
 		</h2>
 
 		<p>
-			You need to secure funding in order to add a new apprentice.
+			You need to reserve funding in order to add a new apprentice.
 		</p>
 		{% endif %}
 	</div>
