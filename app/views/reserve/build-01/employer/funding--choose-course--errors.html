@@ -19,7 +19,7 @@ GOV.UK Prototype Kit
       errorList:
       [
       {
-        text: "Select a course or leave the field empty",
+        text: "Select a course",
         href: "#course-name"
       }
       ]
@@ -29,11 +29,11 @@ GOV.UK Prototype Kit
       <div class="govuk-form-group govuk-form-group--error">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            Which apprenticeship training will the apprentice take? (optional)
+            Which apprenticeship training course will your apprentice take?
           </legend>
 
           <span id="planned-start-date-error" class="govuk-error-message">
-            Select a course from the list or leave this field empty.
+            Select a course from the list.
           </span>
 
           <label class="govuk-label" for="choose-apprenticeship">
@@ -58,10 +58,6 @@ GOV.UK Prototype Kit
         {{ govukButton ({
           text: "Save and continue"
         })}}
-      </p>
-
-      <p>
-        <a href="funding--choose-month">I don’t know this yet</a>
       </p>
     </form>
   </div>
