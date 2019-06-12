@@ -38,6 +38,12 @@ router.use(function (req, res, next) {
 })
 
 
+// account home page redirect
+router.get('/account-home', (req, res) => {
+	res.redirect('https://das-registration-prototype.herokuapp.com/interimHomepage')
+})
+
+
 // funding start
 // funding start
 router.get('/funding--sc-check', (req, res) => {

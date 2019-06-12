@@ -39,6 +39,12 @@ router.get('/', (req, res) => {
 	res.redirect(`/${req.feature}/account-home`)
 })
 
+
+// account home page redirect
+router.get('/account-home', (req, res) => {
+	res.redirect('https://das-registration-prototype.herokuapp.com/interimHomepage')
+})
+
 // Confirm employer (add)
 router.post('/add__confirm-employer', (req, res) => {
 	if (req.session.data['confirm-employer'] == 'yes' ) {

@@ -49,7 +49,7 @@ router.use(/\/provider-account\/version-([0-99]+)/, (req, res, next) => {
 
 // Employer end-to-end testing
 router.get('/reserve/e2e/', (req, res) => {
-  res.redirect(`/reserve/sprint-07/research/employer/funding--start`)
+  res.redirect(`/reserve/build-01/employer/funding--manage`)
 })
 
 module.exports = router
