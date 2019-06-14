@@ -40,11 +40,6 @@ router.get('/', (req, res) => {
 })
 
 
-// account home page redirect
-router.get('/account-home', (req, res) => {
-	res.redirect('https://das-registration-prototype.herokuapp.com/interimHomepage')
-})
-
 // Confirm employer (add)
 router.post('/add__confirm-employer', (req, res) => {
 	if (req.session.data['confirm-employer'] == 'yes' ) {
@@ -275,7 +270,7 @@ router.post('/funding--reservation-complete', (req, res) => {
 	let nextThing = req.session.data['whats-next']
 
 	if (nextThing == 'add-apprentice' ) {
-		res.redirect(`add--start`)
+		res.redirect(`add--apprentice-details`)
 	} else if (nextThing == 'recruit-apprentice' ) {
 		res.redirect(`recruit--start`)
 	} else if (nextThing == 'find-provider' ) {
