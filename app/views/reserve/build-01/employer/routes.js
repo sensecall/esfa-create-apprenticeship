@@ -40,6 +40,7 @@ router.use(function (req, res, next) {
 
 // account home page redirect
 router.get('/account-home', (req, res) => {
+	req.session.data['currentVersion'] = 'build-01'
 	res.redirect('https://das-registration-prototype.herokuapp.com/interimHomepage')
 })
 
