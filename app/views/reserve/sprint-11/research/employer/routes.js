@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 // account home
 router.get('/account-home', (req, res) => {
 	req.session.data['saved-for-later'] = 'false'
-	req.session.data['currentVersion'] = 'build-01'
+	req.session.data['currentVersion'] = 'sprint-11'
 
 	res.redirect('https://das-registration-prototype.herokuapp.com/interimHomepage')
 })
