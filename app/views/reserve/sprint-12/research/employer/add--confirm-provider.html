@@ -1,0 +1,68 @@
+
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="add--start-adding">
+     <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+      Confirm training provider
+    </h1>
+
+    <p>
+      UK Provider Reference Number <b>{{data['ukprn']}}</b> matches:
+    </p>
+
+    <h2 class="govuk-heading-l">
+      {{data['provider-name']}}
+      <span class="govuk-caption-m govuk-!-font-weight-bold">
+        UKPRN: {{data['ukprn']}}
+      </span>
+    </h2>
+
+    {{ govukRadios({
+        idPrefix: "confirm-provider",
+        name: "confirm-provider",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Is this the main provider of the apprenticeship training?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items:
+        [
+        {
+          value: "yes",
+          text: "Yes, use " + data['provider-name']
+        },
+        {
+          value: "no",
+          text: "No, change UK Provider Reference Number"
+        }
+        ]
+      }) }}
+
+    <p>
+      {{govukButton({
+        text: "Continue"
+      })}}
+    </p>
+  </form>
+</div>
+</div>
+
+{% endblock %}
