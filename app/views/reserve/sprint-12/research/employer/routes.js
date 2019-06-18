@@ -329,24 +329,24 @@ router.get('/funding--view-details', (req, res) => {
 
 // confirm details
 router.post('/funding--cya', (req, res) => {
-	var reservation = {
-		"id": cryptoRandomString(10),
-		"month": req.session.data['planned-start-date'],
-		"startMonth": req.session.data['reservation-startRange'],
-		"endMonth": req.session.data['reservation-endRange'],
-		"created": req.session.data['reservation-created'],
-		"employer": req.session.data['reservation-employer'],
-		"course": req.session.data['course-name']
-	}
-
-	req.session.data['current-reservation'] = reservation
-	req.session.data['reservations'].push(reservation)
-
 	// reset question answers
 	req.session.data['know-course'] = ''
 	req.session.data['know-month'] = ''
 
 	if (req.session.data['confirm-funding'] == 'yes' ) {
+		var reservation = {
+			"id": cryptoRandomString(10),
+			"month": req.session.data['planned-start-date'],
+			"startMonth": req.session.data['reservation-startRange'],
+			"endMonth": req.session.data['reservation-endRange'],
+			"created": req.session.data['reservation-created'],
+			"employer": req.session.data['reservation-employer'],
+			"course": req.session.data['course-name']
+		}
+
+		req.session.data['current-reservation'] = reservation
+		req.session.data['reservations'].push(reservation)
+		
 		res.redirect(`funding--complete`)
 	} else {
 		res.redirect(`account-home`)
