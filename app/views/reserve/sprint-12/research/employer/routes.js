@@ -81,8 +81,15 @@ router.get('/funding--sc-check', (req, res) => {
 
 // choose course
 router.post('/funding--choose-course', (req, res) => {
-	if(req.session.data['know-course'] == 'no' || req.session.data['course-name'] == ''){
+	let scenarioB = req.session.data['know-course'] == 'yes' && req.session.data['course-name'] == ''
+	let scenarioC = req.session.data['know-course'] != 'no' && req.session.data['know-course'] != 'yes'
+
+	if(req.session.data['know-course'] == 'no'){
 		res.redirect('funding--not-reserved')
+	} else if(scenarioB == true) {
+		res.redirect('funding--choose-course')
+	} else if(scenarioC == true) {
+		res.redirect('funding--choose-course')
 	} else {
 		res.redirect('funding--cya')
 	}
@@ -340,21 +347,10 @@ router.post('/funding--cya', (req, res) => {
 	req.session.data['know-month'] = ''
 
 	if (req.session.data['confirm-funding'] == 'yes' ) {
-		var d = req.session.data
-		d['know-month'] = ''
-		d['know-course'] = ''
-
 		res.redirect(`funding--complete`)
 	} else {
-		req.session.data['saved-for-later'] = 'true'
 		res.redirect(`account-home`)
 	}
-})
-
-
-// choose course
-router.post('/choose-course', (req, res) => {
-	res.redirect('choose-date')
 })
 
 

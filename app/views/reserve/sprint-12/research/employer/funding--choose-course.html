@@ -116,26 +116,5 @@ GOV.UK Prototype Kit
       })
     })
   })
-
-
-  $(document).ready(function(){
-    var startInput = $("#reservation-startRange");
-    var endInput = $("#reservation-endRange");
-    endInput.parent().hide();
-
-    startInput.prepend("<option value='Select a month' selected>Select a month</option>");
-
-    startInput.on('change', function(){
-        // endInput.find('option').remove().end();
-        var selectedIndex = $(this).prop('selectedIndex') - 1
-
-        endInput.children(':lt(' + selectedIndex + ')').prop('disabled', true);
-        endInput.children(':lt(' + (selectedIndex+2) + ')').prop('disabled', true);
-        endInput.children(':gt(' + selectedIndex + ')').prop('disabled', false);
-        endInput.children(':eq(' + selectedIndex + ')').prop('disabled', false);
-        endInput.children(':not([disabled]):first').prop('selected', true);
-        endInput.parent().show();
-      })
-  })
 </script>
 {% endblock %}
