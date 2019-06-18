@@ -263,7 +263,7 @@ router.post('/funding--complete', (req, res) => {
 		res.redirect(`recruit--start`)
 	} else if (nextThing == 'find-provider' ) {
 		res.redirect(`fat`)
-	} else if (nextThing == 'return-to-homepage' ) {
+	} else {
 		res.redirect(`account-home`)
 	}
 })
@@ -346,7 +346,7 @@ router.post('/funding--cya', (req, res) => {
 
 		req.session.data['current-reservation'] = reservation
 		req.session.data['reservations'].push(reservation)
-		
+
 		res.redirect(`funding--complete`)
 	} else {
 		res.redirect(`account-home`)
