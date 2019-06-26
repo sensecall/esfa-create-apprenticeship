@@ -113,6 +113,7 @@ GOV.UK Prototype Kit
 			selectElement: document.querySelector('#course-name'),
 			placeholder: 'Start typing to search apprenticeships',
 			showAllValues: false,
+			required: true,
 			onConfirm: function(val){
 				$('#course-name-select option[value="'+val+'"]').attr('selected','selected');
 
