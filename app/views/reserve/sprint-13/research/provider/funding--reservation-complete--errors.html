@@ -1,0 +1,14 @@
+{% extends "./funding--reservation-complete.html" %}
+
+{% block errorMessage %}
+{{ govukErrorSummary({
+	titleText: "There is a problem",
+	errorList:
+	[
+	{
+		text: "Select whether to add an apprentice now or later",
+		href: "#add-apprentice-1"
+	}
+	]
+}) }}
+{% endblock %}

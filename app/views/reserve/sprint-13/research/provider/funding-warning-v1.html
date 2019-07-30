@@ -1,0 +1,72 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="reservation-complete">
+			<div class="flash-card">
+				{% if 'future-restriction' in data['funding-restrictions'] %}
+				<header>
+					<h2 class="govuk-heading-l app-content-required">
+						Upcoming change to government-funded training
+					</h2>
+				</header>
+
+				<p>
+					Government funding for apprenticeship training will be paused on {{data['random-future-date']}}. You must reserve funding for your non-levy employers’ training before this date.
+				</p>
+
+				<p>
+					This change will not affect funding reserved before {{data['random-future-date']}}
+				</p>
+
+				{% endif %}
+
+				{% if 'number-of-starts' in data['funding-restrictions'] %}
+				<header>
+					<h2 class="govuk-heading-l app-content-required">
+						Government funding is currently restricted
+					</h2>
+				</header>
+				<p>
+					We're currently restricting government funding for apprenticeship training to one reservation per employer.
+				</p>
+				<p>
+					You can reserve more funding for an employer once their apprentice has started training and we've made the first payment for that training.
+				</p>
+				{% endif %}
+
+				<p>
+					{{govukButton({
+						text: "Continue",
+						href: 'funding--start',
+						classes: "govuk-!-margin-bottom-0"
+					})}}
+				</p>
+
+				{{ govukCheckboxes({
+					idPrefix: "waste",
+					name: "waste",
+					items: [
+					{
+						value: "hide-funding-warning",
+						text: "Do not show this message again"
+					}
+					]
+				}) }}
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

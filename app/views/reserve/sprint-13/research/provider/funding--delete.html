@@ -1,0 +1,94 @@
+{% extends "layout-provider-account.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Delete reservation
+		</h1>
+
+		{% from "summary-list/macro.njk" import govukSummaryList %}
+
+		{{ govukSummaryList({
+			rows:
+			[
+			{
+				key:
+				{
+					text: "Employer"
+				},
+				value:
+				{
+					text: reservationDetails[0]['employer']
+				}
+			},
+			{
+				key:
+				{
+					text: "Apprenticeship start date"
+				},
+				value:
+				{
+					html: reservationDetails[0]['startMonth'] + " to " + reservationDetails[0]['endMonth']
+				}
+			},
+			{
+				key:
+				{
+					text: "Apprenticeship training course"
+				},
+				value:
+				{
+					html: reservationDetails[0]['course']
+				}
+			}
+			]
+		}) }}
+
+		<form method="post">
+			{{ govukRadios({
+				idPrefix: "delete-reservation",
+				name: "delete-reservation",
+				fieldset:
+				{
+					legend:
+					{
+						text: "Are you sure that you want to delete this reservation?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--m"
+					}
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes, delete this reservation"
+				},
+				{
+					value: "no",
+					text: "No, go back to manage reservation"
+				}
+				]
+			}) }}
+
+			<input type="hidden" name="show-delete-confirmation" value="true">
+			
+			<p>
+				{{ govukButton ({
+					text: "Confirm"
+				})}}
+			</p>
+		</form>
+	</div>
+
+	{% endblock %}

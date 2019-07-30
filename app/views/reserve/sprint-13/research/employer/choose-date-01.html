@@ -1,0 +1,95 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post">
+      {% call govukFieldset({
+        legend:
+        {
+          text: "When will the apprentice's training course start?",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+      <p>
+        You can reserve funding for a 3 month period. For example January to March.
+      </p>
+
+      {{ govukDateInput({
+        id: "reservation-startRange",
+        namePrefix: "reservation-startRange",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Earliest start month",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ]
+      }) }}
+
+      {{ govukDateInput({
+        id: "reservation-endRange",
+        namePrefix: "reservation-endRange",
+        fieldset:
+        {
+          legend:
+          {
+            text: "Latest start month",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items:
+        [
+        {
+          name: "month",
+          id: "month",
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          id: "year",
+          classes: "govuk-input--width-4"
+        }
+        ]
+      }) }}
+
+      {% endcall %}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
+
+  {% endblock %}

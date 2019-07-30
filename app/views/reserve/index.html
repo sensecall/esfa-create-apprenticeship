@@ -17,6 +17,10 @@ Reserve
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {% set sprint13Html %}
+    {% include './sprint-13/_summary.html' %}
+    {% endset %}
+
     {% set sprint12Html %}
     {% include './sprint-12/_summary.html' %}
     {% endset %}
@@ -65,7 +69,7 @@ Reserve
     {% include './sprint-01/_summary.html' %}
     {% endset %}
 
-    {{sprint12Html | safe}}
+    {{sprint13Html | safe}}
 
     <hr class="govuk-section-break govuk-section-break--xl">
 
@@ -78,6 +82,20 @@ Reserve
       id: "accordion-default",
       items:
       [    
+      {
+        heading:
+        {
+          text: "Sprint 12"
+        },
+        content:
+        {
+          html: sprint12Html
+        },
+        summary:
+        {
+          html: '18th June 2019&mdash;1st July 2019'
+        }
+      },
       {
         heading:
         {

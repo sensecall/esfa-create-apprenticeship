@@ -1,0 +1,61 @@
+{% extends "./layout--employer.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+	text: "Back",
+	href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="funding--choose-legal-entity">
+			<h1 class="govuk-heading-xl">
+				Reserve funding to train and assess an apprentice
+			</h1>
+
+			<p>
+				To reserve government funding you will need: 
+			</p>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li>
+					the month you expect the apprenticeship training to start
+				</li>
+				<li>
+					the <a href="#">apprenticeship training course</a> the apprentice will take, which can be changed later 
+				</li>
+			</ul>
+
+			<input type="hidden" value="" name="planned-start-date">
+			<input type="hidden" value="" name="course-name">
+
+			<p>
+				{{govukButton({
+					text: "Reserve funding",
+					classes: "govuk-button--start"
+				})}}
+			</p>
+		</form>
+	</div>
+
+	<div class="govuk-grid-column-one-third">
+		<!-- <div class="app-related-items">
+			<h2 class="govuk-heading-m">
+				Related
+			</h2>
+			
+			<p>
+				Blah blah blah
+			</p>
+		</div> -->
+	</div>
+</div>
+
+{% endblock %}
