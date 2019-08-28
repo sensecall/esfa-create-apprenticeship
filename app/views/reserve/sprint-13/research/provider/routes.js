@@ -118,7 +118,7 @@ router.get('/funding--enter-details', (req, res) => {
 	var e = req.session.data['employer']
 	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
 
-	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
+	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 2 ) {
 		res.redirect(`funding--employer-ineligible`)
 	} else {
 		if ( req.session.data['page-errors'] ){
@@ -183,7 +183,7 @@ router.get('/funding--enter-details--errors', (req, res) => {
 	var e = req.session.data['employer']
 	var employerReservationCount = a.filter((obj) => obj.employer === e).length   // https://stackoverflow.com/questions/45547504/counting-occurrences-of-particular-property-value-in-array-of-objects-angular/45547593
 
-	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 0 ) {
+	if ( req.session.data['funding-restrictions'].includes('number-of-starts') && employerReservationCount > 2 ) {
 		res.redirect(`funding--employer-ineligible`)
 	} else {
 		res.render(`${req.feature}/funding--enter-details--errors`,{months,employerReservationCount})
@@ -205,7 +205,7 @@ router.post('/funding--confirm-employer', (req, res) => {
 		// if there is a restriction on number of starts
 		if ( req.session.data['funding-restrictions'].includes('number-of-starts')) {
 			// and the employer has secured funds
-			if ( employerReservationCount > 0 ) {
+			if ( employerReservationCount > 2 ) {
 				res.render(`${req.feature}/funding--employer-ineligible`)
 			} else {
 				res.redirect(`funding--enter-details`)
